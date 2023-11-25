@@ -1,7 +1,7 @@
 'use client';
 
 export const useLocalStorage = () => {
-  const STORAGE_KEY = 'Padm:';
+  const STORAGE_KEY = 'GerencyI:';
 
   const getLocalStorage = (key: string) => {
     const data = window.localStorage.getItem(`${STORAGE_KEY}${key}`);
