@@ -7,9 +7,10 @@ import { arrowTv, contentTv } from './TooltipTv';
 interface TooltipProps {
   children: ReactNode;
   text: string;
+  className?: string;
 }
 
-export function Tooltip({ children, text }: TooltipProps) {
+export function Tooltip({ children, className, text }: TooltipProps) {
   const timeToAppear = 0;
 
   return (
@@ -19,7 +20,7 @@ export function Tooltip({ children, text }: TooltipProps) {
           <span className="w-fit">{children}</span>
         </TooltipRadix.Trigger>
         <TooltipRadix.Portal>
-          <TooltipRadix.Content className={contentTv()}>
+          <TooltipRadix.Content className={contentTv({ className })}>
             <Text text={capitalizeName(text)} color="white" size="sm" />
             <TooltipRadix.Arrow className={arrowTv()} />
           </TooltipRadix.Content>

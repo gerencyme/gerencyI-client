@@ -10,7 +10,8 @@ export const titleTv = tv({
     },
     color: {
       primary: 'text-primary',
-      white: 'text-white'
+      white: 'text-white',
+      tertiary: 'text-tertiary'
     },
     weigth: {
       bold: 'font-bold',

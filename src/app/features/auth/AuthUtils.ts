@@ -1,8 +1,6 @@
 import { z } from 'zod';
-import { maskCpfOrCnpj } from '../../shared/components/Input/InputUtils';
-
-const defaultMessage = 'Por favor, confira';
-const minLengthPassword = 6;
+import { defaultMessage, minLengthPassword } from '~shared/utils/constants/comumRegisterAndAuth';
+import { maskCpfOrCnpj } from '../../shared/utils/transformers';
 
 export const recoverySchema = z.object({
   email: z.string().nonempty(`${defaultMessage} seu email`).toLowerCase()
@@ -16,7 +14,7 @@ export const authSubmitSchema = z.object({
   password: z
     .string()
     .nonempty(`${defaultMessage} sua senha`)
-    .min(minLengthPassword, `Nome deve ter pelomenos ${minLengthPassword} caracteres`)
+    .min(minLengthPassword, `Senha deve ter pelomenos ${minLengthPassword} caracteres`)
 });
 
 export type TAuthSubmitSchema = z.infer<typeof authSubmitSchema>;

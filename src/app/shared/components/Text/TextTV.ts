@@ -21,7 +21,9 @@ export const textTv = tv({
     color: {
       primary: 'text-primary',
       placeholder: 'text-placeholder',
-      white: 'text-white'
+      white: 'text-white',
+      tertiary: 'text-tertiary',
+      error: 'text-error'
     }
   },
   defaultVariants: {

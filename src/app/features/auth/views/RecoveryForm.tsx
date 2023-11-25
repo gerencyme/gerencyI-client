@@ -50,7 +50,7 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
           className="max-w-md leading-9"
         />
 
-        <Input.root>
+        <Input.root field="email">
           <Input.label label="E-mail" name="email" />
           <Input.field name="email" placeholder="Digite seu email..." />
           <Input.error field="email" />
