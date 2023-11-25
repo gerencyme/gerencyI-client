@@ -3,7 +3,7 @@
 import { Text } from '~/src/app/shared/components/Text';
 import { useRouter } from 'next/navigation';
 import { registerRedirectBackTv } from '../RegisterTV';
-import { APP_ROUTES } from '~/src/app/shared/utils/constants/app-routes';
+import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 
 interface RegisterRedirectLinkProps {
   text: string;

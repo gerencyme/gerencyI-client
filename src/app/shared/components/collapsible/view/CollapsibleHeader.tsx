@@ -9,7 +9,7 @@ interface CollapsibleHeaderProps {
 
 export function CollapsibleHeader({ title, children: icon }: CollapsibleHeaderProps) {
   return (
-    <div className="flex justify-between fixed ">
+    <div className="flex justify-between fixed backdrop-blur-lg">
       <Title
         as="h3"
         title={title}

@@ -24,7 +24,8 @@ export function RegisterForm() {
     isPasswordStrong,
     password,
     formattedCnpj,
-    isSubmitting
+    isSubmitting,
+    errorResolver
   } = useRegisterController();
 
   const renderStrongPasswordMessage = () =>
@@ -54,73 +55,76 @@ export function RegisterForm() {
 
   return (
     <FormProvider {...registerSchema}>
+      {errorResolver && (
+        <Text as="span" text={errorResolver} weigth="semi-bold" size="sm" color="white" />
+      )}
       <Form className="flex flex-col items-center gap-5 lg:gap-6 m-auto">
         <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
-          <Input.root field="cnpj">
+          <Input.root field="CNPJ">
             <Input.field
               max={17}
               maxLength={17}
               value={formattedCnpj}
-              name="cnpj"
+              name="CNPJ"
               placeholder="Qual o seu CNPJ?"
             />
-            <Input.label label="cnpj" name="cnpj" />
+            <Input.label label="CNPJ" name="CNPJ" />
             <Input.representation icon={BiSolidCity} />
-            <Input.error field="cnpj" />
+            <Input.error field="CNPJ" />
           </Input.root>
 
-          <Input.root field="name">
-            <Input.field name="name" placeholder="Qual o seu Nome?" />
-            <Input.label label="Nome" name="name" />
+          <Input.root field="Name">
+            <Input.field name="Name" placeholder="Qual o seu Nome?" />
+            <Input.label label="Nome" name="Name" />
             <Input.representation icon={LuUser} />
-            <Input.error field="name" />
+            <Input.error field="Name" />
           </Input.root>
         </div>
 
         <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
-          <Input.root field="password.password">
+          <Input.root field="Password.Password">
             <Input.field
               type="password"
-              name="password.password"
+              name="Password.Password"
               placeholder="Escolha uma senha..."
             />
-            <Input.label label="Senha" name="password.password" />
+            <Input.label label="Senha" name="Password.Password" />
             <Input.representation icon={AiFillLock} />
-            {password?.password ? (
+            {password?.Password ? (
               renderStrongPasswordMessage()
             ) : (
-              <Input.error field="password.password" />
+              <Input.error field="Password.Password" />
             )}
           </Input.root>
 
-          <Input.root field="password.confirmPassword">
+          <Input.root field="Password.ConfirmPassword">
             <Input.field
               type="password"
-              name="password.confirmPassword"
+              name="Password.ConfirmPassword"
               placeholder="Confirme sua senha..."
             />
-            <Input.label label="Confirme" name="password.confirmPassword" />
+            <Input.label label="Confirme" name="Password.ConfirmPassword" />
             <Input.representation icon={AiFillLock} />
-            <Input.error field="password.confirmPassword" />
+            <Input.error field="Password.ConfirmPassword" />
           </Input.root>
         </div>
 
-        <Input.root size="full" field="email">
-          <Input.field fildSize="full" type="email" name="email" placeholder="Qual seu Email?" />
-          <Input.label label="E-mail" name="email" />
+        <Input.root size="full" field="Email">
+          <Input.field fildSize="full" type="email" name="Email" placeholder="Qual seu Email?" />
+          <Input.label label="E-mail" name="Email" />
           <Input.representation icon={MdOutlineEmail} />
-          <Input.error field="email" />
+          <Input.error field="Email" />
         </Input.root>
 
-        <Input.root size="full" field="corporateReason">
+        <Input.root size="full" field="CorporateReason">
           <Input.field
             fildSize="full"
-            name="corporateReason"
+            name="CorporateReason"
             placeholder="Qual sua razão social?"
           />
-          <Input.label label="Razão Social" name="corporateReason" />
+          <Input.label label="Razão Social" name="CorporateReason" />
           <Input.representation icon={FaRegNewspaper} />
-          <Input.error field="corporateReason" />
+          <Input.error field="CorporateReason" />
         </Input.root>
 
         <Button.root

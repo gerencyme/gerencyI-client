@@ -1,8 +1,8 @@
 export const APP_ROUTES = {
   private: {
-    dashboard: {
-      name: '/dashboard',
-      label: 'Dashboard'
+    'my-account': {
+      name: '/my-account',
+      label: 'Minha Conta'
     }
   },
   public: {
@@ -18,5 +18,9 @@ export const APP_ROUTES = {
       name: '/register',
       label: 'Registre-se'
     }
+  },
+  publicPaths: {
+    auth: '/auth',
+    register: '/register'
   }
 };

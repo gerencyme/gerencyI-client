@@ -4,8 +4,8 @@ export const collapsableRootTv = tv({
   base: 'relative h-full w-fit overflow-hidden duration-300',
   variants: {
     collapsableState: {
-      open: 'h-44 overflow-y-scroll',
-      close: 'h-10'
+      open: 'h-40 overflow-y-scroll',
+      close: 'h-12'
     }
   },
   defaultVariants: {

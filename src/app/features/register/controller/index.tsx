@@ -8,9 +8,14 @@ import { register } from '../services';
 import { RegisterUser } from '~/src/app/shared/types/RegisterUser';
 import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
 import { LocalStorageUser } from '~/src/app/shared/types/LocalStorageUser';
+import { useRouter } from 'next/navigation';
+import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
+import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
 
 export const useRegisterController = () => {
+  const { push } = useRouter();
   const { setLocalStorage } = useLocalStorage();
+  const [errorResolver, setErrorResolver] = useState('');
   const [strongPasswordMessage, setStrongPasswordMessage] = useState('Senha forte');
   const registerSchema = useForm<TRegisterSubmitSchema>({
     resolver: zodResolver(registerSubmitSchema)
@@ -24,26 +29,32 @@ export const useRegisterController = () => {
 
   const resetStrongPasswordMessage = () => setStrongPasswordMessage('');
 
+  const session = sessionUserLocalStorage;
+  const situation = errorResolver !== '';
+  const updateSituation = () => setErrorResolver('');
+  const { resetSituation: resetErrorStiruation } = useTimeout(situation, updateSituation, 10000);
+
   const onSubmit = async (data: TRegisterSubmitSchema) => {
-    await register(data as RegisterUser).then((res) => {
-      console.log(res);
+    await register(data as RegisterUser, setErrorResolver).then((res) => {
+      if (res === 'Usuário Adicionado com Sucesso') {
+        const user: LocalStorageUser = {
+          cnpj: data.CNPJ!,
+          corporateReason: data.CorporateReason,
+          email: data.Email,
+          name: data.Name
+        };
 
-      const user: LocalStorageUser = {
-        cnpj: data.cnpj!,
-        corporateReason: data.corporateReason,
-        email: data.email,
-        name: data.name
-      };
-
-      setLocalStorage('_GU', user);
+        setLocalStorage(session, user);
+        return push(APP_ROUTES.private['my-account'].name);
+      }
     });
   };
 
-  const cnpj = watch('cnpj');
-  const password = watch('password');
+  const cnpj = watch('CNPJ');
+  const password = watch('Password');
   const isPasswordStrong = new RegExp(
     '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
-  ).test(password?.password);
+  ).test(password?.Password);
 
   const { resetSituation } = useTimeout(isPasswordStrong, resetStrongPasswordMessage, 2000);
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');
@@ -52,11 +63,16 @@ export const useRegisterController = () => {
     resetSituation();
   }, [resetSituation]);
 
+  useEffect(() => {
+    resetErrorStiruation();
+  }, [resetErrorStiruation]);
+
   return {
     handleSubmit,
     onSubmit,
     formattedCnpj,
     isSubmitting,
+    errorResolver,
     strongPasswordMessage,
     registerSchema,
     isPasswordStrong,

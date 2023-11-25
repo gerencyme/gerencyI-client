@@ -1,5 +1,5 @@
-import Auth from './(pages)/(public)/auth/page';
+import { Title } from './shared/components/Title';
 
 export default function Home() {
-  return <Auth />;
+  return <Title title="GerencyI" size="2xl" weigth="black" color="white" />;
 }
