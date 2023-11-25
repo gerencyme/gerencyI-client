@@ -6,7 +6,8 @@ export const buttonRootTv = tv({
     size: {
       small: 'py-2 px-4 w-fit',
       medium: 'py-4 px-16 h-12 w-full max-w-sm sm:w-72 lg:w-96',
-      huge: 'py-6 px-16 h-12 w-full'
+      huge: 'py-6 px-16 h-12 w-full',
+      inputCompatible: 'w-64 h-10 sm:h-14 sm:w-full'
     },
     color: {
       primary: `relative bg-primary py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute

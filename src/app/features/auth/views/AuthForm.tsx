@@ -50,14 +50,14 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
           className="max-w-md leading-9"
         />
 
-        <Input.root>
+        <Input.root field="email">
           <Input.field name="cnpj" placeholder="Digite seu CNPJ..." />
           <Input.label label="cnpj" name="cnpj" />
           <Input.representation icon={BiSolidCity} />
           <Input.error field="email" />
         </Input.root>
 
-        <Input.root>
+        <Input.root field="password">
           <Input.field type={passwordType} name="password" placeholder="Digite sua senha..." />
           <Input.label label="Senha" name="password" />
           <Input.icon icon={inputIcon} onClick={handleIconChange} type="password" />

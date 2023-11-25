@@ -6,6 +6,7 @@ export interface TextProps extends VariantProps<typeof textTv> {
   text: ReactNode;
   className?: string;
   as?: 'span';
+  onClick?: () => void;
 }
 
 export function Text({

@@ -13,7 +13,7 @@ export function CollapsibleHeader({ title, children: icon }: CollapsibleHeaderPr
       <Title
         as="h3"
         title={title}
-        color="primary"
+        color="tertiary"
         size="lg"
         weigth="semi-bold"
         className={CollapsibleHeaderTv()}
