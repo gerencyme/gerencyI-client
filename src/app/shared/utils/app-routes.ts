@@ -3,6 +3,14 @@ export const APP_ROUTES = {
     'my-account': {
       name: '/my-account',
       label: 'Minha Conta'
+    },
+    'my-data': {
+      name: '/my-data',
+      label: 'Minha Conta'
+    },
+    'last-months': {
+      name: '/last-months',
+      label: 'Minha Conta'
     }
   },
   public: {

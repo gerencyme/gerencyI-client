@@ -1,30 +1,19 @@
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 import { Input } from '~shared/components/Input';
 import { Text } from '~shared/components/Text';
-import { TRecoverySchema, recoverySchema } from '../AuthUtils';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from './Form';
 import { Button } from '~/src/app/shared/components/Button';
 import { authFormTv, recoveryButtonTv } from '../AuthTV';
 import { MdOutlineEmail } from 'react-icons/md';
+import { useRecoveryFormController } from '../controller/useRecoveryFormController';
 
 interface RecoveryFormProps {
   handleForgetPassword: () => void;
 }
 
 export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
-  const recoveryFormSchema = useForm<TRecoverySchema>({
-    resolver: zodResolver(recoverySchema)
-  });
-
-  const {
-    handleSubmit,
-    formState: { isSubmitting }
-  } = recoveryFormSchema;
-
-  const onRecovery = (data: TRecoverySchema) => {
-    console.log('RECOVERY', data);
-  };
+  const { handleSubmit, onRecovery, recoveryFormSchema, isSubmitting } =
+    useRecoveryFormController();
 
   return (
     <FormProvider {...recoveryFormSchema}>
@@ -44,13 +33,13 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
         <Text
           text="Enviaremos um e-mail com instruções de como redefinir sua senha!"
           size="lg"
-          color="primary"
+          color="white"
           weigth="light"
           className="max-w-md leading-9"
         />
 
         <Input.root size="full" field="Email">
-          <Input.field fildSize="full" type="email" name="Email" placeholder="Qual seu Email?" />
+          <Input.field fildSize="full" type="email" name="Email" placeholder="Qual seu e-mail?" />
           <Input.label label="E-mail" name="Email" />
           <Input.representation icon={MdOutlineEmail} />
           <Input.error field="Email" />

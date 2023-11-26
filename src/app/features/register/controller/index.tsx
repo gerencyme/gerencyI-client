@@ -41,11 +41,12 @@ export const useRegisterController = () => {
           cnpj: data.cnpj!,
           corporateReason: data.corporateReason,
           email: data.email,
-          name: data.name
+          name: data.name,
+          isFirstLogin: true
         };
 
         setLocalStorage(session, user);
-        return push(APP_ROUTES.private['my-account'].name);
+        return push(APP_ROUTES.private['my-data'].name);
       }
     });
   };

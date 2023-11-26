@@ -1,10 +1,10 @@
 import { tv } from 'tailwind-variants';
 
 export const collapsableRootTv = tv({
-  base: 'relative h-full w-fit overflow-hidden duration-300',
+  base: 'relative h-fit w-fit overflow-hidden duration-300',
   variants: {
     collapsableState: {
-      open: 'h-40 overflow-y-scroll',
+      open: 'h-fit',
       close: 'h-12'
     }
   },
@@ -14,9 +14,9 @@ export const collapsableRootTv = tv({
 });
 
 export const collapsableContentTv = tv({
-  base: 'mt-10 p-1 md:px-4 md:py-2 w-72 md:w-[450px] xl:w-[650px]'
+  base: 'p-1 md:px-4 md:py-2 w-72 md:w-[450px] xl:w-[650px] h-20 overflow-y-scroll'
 });
 
 export const CollapsibleHeaderTv = tv({
-  base: 'pb-2 border-b-2 h-fit border-white w-96 md:w-[480px] xl:w-[680px]'
+  base: 'pb-2 border-b-2 h-10 border-white w-96 md:w-[480px] xl:w-[680px]'
 });

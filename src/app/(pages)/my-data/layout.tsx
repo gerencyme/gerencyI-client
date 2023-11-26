@@ -5,7 +5,7 @@ import { newMyAccountActions } from '../privateRouteMenuActions';
 export default function PublicLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <title>GerencyI | Minha Conta</title>
+      <title>GerencyI | Meus dados</title>
       <Navbar.menu newActions={newMyAccountActions} />
 
       {children}

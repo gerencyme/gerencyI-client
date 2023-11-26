@@ -7,6 +7,8 @@ import { MainContainer } from './shared/components/MainContainer';
 import { checkPublickRoute } from './shared/utils/checkPublickRoute';
 import { usePathname } from 'next/navigation';
 import { RouteValidation } from './shared/components/RouteValidation';
+import { Navbar } from './features/navbar';
+import { APP_ROUTES } from './shared/utils/app-routes';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
@@ -19,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Providers>
           <MainContainer>
+            {pathName === APP_ROUTES.public.home.name && <Navbar.menu />}
             {isPublicPage && <RouteValidation.PublicRoute>{children}</RouteValidation.PublicRoute>}
             {!isPublicPage && (
               <RouteValidation.PrivateRoute>{children}</RouteValidation.PrivateRoute>

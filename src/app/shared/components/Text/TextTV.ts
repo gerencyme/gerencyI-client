@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const textTv = tv({
-  base: 'font-Segoe text-black',
+  base: 'font-rubik text-black',
   variants: {
     size: {
       xl: 'text-xl',
@@ -23,6 +23,7 @@ export const textTv = tv({
       placeholder: 'text-placeholder',
       white: 'text-white',
       tertiary: 'text-tertiary',
+      secondary: 'text-secondary',
       error: 'text-error'
     }
   },

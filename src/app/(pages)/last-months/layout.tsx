@@ -1,12 +1,9 @@
 import { ReactNode } from 'react';
-import { Navbar } from '~/src/app/features/navbar';
 
 export default function PublicLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <title>GerencyI | Entrar</title>
-      <Navbar.menu />
-
+      <title>GerencyI | Meses Passados</title>
       {children}
     </>
   );

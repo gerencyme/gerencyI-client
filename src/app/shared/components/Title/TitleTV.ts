@@ -4,6 +4,7 @@ export const titleTv = tv({
   base: 'font-rubik text-black font-bold m-0 duration-500',
   variants: {
     size: {
+      md: 'text-md',
       lg: 'text-lg',
       xl: 'text-xl',
       '2xl': 'text-2xl'
