@@ -24,7 +24,8 @@ export function RegisterForm() {
     isPasswordStrong,
     password,
     formattedCnpj,
-    isSubmitting
+    isSubmitting,
+    errorResolver
   } = useRegisterController();
 
   const renderStrongPasswordMessage = () =>
@@ -54,6 +55,16 @@ export function RegisterForm() {
 
   return (
     <FormProvider {...registerSchema}>
+      {errorResolver && (
+        <Text
+          as="span"
+          text={errorResolver}
+          weigth="semi-bold"
+          size="sm"
+          color="white"
+          className="relative min-[1520px]:top-32 min-[1520px]:left-16"
+        />
+      )}
       <Form className="flex flex-col items-center gap-5 lg:gap-6 m-auto">
         <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
           <Input.root field="cnpj">

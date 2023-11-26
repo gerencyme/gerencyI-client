@@ -6,6 +6,7 @@ export const registerSubmitSchema = z.object({
   cnpj: z
     .string()
     .nonempty(`${defaultMessage} seu CNPJ`)
+    .min(18, 'CNPJ inválido')
     .max(18, 'máximo de 18 caracteres')
     .transform((cnpj: string) => maskCpfOrCnpj(cnpj)),
   name: z

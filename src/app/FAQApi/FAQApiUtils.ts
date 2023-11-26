@@ -36,11 +36,5 @@ export const faqItems: FaqItem[] = [
     title: 'Como funciona o App?',
     text: `O aplicativo de autoatendimento da GerencyI é simples e fácil de usar. Os clientes podem fazer pedidos, acompanhar o status de seus pedidos e pagar sem interação humana. O aplicativo também oferece uma variedade de recursos para donos de estabelecimentos, incluindo um dashboard completo, status do pedido e notificações de pedido pronto, além da segurança com uma relação direta com cada cliente.
     `
-  },
-  {
-    id: id++,
-    title: 'O que queremos que você faça?',
-    text: `Você pode consultar agora mesmo e tirar todas as dúvidas, incluindo todo o sistema de instalação e publicação do seu cardápido. Entre em contato e veja o quão fácil sua vida ficará com a GerencyI no comando do seu estabelecimento!
-    `
   }
 ];

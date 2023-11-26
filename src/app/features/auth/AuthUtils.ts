@@ -3,18 +3,20 @@ import { defaultMessage, minLengthPassword } from '~shared/utils/constants/comum
 import { maskCpfOrCnpj } from '../../shared/utils/transformers';
 
 export const recoverySchema = z.object({
-  email: z.string().nonempty(`${defaultMessage} seu email`).toLowerCase()
+  Email: z.string().nonempty(`${defaultMessage} seu email`).toLowerCase()
 });
 
 export const authSubmitSchema = z.object({
-  cnpj: z
+  CNPJ: z
     .string()
     .nonempty(`${defaultMessage} seu CNPJ`)
-    .refine((cnpj: string) => maskCpfOrCnpj(cnpj)),
-  password: z
+    .min(18, 'CNPJ inválido')
+    .max(18, 'máximo de 18 caracteres')
+    .transform((cnpj: string) => maskCpfOrCnpj(cnpj)),
+  Password: z
     .string()
     .nonempty(`${defaultMessage} sua senha`)
-    .min(minLengthPassword, `Senha deve ter pelomenos ${minLengthPassword} caracteres`)
+    .min(minLengthPassword, `Senhas devem ter pelomenos ${minLengthPassword} caracteres`)
 });
 
 export type TAuthSubmitSchema = z.infer<typeof authSubmitSchema>;

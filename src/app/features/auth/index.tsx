@@ -1,7 +1,11 @@
+import { AuthHeader } from './views/AuthHeader';
 import { FormsComponent } from './views/FormsComponent';
-import { AuthHero } from './views/AuthHero';
+import { AuthRedirectBack } from './views/AuthRedirectBack';
+import { AuthRoot } from './views/AuthRoot';
 
 export const Auth = {
+  root: AuthRoot,
   forms: FormsComponent,
-  hero: AuthHero
+  header: AuthHeader,
+  redirect: AuthRedirectBack
 };

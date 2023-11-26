@@ -2,21 +2,21 @@
 
 import { Text } from '~/src/app/shared/components/Text';
 import { useRouter } from 'next/navigation';
-import { registerRedirectBackTv } from '../RegisterTV';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
+import { authRedirectBackTv } from '../AuthTV';
 
-interface RegisterRedirectLinkProps {
+interface AuthRedirectBackProps {
   text: string;
   textLink: string;
 }
 
-export function RegisterRedirectBack({ text, textLink }: RegisterRedirectLinkProps) {
+export function AuthRedirectBack({ text, textLink }: AuthRedirectBackProps) {
   const { push } = useRouter();
 
-  const href = APP_ROUTES.public.auth.name;
+  const href = APP_ROUTES.public.register.name;
 
   return (
-    <div className={registerRedirectBackTv()}>
+    <div className={authRedirectBackTv()}>
       <Text text={text} color="white" weigth="semi-bold" size="md" />
       <Text
         onClick={() => push(href)}
