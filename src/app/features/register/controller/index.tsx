@@ -38,10 +38,10 @@ export const useRegisterController = () => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
       if (res === 'Usuário Adicionado com Sucesso') {
         const user: LocalStorageUser = {
-          cnpj: data.CNPJ!,
-          corporateReason: data.CorporateReason,
-          email: data.Email,
-          name: data.Name
+          cnpj: data.cnpj!,
+          corporateReason: data.corporateReason,
+          email: data.email,
+          name: data.name
         };
 
         setLocalStorage(session, user);
@@ -50,11 +50,11 @@ export const useRegisterController = () => {
     });
   };
 
-  const cnpj = watch('CNPJ');
-  const password = watch('Password');
+  const cnpj = watch('cnpj');
+  const password = watch('password');
   const isPasswordStrong = new RegExp(
     '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
-  ).test(password?.Password);
+  ).test(password?.password);
 
   const { resetSituation } = useTimeout(isPasswordStrong, resetStrongPasswordMessage, 2000);
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');

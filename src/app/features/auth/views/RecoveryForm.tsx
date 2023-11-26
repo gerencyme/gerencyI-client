@@ -1,12 +1,12 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { Input } from '~shared/components/Input';
 import { Text } from '~shared/components/Text';
-import { Title } from '~shared/components/Title';
 import { TRecoverySchema, recoverySchema } from '../AuthUtils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from './Form';
 import { Button } from '~/src/app/shared/components/Button';
 import { authFormTv, recoveryButtonTv } from '../AuthTV';
+import { MdOutlineEmail } from 'react-icons/md';
 
 interface RecoveryFormProps {
   handleForgetPassword: () => void;
@@ -41,7 +41,6 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
           </Button.contentWrapper>
         </Button.root>
 
-        <Title title="IALOGUE" size="xl" color="primary" />
         <Text
           text="Enviaremos um e-mail com instruções de como redefinir sua senha!"
           size="lg"
@@ -50,10 +49,11 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
           className="max-w-md leading-9"
         />
 
-        <Input.root field="email">
-          <Input.label label="E-mail" name="email" />
-          <Input.field name="email" placeholder="Digite seu email..." />
-          <Input.error field="email" />
+        <Input.root size="full" field="Email">
+          <Input.field fildSize="full" type="email" name="Email" placeholder="Qual seu Email?" />
+          <Input.label label="E-mail" name="Email" />
+          <Input.representation icon={MdOutlineEmail} />
+          <Input.error field="Email" />
         </Input.root>
 
         <Button.root disabled={isSubmitting} size="medium">

@@ -29,6 +29,7 @@
       "~utils/*": ["./src/app/shared/utils/*"],
       "~types/*": ["./src/app/shared/types/*"],
       "~assets/*": ["./src/app/assets/*"],
+      "~animations/*": ["./src/app/shared/animations/*"],
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.config.ts"],

@@ -1,12 +1,12 @@
 interface Password {
-  Password: string;
-  ConfirmPassword: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export interface RegisterUser {
-  Email: string;
-  CNPJ: string;
-  CorporateReason: string;
-  Name: string;
-  Password: Password;
+  email: string;
+  cnpj: string;
+  corporateReason: string;
+  name: string;
+  password: Password;
 }

@@ -8,7 +8,19 @@ export const register = async (
 ) => {
   try {
     const endpoint = 'AddUserIdentityTeste';
-    const result = await api.post<string>(endpoint, body);
+
+    const formattedBody = {
+      email: body.email,
+      cnpj: body.cnpj,
+      corporateReason: body.corporateReason,
+      name: body.name,
+      password: {
+        pawssord: body.password.password,
+        confirmPassword: body.password.confirmPassword
+      }
+    };
+
+    const result = await api.post<string>(endpoint, formattedBody);
 
     return result.data;
   } catch {
