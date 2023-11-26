@@ -21,6 +21,9 @@ export const iconTv = tv({
     collapsableState: {
       open: 'h-40 rotate-45 absolute right-0',
       close: 'h-10 rotate-0 absolute right-0'
+    },
+    dropdown: {
+      base: '-ml-4 h-5 w-5'
     }
   },
   defaultVariants: {

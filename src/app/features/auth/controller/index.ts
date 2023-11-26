@@ -10,16 +10,20 @@ import { useCookie } from '~/src/app/shared/hooks/useCookies';
 import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { tokenUserKey } from '~/src/app/shared/utils/constants/cookies';
+import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
+import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
 
 export const useAuthController = () => {
   const { push } = useRouter();
-  const { createSession } = useCookie();
+  const { deleteFromStorage } = useLocalStorage();
+  const { createSession, deleteCookie } = useCookie();
   const [errorResolver, setErrorResolver] = useState('');
   const [isVisible, setIsVisible] = useState(false);
 
   const handleIconChange = () => setIsVisible((isVisible) => !isVisible);
   const inputIcon = isVisible ? AiFillEye : AiFillEyeInvisible;
   const passwordType = isVisible ? 'text' : 'password';
+  const session = sessionUserLocalStorage;
 
   const authFormSchema = useForm<TAuthSubmitSchema>({
     resolver: zodResolver(authSubmitSchema)
@@ -36,7 +40,8 @@ export const useAuthController = () => {
 
   const onSubmit = async (data: TAuthSubmitSchema) => {
     await auth(data as UserAuth, setErrorResolver).then((resp) => {
-      if (resp) {
+      if (resp !== 'usuario não existe') {
+        // validar statuscode
         createSession({
           cookieName: tokenUserKey,
           value: resp
@@ -57,10 +62,17 @@ export const useAuthController = () => {
     resetSituation();
   }, [resetSituation]);
 
+  const logout = () => {
+    deleteCookie(tokenUserKey);
+    deleteFromStorage(session!);
+    return push(APP_ROUTES.public.home.name);
+  };
+
   return {
     handleSubmit,
     onSubmit,
     handleIconChange,
+    logout,
     authFormSchema,
     passwordType,
     inputIcon,

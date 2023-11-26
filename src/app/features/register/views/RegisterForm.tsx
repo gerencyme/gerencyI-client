@@ -62,7 +62,7 @@ export function RegisterForm() {
           weigth="semi-bold"
           size="sm"
           color="white"
-          className="relative min-[1520px]:top-32 min-[1520px]:left-16"
+          className="relative min-[1520px]:left-16"
         />
       )}
       <Form className="flex flex-col items-center gap-5 lg:gap-6 m-auto">
@@ -135,6 +135,7 @@ export function RegisterForm() {
         </Input.root>
 
         <Button.root
+          isLoading={isSubmitting}
           disabled={isSubmitting}
           onClick={handleSubmit(onSubmit)}
           color="primary"
