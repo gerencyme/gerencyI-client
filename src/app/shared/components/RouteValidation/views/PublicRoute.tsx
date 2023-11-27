@@ -1,15 +1,17 @@
+'use client';
+
 import { usePathname, useRouter } from 'next/navigation';
 import { ReactNode, useEffect } from 'react';
-import { useLocalStorage } from '~hooks/useLocalStorage';
+import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
+import { checkPublickRoute } from '~/src/app/shared/utils/checkPublickRoute';
 import { APP_ROUTES } from '~utils/app-routes';
-import { checkPublickRoute } from '~utils/checkPublickRoute';
 import { sessionUserLocalStorage } from '~utils/constants/userLocalStorage';
 
-interface PublicRouteProps {
+interface PrivateRouteProps {
   children: ReactNode;
 }
 
-export function PublicRoute({ children }: PublicRouteProps) {
+export function PublicRoute({ children }: PrivateRouteProps) {
   const { push } = useRouter();
   const { getLocalStorage } = useLocalStorage();
 
@@ -25,10 +27,5 @@ export function PublicRoute({ children }: PublicRouteProps) {
     }
   }, [hasToken, isPublicPage, push]);
 
-  return (
-    <>
-      {hasToken && !isPublicPage && null}
-      {!hasToken && isPublicPage && children}
-    </>
-  );
+  return <>{isPublicPage && children}</>;
 }
