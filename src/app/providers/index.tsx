@@ -3,6 +3,8 @@
 
 import { ReactNode } from 'react';
 import { AppThemeProvider } from '~contexts/ThemeProvider';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from '../shared/services/reactQuery';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -23,5 +25,9 @@ export function Providers({ children }: ProvidersProps) {
 
   const AllProviders = composeProviders(AppThemeProvider);
 
-  return <AllProviders>{children}</AllProviders>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AllProviders>{children}</AllProviders>
+    </QueryClientProvider>
+  );
 }
