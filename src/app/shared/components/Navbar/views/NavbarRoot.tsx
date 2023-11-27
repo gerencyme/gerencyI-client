@@ -5,5 +5,7 @@ interface NavbarRootProps {
 }
 
 export function NavbarRoot({ children }: NavbarRootProps) {
-  return <nav className="w-full h-fit flex justify-between p-4 lg:p-8">{children}</nav>;
+  return (
+    <nav className="w-full h-fit flex items-center justify-between pb-4 lg:pb-8">{children}</nav>
+  );
 }

@@ -17,7 +17,9 @@ export function MainContainer({ children }: MainContainerProps) {
   }, []);
 
   return (
-    <main className={`${isDarkMode} relative transition-colors w-screen h-screen bg-gradient-hero`}>
+    <main
+      className={`${isDarkMode} p-4 lg:p-8 relative transition-colors w-screen h-screen bg-gradient-hero`}
+    >
       {isClientSide && children}
     </main>
   );

@@ -6,11 +6,15 @@ export const APP_ROUTES = {
     },
     'my-data': {
       name: '/my-data',
-      label: 'Minha Conta'
+      label: 'Meus dados'
     },
     'last-months': {
       name: '/last-months',
-      label: 'Minha Conta'
+      label: 'Últimos meses'
+    },
+    'inventory-control': {
+      name: '/inventory-control',
+      label: 'Controle de Estoque'
     }
   },
   public: {
