@@ -20,17 +20,15 @@ export function Dropdown({ options = [] }: DropdownRootProps) {
 
   return (
     <Menu as="div" className="relative inline-block text-left z-50">
-      <div>
-        <Menu.Button className="w-fit h-fit bg-transparent transition-transform duration-300 hover:translate-y-1 translate-y-0.5 cursor-pointer">
-          <Icon
-            icon={IoMdArrowDropdown}
-            color="white"
-            aria-hidden="true"
-            size="small"
-            dropdown="base"
-          />
-        </Menu.Button>
-      </div>
+      <Menu.Button className="w-fit h-fit bg-transparent transition-transform duration-300 hover:translate-y-1 translate-y-0.5 cursor-pointer">
+        <Icon
+          icon={IoMdArrowDropdown}
+          color="white"
+          aria-hidden="true"
+          size="small"
+          dropdown="base"
+        />
+      </Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"

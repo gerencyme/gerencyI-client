@@ -13,3 +13,11 @@ export const actions: NavbarAction[] = [
     label: 'Registre-se'
   }
 ];
+
+export const authenticatedActions: NavbarAction[] = [
+  {
+    color: 'primary',
+    href: APP_ROUTES.private['my-account'].name,
+    label: 'Acessar Painel'
+  }
+];

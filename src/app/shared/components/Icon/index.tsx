@@ -6,6 +6,7 @@ import { VariantProps } from 'tailwind-variants';
 
 interface IconProps extends VariantProps<typeof iconTv> {
   icon: ElementType;
+  className?: string;
   onClick?: () => void;
 }
 
@@ -16,7 +17,13 @@ export function Icon({
   type,
   button,
   collapsableState,
+  className,
   ...props
 }: IconProps) {
-  return <Icon className={iconTv({ color, size, type, button, collapsableState })} {...props} />;
+  return (
+    <Icon
+      className={iconTv({ color, size, type, button, collapsableState, className })}
+      {...props}
+    />
+  );
 }

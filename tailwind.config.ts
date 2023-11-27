@@ -95,8 +95,7 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        'gradient-hero':
-          'linear-gradient(-125deg, rgba(73,15,68,1) 0%, rgba(149,18,40,1) 50%, rgba(48,179,131,1) 100%)'
+        'gradient-hero': 'linear-gradient(-125deg, rgba(73,15,68,1) 0%,#4f0b24 50%, #1D0B70 100%)'
       }
     }
   },

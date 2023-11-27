@@ -23,7 +23,7 @@ export const iconTv = tv({
       close: 'h-10 rotate-0 absolute right-0'
     },
     dropdown: {
-      base: '-ml-4 h-5 w-5'
+      base: '-ml-4 h-5 w-5 cursor-pointer'
     }
   },
   defaultVariants: {
