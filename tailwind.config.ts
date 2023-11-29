@@ -23,6 +23,12 @@ const config: Config = {
       success: '#37A18F',
       error: '#FF0000',
 
+      private: '#080f25',
+      darkblue: '#101935',
+      easydark: '#212C4D',
+      purple: '#2C1C74',
+      lightPurple: '#583ED3',
+
       gray: {
         50: '#ededee',
         100: '#c7c7c9',

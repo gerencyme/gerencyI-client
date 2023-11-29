@@ -9,7 +9,7 @@ interface InputRootProps extends HTMLAttributes<HTMLDivElement>, VariantProps<ty
   field: string;
 }
 
-export function InputRoot({ children, size, field, ...props }: InputRootProps) {
+export function InputRoot({ children, size, field, inputColor, ...props }: InputRootProps) {
   const {
     formState: { isValid, errors }
   } = useFormContext();
@@ -31,7 +31,7 @@ export function InputRoot({ children, size, field, ...props }: InputRootProps) {
       onFocus={handleActive}
       onBlur={handleDesactive}
       {...props}
-      className={inputRootTv({ state, size })}
+      className={inputRootTv({ state, size, inputColor })}
     >
       {children}
     </div>

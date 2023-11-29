@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const inputRootTv = tv({
-  base: 'relative transform duration-300 border-2 font-rubik relative max-w-[680px] flex flex-col gap-3 bg-primary rounded-2xl pt-5 px-4 text-white/50 ',
+  base: 'relative transform duration-300 border-2 font-rubik relative max-w-[680px] flex flex-col gap-3 rounded-2xl pt-5 px-4 text-white/50 ',
   variants: {
     state: {
       isActive: 'border-tertiary text-tertiary',
@@ -10,7 +10,14 @@ export const inputRootTv = tv({
     },
     size: {
       full: 'max-w-[680px] min-[680px]:w-full'
+    },
+    inputColor: {
+      primary: 'bg-primary',
+      easydark: 'bg-easydark'
     }
+  },
+  defaultVariants: {
+    inputColor: 'primary'
   }
 });
 
