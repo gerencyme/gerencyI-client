@@ -50,22 +50,25 @@ Tecnologias no Escopo da aplicação
 
 ## Arquitetura
 
-<img src="src/app/assets/architecture.jpg" />
+<img src="src/app/assets/architecture.png" />
 
 ## Padronização de código
 
 - **Geral**
     - Componentes Headless do radix devem ser importados com Radix no nome p.ex.: import * as ComponentRadix from '...'
-    - Stories devem ser finalizados com .ts
     - Componentes devem ser finalizados com .tsx
     - Estrutura de componentes devem seguir Composition Pattern sempre que possível
     - Componentes reutilizáveis devem ser alocados em ~shared
     - Funções utilitárias devem estar em arquivos separados, p.ex.: MyComponentUtils.ts
+    - Outras funções devem estar separadas dentro da pasta conroller da feature.
+    - Funções para chamada de api devem estar na pasta services da feature.
+    - Requisições devem ser feitas com react-query.
+    - Sempre que possível, fazer utilização de cache.
     - Index devem exportar o objeto de acordo com Composition Pattern
-    - Formulários devem respeitar o padrão e ser criados schemas
+    - Formulários devem respeitar o padrão react-hook-form e ser criados schemas em MyComponentUtils.ts
     - Toda a regra de UX deve estar dentro de Tailwind.config.ts
-    - Toda estilização deve ser feita com Tailwind Variants
-    - Toda estilização deve estar em arquivos separados, p.ex.: MyComponentTV.ts
+    - Sempre que possível, a estilização deve ser feita com Tailwind Variants
+    - Tailwind Variants deve estar em arquivos separados, p.ex.: MyComponentTV.ts na raíz da pasta do componente
 
 ## Inicialização
 
