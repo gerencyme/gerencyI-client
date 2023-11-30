@@ -6,6 +6,11 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  safelist: [
+    {
+      pattern: /^bg-/
+    }
+  ],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -104,7 +109,14 @@ const config: Config = {
       shimmer: {
         '0%': { transform: 'translateX(-100%) translateY(-100%)' },
         '100%': { transform: 'translateX(100%) translateY(100%)' }
+      },
+      crawl: {
+        '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
+        '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(45deg)' }
       }
+    },
+    animation: {
+      crawl: 'crawl 1000ms 1 ease-in-out forwards'
     },
     extend: {
       backgroundImage: {
