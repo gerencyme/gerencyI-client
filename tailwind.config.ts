@@ -9,7 +9,8 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      rubik: "font-family: 'Rubik', sans-serif"
+      rubik: "'Rubik', sans-serif",
+      rosarivo: "'Rosarivo', cursive"
     },
     colors: {
       transparent: 'transparent',

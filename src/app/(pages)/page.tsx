@@ -1,5 +1,7 @@
+import { CurrentService } from '../features/CurrentService';
 import { SystemDemo } from '../features/SystemDemo';
 import { Button } from '../shared/components/Button';
+import { Section } from '../shared/components/Section';
 import { Title } from '../shared/components/Title';
 import * as tv from './pageTV';
 
@@ -13,7 +15,8 @@ export default function Home() {
         className={tv.homePageTitleTv()}
       />
       <p className={tv.homePageSubtitleTv()}>
-        A <span className="text-secondary">GerencyI</span> cuida disso para você a partir de hoje!
+        A <span className="text-secondary font-semiBold">GerencyI</span> cuida disso para você a
+        partir de hoje!
       </p>
       <div className={tv.homePageGoToSectionButtonTv()}>
         <Button.root size="small">
@@ -27,6 +30,14 @@ export default function Home() {
       <div className={tv.homePageSystemDemoTv()}>
         <SystemDemo.exemple />
       </div>
+      <div className="md:my-64" />
+      <p className={tv.homePageSlogan()}>
+        Nosso preço pensado em você, <span className="text-secondary font-semiBold">nosso</span>{' '}
+        futuro cliente!
+      </p>
+      <Section id="service">
+        <CurrentService.card />
+      </Section>
     </div>
   );
 }
