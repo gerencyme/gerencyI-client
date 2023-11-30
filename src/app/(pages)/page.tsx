@@ -1,5 +1,6 @@
 import { CurrentService } from '../features/CurrentService';
 import { SystemDemo } from '../features/SystemDemo';
+import { Brightness } from '../shared/components/Brightness';
 import { Button } from '../shared/components/Button';
 import { Section } from '../shared/components/Section';
 import { Title } from '../shared/components/Title';
@@ -36,6 +37,8 @@ export default function Home() {
         futuro cliente!
       </p>
       <Section id="service">
+        <Brightness gradient="bg-easy-brightness" />
+
         <CurrentService.card />
       </Section>
     </div>

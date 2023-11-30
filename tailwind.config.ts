@@ -100,11 +100,17 @@ const config: Config = {
       xs: '12px',
       xxs: '8px'
     },
+    keyframes: {
+      shimmer: {
+        '0%': { transform: 'translateX(-100%) translateY(-100%)' },
+        '100%': { transform: 'translateX(100%) translateY(100%)' }
+      }
+    },
     extend: {
       backgroundImage: {
         'gradient-hero': 'linear-gradient(-45deg, rgba(73,15,68,1) 0%,#4f0b24 50%, #1D0B70 100%)',
         'easy-brightness':
-          'radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.46) 0%, rgba(119, 10, 82, 0) 80%)'
+          'radial-gradient(50% 50% at 50% 50%, rgba(73,15,68,1) 50%, rgba(119, 10, 82, 0) 100%)'
       }
     }
   },
