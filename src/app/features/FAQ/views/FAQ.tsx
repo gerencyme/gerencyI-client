@@ -1,6 +1,6 @@
 'use client';
 
-import { Fac } from '~/src/app/shared/components/FAQ';
+import { Faq } from '~/src/app/shared/components/FAQ';
 import { Collapsable } from '~/src/app/shared/components/collapsible';
 import { useFAQController } from '../controller';
 import { Suspense } from 'react';
@@ -9,9 +9,9 @@ export function FAQ() {
   const { selecionedCollapsible, FaqItems } = useFAQController();
 
   return (
-    <Fac.root>
-      <Fac.title />
-      <Fac.content>
+    <Faq.root>
+      <Faq.title />
+      <Faq.content>
         {FaqItems?.map((content, i) => (
           <Suspense key={i} fallback={<p>Carregando...</p>}>
             <Collapsable.root
@@ -25,7 +25,7 @@ export function FAQ() {
             </Collapsable.root>
           </Suspense>
         ))}
-      </Fac.content>
-    </Fac.root>
+      </Faq.content>
+    </Faq.root>
   );
 }

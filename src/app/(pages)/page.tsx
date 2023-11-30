@@ -1,4 +1,5 @@
 import { CurrentService } from '../features/CurrentService';
+import { FAQComponent } from '../features/FAQ';
 import { SystemDemo } from '../features/SystemDemo';
 import { Brightness } from '../shared/components/Brightness';
 import { Button } from '../shared/components/Button';
@@ -38,8 +39,10 @@ export default function Home() {
       </p>
       <Section id="service">
         <Brightness gradient="bg-easy-brightness" />
-
         <CurrentService.card />
+      </Section>
+      <Section id="FAQ">
+        <FAQComponent.FAQ />
       </Section>
     </div>
   );
