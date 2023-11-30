@@ -7,9 +7,9 @@ export function CurrentServiceSection() {
   return (
     <ServiceCard.root>
       <ServiceCard.title title="Gestão de Estoque" />
-      <ServiceCard.price price={300} />
+      <ServiceCard.price price={0} />
       <ServiceCard.infoCard dataCards={serviceCardInfoCardInfo} />
-      <ServiceCard.action label="Consultar" />
+      <ServiceCard.action label="Participar do MVP" />
     </ServiceCard.root>
   );
 }

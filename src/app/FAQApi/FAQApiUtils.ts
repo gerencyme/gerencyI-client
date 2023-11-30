@@ -10,31 +10,30 @@ export const faqItems: FaqItem[] = [
   {
     id: id++,
     title: 'GerencyI',
-    text: `Transformando a experiência do cliente em estabelecimentos comerciais!
-
-    A GerencyI é uma startup brasileira fundada por três desenvolvedores com anos de experiência no mercado.
-    Nossa missão é transformar a experiência do cliente em estabelecimentos comerciais, tornando-a mais rápida, eficiente e agradável.`
+    text: `A GerencyI é uma startup brasileira fundada por dois desenvolvedores com anos de experiência no mercado.
+    Nossa missão é transformar a experiência do gestor, tornando-a mais eficiente e agradável.`
   },
   {
     id: id++,
-    title: 'No que acreditamos?',
+    title: 'Como funciona o mapeamento de estoque?',
     text: `
-    Acreditamos que o autoatendimento é o futuro dos estabelecimentos. Com nossa solução, queremos ajudar os donos de negócios a melhorar a experiência do cliente e aumentar a eficiência de suas operações.`
+    O mapeamento de estoque é um processo que identifica grupos similares de necessidades de estoque. Para isso, o sistema leva em consideração fatores como o tipo de produto, a quantidade requerida, o fornecedor atual e os fornecedores próximos.`
   },
   {
     id: id++,
     title: 'Nosso MVP',
-    text: `Nosso MVP está sendo pensando e lançado em dispositivos móveis sem a necessidade de um download e incluirá os recursos básicos de pedido, acompanhamento de status e pagamento. No futuro, planejamos adicionar recursos adicionais, como gerenciamento de estoque automatizado e integração com inteligência artificial para eficiência do cliente com o pedido: o que gerará mais vendas para o estabelecimento.`
+    text: `Nosso MVP está sendo pensado e lançado para dar qualidade de vida para os gestores de comércios e estabelecimentos. No futuro, incluiremos outros serviços, como autoatendimento e pagamento eficiente sem a necessidade de um funcionário, gestão automatizada com integração de inteligência artificial e muito mais está por vir, basta que confie no nosso serviço.`
   },
   {
     id: id++,
-    title: 'O que torna a GerencyI única?',
-    text: `A GerencyI é a única solução de autoatendimento que oferece um dashboard completo para donos de estabelecimentos. Nosso dashboard fornece informações em tempo real sobre o status das mesas, pedidos e vendas, além de dados do cliente para reconhecimento único. Isso permite que os donos de estabelecimentos tomem decisões mais informadas sobre como gerenciar seus negócios.`
+    title: 'Como esse serviço beneficia as empresas?',
+    text: `A Gestão de Estoque da GerencyI oferece uma maneira mais inteligente e eficaz de gerenciar inventário. Ao identificar padrões e agrupar necessidades similares, otimiza-se a aquisição, reduzindo custos e aumentando a eficiência operacional das empresas.
+
+    Por exemplo, uma empresa que vende produtos alimentícios pode usar a GerencyI para identificar que várias empresas da mesma região têm necessidades semelhantes de estoque. Isso pode permitir que essas empresas façam pedidos combinados, o que pode levar a descontos e economias de escala. E não se preocupe, nós fazemos todo o trabalho do pedido combinado por você e sua empresa!`
   },
   {
     id: id++,
-    title: 'Como funciona o App?',
-    text: `O aplicativo de autoatendimento da GerencyI é simples e fácil de usar. Os clientes podem fazer pedidos, acompanhar o status de seus pedidos e pagar sem interação humana. O aplicativo também oferece uma variedade de recursos para donos de estabelecimentos, incluindo um dashboard completo, status do pedido e notificações de pedido pronto, além da segurança com uma relação direta com cada cliente.
-    `
+    title: 'Qual é o preço da GerencyI?',
+    text: 'O produto base está, atualmente, em fase de teste, então o custo é 0. Após o período de teste, o preço será alterado de acordo com o tamanho da empresa e o volume de estoque. Para saber mais sobre os preços, entre em contato conosco.'
   }
 ];
