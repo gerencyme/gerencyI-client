@@ -112,7 +112,7 @@ const config: Config = {
       },
       crawl: {
         '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
-        '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(45deg)' }
+        '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(35deg)' }
       }
     },
     animation: {
