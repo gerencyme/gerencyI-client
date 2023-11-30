@@ -14,6 +14,10 @@ export const buttonRootTv = tv({
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-white/5`,
+      secondary: `relative bg-white py-2 px-4 hover:after:bg-primary/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
+      disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
+      active:after:bg-primary/5`,
       transparent: 'bg-transparent'
     }
   },

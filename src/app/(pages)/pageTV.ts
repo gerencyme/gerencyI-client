@@ -12,6 +12,10 @@ export const homePageSubtitleTv = tv({
   base: 'text-white/75 text-md sm:text-xl w-full md:w-96 max-w-3xl text-center m-auto'
 });
 
+export const homePageSlogan = tv({
+  base: 'text-white text-md sm:text-xl w-full text-center m-auto pb-10'
+});
+
 export const homePageGoToSectionButtonTv = tv({
   base: 'relative md:top-36 lg:top-16'
 });

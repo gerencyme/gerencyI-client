@@ -3,6 +3,10 @@ import { tv } from 'tailwind-variants';
 export const textTv = tv({
   base: 'font-rubik text-black',
   variants: {
+    fontFamily: {
+      rubik: 'font-rubik',
+      rosarivo: 'font-rosarivo'
+    },
     size: {
       xl: 'text-xl',
       lg: 'text-lg',
@@ -29,6 +33,7 @@ export const textTv = tv({
   },
   defaultVariants: {
     size: 'md',
-    weigth: 'normal'
+    weigth: 'normal',
+    fontFamily: 'rubik'
   }
 });

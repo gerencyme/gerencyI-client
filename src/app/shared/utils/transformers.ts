@@ -18,3 +18,11 @@ export function maskCpfOrCnpj(value: string) {
 
   return value;
 }
+
+export const formatPrice = (price: number | undefined | string) => {
+  const numericPrice = typeof price === 'string' ? parseFloat(price.replace(',', '.')) : price;
+  return numericPrice?.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+};

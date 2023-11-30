@@ -16,12 +16,13 @@ export function Text({
   weigth,
   color,
   className = '',
+  fontFamily,
   ...props
 }: TextProps) {
   const Comp = as ?? 'p';
 
   return (
-    <Comp {...props} className={textTv({ size, weigth, color, className })}>
+    <Comp {...props} className={textTv({ size, weigth, color, fontFamily, className })}>
       {text}
     </Comp>
   );

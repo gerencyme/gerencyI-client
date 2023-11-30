@@ -29,11 +29,16 @@ export const APP_ROUTES = {
     register: {
       name: '/register',
       label: 'Registre-se'
+    },
+    products: {
+      name: '/products',
+      label: 'Produtos'
     }
   },
   publicPaths: {
     home: '/',
     auth: '/auth',
-    register: '/register'
+    register: '/register',
+    products: '/products'
   }
 };
