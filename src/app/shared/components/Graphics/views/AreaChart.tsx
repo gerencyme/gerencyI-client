@@ -7,23 +7,29 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts';
-import { areaChartdata } from '../../animatedTableUtils';
+import { VariantProps } from 'tailwind-variants';
+import { areaChartData } from '~features/animatedTable/animatedTableUtils';
+import { AreaChartData } from '~types/graphics/AreaChartData';
+import { areaChartCompTv } from '../GraphicsTV';
 
-interface AreaChartCompProps {
+interface AreaChartCompProps extends VariantProps<typeof areaChartCompTv> {
   isPressable: boolean;
+  chartData?: AreaChartData[];
 }
 
-export function AreaChartComp({ isPressable }: AreaChartCompProps) {
+export function AreaChartComp({ isPressable, chartData, pressableState }: AreaChartCompProps) {
+  const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
+
   return (
     <ResponsiveContainer
       width={700}
       height="80%"
-      className={`duration-300 pointer-events-auto ${isPressable ? 'scale-95' : 'scale-100'}`}
+      className={areaChartCompTv({ pressableState: state })}
     >
       <AreaChart
         width={730}
         height={250}
-        data={areaChartdata}
+        data={chartData ?? areaChartData}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
       >
         <defs>

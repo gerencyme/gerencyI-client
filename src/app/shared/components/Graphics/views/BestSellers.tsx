@@ -1,10 +1,13 @@
 import { Text } from '~/src/app/shared/components/Text';
 import { IoMdArrowDropup } from 'react-icons/io';
-import { bestSellersData } from '../../animatedTableUtils';
+import { bestSellersData } from '~features/animatedTable/animatedTableUtils';
 import { formatPrice } from '~/src/app/shared/utils/transformers';
+import { Icon } from '~/src/app/shared/components/Icon';
 import Gains from '~assets/svg/gains.svg';
 import Image from 'next/image';
-import { Icon } from '~/src/app/shared/components/Icon';
+import { BestSellersData } from '~types/graphics/BestSellersData';
+import { VariantProps } from 'tailwind-variants';
+import { bestSellersContent, bestSellersPercentRoot, bestSellersTv } from '../GraphicsTV';
 
 const getFirstThreeNames = (fullName: string) => {
   const names = fullName.split(' ');
@@ -17,22 +20,26 @@ const getFirstThreeNames = (fullName: string) => {
   };
 };
 
-export function BestSellers() {
+interface BestSellersProps extends VariantProps<typeof bestSellersTv> {
+  bestSellers?: BestSellersData[];
+  isPressable: boolean;
+}
+
+const alt = 'itens mais vendidos na semana comparados com a semana passada';
+const bestSellersTitle = 'Compare seus itens mais vendidos com a semana passada';
+
+export function BestSellers({ bestSellers, isPressable, pressableState }: BestSellersProps) {
+  const data = bestSellers ?? bestSellersData;
+  const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
+
   return (
-    <div className="w-fit h-fit absolute right-10 top-80 flex flex-col gap-4">
-      <Text
-        color="white"
-        weigth="bold"
-        text="Compare seus itens mais vendidos com a semana passada"
-      />
+    <div className={bestSellersTv({ pressableState: state })}>
+      <Text color="white" weigth="bold" text={bestSellersTitle} />
       <div className="flex gap-9">
-        {bestSellersData.map((bestSeller) => (
-          <div
-            key={bestSeller.id}
-            className="bg-easydark rounded-md p-2 relative flex flex-col items-start justify-center gap-4 w-36 h-20 ring-1 ring-purple"
-          >
+        {data.map((bestSeller) => (
+          <div key={bestSeller.id} className={bestSellersContent()}>
             <Image
-              alt="itens mais vendidos na semana comparados com a semana passada"
+              alt={alt}
               width={35}
               height={35}
               src={Gains}
@@ -46,7 +53,7 @@ export function BestSellers() {
             />
             <div className="flex items-center gap-2">
               <Text color="white" weigth="bold" text={formatPrice(bestSeller.value)} />
-              <div className="flex items-center bg-green-800 text-lime rounded-sm p-0.5">
+              <div className={bestSellersPercentRoot()}>
                 <Icon icon={IoMdArrowDropup} size="small" />
                 <Text size="xs" color="lime" text={`${bestSeller.economyPercent}%`} />
               </div>

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
-import { pieChartData } from '../../animatedTableUtils';
+import { pieChartData as mockedPieChartData } from '~features/animatedTable/animatedTableUtils';
 import { PieSectorDataItem } from 'recharts/types/polar/Pie';
+import { PieChartData } from '~types/graphics/PieChartData';
+import { VariantProps } from 'tailwind-variants';
+import { pieChartCompTv } from '../GraphicsTV';
 
 interface RenderActiveShapeProps {
   cx: number;
@@ -19,21 +22,21 @@ interface RenderActiveShapeProps {
   value: number;
 }
 
-const renderActiveShape = (props: RenderActiveShapeProps) => {
+const renderActiveShape = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  startAngle,
+  endAngle,
+  fill,
+  payload,
+  percent,
+  value
+}: RenderActiveShapeProps) => {
   const RADIAN = Math.PI / 180;
-  const {
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    startAngle,
-    endAngle,
-    fill,
-    payload,
-    percent,
-    value
-  } = props;
+
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + (outerRadius + 10) * cos;
@@ -84,20 +87,26 @@ const renderActiveShape = (props: RenderActiveShapeProps) => {
   );
 };
 
-export function PieChartComp() {
+interface PieChartCompProps extends VariantProps<typeof pieChartCompTv> {
+  isPressable: boolean;
+  pieChartData?: PieChartData[];
+}
+
+export function PieChartComp({ pieChartData, isPressable, pressableState }: PieChartCompProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
   return (
     <ResponsiveContainer
       width="45%"
       height="75%"
-      className="absolute top-0 right-0 z-50 pointer-events-auto"
+      className={pieChartCompTv({ pressableState: state })}
     >
       <PieChart width={400} height={400}>
         <Pie
           activeIndex={activeIndex}
           activeShape={renderActiveShape as PieSectorDataItem}
-          data={pieChartData}
+          data={pieChartData ?? mockedPieChartData}
           cx="50%"
           cy="50%"
           innerRadius={60}

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Teste from '~assets/teste.svg';
+import Demo from '~assets/svg/demo.svg';
 import { blurDataURL } from '~utils/constants/blurDataURL';
 
 export function InventoryControl() {
@@ -8,7 +8,7 @@ export function InventoryControl() {
       placeholder="blur"
       blurDataURL={blurDataURL}
       className="pointer-events-none rounded-3xl"
-      src={Teste}
+      src={Demo}
       alt="teste"
       width={570}
       height={300}

@@ -49,7 +49,7 @@ export const rows = [
   }
 ];
 
-export const areaChartdata = [
+export const areaChartData = [
   {
     name: 'Segunda',
     Autônomo: 4000,
