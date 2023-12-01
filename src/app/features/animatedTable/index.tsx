@@ -3,10 +3,13 @@
 import styled from './perspectiveTable.module.css';
 import { useRef } from 'react';
 import { useObserver } from '~shared/hooks/useObserver';
-import { Text } from '~shared/components/Text';
 import { Table } from './views/Table';
 import { VariantProps } from 'tailwind-variants';
 import { animatedTableContentWrapperTv, animatedTableRootTv } from './animatedTableTV';
+import { AreaChartComp } from './views/graphics/AreaChart';
+import { Title } from '../../shared/components/Title';
+import { PieChartComp } from './views/graphics/PieChart';
+import { BestSellers } from './views/graphics/BestSellers';
 
 interface AnimatedTableProps extends VariantProps<typeof animatedTableRootTv> {
   isTable: boolean;
@@ -32,7 +35,19 @@ export function AnimatedTable({ isTable, isPressable, state, togglePress }: Anim
         {isTable ? (
           <Table isPressable={isPressable} />
         ) : (
-          <Text text="Em construção" color="white" size="xl" weigth="semi-bold" />
+          <>
+            <Title
+              color="white"
+              size="xl"
+              weigth="bold"
+              title="Seu lucro semanal"
+              className="text-center"
+            />
+
+            <AreaChartComp isPressable={isPressable} />
+            <PieChartComp />
+            <BestSellers />
+          </>
         )}
       </div>
     </div>

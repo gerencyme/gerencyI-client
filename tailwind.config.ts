@@ -34,6 +34,7 @@ const config: Config = {
       easydark: '#212C4D',
       purple: '#2C1C74',
       lightPurple: '#583ED3',
+      lime: '#00F519',
 
       gray: {
         50: '#ededee',

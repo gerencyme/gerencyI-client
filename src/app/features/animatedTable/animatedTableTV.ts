@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const animatedTableRootTv = tv({
-  base: 'duration-1000 pointer-events-none w-full h-full flex justify-center items-center',
+  base: 'duration-1000 pointer-events-none w-full h-full flex justify-center items-center z-0',
   variants: {
     state: {
       isVisible: '-translate-y-96',

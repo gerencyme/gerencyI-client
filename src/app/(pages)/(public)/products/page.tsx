@@ -30,9 +30,9 @@ export default function AuthPage() {
         Conectando-se à rede da {renderRosarivoText('GerencyI')}, nós podemos lhe ajudar a{' '}
         {renderRosarivoText('gerenciar')} seu estoque de forma eficiente e econômica. Focados em
         você, nosso {renderRosarivoText('clientes')}, temos como objetivo ajudar a reduzir seus
-        custos de estoque, aumentar sua satisfação com seus clientee e melhorar sua competitividade.
+        custos de estoque, aumentar sua satisfação com seus clientes e melhorar sua competitividade.
       </p>
-      <div className="w-fit pt-8 flex gap-4 flex-wrap m-auto items-center">
+      <div className="w-fit pt-8 flex gap-4 flex-wrap m-auto items-center z-50">
         <Button.root
           onMouseDown={togglePress}
           onMouseUp={togglePress}

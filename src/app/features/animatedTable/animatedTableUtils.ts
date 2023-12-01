@@ -48,3 +48,65 @@ export const rows = [
     color: 'bg-[#1e594f]'
   }
 ];
+
+export const areaChartdata = [
+  {
+    name: 'Segunda',
+    Autônomo: 4000,
+    GerencyI: 2400,
+    amt: 2400
+  },
+  {
+    name: 'Terça',
+    Autônomo: 3000,
+    GerencyI: 1398,
+    amt: 2210
+  },
+  {
+    name: 'Quarta',
+    Autônomo: 2000,
+    GerencyI: 9800,
+    amt: 2290
+  },
+  {
+    name: 'Quinta',
+    Autônomo: 2780,
+    GerencyI: 3908,
+    amt: 2000
+  },
+  {
+    name: 'Sexta',
+    Autônomo: 1890,
+    GerencyI: 4800,
+    amt: 2181
+  },
+  {
+    name: 'Sábado',
+    Autônomo: 2390,
+    GerencyI: 3800,
+    amt: 2500
+  },
+  {
+    name: 'Domingo',
+    Autônomo: 3490,
+    GerencyI: 4300,
+    amt: 2100
+  }
+];
+
+let id = 0;
+
+export const pieChartData = [
+  { id: id++, name: 'Arroz Integral 1kg', value: 599 },
+  { id: id++, name: 'Leite Desnatado', value: 174.5 },
+  { id: id++, name: 'Maçãs Gala (kg)', value: 209.25 },
+  { id: id++, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7 },
+  { id: id++, name: 'Café Torrado e Moído 250g', value: 194.7 },
+  { id: id++, name: 'Iogurte Natural 400g', value: 137.4 }
+];
+
+export const bestSellersData = [
+  { id: id++, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
+  { id: id++, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
+  { id: id++, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 }
+];
