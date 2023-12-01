@@ -34,6 +34,7 @@ const config: Config = {
       easydark: '#212C4D',
       purple: '#2C1C74',
       lightPurple: '#583ED3',
+      lime: '#00F519',
 
       gray: {
         50: '#ededee',
@@ -112,7 +113,7 @@ const config: Config = {
       },
       crawl: {
         '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
-        '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(45deg)' }
+        '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(35deg)' }
       }
     },
     animation: {

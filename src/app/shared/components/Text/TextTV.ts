@@ -28,7 +28,8 @@ export const textTv = tv({
       white: 'text-white',
       tertiary: 'text-tertiary',
       secondary: 'text-secondary',
-      error: 'text-error'
+      error: 'text-error',
+      lime: 'text-lime'
     }
   },
   defaultVariants: {
