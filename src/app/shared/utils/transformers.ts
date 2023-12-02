@@ -26,3 +26,14 @@ export const formatPrice = (price: number | undefined | string) => {
     currency: 'BRL'
   });
 };
+
+export const getFirstThreeNames = (fullName: string) => {
+  const names = fullName.split(' ');
+  const firstThreeNames = names.slice(0, 3);
+  const remainingNames = names.slice(3);
+
+  return {
+    firstThree: firstThreeNames.join(' '),
+    remaining: remainingNames.join(' ')
+  };
+};

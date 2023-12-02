@@ -5,6 +5,7 @@ import { PieSectorDataItem } from 'recharts/types/polar/Pie';
 import { PieChartData } from '~types/graphics/PieChartData';
 import { VariantProps } from 'tailwind-variants';
 import { pieChartCompTv } from '../GraphicsTV';
+import { useWindow } from '../../../hooks/useWindow';
 
 interface RenderActiveShapeProps {
   cx: number;
@@ -93,13 +94,14 @@ interface PieChartCompProps extends VariantProps<typeof pieChartCompTv> {
 }
 
 export function PieChartComp({ pieChartData, isPressable, pressableState }: PieChartCompProps) {
+  const { width } = useWindow();
   const [activeIndex, setActiveIndex] = useState(0);
   const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
   return (
     <ResponsiveContainer
-      width="45%"
-      height="75%"
+      height="100%"
+      width={width > 768 ? '42%' : '100%'}
       className={pieChartCompTv({ pressableState: state })}
     >
       <PieChart width={400} height={400}>
@@ -109,11 +111,12 @@ export function PieChartComp({ pieChartData, isPressable, pressableState }: PieC
           data={pieChartData ?? mockedPieChartData}
           cx="50%"
           cy="50%"
-          innerRadius={60}
-          outerRadius={80}
+          innerRadius={30}
+          outerRadius={40}
           fill="#8884d8"
           dataKey="value"
           onMouseEnter={({ payload }) => setActiveIndex(payload.id)}
+          className="text-xxs md:text-md"
         />
       </PieChart>
     </ResponsiveContainer>

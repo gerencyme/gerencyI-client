@@ -31,6 +31,7 @@ const config: Config = {
 
       private: '#080f25',
       darkblue: '#101935',
+      easyblue: '#182754',
       easydark: '#212C4D',
       purple: '#2C1C74',
       lightPurple: '#583ED3',

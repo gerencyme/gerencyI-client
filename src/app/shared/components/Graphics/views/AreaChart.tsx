@@ -8,9 +8,9 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { VariantProps } from 'tailwind-variants';
-import { areaChartData } from '~features/animatedTable/animatedTableUtils';
 import { AreaChartData } from '~types/graphics/AreaChartData';
 import { areaChartCompTv } from '../GraphicsTV';
+import { areaChartData } from '~/src/app/features/animatedTable/animatedTableUtils';
 
 interface AreaChartCompProps extends VariantProps<typeof areaChartCompTv> {
   isPressable: boolean;
@@ -21,11 +21,7 @@ export function AreaChartComp({ isPressable, chartData, pressableState }: AreaCh
   const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
   return (
-    <ResponsiveContainer
-      width={700}
-      height="80%"
-      className={areaChartCompTv({ pressableState: state })}
-    >
+    <ResponsiveContainer className={areaChartCompTv({ pressableState: state })}>
       <AreaChart
         width={730}
         height={250}
@@ -34,8 +30,8 @@ export function AreaChartComp({ isPressable, chartData, pressableState }: AreaCh
       >
         <defs>
           <linearGradient id="colorAuto" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#583ED3" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#583ED3" stopOpacity={0} />
+            <stop offset="25%" stopColor="#583ED3" stopOpacity={0.8} />
+            <stop offset="75%" stopColor="#583ED3" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorGerencyI" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#37A18F" stopOpacity={0.8} />
@@ -43,7 +39,7 @@ export function AreaChartComp({ isPressable, chartData, pressableState }: AreaCh
           </linearGradient>
         </defs>
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis className="text-xs md:text-md" />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Area
