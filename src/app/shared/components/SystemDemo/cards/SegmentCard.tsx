@@ -11,7 +11,7 @@ interface SegmentCardProps {
 export function SegmentCard({ options = [] }: SegmentCardProps) {
   return (
     <div className={segmentCardTv()}>
-      <Text text="São apenas 3 passos" weigth="bold" size="md" color="white" />
+      <Text text="São apenas 3 passos" weigth="bold" size="md" color="secondary" />
       <ul className="flex flex-col gap-3">
         {options.map((option, i) => (
           <li key={i} className="flex items-center gap-3">

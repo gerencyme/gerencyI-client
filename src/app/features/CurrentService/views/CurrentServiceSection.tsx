@@ -1,5 +1,3 @@
-'use client';
-
 import { ServiceCard } from '~/src/app/shared/components/ServiceCard';
 import { serviceCardInfoCardInfo } from '../CurrentServiceUtils';
 

@@ -115,16 +115,21 @@ const config: Config = {
       crawl: {
         '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
         '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(35deg)' }
+      },
+      opacityOn: {
+        '0%': { opacity: '0' },
+        '100%': { opacity: '1' }
       }
     },
     animation: {
-      crawl: 'crawl 1000ms 1 ease-in-out forwards'
+      crawl: 'crawl 1000ms 1 ease-in-out forwards',
+      opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards'
     },
     extend: {
       backgroundImage: {
-        'gradient-hero': 'linear-gradient(-45deg, rgba(73,15,68,1) 0%,#4f0b24 50%, #1D0B70 100%)',
+        'gradient-hero': 'linear-gradient(-45deg, #080f25 0%, #212C4D 50%, #101935 100%)',
         'easy-brightness':
-          'radial-gradient(50% 50% at 50% 50%, rgba(73,15,68,1) 50%, rgba(119, 10, 82, 0) 100%)'
+          'radial-gradient(50% 50% at 50% 50%, #212C4D 50%, rgba(119, 10, 82, 0) 100%)'
       }
     }
   },

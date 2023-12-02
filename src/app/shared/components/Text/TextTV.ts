@@ -29,7 +29,8 @@ export const textTv = tv({
       tertiary: 'text-tertiary',
       secondary: 'text-secondary',
       error: 'text-error',
-      lime: 'text-lime'
+      lime: 'text-lime',
+      lightPurple: 'text-lightPurple'
     }
   },
   defaultVariants: {

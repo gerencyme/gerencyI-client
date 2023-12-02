@@ -4,7 +4,7 @@ export const inputRootTv = tv({
   base: 'relative transform duration-300 border-2 font-rubik relative max-w-[680px] flex flex-col gap-3 rounded-2xl pt-5 px-4 text-white/50 ',
   variants: {
     state: {
-      isActive: 'border-tertiary text-tertiary',
+      isActive: 'border-lightPurple text-lightPurple',
       inactive: 'border-transparent',
       error: 'border-error text-error'
     },
@@ -12,7 +12,7 @@ export const inputRootTv = tv({
       full: 'max-w-[680px] min-[680px]:w-full'
     },
     inputColor: {
-      primary: 'bg-primary',
+      primary: 'bg-darkblue',
       easydark: 'bg-easydark'
     }
   },

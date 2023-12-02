@@ -11,7 +11,13 @@ export function NavbarLogo() {
       className="flex gap-4 items-center hover:brightness-110"
     >
       <Image alt="GerencyI logo" width={50} height={50} src={Logo} />
-      <Text text="GerencyI" size="md" weigth="bold" color="secondary" className="hidden sm:flex" />
+      <Text
+        text="GerencyI"
+        size="md"
+        weigth="bold"
+        color="lightPurple"
+        className="hidden sm:flex"
+      />
     </Link>
   );
 }

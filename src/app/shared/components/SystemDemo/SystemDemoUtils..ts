@@ -5,7 +5,7 @@ export const segmentCardTv = tv({
 });
 
 export const simpleCardTv = tv({
-  base: 'bg-white z-50 flex flex-col justify-center items-center h-fit gap-1 p-4 relative rounded-3xl',
+  base: 'bg-transparent z-50 flex flex-col justify-center items-center h-fit gap-1 p-4 relative rounded-3xl shadow-inner shadow-white',
   variants: {
     hasSrc: {
       withSrc: 'w-fit',

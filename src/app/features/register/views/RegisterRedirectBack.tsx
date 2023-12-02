@@ -22,7 +22,7 @@ export function RegisterRedirectBack({ text, textLink }: RegisterRedirectLinkPro
         onClick={() => push(href)}
         className="hover:brightness-110 cursor-pointer ml-1"
         text={textLink}
-        color="tertiary"
+        color="lightPurple"
         weigth="bold"
         size="md"
       />

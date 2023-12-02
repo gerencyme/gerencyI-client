@@ -39,13 +39,11 @@ export function AnimatedTable({ isTable, isPressable, state, togglePress }: Anim
               size="xl"
               weigth="bold"
               title="Seu lucro semanal"
-              className="text-center py-3 text-sm md:text-md xl:text-xl"
+              className="text-center"
             />
-
-            <Graphics.areaChart isPressable={isPressable} />
-            <div className="flex gap-4 w-full items-center justify-center h-72 py-4">
+            <div className="flex gap-4">
+              <Graphics.areaChart isPressable={isPressable} />
               <Graphics.pieChard isPressable={isPressable} />
-              <Graphics.simpleAreaChart isPressable={isPressable} />
             </div>
             <Graphics.bestSellers isPressable={isPressable} />
           </>

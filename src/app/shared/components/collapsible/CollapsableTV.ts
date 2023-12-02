@@ -4,7 +4,7 @@ export const collapsableRootTv = tv({
   base: 'transition-all duration-300 relative h-fit w-fit overflow-hidden duration-300',
   variants: {
     collapsableState: {
-      open: 'h-fit',
+      open: 'h-40',
       close: 'h-12'
     }
   },

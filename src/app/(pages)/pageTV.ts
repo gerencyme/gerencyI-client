@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const homePageTv = tv({
-  base: 'relative m-auto flex flex-col gap-4 justify-center items-center w-full max-w-7xl'
+  base: 'relative m-auto flex flex-col gap-4 justify-center items-center w-full max-w-7xl animate-opacityOn'
 });
 
 export const homePageTitleTv = tv({

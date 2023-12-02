@@ -13,7 +13,8 @@ export const titleTv = tv({
       primary: 'text-primary',
       secondary: 'text-secondary',
       tertiary: 'text-tertiary',
-      white: 'text-white'
+      white: 'text-white',
+      lightPurple: 'text-lightPurple'
     },
     weigth: {
       bold: 'font-bold',
