@@ -1,5 +1,5 @@
 import { rows } from '../animatedTableUtils';
-import { formatPrice } from '~utils/transformers';
+import { formatPrice, getFirstThreeNames } from '~utils/transformers';
 import { VariantProps } from 'tailwind-variants';
 import * as tv from '../animatedTableTV';
 
@@ -15,7 +15,7 @@ export function Table({ isPressable, state }: TableProps) {
       <div className={tv.animatedTableBasementTv()}>
         <div className={tv.animatedTableHeaderGroupTv()}>
           <div className="table-row">
-            <div className={`${tv.animatedTableHeaderCellGroupTv()} pl-16`}>Nome</div>
+            <div className={`${tv.animatedTableHeaderCellGroupTv()} sm:pl-16`}>Nome</div>
             <div className={tv.animatedTableHeaderCellGroupTv()}>Marca</div>
             <div className={tv.animatedTableHeaderCellGroupTv()}>Data</div>
             <div className={tv.animatedTableHeaderCellGroupTv()}>Quantidade</div>
@@ -27,24 +27,28 @@ export function Table({ isPressable, state }: TableProps) {
           {rows.map((content, i) => {
             return (
               <div key={i} className={tv.animatedTableContentRootTv()}>
-                <div className="table-cell py-4 w-72">
+                <div className="table-cell py-1 sm:py-4 sm:w-72">
                   <div className={tv.animatedTableContentTv({ position: 'first' })}>
                     <div className={tv.animatedTableColorIdentifyRootTv()}>
-                      <div className={`w-1 h-6 rounded-2xl ${content.color}`} />
+                      <div className={`w-0.5 sm:w-1 h-2 sm:h-6 rounded-2xl ${content.color}`} />
                     </div>
-                    {content?.name}
+                    {getFirstThreeNames(content?.name).firstThree}
                   </div>
                 </div>
-                <div className="table-cell py-4 w-72 relative">
-                  <div className={tv.animatedTableContentTv()}>{content?.brand}</div>
+                <div className="table-cell py-1 sm:py-4 sm:w-72 relative">
+                  <div className={tv.animatedTableContentTv()}>
+                    {getFirstThreeNames(content?.brand).firstThree}
+                  </div>
                 </div>
-                <div className="table-cell py-4 w-72">
-                  <div className={tv.animatedTableContentTv()}>{content?.date}</div>
+                <div className="table-cell py-1 sm:py-4 sm:w-72">
+                  <div className={tv.animatedTableContentTv()}>
+                    {getFirstThreeNames(content?.date).firstThree}
+                  </div>
                 </div>
-                <div className="table-cell py-4 w-72">
+                <div className="table-cell py-1 sm:py-4 sm:w-72">
                   <div className={tv.animatedTableContentTv()}>{content?.quantity}</div>
                 </div>
-                <div className="table-cell py-4 w-72">
+                <div className="table-cell py-1 sm:py-4 sm:w-72">
                   <div className={tv.animatedTableContentTv({ position: 'last' })}>
                     {formatPrice(content?.price)}
                   </div>

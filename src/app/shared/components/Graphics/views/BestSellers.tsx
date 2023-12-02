@@ -1,24 +1,13 @@
 import { Text } from '~/src/app/shared/components/Text';
 import { IoMdArrowDropup } from 'react-icons/io';
 import { bestSellersData } from '~features/animatedTable/animatedTableUtils';
-import { formatPrice } from '~/src/app/shared/utils/transformers';
+import { formatPrice, getFirstThreeNames } from '~/src/app/shared/utils/transformers';
 import { Icon } from '~/src/app/shared/components/Icon';
 import Gains from '~assets/svg/gains.svg';
 import Image from 'next/image';
 import { BestSellersData } from '~types/graphics/BestSellersData';
 import { VariantProps } from 'tailwind-variants';
 import { bestSellersContent, bestSellersPercentRoot, bestSellersTv } from '../GraphicsTV';
-
-const getFirstThreeNames = (fullName: string) => {
-  const names = fullName.split(' ');
-  const firstThreeNames = names.slice(0, 3);
-  const remainingNames = names.slice(3);
-
-  return {
-    firstThree: firstThreeNames.join(' '),
-    remaining: remainingNames.join(' ')
-  };
-};
 
 interface BestSellersProps extends VariantProps<typeof bestSellersTv> {
   bestSellers?: BestSellersData[];
@@ -34,7 +23,12 @@ export function BestSellers({ bestSellers, isPressable, pressableState }: BestSe
 
   return (
     <div className={bestSellersTv({ pressableState: state })}>
-      <Text color="white" weigth="bold" text={bestSellersTitle} />
+      <Text
+        color="white"
+        weigth="bold"
+        text={bestSellersTitle}
+        className="text-xs md:text-md xl:text-lg"
+      />
       <div className="flex gap-9">
         {data.map((bestSeller) => (
           <div key={bestSeller.id} className={bestSellersContent()}>
