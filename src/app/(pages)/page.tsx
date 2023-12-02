@@ -32,7 +32,7 @@ export default function Home() {
       <div className={tv.homePageSystemDemoTv()}>
         <SystemDemo.exemple />
       </div>
-      <div className="md:my-64" />
+      <div className="sm:my-64" />
       <p className={tv.homePageSlogan()}>
         Nosso preço pensado em você, <span className="text-secondary font-semiBold">nosso</span>{' '}
         futuro cliente!

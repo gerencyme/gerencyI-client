@@ -10,7 +10,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
       <Navbar.menu newActions={newMyAccountActions} />
       <TabsNavigation.navigation />
 
-      {children}
+      <div className="w-full h-full animate-opacityOn">{children}</div>
     </>
   );
 }

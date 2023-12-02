@@ -6,7 +6,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
     <>
       <title>GerencyI | Produtos</title>
       <Navbar.menu />
-      {children}
+      <div className="w-full h-full animate-opacityOn">{children}</div>
     </>
   );
 }

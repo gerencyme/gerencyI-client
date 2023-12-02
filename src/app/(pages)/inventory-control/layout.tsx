@@ -9,7 +9,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
       <title>GerencyI | Controle de estoque</title>
       <Navbar.menu newActions={newMyAccountActions} />
       <TabsNavigation.navigation />
-      {children}
+      <div className="w-full h-full animate-opacityOn">{children}</div>
     </>
   );
 }

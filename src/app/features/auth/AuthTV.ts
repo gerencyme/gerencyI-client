@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const authRootTv = tv({
-  base: 'relative flex flex-col gap-2 lg:gap-8 w-full max-w-7xl h-fit m-auto p-2 lg:p-6'
+  base: 'relative animate-opacityOn flex flex-col gap-2 lg:gap-8 w-full max-w-7xl h-fit m-auto p-2 lg:p-6'
 });
 
 export const authFormTv = tv({
