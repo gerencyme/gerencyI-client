@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { Section } from '~/src/app/shared/components/Section';
 import { AnimatedTable } from '~features/animatedTable';
 import { ConnectBanner } from '~shared/animations/connectBanner';
 import { Button } from '~shared/components/Button';
 import { ButtonContentWrapper } from '~shared/components/Button/views/ButtonContentWrapper';
 import { ButtonLabel } from '~shared/components/Button/views/ButtonLabel';
+import { AboutService } from '~/src/app/features/aboutService';
 
 export default function AuthPage() {
   const [isTable, setIsTable] = useState(true);
@@ -29,7 +31,7 @@ export default function AuthPage() {
       <p className="w-full max-w-xl m-auto text-white text-center font-light text-xs pt-4">
         Conectando-se à rede da {renderRosarivoText('GerencyI')}, nós podemos lhe ajudar a{' '}
         {renderRosarivoText('gerenciar')} seu estoque de forma eficiente e econômica. Focados em
-        você, nosso {renderRosarivoText('clientes')}, temos como objetivo ajudar a reduzir seus
+        vocês, nossos {renderRosarivoText('clientes')}, temos como objetivo ajudar a reduzir seus
         custos de estoque, aumentar sua satisfação com seus clientes e melhorar sua competitividade.
       </p>
       <div className="w-fit pt-8 flex gap-4 flex-wrap m-auto items-center z-50">
@@ -52,6 +54,9 @@ export default function AuthPage() {
         </Button.root>
       </div>
       <AnimatedTable isPressable={isPressable} togglePress={togglePress} isTable={isTable} />
+      <Section id="more">
+        <AboutService.content />
+      </Section>
     </>
   );
 }

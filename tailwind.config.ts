@@ -129,7 +129,13 @@ const config: Config = {
       backgroundImage: {
         'gradient-hero': 'linear-gradient(-45deg, #080f25 0%, #212C4D 50%, #101935 100%)',
         'easy-brightness':
-          'radial-gradient(50% 50% at 50% 50%, #212C4D 50%, rgba(119, 10, 82, 0) 100%)'
+          'radial-gradient(50% 50% at 50% 50%, #101935 50%, rgba(119, 10, 82, 0) 100%)',
+        bigBlockIcon:
+          'linear-gradient(132.64deg, rgba(76, 41, 138, 0.25) 0%, rgba(31, 10, 71, 0.5) 100%)',
+        mediumBlockIcon:
+          'linear-gradient(130.05deg, rgba(82, 53, 133, 0.5) 4.49%, rgba(76, 41, 138, 0) 100%)',
+        smallBlockIcon:
+          'linear-gradient(130.05deg, rgba(129, 82, 210, 0.5) 4.49%, rgba(50, 10, 120, 0) 100%)'
       }
     }
   },

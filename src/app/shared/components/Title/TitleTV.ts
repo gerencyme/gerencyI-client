@@ -1,8 +1,12 @@
 import { tv } from 'tailwind-variants';
 
 export const titleTv = tv({
-  base: 'font-rubik text-black font-bold m-0 duration-500',
+  base: 'text-black m-0',
   variants: {
+    fontFamily: {
+      rubik: 'font-rubik',
+      rosarivo: 'font-rosarivo'
+    },
     size: {
       md: 'text-md',
       lg: 'text-lg',

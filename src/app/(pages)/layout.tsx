@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const isPublicPage = checkPublickRoute(pathName!);
 
   return (
-    <html lang="pt-BR" className="bg-gradient-hero">
+    <html lang="pt-BR" className="bg-private">
       <title>GerencyI</title>
 
       <body>
