@@ -19,28 +19,24 @@ export const useAboutServiceController = () => {
       blockSize: 'big',
       icon: Paper,
       ref: bigBlockIconRef,
-      isBigVisible
+      isBigVisible,
+      side: 'left'
     },
     {
       blockSize: 'medium',
       icon: Database,
       ref: mediumBlockIconRef,
-      isMediumVisible
+      isMediumVisible,
+      side: 'right'
     },
     {
       blockSize: 'small',
       icon: G,
       ref: smallBlockIconRef,
-      isSmallVisible
+      isSmallVisible,
+      side: 'bottom'
     }
   ];
 
-  return {
-    isBigVisible,
-    isMediumVisible,
-    isSmallVisible,
-    cards,
-    Paper,
-    Database
-  };
+  return { cards };
 };

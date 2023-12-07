@@ -7,4 +7,5 @@ export type AboutServiceContentCard = {
   isBigVisible?: boolean;
   isMediumVisible?: boolean;
   isSmallVisible?: boolean;
+  side?: 'right' | 'bottom' | 'left';
 };

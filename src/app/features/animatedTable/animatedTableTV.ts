@@ -1,18 +1,18 @@
 import { tv } from 'tailwind-variants';
 
 export const animatedTableRootTv = tv({
-  base: 'duration-1000 pointer-events-none w-full h-64 sm:h-full flex justify-center items-center z-0',
+  base: 'duration-1000 pointer-events-none w-full h-64 sm:h-[650px] flex justify-center items-center z-0',
   variants: {
     state: {
       isVisible:
-        '-translate-y-36 sm:-translate-y-80 lg:-translate-y-56 xl:-translate-72 2xl:-translate-96',
+        '-translate-y-36 sm:-translate-y-36 lg:-translate-y-56 xl:-translate-72 2xl:-translate-96',
       notVisible: 'translate-y-0'
     }
   }
 });
 
 export const animatedTableContentWrapperTv = tv({
-  base: 'relative shadow-2xl shadow-easyblue delay-1000 w-full max-w-7xl h-full max-h-[450px] bg-darkblue px-1 m-auto overflow-x-hidden overflow-y-scroll rounded-2xl',
+  base: 'relative shadow-2xl pointer-events-auto shadow-easyblue delay-1000 w-full max-w-7xl h-full max-h-[450px] bg-darkblue px-1 m-auto overflow-x-hidden overflow-y-scroll rounded-2xl',
   variants: {
     state: {
       isVisible: 'animate-crawl',
@@ -58,7 +58,7 @@ export const animatedTableHeaderCellGroupTv = tv({
 });
 
 export const animatedTablePurpleDividerTv = tv({
-  base: 'absolute w-full h-0.5 sm:top-14 top-8 -left-1 bg-purple'
+  base: 'absolute w-full h-0.5 sm:top-14 top-8 -left-1 bg-purple md:top-16'
 });
 
 export const animatedTableContentRootTv = tv({

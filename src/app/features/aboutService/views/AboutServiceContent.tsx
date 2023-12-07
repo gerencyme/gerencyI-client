@@ -5,8 +5,7 @@ import GerencyIDataBase from '~assets/svg/GerencyIDataBase.svg';
 import { useAboutServiceController } from '../controller';
 
 export function AboutServiceContent() {
-  const { isBigVisible, isMediumVisible, isSmallVisible, cards, Paper, Database } =
-    useAboutServiceController();
+  const { cards } = useAboutServiceController();
 
   return (
     <AboutService.root>
@@ -22,31 +21,17 @@ export function AboutServiceContent() {
         {cards.map((card, i) => (
           <div key={i} ref={card.ref}>
             <AboutService.blockIcon
+              text="Nós anotamos o seu pedido e juntamos à outros semelhantes"
+              icon={card.icon}
+              side={card.side}
               isBigVisible={card.isBigVisible}
-              isMediumVisible={isMediumVisible}
-              isSmallVisible={isSmallVisible}
+              isMediumVisible={card.isMediumVisible}
+              isSmallVisible={card.isSmallVisible}
               src={card.icon}
               blockSize={card.blockSize!}
             />
           </div>
         ))}
-        <AboutService.infoCard
-          side="left"
-          isVisible={isBigVisible}
-          text="Nós anotamos o seu pedido e juntamos à outros semelhantes"
-          icon={Paper}
-        />
-        <AboutService.infoCard
-          side="right"
-          isVisible={isMediumVisible}
-          text="Investigamos na base de dados e criamos um único pedido"
-          icon={Database}
-        />
-        <AboutService.infoCard
-          side="bottom"
-          isVisible={isMediumVisible}
-          text="Te entregamos o melhor custo benefício disponível na sua localidade"
-        />
       </AboutService.footer>
     </AboutService.root>
   );

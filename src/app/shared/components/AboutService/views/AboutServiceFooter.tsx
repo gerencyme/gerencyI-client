@@ -6,7 +6,7 @@ interface AboutServiceFooterProps extends HTMLAttributes<HTMLElement> {
 
 export function AboutServiceFooter({ children, ...pros }: AboutServiceFooterProps) {
   return (
-    <div {...pros} className="relative w-full h-fit flex flex-col justify-center items-center">
+    <div {...pros} className="w-full h-fit flex flex-col justify-center items-center">
       {children}
     </div>
   );
