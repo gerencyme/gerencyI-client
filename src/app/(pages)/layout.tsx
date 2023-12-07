@@ -2,6 +2,7 @@
 
 import '~global/styles/globals.css';
 import '~global/styles/scrollbar.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '../providers';
 import { MainContainer } from '../shared/components/MainContainer';
 import { checkPublickRoute } from '../shared/utils/checkPublickRoute';
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {!isPublicPage && (
               <RouteValidation.PrivateRoute>{children}</RouteValidation.PrivateRoute>
             )}
+            <SpeedInsights />
           </MainContainer>
         </Providers>
       </body>

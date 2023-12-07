@@ -41,6 +41,14 @@ export const animatedTableContentTv = tv({
   }
 });
 
+export const animatedTabledGraphicsTitletv = tv({
+  base: 'text-center py-3 text-sm md:text-md xl:text-xl'
+});
+
+export const animatedTabledNiddleContenttv = tv({
+  base: 'flex gap-4 w-full items-center justify-center h-72 py-4'
+});
+
 export const animatedTableColorIdentifyRootTv = tv({
   base: 'bg-darkblue flex items-center justify-center absolute w-2 sm:w-3 h-4 sm:h-10 rounded-2xl left-0'
 });

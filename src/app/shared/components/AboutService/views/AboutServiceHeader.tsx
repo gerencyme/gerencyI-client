@@ -1,5 +1,10 @@
 import { Text } from '../../Text';
 import { Title, TitleProps } from '../../Title';
+import {
+  aboutServiceHeaderSubtitleTv,
+  aboutServiceHeaderTitleTv,
+  aboutServiceHeaderTv
+} from '../AboutServiceTV';
 
 interface AboutServiceHeaderProps extends TitleProps {
   subtitle: string;
@@ -7,10 +12,10 @@ interface AboutServiceHeaderProps extends TitleProps {
 
 export function AboutServiceHeader({ subtitle, ...props }: AboutServiceHeaderProps) {
   return (
-    <div className="w-full h-fit pt-32 min-[540px]:pt-52 md:pt-44">
+    <div className={aboutServiceHeaderTv()}>
       <Title
         fontFamily="rosarivo"
-        className="text-lg md:text-xl lg:text-2xl font-rosarivo text-center"
+        className={aboutServiceHeaderTitleTv()}
         color="white"
         {...props}
       />
@@ -19,7 +24,7 @@ export function AboutServiceHeader({ subtitle, ...props }: AboutServiceHeaderPro
         text={subtitle}
         color="white"
         fontFamily="rosarivo"
-        className="text-sm lg:text-md text-white/75 text-center pt-4"
+        className={aboutServiceHeaderSubtitleTv()}
       />
     </div>
   );

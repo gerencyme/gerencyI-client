@@ -46,3 +46,48 @@ export const aboutServiceCardInfoLineTv = tv({
     }
   }
 });
+
+export const aboutServiceHeaderTv = tv({
+  base: 'w-full h-fit pt-32 min-[540px]:pt-52 md:pt-44'
+});
+
+export const aboutServiceHeaderTitleTv = tv({
+  base: 'text-lg md:text-xl lg:text-2xl font-rosarivo text-center'
+});
+
+export const aboutServiceHeaderSubtitleTv = tv({
+  base: 'text-sm lg:text-md text-white/75 text-center pt-4'
+});
+
+export const aboutServiceHeroTv = tv({
+  base: 'pointer-events-none py-12 w-full sm:h-fit'
+});
+
+export const aboutServiceFooterTv = tv({
+  base: 'w-full h-fit flex flex-col justify-center items-center'
+});
+
+export const aboutServiceBlockIconHeroTv = tv({
+  base: 'animate-[opacityOn_5000ms_ease-in] w-4 md:w-6 lg:w-fit'
+});
+
+export const aboutServiceBlockIconTextTv = tv({
+  base: 'h-full text-[8px] text-white md:text-sm text-clip overflow-hidden w-full md:w-44 lg:w-60 leading-3 animate-[opacityOn_5000ms_ease-in]'
+});
+
+export const aboutServiceBlockIconRootTv = tv({
+  base: 'flex flex-col justify-center items-center'
+});
+
+export const aboutServiceBlockIconPurpleLineTv = tv({
+  base: 'relative duration-[2000ms] bg-purple w-0.5',
+  variants: {
+    state: {
+      isVisible: 'h-6',
+      hidden: 'h-0'
+    }
+  },
+  defaultVariants: {
+    state: 'hidden'
+  }
+});

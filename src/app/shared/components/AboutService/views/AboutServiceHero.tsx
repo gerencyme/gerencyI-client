@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { aboutServiceHeroTv } from '../AboutServiceTV';
 
 interface AboutServiceHeroProps {
   src: string;
@@ -6,5 +7,5 @@ interface AboutServiceHeroProps {
 }
 
 export function AboutServiceHero({ src, alt }: AboutServiceHeroProps) {
-  return <Image className="pointer-events-none py-12 w-full sm:h-fit" src={src} alt={alt} />;
+  return <Image className={aboutServiceHeroTv()} src={src} alt={alt} />;
 }

@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react';
+import { aboutServiceFooterTv } from '../AboutServiceTV';
 
 interface AboutServiceFooterProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
@@ -6,7 +7,7 @@ interface AboutServiceFooterProps extends HTMLAttributes<HTMLElement> {
 
 export function AboutServiceFooter({ children, ...pros }: AboutServiceFooterProps) {
   return (
-    <div {...pros} className="w-full h-fit flex flex-col justify-center items-center">
+    <div {...pros} className={aboutServiceFooterTv()}>
       {children}
     </div>
   );
