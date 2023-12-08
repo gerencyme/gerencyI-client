@@ -21,7 +21,7 @@ export function AboutServiceContent() {
         {cards.map((card, i) => (
           <div key={i} ref={card.ref}>
             <AboutService.blockIcon
-              text="Nós anotamos o seu pedido e juntamos à outros semelhantes"
+              text={card.text}
               icon={card.icon}
               side={card.side}
               isBigVisible={card.isBigVisible}

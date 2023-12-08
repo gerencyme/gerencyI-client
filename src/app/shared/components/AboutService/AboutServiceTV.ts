@@ -64,7 +64,7 @@ export const aboutServiceHeroTv = tv({
 });
 
 export const aboutServiceFooterTv = tv({
-  base: 'w-full h-fit flex flex-col justify-center items-center'
+  base: 'w-full h-full pb-24 sm:pb-48 flex flex-col justify-center items-center'
 });
 
 export const aboutServiceBlockIconHeroTv = tv({
@@ -72,7 +72,7 @@ export const aboutServiceBlockIconHeroTv = tv({
 });
 
 export const aboutServiceBlockIconTextTv = tv({
-  base: 'h-full text-[8px] text-white md:text-sm text-clip overflow-hidden w-full md:w-44 lg:w-60 leading-3 animate-[opacityOn_5000ms_ease-in]'
+  base: 'h-full text-[8px] text-white md:text-sm text-clip w-full md:w-44 lg:w-60 leading-3 sm:leading-6 animate-[opacityOn_5000ms_ease-in]'
 });
 
 export const aboutServiceBlockIconRootTv = tv({

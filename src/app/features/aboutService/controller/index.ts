@@ -20,21 +20,24 @@ export const useAboutServiceController = () => {
       icon: Paper,
       ref: bigBlockIconRef,
       isBigVisible,
-      side: 'left'
+      side: 'left',
+      text: 'Nós anotamos o seu pedido e juntamos à outros semelhantes'
     },
     {
       blockSize: 'medium',
       icon: Database,
       ref: mediumBlockIconRef,
       isMediumVisible,
-      side: 'right'
+      side: 'right',
+      text: 'Investigamos na base de dados e criamos um único pedido'
     },
     {
       blockSize: 'small',
       icon: G,
       ref: smallBlockIconRef,
       isSmallVisible,
-      side: 'bottom'
+      side: 'bottom',
+      text: 'Te entregamos o melhor custo benefício disponível na sua localidade'
     }
   ];
 

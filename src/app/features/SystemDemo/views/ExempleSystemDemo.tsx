@@ -1,5 +1,5 @@
 import { SystemDemo } from '~/src/app/shared/components/SystemDemo';
-import Logo from '~assets/logo/Logo.svg';
+import Logo from '~assets/svg/logo.svg';
 import { segmentCardOptions } from '../SystemDemoUtils';
 
 export function ExempleSystemDemo() {

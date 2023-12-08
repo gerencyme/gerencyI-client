@@ -1,7 +1,7 @@
 import { Text } from '../../Text';
 import { APP_ROUTES } from '~utils/app-routes';
 import Image from 'next/image';
-import Logo from '~assets/logo/Logo.svg';
+import Logo from '~assets/svg/logo.svg';
 import Link from 'next/link';
 
 export function NavbarLogo() {
@@ -11,13 +11,7 @@ export function NavbarLogo() {
       className="flex gap-4 items-center hover:brightness-110"
     >
       <Image alt="GerencyI logo" width={50} height={50} src={Logo} />
-      <Text
-        text="GerencyI"
-        size="md"
-        weigth="bold"
-        color="lightPurple"
-        className="hidden sm:flex"
-      />
+      <Text text="GerencyI" size="md" weigth="bold" color="secondary" className="hidden sm:flex" />
     </Link>
   );
 }
