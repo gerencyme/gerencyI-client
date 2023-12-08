@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Section } from '~/src/app/shared/components/Section';
 import { FAQComponent } from '../index';
 
@@ -7,28 +8,28 @@ jest.mock('react-query', () => ({
     data: [
       {
         id: 1,
-        title: 'title1',
-        description: 'description1'
+        text: 'text1',
+        title: 'title1'
       },
       {
         id: 2,
-        title: 'title2',
-        description: 'description2'
+        text: 'text2',
+        title: 'title2'
       },
       {
         id: 3,
-        title: 'title3',
-        description: 'description3'
+        text: 'text3',
+        title: 'title3'
       },
       {
         id: 4,
-        title: 'title4',
-        description: 'description4'
+        text: 'text4',
+        title: 'title4'
       },
       {
         id: 5,
-        title: 'title5',
-        description: 'description5'
+        text: 'text5',
+        title: 'title5'
       }
     ]
   })
@@ -45,7 +46,27 @@ describe('<FAQComponent>', () => {
     const titles = screen.getAllByRole('heading', { level: 3 });
     expect(titles).toHaveLength(5);
   });
-  test.todo('should render FAQ description when click on title');
+  it('should render FAQ description when click on title', async () => {
+    const user = userEvent.setup();
+    render(
+      <Section id="FAQ">
+        <FAQComponent.FAQ />
+      </Section>
+    );
+
+    const firstTitle = screen.getByRole('heading', { level: 3, name: 'title1' });
+    const noRenderdescription = screen.queryByText('text1', { selector: 'p' });
+    expect(firstTitle).toBeInTheDocument();
+    expect(noRenderdescription).not.toBeInTheDocument();
+
+    const [firstFaqItemToggle] = screen.getAllByTestId('faq-item-toggle');
+
+    await user.click(firstFaqItemToggle);
+
+    const description = screen.getByText('text1', { selector: 'p' });
+
+    expect(description).toBeInTheDocument();
+  });
   test.todo('should not render FAQ description when click on title');
   test.todo('should render only 5 FAQ items');
 });
