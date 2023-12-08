@@ -44,8 +44,12 @@ describe('<FAQComponent>', () => {
     );
 
     const titles = screen.getAllByRole('heading', { level: 3 });
-    expect(titles).toHaveLength(5);
+
+    titles.forEach((title) => {
+      expect(title).toBeInTheDocument();
+    });
   });
+
   it('should render FAQ description when click on title', async () => {
     const user = userEvent.setup();
     render(
@@ -95,5 +99,14 @@ describe('<FAQComponent>', () => {
     expect(noRenderdescriptionAfterClick).not.toBeInTheDocument();
   });
 
-  test.todo('should render only 5 FAQ items');
+  it('should render only 5 FAQ items', () => {
+    render(
+      <Section id="FAQ">
+        <FAQComponent.FAQ />
+      </Section>
+    );
+
+    const titles = screen.getAllByRole('heading', { level: 3 });
+    expect(titles).toHaveLength(5);
+  });
 });
