@@ -67,6 +67,33 @@ describe('<FAQComponent>', () => {
 
     expect(description).toBeInTheDocument();
   });
-  test.todo('should not render FAQ description when click on title');
+
+  it('should not render FAQ description when click on title', async () => {
+    const user = userEvent.setup();
+    render(
+      <Section id="FAQ">
+        <FAQComponent.FAQ />
+      </Section>
+    );
+
+    const firstTitle = screen.getByRole('heading', { level: 3, name: 'title1' });
+    const noRenderdescription = screen.queryByText('text1', { selector: 'p' });
+    expect(firstTitle).toBeInTheDocument();
+    expect(noRenderdescription).not.toBeInTheDocument();
+
+    const [firstFaqItemToggle] = screen.getAllByTestId('faq-item-toggle');
+
+    await user.click(firstFaqItemToggle);
+
+    const description = screen.getByText('text1', { selector: 'p' });
+    expect(description).toBeInTheDocument();
+
+    await user.click(firstFaqItemToggle);
+
+    const noRenderdescriptionAfterClick = screen.queryByText('text1', { selector: 'p' });
+
+    expect(noRenderdescriptionAfterClick).not.toBeInTheDocument();
+  });
+
   test.todo('should render only 5 FAQ items');
 });
