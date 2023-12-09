@@ -18,8 +18,8 @@ export function AboutServiceContent() {
         alt="demonstração Gerency comunicando os pedidos dos clientes ao banco de dados"
       />
       <AboutService.footer>
-        {cards.map((card, i) => (
-          <div key={i} ref={card.ref}>
+        {cards.map((card) => (
+          <div key={card.id} ref={card.ref}>
             <AboutService.blockIcon
               text={card.text}
               icon={card.icon}
@@ -32,6 +32,7 @@ export function AboutServiceContent() {
             />
           </div>
         ))}
+
       </AboutService.footer>
     </AboutService.root>
   );
