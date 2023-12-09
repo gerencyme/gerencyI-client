@@ -101,7 +101,7 @@ export function PieChartComp({ pieChartData, isPressable, pressableState }: PieC
   return (
     <ResponsiveContainer
       height="100%"
-      width={width > 768 ? '42%' : '100%'}
+      width={width > 768 ? '50%' : '100%'}
       className={pieChartCompTv({ pressableState: state })}
     >
       <PieChart width={400} height={400}>

@@ -24,7 +24,7 @@ export default function Home() {
         <Button.root size="small">
           <Button.contentWrapper>
             <Button.link href="#service">
-              <Button.label text="Consltar" color="white" weigth="bold" size="lg" />
+              <Button.label text="Consultar" color="white" weigth="bold" size="lg" />
             </Button.link>
           </Button.contentWrapper>
         </Button.root>

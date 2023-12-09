@@ -1,3 +1,5 @@
+// mocked base graphics
+
 export const rows = [
   {
     name: 'Arroz Integral 1kg',
