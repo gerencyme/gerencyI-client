@@ -9,13 +9,13 @@ interface CollapsibleHeaderProps {
 
 export function CollapsibleHeader({ title, children: icon }: CollapsibleHeaderProps) {
   return (
-    <div className="flex justify-between backdrop-blur-lg">
+    <div className="flex justify-between">
       <Title
         as="h3"
         title={title}
         color="secondary"
         size="md"
-        weigth="semi-bold"
+        weigth="bold"
         className={CollapsibleHeaderTv()}
       />
       {icon}
