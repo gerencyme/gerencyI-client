@@ -16,6 +16,7 @@ export const useAboutServiceController = () => {
 
   const cards: AboutServiceContentCard[] = [
     {
+      id: 1,
       blockSize: 'big',
       icon: Paper,
       ref: bigBlockIconRef,
@@ -24,6 +25,7 @@ export const useAboutServiceController = () => {
       text: 'Nós anotamos o seu pedido e juntamos à outros semelhantes'
     },
     {
+      id: 2,
       blockSize: 'medium',
       icon: Database,
       ref: mediumBlockIconRef,
@@ -32,6 +34,7 @@ export const useAboutServiceController = () => {
       text: 'Investigamos na base de dados e criamos um único pedido'
     },
     {
+      id: 3,
       blockSize: 'small',
       icon: G,
       ref: smallBlockIconRef,
@@ -40,6 +43,7 @@ export const useAboutServiceController = () => {
       text: 'Te entregamos o melhor custo benefício disponível na sua localidade'
     }
   ];
+
 
   return { cards };
 };
