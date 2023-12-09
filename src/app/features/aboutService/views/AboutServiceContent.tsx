@@ -32,7 +32,6 @@ export function AboutServiceContent() {
             />
           </div>
         ))}
-
       </AboutService.footer>
     </AboutService.root>
   );

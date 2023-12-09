@@ -1,8 +1,8 @@
 import { ConnectBanner } from '~/src/app/shared/animations/connectBanner';
 import * as tv from '../ProductsTV';
 
-const renderRosarivoText = (text: string) => (
-  <span className={tv.ProductsRosarivoTextTv()}>{text}</span>
+const renderHighlightedText = (text: string) => (
+  <strong className={tv.ProductsHighlightTextTv()}>{text}</strong>
 );
 
 export function ProductsHeader() {
@@ -10,15 +10,15 @@ export function ProductsHeader() {
     <>
       <ConnectBanner />
       <p className={tv.ProductsHeaderTitleTv()}>
-        Nós {renderRosarivoText('gerenciamos')} sua empresa
+        Nós {renderHighlightedText('gerenciamos')} sua empresa
       </p>
       <p className={tv.ProductsHeaderTextTv()}>
-        E {renderRosarivoText('garantimos')} sua lucrabilidade
+        E {renderHighlightedText('garantimos')} sua lucrabilidade
       </p>
       <p className={tv.ProductsHeaderSubtextTv()}>
-        Conectando-se à rede da {renderRosarivoText('GerencyI')}, nós podemos lhe ajudar a{' '}
-        {renderRosarivoText('gerenciar')} seu estoque de forma eficiente e econômica. Focados em
-        vocês, nossos {renderRosarivoText('clientes')}, temos como objetivo ajudar a reduzir seus
+        Conectando-se à rede da {renderHighlightedText('GerencyI')}, nós podemos lhe ajudar a{' '}
+        {renderHighlightedText('gerenciar')} seu estoque de forma eficiente e econômica. Focados em
+        vocês, nossos {renderHighlightedText('clientes')}, temos como objetivo ajudar a reduzir seus
         custos de estoque, aumentar sua satisfação com seus clientes e melhorar sua competitividade.
       </p>
     </>

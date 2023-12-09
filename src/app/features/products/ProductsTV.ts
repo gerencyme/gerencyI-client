@@ -4,7 +4,7 @@ export const ProductsActionsRootTv = tv({
   base: 'w-fit pt-8 flex gap-4 flex-wrap m-auto items-center z-50'
 });
 
-export const ProductsRosarivoTextTv = tv({
+export const ProductsHighlightTextTv = tv({
   base: 'text-secondary font-rosarivo'
 });
 
