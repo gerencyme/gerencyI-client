@@ -14,7 +14,8 @@ export function ProductsActions({ setIsTable, togglePress }: ProductsActionsProp
       <Button.root
         onMouseDown={togglePress}
         onMouseUp={togglePress}
-        onClick={() => setIsTable((prev: any) => !prev)}
+        onClick={() => setIsTable((prev: boolean) => !prev)}
+
       >
         <ButtonContentWrapper>
           <Button.label color="white" text="Mostrar caso de uso" />
