@@ -47,7 +47,7 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
         text={helloUser}
         size="md"
         color="white"
-        weigth="semi-bold"
+        weight="semi-bold"
         className="hidden md:flex"
       />
       <DropdownComp.Dropdown />

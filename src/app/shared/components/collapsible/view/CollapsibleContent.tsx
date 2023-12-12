@@ -8,7 +8,7 @@ interface CollapsibleContentProps {
 export function CollapsibleContent({ text }: CollapsibleContentProps) {
   return (
     <div className={collapsableContentTv()}>
-      <Text text={text} color="white" size="sm" weigth="normal" />
+      <Text text={text} color="white" size="sm" weight="normal" />
     </div>
   );
 }

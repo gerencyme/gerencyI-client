@@ -34,7 +34,7 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
           text="Enviaremos um e-mail com instruções de como redefinir sua senha!"
           size="lg"
           color="white"
-          weigth="light"
+          weight="light"
           className="max-w-md leading-9"
         />
 
@@ -47,7 +47,7 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
 
         <Button.root disabled={isSubmitting} size="medium">
           <Button.contentWrapper>
-            <Button.label text="Solicitar" color="white" size="lg" weigth="bold" />
+            <Button.label text="Solicitar" color="white" size="lg" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
       </Form>

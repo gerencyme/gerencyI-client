@@ -26,7 +26,7 @@ describe('<Text />', () => {
   });
 
   it('applies the correct weight class', () => {
-    const { container } = render(<Text text="Hello world!" size="md" weigth="bold" />);
+    const { container } = render(<Text text="Hello world!" size="md" weight="bold" />);
 
     expect(container.firstChild).toHaveClass('font-bold');
   });

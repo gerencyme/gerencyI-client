@@ -17,13 +17,13 @@ export function AuthRedirectBack({ text, textLink }: AuthRedirectBackProps) {
 
   return (
     <div className={authRedirectBackTv()}>
-      <Text text={text} color="white" weigth="semi-bold" size="md" />
+      <Text text={text} color="white" weight="semi-bold" size="md" />
       <Text
         onClick={() => push(href)}
         className="hover:brightness-110 cursor-pointer ml-1"
         text={textLink}
         color="lightPurple"
-        weigth="bold"
+        weight="bold"
         size="md"
       />
     </div>

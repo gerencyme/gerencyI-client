@@ -40,7 +40,7 @@ export function TabsNavigationItems({
             <Link href={link.href} className={tabsNavigationLinkTv({ state: actualActiveState })}>
               <Text
                 text={link.label}
-                weigth="bold"
+                weight="bold"
                 as="span"
                 className={tabsNavigationLabelTv({ state: actualActiveState })}
               />

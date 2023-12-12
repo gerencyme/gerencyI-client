@@ -21,7 +21,7 @@ export function ErrorMessage({ field }: ErrorMessageProps) {
   return (
     <Text
       as="span"
-      weigth="bold"
+      weight="bold"
       color="white"
       className={errorMessageTv()}
       text={fieldError.message?.toString()}
