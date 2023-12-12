@@ -7,7 +7,7 @@ export default function RegisterPage() {
       <Register.root>
         <Register.header title="Saia do básico" subtitle="Eleve seu estabelecimento" />
         <Register.back text="Já saiu do básico?" textLink="Entre!" />
-        <Register.form />
+        <Register.forms />
       </Register.root>
       <FAQComponent.FAQ />
     </div>
