@@ -17,7 +17,11 @@ export function CollapsibleRoot({
   const collapsableStates: typeof collapsableState = isOpen ? 'open' : 'close';
 
   return (
-    <div onClick={toggle} className={collapsableRootTv({ collapsableState: collapsableStates })}>
+    <div
+      data-testid="faq-item-toggle"
+      onClick={toggle}
+      className={collapsableRootTv({ collapsableState: collapsableStates })}
+    >
       {children}
     </div>
   );
