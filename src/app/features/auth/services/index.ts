@@ -1,12 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 import { api } from '~/src/app/shared/services/axios/api';
+import { AuthRequest } from '~/src/app/shared/types/requests/AuthRequest';
 
-export interface UserAuth {
-  CNPJ: string;
-  Password: string;
-}
-
-export const auth = async (data: UserAuth, errorResolver: Dispatch<SetStateAction<string>>) => {
+export const auth = async (data: AuthRequest, errorResolver: Dispatch<SetStateAction<string>>) => {
   try {
     const endpoitn = 'GenereateTokenIdentity';
 

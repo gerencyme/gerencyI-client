@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AuthForm } from './AuthForm';
+import { RegisterForm } from './RegisterForm';
 import { Recovery } from '../../recovery';
 
 export function FormsComponent() {
@@ -12,6 +12,6 @@ export function FormsComponent() {
   return isRecovery ? (
     <Recovery.form handleForgetPassword={handleForgetPassword} />
   ) : (
-    <AuthForm handleForgetPassword={handleForgetPassword} />
+    <RegisterForm handleForgetPassword={handleForgetPassword} />
   );
 }

@@ -15,7 +15,11 @@ import { Icon } from '~/src/app/shared/components/Icon';
 import { FaRegQuestionCircle } from 'react-icons/fa';
 import { Button } from '~/src/app/shared/components/Button';
 
-export function RegisterForm() {
+interface RegisterFormProps {
+  handleForgetPassword: () => void;
+}
+
+export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
   const {
     handleSubmit,
     onSubmit,
@@ -25,6 +29,7 @@ export function RegisterForm() {
     password,
     formattedCnpj,
     isSubmitting,
+    userAlreyExists,
     errorResolver
   } = useRegisterController();
 
@@ -146,6 +151,16 @@ export function RegisterForm() {
             <Button.label text="Registrar" color="white" size="sm" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
+        {userAlreyExists && (
+          <Text
+            text="Esquceu sua senha?"
+            size="sm"
+            color="white"
+            weigth="bold"
+            onClick={handleForgetPassword}
+            className="cursor-pointer"
+          />
+        )}
       </Form>
     </FormProvider>
   );

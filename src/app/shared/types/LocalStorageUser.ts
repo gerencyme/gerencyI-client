@@ -4,4 +4,5 @@ export interface LocalStorageUser {
   corporateReason: string;
   name: string;
   isFirstLogin: boolean;
+  _t: string;
 }
