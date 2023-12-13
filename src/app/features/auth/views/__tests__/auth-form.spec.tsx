@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { AuthForm } from '../AuthForm';
 import { todo } from 'node:test';
+import userEvent from '@testing-library/user-event';
 
 jest.mock('lottie-react', () => {
   return {
@@ -47,7 +48,22 @@ describe('AuthForm', () => {
     render(<AuthForm handleForgetPassword={() => {}} />);
   });
 
-  todo('it should be able write in forms inputs');
+  it('should be able write in forms inputs', async () => {
+    const user = userEvent.setup();
+    render(<AuthForm handleForgetPassword={() => {}} />);
+
+    const cnpjInputEl = screen.getByPlaceholderText(/Qual o seu CNPJ?/i);
+    const passwordInputEl = screen.getByPlaceholderText(/digite sua senha/i);
+
+    expect(passwordInputEl).toHaveValue('');
+    // expect(cnpjInputEl).toHaveValue('');
+
+    await user.type(cnpjInputEl, '12345678901234');
+    await user.type(passwordInputEl, '123456');
+
+    // expect(cnpjInputEl).toHaveValue('12345678901234');
+    expect(passwordInputEl).toHaveValue('123456');
+  });
   todo('it should be able change password input type');
   todo('it should not be able access with invalid CNPJ');
   todo('it should not be able access with invalid password');
