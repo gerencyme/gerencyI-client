@@ -1,6 +1,6 @@
 export interface ProductCardActions {
   id: number;
   label: string;
-  color: 'primary' | 'dark';
+  color: 'primary' | 'white';
   onClick: () => void;
 }

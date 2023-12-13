@@ -1,5 +1,6 @@
 import { formateDate } from '~utils/dates';
 import { Text } from '../../Text';
+import { productCardHeaderTv } from '../ProductCardTV';
 
 interface ProductCardHeaderProps {
   date: number | Date;
@@ -9,7 +10,7 @@ interface ProductCardHeaderProps {
 
 export function ProductCardHeader({ date, productBrand, productName }: ProductCardHeaderProps) {
   return (
-    <div className="felx flex-col text-center items-center justify-center w-36 m-auto">
+    <div className={productCardHeaderTv()}>
       <Text text={formateDate(date)} color="white" size="xs" weight="light" />
       <Text text={productName} color="white" size="md" weight="bold" className="truncate w-36" />
       <Text

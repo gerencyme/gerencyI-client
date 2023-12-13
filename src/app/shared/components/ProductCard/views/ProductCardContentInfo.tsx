@@ -1,5 +1,6 @@
 import { formatPrice } from '~utils/transformers';
 import { Text } from '../../Text';
+import { productCardContentInfoTv, productCardContentInfoUnderAnalysisTv } from '../ProductCardTV';
 
 interface ProductCardContentInfoProps {
   quantity: string | number;
@@ -19,20 +20,20 @@ export function ProductCardContentInfo({
 
   const content = isUnderAnalysis ? (
     <>
-      <div className="text-center truncate w-full rounded ring-1 ring-purple px-4 py-1 bg-easydark">
+      <div className={productCardContentInfoUnderAnalysisTv()}>
         <Text text={`${quantity} unidades`} weight="light" size="sm" color="white" />
       </div>
-      <div className="text-center truncate w-full rounded ring-1 ring-purple px-4 py-1 bg-easydark">
+      <div className={productCardContentInfoUnderAnalysisTv()}>
         <Text text="Buscando o melhor preço..." weight="light" size="sm" color="white" />
       </div>
     </>
   ) : (
     <>
-      <div className="text-center truncate w-full flex items-center justify-between rounded ring-1 ring-purple px-4 py-1 bg-easydark">
+      <div className={productCardContentInfoTv()}>
         <Text text={`${quantity} unidades`} weight="light" size="sm" color="white" />
         <Text text={formattedTotalPrice} weight="light" size="sm" color="white" />
       </div>
-      <div className="text-center flex justify-between truncate w-full rounded ring-1 ring-purple px-4 py-1 bg-easydark">
+      <div className={productCardContentInfoTv()}>
         <Text text="A unidade" weight="light" size="sm" color="white" />
         <Text text={formattedUnitPrice} weight="light" size="sm" color="white" />
       </div>

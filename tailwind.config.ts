@@ -132,11 +132,17 @@ const config: Config = {
       opacityOn: {
         '0%': { opacity: '0' },
         '100%': { opacity: '1' }
+      },
+      'status-ping': {
+        '25%': { scale: '1.2' },
+        '50%': { opacity: '0.5' },
+        '75%': { scale: '1.3' }
       }
     },
     animation: {
       crawl: 'crawl 1000ms 1 ease-in-out forwards',
-      opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards'
+      opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards',
+      'status-ping': 'status-ping 1000ms infinite linear forwards'
     },
     extend: {
       backgroundImage: {

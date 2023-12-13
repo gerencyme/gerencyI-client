@@ -9,7 +9,7 @@ import { SimilarCompaniesContent } from '../../shared/types/SimilarCompaniesCont
 const productCardActions: ProductCardActions[] = [
   {
     id: 0,
-    color: 'dark',
+    color: 'white',
     label: 'Visualizar NF',
     onClick: () => console.log('Visualizar NF')
   },
@@ -62,65 +62,76 @@ const similarCompaniesContent2: SimilarCompaniesContent[] = [];
 const mockedProductCardContent: ProductCardType[] = [
   {
     date: new Date('11/12/2023'),
-    handleCancel: () => console.log('abre o modal de cancelar'),
     id: 0,
     identifyColor: 'bg-purple',
     productBrand: 'Terra Nova',
-    productCardActions,
     productName: 'Arroz Integral 1kg',
     quantity: 100,
     similarCompaniesContent,
     status: 'done',
     totalPrice: 599,
-    unitPrice: 5.99
+    unitPrice: 5.99,
+    isLiked: true
   },
   {
     date: new Date('11/12/2023'),
-    handleCancel: () => console.log('abre o modal de cancelar'),
     id: 1,
     identifyColor: 'bg-[#37A18F]',
     productBrand: 'Três Corações',
-    productCardActions,
     productName: 'Café Forte',
     quantity: 10,
     similarCompaniesContent: similarCompaniesContent1,
     status: 'canceled',
     totalPrice: 59.9,
-    unitPrice: 5.99
+    unitPrice: 5.99,
+    isLiked: false
   },
   {
     date: new Date('11/12/2023'),
-    handleCancel: () => console.log('abre o modal de cancelar'),
     id: 2,
     identifyColor: 'bg-[#bd1b56]',
     productBrand: 'Alguma Marca',
-    productCardActions,
     productName: 'Algum Produto',
     quantity: 75,
     similarCompaniesContent: similarCompaniesContent2,
     status: 'underAnalisis',
     totalPrice: 200.25,
-    unitPrice: 2.67
+    unitPrice: 2.67,
+    isLiked: true
+  },
+  {
+    date: new Date('11/12/2023'),
+    id: 3,
+    identifyColor: 'bg-[#bd1b56]',
+    productBrand: 'Alguma Marca',
+    productName: 'Algum Produto',
+    quantity: 75,
+    similarCompaniesContent: similarCompaniesContent2,
+    status: 'underAnalisis',
+    totalPrice: 200.25,
+    unitPrice: 2.67,
+    isLiked: true
   }
 ];
 
 export default function LastMonthsPage() {
+  const handleLike = () => console.log('atualiza estado de like do produto');
+  const handleCancel = () => console.log('abre o modal de cancelar');
+
   return (
     <div className="flex flex-col gap-4">
       <Title title="Página: Últimos meses" size="2xl" weight="black" color="white" />
-      <div className="flex gap-8">
+      <div className="flex flex-wrap gap-8">
         {mockedProductCardContent.map((productCardContent) => (
           <ProductCard.root key={productCardContent.id}>
             <ProductCard.identify color={productCardContent.identifyColor} />
-            <ProductCard.status
-              handleCancel={productCardContent.handleCancel}
-              state={productCardContent.status}
-            />
+            <ProductCard.status handleCancel={handleCancel} state={productCardContent.status} />
             <ProductCard.header
-              date={productCardContent.date}
+              date={+productCardContent.date}
               productBrand={productCardContent.productBrand}
               productName={productCardContent.productName}
             />
+            <ProductCard.likeAction isLiked={productCardContent.isLiked} handleLike={handleLike} />
             <ProductCard.contentInfo
               isUnderAnalysis={productCardContent.status === 'underAnalisis'}
               totalPrice={productCardContent.totalPrice}
@@ -130,7 +141,7 @@ export default function LastMonthsPage() {
             <ProductCard.similarCompanies
               similarCompanies={productCardContent.similarCompaniesContent}
             />
-            <ProductCard.actions actions={productCardContent.productCardActions} />
+            <ProductCard.actions status={productCardContent.status} actions={productCardActions} />
           </ProductCard.root>
         ))}
       </div>
