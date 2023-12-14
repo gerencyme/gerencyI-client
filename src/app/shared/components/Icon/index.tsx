@@ -22,6 +22,7 @@ export function Icon({
 }: IconProps) {
   return (
     <Icon
+      data-testid="input-icon"
       className={iconTv({ color, size, type, button, collapsableState, className })}
       {...props}
     />
