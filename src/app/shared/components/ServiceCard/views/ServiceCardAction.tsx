@@ -10,7 +10,7 @@ export function ServiceCardAction({ label }: ServiceCardActionProps) {
     <Button.root size="small" color="secondary">
       <Button.link href={APP_ROUTES.public.products.name}>
         <Button.contentWrapper>
-          <Button.label text={label} weigth="bold" size="sm" color="primary" />
+          <Button.label text={label} weight="bold" size="sm" color="primary" />
         </Button.contentWrapper>
       </Button.link>
     </Button.root>

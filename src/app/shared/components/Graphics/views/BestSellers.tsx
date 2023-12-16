@@ -25,7 +25,7 @@ export function BestSellers({ bestSellers, isPressable, pressableState }: BestSe
     <div className={bestSellersTv({ pressableState: state })}>
       <Text
         color="white"
-        weigth="bold"
+        weight="bold"
         text={bestSellersTitle}
         className="text-xs md:text-md xl:text-lg"
       />
@@ -42,11 +42,11 @@ export function BestSellers({ bestSellers, isPressable, pressableState }: BestSe
 
             <Text
               color="white"
-              weigth="bold"
+              weight="bold"
               text={getFirstThreeNames(bestSeller.name).firstThree}
             />
             <div className="flex items-center gap-2">
-              <Text color="white" weigth="bold" text={formatPrice(bestSeller.value)} />
+              <Text color="white" weight="bold" text={formatPrice(bestSeller.value)} />
               <div className={bestSellersPercentRoot()}>
                 <Icon icon={IoMdArrowDropup} size="small" />
                 <Text size="xs" color="lime" text={`${bestSeller.economyPercent}%`} />

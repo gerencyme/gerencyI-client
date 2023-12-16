@@ -11,14 +11,14 @@ export function RegisterHeader({ title, subtitle }: RegisterHeaderProps) {
     <div className={registerHeaderTv()}>
       <Title
         title={title}
-        weigth="semi-bold"
+        weight="semi-bold"
         color="white"
         className="text-xl min-[1520px]:text-2xl"
       />
       <Title
         title={subtitle}
         as="h2"
-        weigth="semi-bold"
+        weight="semi-bold"
         className="text-white/75 text-lg min-[1520px]:text-2xl"
       />
     </div>

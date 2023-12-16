@@ -2,15 +2,17 @@ import * as TooltipRadix from '@radix-ui/react-tooltip';
 import { ReactNode } from 'react';
 import { Text } from '~shared/components/Text';
 import { capitalizeName } from '~utils/transformers';
-import { arrowTv, contentTv } from './TooltipTv';
+import { contentTv } from './TooltipTv';
+import { VariantProps } from 'tailwind-variants';
 
-interface TooltipProps {
+interface TooltipProps extends VariantProps<typeof contentTv> {
   children: ReactNode;
   text: string;
   className?: string;
+  content?: () => JSX.Element;
 }
 
-export function Tooltip({ children, className, text }: TooltipProps) {
+export function Tooltip({ children, className, text, color, content }: TooltipProps) {
   const timeToAppear = 0;
 
   return (
@@ -20,9 +22,15 @@ export function Tooltip({ children, className, text }: TooltipProps) {
           <span className="w-fit">{children}</span>
         </TooltipRadix.Trigger>
         <TooltipRadix.Portal>
-          <TooltipRadix.Content className={contentTv({ className })}>
-            <Text text={capitalizeName(text)} color="white" size="sm" />
-            <TooltipRadix.Arrow className={arrowTv()} />
+          <TooltipRadix.Content className={contentTv({ color, className })}>
+            {content?.() ?? (
+              <Text
+                text={capitalizeName(text)}
+                color={color === 'black' ? 'white' : 'black'}
+                size="sm"
+              />
+            )}
+            <TooltipRadix.Arrow />
           </TooltipRadix.Content>
         </TooltipRadix.Portal>
       </TooltipRadix.Root>

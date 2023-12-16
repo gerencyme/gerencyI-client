@@ -15,7 +15,7 @@ export function CollapsibleHeader({ title, children: icon }: CollapsibleHeaderPr
         title={title}
         color="secondary"
         size="md"
-        weigth="bold"
+        weight="bold"
         className={CollapsibleHeaderTv()}
       />
       {icon}
