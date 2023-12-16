@@ -48,8 +48,6 @@ export const useAuthController = () => {
           value: resp
         });
 
-        // só dar o push após uma segunda request para pegar os dados do usuário e salvar no local storage
-
         return push(APP_ROUTES.private['my-account'].name);
       }
     });
