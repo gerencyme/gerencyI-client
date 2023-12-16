@@ -156,7 +156,7 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
             text="Esquceu sua senha?"
             size="sm"
             color="white"
-            weigth="bold"
+            weight="bold"
             onClick={handleForgetPassword}
             className="cursor-pointer"
           />
