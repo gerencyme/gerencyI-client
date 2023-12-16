@@ -57,6 +57,20 @@ export const mockedProductCardContent: ProductCard[] = [
   {
     date: new Date('11/12/2023'),
     id: 1,
+    identifyColor: 'bg-purple',
+    productBrand: 'Terra Nova',
+    productName: 'Arroz Integral 1kg',
+    quantity: 100,
+    similarCompaniesContent,
+    status: 'done',
+    totalPrice: 599,
+    unitPrice: 5.99,
+    isLiked: true,
+    isModalOpen: false
+  },
+  {
+    date: new Date('11/12/2023'),
+    id: 2,
     identifyColor: 'bg-[#37A18F]',
     productBrand: 'Três Corações',
     productName: 'Café Forte',
@@ -66,20 +80,6 @@ export const mockedProductCardContent: ProductCard[] = [
     totalPrice: 59.9,
     unitPrice: 5.99,
     isLiked: false,
-    isModalOpen: false
-  },
-  {
-    date: new Date('11/12/2023'),
-    id: 2,
-    identifyColor: 'bg-[#bd1b56]',
-    productBrand: 'Alguma Marca',
-    productName: 'Algum Produto',
-    quantity: 75,
-    similarCompaniesContent: similarCompaniesContent2,
-    status: 'underAnalisis',
-    totalPrice: 200.25,
-    unitPrice: 2.67,
-    isLiked: true,
     isModalOpen: false
   },
   {

@@ -1,17 +1,24 @@
 import { ReactNode } from 'react';
 import { Text } from '../../Text';
+import { modalHeaderTv } from '../ModalTV';
+import { VariantProps } from 'tailwind-variants';
 
-interface ModalHeaderProps {
+interface ModalHeaderProps extends VariantProps<typeof modalHeaderTv> {
   modalTitle: string;
   isCancel?: boolean;
   children?: ReactNode;
 }
 
-export function ModalHeader({ isCancel = false, modalTitle, children }: ModalHeaderProps) {
-  const bgColor = isCancel ? 'bg-error' : 'bg-primary';
+export function ModalHeader({
+  isCancel = false,
+  modalTitle,
+  modalOption,
+  children
+}: ModalHeaderProps) {
+  const bgColor: typeof modalOption = isCancel ? 'cancel' : 'primary';
 
   return (
-    <div className={`${bgColor} absolute top-0 w-full h-10 flex justify-between items-center p-3`}>
+    <div className={modalHeaderTv({ modalOption: bgColor })}>
       <Text text={modalTitle} color="white" size="sm" weight="bold" className="truncate" />
       {children}
     </div>

@@ -1,5 +1,6 @@
 import { ModalContentAction } from '~types/ModalContentAction';
 import { Button } from '../../Button';
+import { modalContentActionsTv } from '../ModalTV';
 
 interface ModalContentActionsProps {
   actions: ModalContentAction[];
@@ -7,7 +8,7 @@ interface ModalContentActionsProps {
 
 export function ModalContentActions({ actions }: ModalContentActionsProps) {
   return (
-    <div className="flex items-center gap-4 w-fit m-auto">
+    <div className={modalContentActionsTv()}>
       {actions.map((action) => (
         <Button.root size="small" color={action.color} key={action.id} onClick={action.onClick}>
           <Button.contentWrapper>

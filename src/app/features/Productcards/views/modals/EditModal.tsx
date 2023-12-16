@@ -6,6 +6,7 @@ import { CiEdit } from 'react-icons/ci';
 import { BsArrowLeft } from 'react-icons/bs';
 import { formatPrice } from '~/src/app/shared/utils/transformers';
 import { useState } from 'react';
+import { editPurchaseContentTv } from '../ProductCardsTV';
 
 interface PurshaseModalProps {
   isModalOpen: boolean;
@@ -79,7 +80,7 @@ export function PurshaseModal({
       <Text text="Quantos deseja comprar?" weight="light" size="xs" color="white" />
       <input
         type="number"
-        className="w-fit h-fit font-bold text-center text-xs placeholder:text-white/50 py-1 bg-easydark rounded m-auto outline-none"
+        className={editPurchaseContentTv({ opacity: '50%' })}
         placeholder={String(quantity)}
         defaultValue={quantity}
         min={0}
@@ -89,7 +90,7 @@ export function PurshaseModal({
       <input
         type="number"
         readOnly
-        className="w-fit h-fit font-bold text-center text-xs placeholder:text-white py-1 bg-easydark rounded m-auto outline-none"
+        className={editPurchaseContentTv({ opacity: '100%' })}
         placeholder={formatPrice(totalByLastPurchaseWithNewAmount)}
       />
     </>

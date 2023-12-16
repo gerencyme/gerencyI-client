@@ -1,6 +1,7 @@
 import { Tooltip } from '../../Tooltip';
 import { Icon } from '../../Icon';
 import { ModalHeaderAction } from '~types/ModalHeaderAction';
+import { modalHeaderActionsContentTv, modalHeaderActionsRootTv } from '../ModalTV';
 
 interface ModalHeaderActionsProps {
   actions?: ModalHeaderAction[];
@@ -8,13 +9,10 @@ interface ModalHeaderActionsProps {
 
 export function ModalHeaderActions({ actions = [] }: ModalHeaderActionsProps) {
   return (
-    <div className="flex gap-1 items-center cursor-pointer">
+    <div className={modalHeaderActionsRootTv()}>
       {actions.map((action) => (
         <Tooltip color="black" key={action.id} text={action.label}>
-          <div
-            onClick={action.onClick}
-            className="bg-white rounded flex items-center justify-center w-6 h-6"
-          >
+          <div onClick={action.onClick} className={modalHeaderActionsContentTv()}>
             <Icon icon={action.icon} color="primary" size="small" className="cursor-pointer" />
           </div>
         </Tooltip>
