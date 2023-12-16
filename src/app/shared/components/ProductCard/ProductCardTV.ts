@@ -36,7 +36,7 @@ export const productCardIdentifyColorTv = tv({
 });
 
 export const productCardRootTv = tv({
-  base: 'relative w-64 h-[440px] p-6 flex flex-col items-center justify-center gap-2 ring-1 ring-purple bg-darkblue rounded-2xl'
+  base: 'relative w-64 overflow-hidden h-[440px] p-6 flex flex-col items-center justify-center gap-2 ring-1 ring-purple bg-darkblue rounded-2xl'
 });
 
 export const renderCancelTooltipContentTv = tv({

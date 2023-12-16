@@ -4,6 +4,7 @@ export const iconTv = tv({
   base: 'cursor-default duration-300',
   variants: {
     size: {
+      'extra-small': 'w-2 h-2',
       small: 'w-4 h-4',
       medium: 'w-6 h-6'
     },

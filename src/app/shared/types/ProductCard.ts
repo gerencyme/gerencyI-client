@@ -12,4 +12,5 @@ export interface ProductCard {
   unitPrice: string | number;
   similarCompaniesContent: SimilarCompaniesContent[];
   isLiked: boolean;
+  isModalOpen: boolean;
 }
