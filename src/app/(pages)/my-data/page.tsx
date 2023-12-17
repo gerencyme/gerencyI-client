@@ -1,5 +1,9 @@
-import { Title } from '../../shared/components/Title';
+import { MyData } from '../../features/myData';
 
 export default function MyDataPage() {
-  return <Title title="Página: Meus Dados" size="2xl" weight="black" color="white" />;
+  return (
+    <MyData.root>
+      <MyData.SupplierInformation />
+    </MyData.root>
+  );
 }
