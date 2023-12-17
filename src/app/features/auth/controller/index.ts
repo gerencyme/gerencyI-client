@@ -40,14 +40,12 @@ export const useAuthController = () => {
 
   const onSubmit = async (data: TAuthSubmitSchema) => {
     await auth(data as UserAuth, setErrorResolver).then((resp) => {
-      if (resp !== 'usuario não existe') {
+      if (resp && resp.token) {
         // validar statuscode
         createSession({
           cookieName: tokenUserKey,
           value: resp
         });
-
-        // só dar o push após uma segunda request para pegar os dados do usuário e salvar no local storage
 
         return push(APP_ROUTES.private['my-account'].name);
       }

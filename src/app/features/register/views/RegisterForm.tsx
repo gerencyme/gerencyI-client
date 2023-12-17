@@ -66,7 +66,7 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
           text={errorResolver}
           weigth="semi-bold"
           size="sm"
-          color="white"
+          color="error"
           className="relative min-[1520px]:left-16"
         />
       )}
