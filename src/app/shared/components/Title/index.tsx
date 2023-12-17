@@ -14,13 +14,13 @@ export function Title({
   size,
   className,
   color,
-  weigth,
+  weight,
   fontFamily,
   ...props
 }: TitleProps) {
   const Comp = as ?? 'h1';
   return (
-    <Comp {...props} className={titleTv({ size, className, color, weigth, fontFamily })}>
+    <Comp {...props} className={titleTv({ size, className, color, weight, fontFamily })}>
       {title}
     </Comp>
   );

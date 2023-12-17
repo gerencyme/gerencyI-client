@@ -31,7 +31,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
     <FormProvider {...authFormSchema}>
       <Form onSubmit={handleSubmit(onSubmit)} className={authFormTv()}>
         {errorResolver && (
-          <Text as="span" text={errorResolver} weigth="bold" size="sm" color="white" />
+          <Text as="span" text={errorResolver} weight="bold" size="sm" color="white" />
         )}
         <div className="flex w-full justify-center items-center flex-wrap gap-5 lg:gap-8 pt-10 min-[1520px]:pt-20">
           <Input.root field="CNPJ">
@@ -63,7 +63,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
 
         <Button.root isLoading={isSubmitting} disabled={isSubmitting} className="w-fit mt-4">
           <Button.contentWrapper>
-            <Button.label text="Entrar" color="white" size="lg" weigth="bold" />
+            <Button.label text="Entrar" color="white" size="lg" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
 
@@ -71,7 +71,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
           text="Esquceu sua senha?"
           size="sm"
           color="white"
-          weigth="bold"
+          weight="bold"
           onClick={handleForgetPassword}
           className="cursor-pointer"
         />

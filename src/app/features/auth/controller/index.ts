@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { TAuthSubmitSchema, authSubmitSchema } from '../AuthUtils';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { UserAuth, auth } from '../services';
+import { auth } from '../services';
 import { maskCpfOrCnpj } from '~/src/app/shared/utils/transformers';
 import { useTimeout } from '~/src/app/shared/hooks/useTimeout';
 import { useCookie } from '~/src/app/shared/hooks/useCookies';
@@ -12,6 +12,7 @@ import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { tokenUserKey } from '~/src/app/shared/utils/constants/cookies';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
 import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
+import { AuthRequest } from '~/src/app/shared/types/requests/AuthRequest';
 
 export const useAuthController = () => {
   const { push } = useRouter();
@@ -39,15 +40,13 @@ export const useAuthController = () => {
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');
 
   const onSubmit = async (data: TAuthSubmitSchema) => {
-    await auth(data as UserAuth, setErrorResolver).then((resp) => {
+    await auth(data as AuthRequest, setErrorResolver).then((resp) => {
       if (resp !== 'usuario não existe') {
         // validar statuscode
         createSession({
           cookieName: tokenUserKey,
           value: resp
         });
-
-        // só dar o push após uma segunda request para pegar os dados do usuário e salvar no local storage
 
         return push(APP_ROUTES.private['my-account'].name);
       }

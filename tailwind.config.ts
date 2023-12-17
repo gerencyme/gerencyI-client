@@ -87,6 +87,19 @@ const config: Config = {
         700: '#86133d',
         800: '#680f2f',
         900: '#4f0b24'
+      },
+
+      yellow: {
+        50: '#fcf8e9',
+        100: '#f7eaba',
+        200: '#f3df98',
+        300: '#eed169',
+        400: '#eac84c',
+        500: '#e5ba1f',
+        600: '#d0a91c',
+        700: '#a38416',
+        800: '#7e6611',
+        900: '#604e0d'
       }
     },
     fontWeight: {
@@ -119,11 +132,17 @@ const config: Config = {
       opacityOn: {
         '0%': { opacity: '0' },
         '100%': { opacity: '1' }
+      },
+      'status-ping': {
+        '25%': { scale: '1.2' },
+        '50%': { opacity: '0.5' },
+        '75%': { scale: '1.3' }
       }
     },
     animation: {
       crawl: 'crawl 1000ms 1 ease-in-out forwards',
-      opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards'
+      opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards',
+      'status-ping': 'status-ping 1000ms infinite linear forwards'
     },
     extend: {
       backgroundImage: {

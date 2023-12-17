@@ -20,7 +20,7 @@ export const titleTv = tv({
       white: 'text-white',
       lightPurple: 'text-lightPurple'
     },
-    weigth: {
+    weight: {
       bold: 'font-bold',
       normal: 'font-normal',
       light: 'font-light',
@@ -30,6 +30,6 @@ export const titleTv = tv({
   },
   defaultVariants: {
     size: 'lg',
-    weigth: 'normal'
+    weight: 'normal'
   }
 });

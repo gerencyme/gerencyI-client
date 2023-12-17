@@ -19,8 +19,8 @@ export function ServiceCardInfoCard({ dataCards = [] }: ServiceCardInfoCardProps
               style={{ animationDelay: randomDelay }}
             />
             <div className="absolute top-1/3 left-0 bg-secondary h-8 w-1" />
-            <Text weigth="bold" size="sm" color="white" text={card.title} />
-            <Text weigth="bold" size="xs" text={card.textInfo} className="text-white/75" />
+            <Text weight="bold" size="sm" color="white" text={card.title} />
+            <Text weight="bold" size="xs" text={card.textInfo} className="text-white/75" />
             <div className="absolute top-1/3 right-0 bg-secondary h-8 w-1" />
           </div>
         );

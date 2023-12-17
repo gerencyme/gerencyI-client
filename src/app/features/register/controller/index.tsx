@@ -21,6 +21,8 @@ export const useRegisterController = () => {
     resolver: zodResolver(registerSubmitSchema)
   });
 
+  const userAlreyExists = errorResolver === 'usuario já existe';
+
   const {
     handleSubmit,
     watch,
@@ -30,24 +32,26 @@ export const useRegisterController = () => {
   const resetStrongPasswordMessage = () => setStrongPasswordMessage('');
 
   const session = sessionUserLocalStorage;
-  const situation = errorResolver !== '';
+  const situation = errorResolver !== '' && !userAlreyExists;
   const updateSituation = () => setErrorResolver('');
   const { resetSituation: resetErrorStiruation } = useTimeout(situation, updateSituation, 10000);
 
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
-      if (res === 'Usuário Adicionado com Sucesso') {
+      if (res !== 'usuario já existe') {
         const user: LocalStorageUser = {
           cnpj: data.cnpj!,
           corporateReason: data.corporateReason,
           email: data.email,
           name: data.name,
-          isFirstLogin: true
+          isFirstLogin: true,
+          _t: res!
         };
 
         setLocalStorage(session, user);
         return push(APP_ROUTES.private['my-data'].name);
       }
+      return setErrorResolver(res);
     });
   };
 
@@ -77,6 +81,7 @@ export const useRegisterController = () => {
     strongPasswordMessage,
     registerSchema,
     isPasswordStrong,
+    userAlreyExists,
     password
   };
 };

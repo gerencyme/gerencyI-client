@@ -15,7 +15,11 @@ import { Icon } from '~/src/app/shared/components/Icon';
 import { FaRegQuestionCircle } from 'react-icons/fa';
 import { Button } from '~/src/app/shared/components/Button';
 
-export function RegisterForm() {
+interface RegisterFormProps {
+  handleForgetPassword: () => void;
+}
+
+export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
   const {
     handleSubmit,
     onSubmit,
@@ -25,6 +29,7 @@ export function RegisterForm() {
     password,
     formattedCnpj,
     isSubmitting,
+    userAlreyExists,
     errorResolver
   } = useRegisterController();
 
@@ -35,14 +40,15 @@ export function RegisterForm() {
           <Text
             className="absolute -bottom-5"
             as="span"
-            weigth="bold"
+            weight="bold"
             text={strongPasswordMessage}
             color="white"
           />
         ) : (
           <div className=" flex items-center absolute -bottom-5 cursor-default gap-1">
-            <Text as="span" weigth="bold" text="Senha fraca" color="error" />
+            <Text as="span" weight="bold" text="Senha fraca" color="error" />
             <Tooltip
+              color="black"
               text={`Senhas deve conter no mínimo 8 carácteres, ao menos 1 minúscula, 1 maiúscula, 1 número e algum caractere especial`}
               className="w-44"
             >
@@ -59,7 +65,7 @@ export function RegisterForm() {
         <Text
           as="span"
           text={errorResolver}
-          weigth="semi-bold"
+          weight="semi-bold"
           size="sm"
           color="white"
           className="relative min-[1520px]:left-16"
@@ -142,9 +148,19 @@ export function RegisterForm() {
           size="inputCompatible"
         >
           <Button.contentWrapper>
-            <Button.label text="Registrar" color="white" size="sm" weigth="bold" />
+            <Button.label text="Registrar" color="white" size="sm" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
+        {userAlreyExists && (
+          <Text
+            text="Esquceu sua senha?"
+            size="sm"
+            color="white"
+            weight="bold"
+            onClick={handleForgetPassword}
+            className="cursor-pointer"
+          />
+        )}
       </Form>
     </FormProvider>
   );

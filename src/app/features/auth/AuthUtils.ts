@@ -2,10 +2,6 @@ import { z } from 'zod';
 import { defaultMessage, minLengthPassword } from '~shared/utils/constants/comumRegisterAndAuth';
 import { maskCpfOrCnpj } from '../../shared/utils/transformers';
 
-export const recoverySchema = z.object({
-  Email: z.string().nonempty(`${defaultMessage} seu email`).toLowerCase()
-});
-
 export const authSubmitSchema = z.object({
   CNPJ: z
     .string()
@@ -20,4 +16,3 @@ export const authSubmitSchema = z.object({
 });
 
 export type TAuthSubmitSchema = z.infer<typeof authSubmitSchema>;
-export type TRecoverySchema = z.infer<typeof recoverySchema>;

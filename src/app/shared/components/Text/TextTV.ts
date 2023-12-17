@@ -15,7 +15,7 @@ export const textTv = tv({
       xs: 'text-xs',
       xxs: 'text-xxs'
     },
-    weigth: {
+    weight: {
       bold: 'font-bold',
       normal: 'font-normal',
       light: 'font-light',
@@ -30,12 +30,13 @@ export const textTv = tv({
       secondary: 'text-secondary',
       error: 'text-error',
       lime: 'text-lime',
+      black: 'text-black',
       lightPurple: 'text-lightPurple'
     }
   },
   defaultVariants: {
     size: 'md',
-    weigth: 'normal',
+    weight: 'normal',
     fontFamily: 'rubik'
   }
 });

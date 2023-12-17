@@ -37,7 +37,7 @@ export function AnimatedTable({ isTable, isPressable, state, togglePress }: Anim
             <Title
               color="white"
               size="xl"
-              weigth="bold"
+              weight="bold"
               title="Seu lucro semanal"
               className={tv.animatedTabledGraphicsTitletv()}
             />
