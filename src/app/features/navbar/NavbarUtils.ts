@@ -1,5 +1,6 @@
 import { NavbarAction } from '~types/NavbarActions';
 import { APP_ROUTES } from '../../shared/utils/app-routes';
+import { DropDownOptions } from '../../shared/types/DropDownOptions';
 
 export const actions: NavbarAction[] = [
   {
@@ -19,5 +20,12 @@ export const authenticatedActions: NavbarAction[] = [
     color: 'primary',
     href: APP_ROUTES.private['my-account'].name,
     label: 'Acessar Painel'
+  }
+];
+
+export const dropDownOptions: DropDownOptions[] = [
+  {
+    href: APP_ROUTES.private['my-account'].name,
+    label: APP_ROUTES.private['my-account'].label
   }
 ];

@@ -2,16 +2,17 @@
 
 import { NavbarAction } from '~types/NavbarActions';
 import { Button } from '../../Button';
-import { Text } from '../../Text';
 import { useNavbarController } from '~/src/app/features/navbar/controller';
 import { DropdownComp } from '../../Dropdown';
-import { APP_ROUTES } from '~utils/app-routes';
+import { checkPublickRoute } from '~utils/checkPublickRoute';
+import { dropDownOptions } from '~/src/app/features/navbar/NavbarUtils';
 
 interface NavbarActionsProps {
   actions: NavbarAction[];
 }
 export function NavbarActions({ actions = [] }: NavbarActionsProps) {
-  const { pathName, helloUser, user } = useNavbarController();
+  const { pathName, user, choiseIcon, choiseLink, choiseLabel } = useNavbarController();
+  const isPublicPage = checkPublickRoute(pathName);
 
   const renderButtons = () => (
     <>
@@ -42,23 +43,20 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
   );
 
   const renderDropdown = () => (
-    <div className="flex gap-4">
-      <Text
-        text={helloUser}
-        size="md"
-        color="white"
-        weight="semi-bold"
-        className="hidden md:flex"
-      />
-      <DropdownComp.Dropdown />
+    <div className="flex items-center gap-4">
+      <Button.root color="primary" size="small">
+        <Button.link href={choiseLink}>
+          <Button.contentWrapper>
+            <Button.icon icon={choiseIcon} color="white" />
+            <Button.label text={choiseLabel} color="white" />
+          </Button.contentWrapper>
+        </Button.link>
+      </Button.root>
+      <DropdownComp.Dropdown options={dropDownOptions} />
     </div>
   );
 
   return (
-    <div className="flex gap-4">
-      {!user || (user && pathName === APP_ROUTES.public.home.name)
-        ? renderButtons()
-        : renderDropdown()}
-    </div>
+    <div className="flex gap-4">{user && !isPublicPage ? renderDropdown() : renderButtons()}</div>
   );
 }
