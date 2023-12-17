@@ -15,6 +15,10 @@ export const APP_ROUTES = {
     'inventory-control': {
       name: '/inventory-control',
       label: 'Controle de Estoque'
+    },
+    'new-order': {
+      name: '/new-order',
+      label: 'Novo Pedido'
     }
   },
   public: {
@@ -36,9 +40,7 @@ export const APP_ROUTES = {
     }
   },
   publicPaths: {
-    home: '/',
     auth: '/auth',
-    register: '/register',
-    products: '/products'
+    register: '/register'
   }
 };
