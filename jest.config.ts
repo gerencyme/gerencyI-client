@@ -15,7 +15,10 @@ const jestConfig: JestConfigWithTsJest = {
     '^~/(.+)': '<rootDir>/$1',
     '^~hooks/(.+)': '<rootDir>/src/app/shared/hooks/$1',
     '^~contexts/(.+)': '<rootDir>/src/app/shared/contexts/$1',
-    '^~shared/(.+)': '<rootDir>/src/app/shared/$1'
+    '^~shared/(.+)': '<rootDir>/src/app/shared/$1',
+    '^~animations/(.+)': '<rootDir>/src/app/shared/animations/$1',
+    '^~utils/(.+)': '<rootDir>/src/app/shared/utils/$1',
+    '^~assets/(.+)': '<rootDir>/src/app/assets/$1'
   }
 };
 
