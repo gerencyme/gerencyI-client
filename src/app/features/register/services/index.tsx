@@ -1,14 +1,16 @@
 import { Dispatch, SetStateAction } from 'react';
 import { api } from '~/src/app/shared/services/axios/api';
 import { RegisterUser } from '~/src/app/shared/types/RegisterUser';
+import { CompanieRequest } from '~/src/app/shared/types/requests/CompanieRequest';
 import { RegisterRequest } from '~/src/app/shared/types/requests/RegisterRequest';
+import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
 
 export const register = async (
   body: RegisterUser,
   errorResolver: Dispatch<SetStateAction<string>>
 ) => {
   try {
-    const endpoint = 'AddUserIdentityTeste';
+    const endpoint = 'AddUserIdentity';
 
     const formattedBody: RegisterRequest = {
       // o id vai vazio porque é gerado no lado do servidor
@@ -23,10 +25,14 @@ export const register = async (
       updateDate: new Date()
     };
 
-    const result = await api.post<string>(endpoint, formattedBody);
+    const result = await api.post<CompanieRequest>(endpoint, formattedBody);
 
     return result.data;
-  } catch {
-    errorResolver('Erro na criação de conta do usuário, tente mais tarde!');
+  } catch (err: any) {
+    const status = err.response?.status || 500;
+
+    const errorMessage =
+      errorMessages[status] || 'Erro na criação de conta do usuário, tente mais tarde!';
+    errorResolver(errorMessage);
   }
 };
