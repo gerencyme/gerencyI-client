@@ -31,7 +31,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
     <FormProvider {...authFormSchema}>
       <Form onSubmit={handleSubmit(onSubmit)} className={authFormTv()}>
         {errorResolver && (
-          <Text as="span" text={errorResolver} weigth="bold" size="sm" color="white" />
+          <Text as="span" text={errorResolver} weigth="bold" size="sm" color="error" />
         )}
         <div className="flex w-full justify-center items-center flex-wrap gap-5 lg:gap-8 pt-10 min-[1520px]:pt-20">
           <Input.root field="CNPJ">

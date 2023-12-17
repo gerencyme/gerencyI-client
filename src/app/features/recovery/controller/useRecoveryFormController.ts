@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { TRecoverySchema, recoverySchema } from '../AuthUtils';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { TRecoverySchema, recoverySchema } from '../Recoveryutils';
 
 export const useRecoveryFormController = () => {
   const recoveryFormSchema = useForm<TRecoverySchema>({

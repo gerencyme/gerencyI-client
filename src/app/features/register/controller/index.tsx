@@ -11,6 +11,7 @@ import { LocalStorageUser } from '~/src/app/shared/types/LocalStorageUser';
 import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
+import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
 
 export const useRegisterController = () => {
   const { push } = useRouter();
@@ -21,6 +22,8 @@ export const useRegisterController = () => {
     resolver: zodResolver(registerSubmitSchema)
   });
 
+  const userAlreyExists = errorResolver === errorMessages[409];
+
   const {
     handleSubmit,
     watch,
@@ -30,19 +33,20 @@ export const useRegisterController = () => {
   const resetStrongPasswordMessage = () => setStrongPasswordMessage('');
 
   const session = sessionUserLocalStorage;
-  const situation = errorResolver !== '';
+  const situation = errorResolver !== '' && !userAlreyExists;
   const updateSituation = () => setErrorResolver('');
   const { resetSituation: resetErrorStiruation } = useTimeout(situation, updateSituation, 10000);
 
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
-      if (res === 'Usuário Adicionado com Sucesso') {
+      if (res && res.token) {
         const user: LocalStorageUser = {
-          cnpj: data.cnpj!,
-          corporateReason: data.corporateReason,
-          email: data.email,
-          name: data.name,
-          isFirstLogin: true
+          cnpj: res.cnpj!,
+          corporateReason: res.corporateReason,
+          email: res.email,
+          name: res.name,
+          isFirstLogin: true,
+          _t: res.token!
         };
 
         setLocalStorage(session, user);
@@ -77,6 +81,7 @@ export const useRegisterController = () => {
     strongPasswordMessage,
     registerSchema,
     isPasswordStrong,
+    userAlreyExists,
     password
   };
 };

@@ -25,7 +25,7 @@ export function Dropdown({ options = [] }: DropdownRootProps) {
           icon={IoMdArrowDropdown}
           color="white"
           aria-hidden="true"
-          size="small"
+          size="medium"
           dropdown="base"
         />
       </Menu.Button>
@@ -38,14 +38,14 @@ export function Dropdown({ options = [] }: DropdownRootProps) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-primary ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           {options.map((option, i) => (
             <Menu.Item key={`menu-item-${i}`}>
               {({ active }) => (
                 <Link
                   href={option.href}
                   className={classNames(
-                    active ? 'bg-gray-100 text-white' : 'text-white/70',
+                    active ? 'bg-white text-purple rounded-md' : 'text-purple/70',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -58,7 +58,7 @@ export function Dropdown({ options = [] }: DropdownRootProps) {
             {({ active }) => (
               <button
                 className={classNames(
-                  active ? 'bg-primary/70 rounded-md text-white' : 'text-white/70',
+                  active ? 'bg-white/70 rounded-md text-purple' : 'text-purple/70',
                   'block px-4 py-2 text-sm w-full text-start'
                 )}
                 onClick={logout}
