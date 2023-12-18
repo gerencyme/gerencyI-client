@@ -11,6 +11,7 @@ import { usePathname } from 'next/navigation';
 import { RouteValidation } from '../shared/components/RouteValidation';
 import { APP_ROUTES } from '../shared/utils/app-routes';
 import { Navbar } from '../features/navbar';
+import { Toast } from '../shared/components/Toast';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {!isPublicPage && (
               <RouteValidation.PrivateRoute>{children}</RouteValidation.PrivateRoute>
             )}
+            <Toast />
             <SpeedInsights />
             <Analytics />
           </MainContainer>

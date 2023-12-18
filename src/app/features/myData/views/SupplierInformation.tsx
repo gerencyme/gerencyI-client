@@ -10,7 +10,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 
 export function SupplierInformation() {
   return (
-    <Template>
+    <Template direction="col">
       <Title title="Informações do Fornecedor" as="h2" color="white" size="lg" weight="light" />
       <div className="flex flex-wrap gap-5">
         <Input.root field="supplier">
@@ -21,22 +21,22 @@ export function SupplierInformation() {
         </Input.root>
 
         <Input.root field="contactNumber">
-          <Input.field name="contactNumber" placeholder="Número de contato do fornecedor atual" />
+          <Input.field max={15} maxLength={15} name="contactNumber" placeholder="(00) 90000-0000" />
           <Input.label label="Número de contato" name="contactNumber" />
           <Input.representation icon={IoIosPhonePortrait} />
           <Input.error field="contactNumber" />
         </Input.root>
       </div>
 
-      <Input.root field="CNPJ">
-        <Input.field max={17} maxLength={17} name="CNPJ" placeholder="Qual o seu CNPJ?" />
-        <Input.label label="CNPJ" name="CNPJ" />
+      <Input.root field="supplierCNPJ">
+        <Input.field max={17} maxLength={17} name="supplierCNPJ" placeholder="Qual o CNPJ?" />
+        <Input.label label="cnpj" name="supplierCNPJ" />
         <Input.representation icon={BiSolidCity} />
-        <Input.error field="CNPJ" />
+        <Input.error field="supplierCNPJ" />
       </Input.root>
 
       <Input.root size="full" field="email">
-        <Input.field fildSize="full" type="email" name="email" placeholder="Qual seu Email?" />
+        <Input.field fildSize="full" type="email" name="email" placeholder="Qual o Email?" />
         <Input.label label="E-mail" name="email" />
         <Input.representation icon={MdOutlineEmail} />
         <Input.error field="email" />

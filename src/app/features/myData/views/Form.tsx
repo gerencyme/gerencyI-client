@@ -5,5 +5,9 @@ interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
 }
 
 export function Form({ children, ...props }: FormProps) {
-  return <form {...props}>{children}</form>;
+  return (
+    <form {...props} className="flex flex-col">
+      {children}
+    </form>
+  );
 }

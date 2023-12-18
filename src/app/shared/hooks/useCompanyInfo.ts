@@ -1,15 +1,15 @@
-import { LocalStorageUser } from '../types/LocalStorageUser';
+import { CompanieRequest } from '../types/requests/CompanieRequest';
 import { sessionUserLocalStorage } from '../utils/constants/userLocalStorage';
 import { useLocalStorage } from './useLocalStorage';
 
-export const useUserInfo = () => {
+export const useCompanyInfo = () => {
   const { getLocalStorage } = useLocalStorage();
 
   const session = sessionUserLocalStorage;
 
-  const user: LocalStorageUser = getLocalStorage(session);
+  const company: CompanieRequest = getLocalStorage(session);
 
   return {
-    user
+    company
   };
 };

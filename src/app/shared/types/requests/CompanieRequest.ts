@@ -27,7 +27,7 @@ export interface CompanieRequest {
   cnpj: string;
   corporateReason: string;
   name: string;
-  updateDate: string;
+  updateDate: Date;
   zipCode: ZipCode;
   supplier: Supplier;
 }

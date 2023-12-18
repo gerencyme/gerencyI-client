@@ -9,7 +9,8 @@ export const inputRootTv = tv({
       error: 'border-error text-error'
     },
     size: {
-      full: 'max-w-[680px] min-[680px]:w-full'
+      full: 'max-w-[680px] min-[680px]:w-full',
+      fit: 'max-w-[130px]'
     },
     inputColor: {
       primary: 'bg-darkblue',
