@@ -25,6 +25,7 @@ export interface CompanieRequest {
   token: string;
   email: string;
   cnpj: string;
+  telephone: string;
   corporateReason: string;
   name: string;
   updateDate: Date;

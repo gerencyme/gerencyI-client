@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const inputRootTv = tv({
-  base: 'relative transform duration-300 border-2 font-rubik relative max-w-[680px] flex flex-col gap-3 rounded-2xl pt-5 px-4 text-white/50 ',
+  base: 'relative w-full transform duration-300 border-2 font-rubik relative max-w-[680px] flex flex-col gap-3 rounded-2xl pt-5 px-4 text-white/50 ',
   variants: {
     state: {
       isActive: 'border-lightPurple text-lightPurple',
@@ -27,11 +27,11 @@ export const inputLabelTv = tv({
 });
 
 export const inputFieldTv = tv({
-  base: 'outline-none bg-transparent py-2 pl-8 items-center',
+  base: 'outline-none bg-transparent py-2 pl-8 items-center placeholder:text-xs md:placeholder:text-md text-xs md:text-md',
   variants: {
     fildSize: {
-      full: 'w-60 sm:w-72 lg:w-full',
-      huge: 'w-60 sm:w-72 lg:w-72'
+      full: 'w-full sm:w-72 lg:w-full',
+      huge: 'w-full sm:w-72 lg:w-72'
     }
   },
   defaultVariants: {

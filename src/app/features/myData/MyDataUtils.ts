@@ -14,12 +14,12 @@ export const myDataSchema = z.object({
     .min(18, 'CNPJ inválido')
     .max(18, 'máximo de 18 caracteres')
     .transform((cnpj: string) => maskCpfOrCnpj(cnpj)),
-  contactNumber: z
+  supplierTelephone: z
     .string()
     .nonempty(`${defaultMessage} o número do fornecedor`)
     .min(15, 'Número inválido')
     .max(15, 'máximo de 15 caracteres'),
-  email: z.string().nonempty(`${defaultMessage} o email do fornecedor`).toLowerCase(),
+  supplierEmail: z.string().nonempty(`${defaultMessage} o email do fornecedor`).toLowerCase(),
   personalName: z
     .string()
     .min(10, 'Preencha o nome completo')
@@ -30,9 +30,8 @@ export const myDataSchema = z.object({
     .string()
     .nonempty(`${defaultMessage} o seu CNPJ`)
     .min(18, 'CNPJ inválido')
-    .max(18, 'máximo de 18 caracteres')
-    .transform((cnpj: string) => maskCpfOrCnpj(cnpj)),
-  personalContactNumber: z
+    .max(18, 'máximo de 18 caracteres'),
+  personalTelephone: z
     .string()
     .nonempty(`${defaultMessage} seu número`)
     .min(15, 'Número inválido')

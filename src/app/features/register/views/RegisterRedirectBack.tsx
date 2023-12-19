@@ -17,10 +17,10 @@ export function RegisterRedirectBack({ text, textLink }: RegisterRedirectLinkPro
 
   return (
     <div className={registerRedirectBackTv()}>
-      <Text text={text} color="white" weight="semi-bold" size="md" />
+      <Text text={text} color="white" weight="semi-bold" className="text-xs md:text-md" />
       <Text
         onClick={() => push(href)}
-        className="hover:brightness-110 cursor-pointer ml-1"
+        className="hover:brightness-110 cursor-pointer ml-1 text-xs md:text-md"
         text={textLink}
         color="lightPurple"
         weight="bold"

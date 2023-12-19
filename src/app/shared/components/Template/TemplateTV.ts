@@ -11,7 +11,7 @@ export const templateTv = tv({
       'scroll-y-hidden': 'overflow-y-hidden'
     },
     direction: {
-      col: 'flex-col gap-5',
+      col: 'flex-col gap-1 md:gap-5',
       row: 'flex-row'
     }
   }

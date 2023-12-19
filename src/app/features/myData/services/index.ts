@@ -2,7 +2,7 @@ import { api } from '~shared/services/axios/api';
 import { CompanieRequest } from '~types/requests/CompanieRequest';
 import { toast } from 'react-toastify';
 
-export const updateMyData = async (body: CompanieRequest) => {
+export const updateMyData = async (body: CompanieRequest, resolver: () => void) => {
   const toastId = 'updating';
 
   try {
@@ -18,6 +18,8 @@ export const updateMyData = async (body: CompanieRequest) => {
 
     toast.dismiss(toastId);
     toast.success('Seus dados foram atualizados...');
+
+    resolver();
 
     return data;
   } catch (err) {

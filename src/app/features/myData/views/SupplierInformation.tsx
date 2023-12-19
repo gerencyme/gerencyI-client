@@ -11,8 +11,14 @@ import { MdOutlineEmail } from 'react-icons/md';
 export function SupplierInformation() {
   return (
     <Template direction="col">
-      <Title title="Informações do Fornecedor" as="h2" color="white" size="lg" weight="light" />
-      <div className="flex flex-wrap gap-5">
+      <Title
+        title="Informações do Fornecedor"
+        as="h2"
+        color="white"
+        weight="light"
+        className="text-md pb-2"
+      />
+      <div className="flex flex-wrap gap-1 md:gap-5">
         <Input.root field="supplier">
           <Input.field name="supplier" placeholder="Nome do fornecedor atual" />
           <Input.label label="Nome" name="supplier" />
@@ -20,11 +26,16 @@ export function SupplierInformation() {
           <Input.error field="supplier" />
         </Input.root>
 
-        <Input.root field="contactNumber">
-          <Input.field max={15} maxLength={15} name="contactNumber" placeholder="(00) 90000-0000" />
-          <Input.label label="Número de contato" name="contactNumber" />
+        <Input.root field="supplierTelephone">
+          <Input.field
+            max={15}
+            maxLength={15}
+            name="supplierTelephone"
+            placeholder="(00) 90000-0000"
+          />
+          <Input.label label="Número de contato" name="supplierTelephone" />
           <Input.representation icon={IoIosPhonePortrait} />
-          <Input.error field="contactNumber" />
+          <Input.error field="supplierTelephone" />
         </Input.root>
       </div>
 
@@ -35,11 +46,16 @@ export function SupplierInformation() {
         <Input.error field="supplierCNPJ" />
       </Input.root>
 
-      <Input.root size="full" field="email">
-        <Input.field fildSize="full" type="email" name="email" placeholder="Qual o Email?" />
-        <Input.label label="E-mail" name="email" />
+      <Input.root size="full" field="supplierEmail">
+        <Input.field
+          fildSize="full"
+          type="email"
+          name="supplierEmail"
+          placeholder="Qual o Email?"
+        />
+        <Input.label label="E-mail" name="supplierEmail" />
         <Input.representation icon={MdOutlineEmail} />
-        <Input.error field="email" />
+        <Input.error field="supplierEmail" />
       </Input.root>
     </Template>
   );

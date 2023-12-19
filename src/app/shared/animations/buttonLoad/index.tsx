@@ -10,5 +10,5 @@ export function ButtonLoad() {
 
   const { View } = useLottie(options);
 
-  return <span className="w-24">{View}</span>;
+  return <span className="w-16 relative -top-6 h-4">{View}</span>;
 }

@@ -13,13 +13,24 @@ import { FaCity } from 'react-icons/fa';
 import { FaLaptopHouse } from 'react-icons/fa';
 import { TbNumber } from 'react-icons/tb';
 import { CiCirclePlus } from 'react-icons/ci';
+import { useWindow } from '~/src/app/shared/hooks/useWindow';
 
 export function PersonalInformation() {
+  const { windowSize } = useWindow();
+
+  const ufInputSize = windowSize.width < 648 ? 'full' : 'fit';
+
   return (
     <Template direction="col">
-      <Title title="Informações Pessoais" as="h2" color="white" size="lg" weight="light" />
+      <Title
+        title="Informações Pessoais"
+        as="h2"
+        color="white"
+        className="text-md pb-2"
+        weight="light"
+      />
 
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-1 md:gap-5">
         <Input.root field="personalName">
           <Input.field
             minLength={10}
@@ -33,24 +44,30 @@ export function PersonalInformation() {
         </Input.root>
 
         <Input.root field="personalCNPJ">
-          <Input.field max={17} maxLength={17} name="personalCNPJ" placeholder="Qual o seu CNPJ?" />
+          <Input.field
+            readOnly
+            max={17}
+            maxLength={17}
+            name="personalCNPJ"
+            placeholder="Qual o seu CNPJ?"
+          />
           <Input.label label="CNPJ" name="personalCNPJ" />
           <Input.representation icon={BiSolidCity} />
           <Input.error field="personalCNPJ" />
         </Input.root>
       </div>
 
-      <div className="flex flex-wrap gap-5">
-        <Input.root field="personalContactNumber">
+      <div className="flex flex-wrap gap-1 md:gap-5">
+        <Input.root field="personalTelephone">
           <Input.field
             max={15}
             maxLength={15}
-            name="personalContactNumber"
+            name="personalTelephone"
             placeholder="(00) 90000-0000"
           />
-          <Input.label label="Telefone Pessoal" name="personalContactNumber" />
+          <Input.label label="Telefone Pessoal" name="personalTelephone" />
           <Input.representation icon={IoIosPhonePortrait} />
-          <Input.error field="personalContactNumber" />
+          <Input.error field="personalTelephone" />
         </Input.root>
 
         <Input.root field="zipCode">
@@ -61,8 +78,8 @@ export function PersonalInformation() {
         </Input.root>
       </div>
 
-      <div className="flex gap-5">
-        <Input.root field="UF" size="fit">
+      <div className="flex flex-col md:flex-row gap-1 md:gap-5">
+        <Input.root field="UF" size={ufInputSize}>
           <Input.field fildSize="full" max={2} maxLength={2} name="UF" placeholder="Seu UF?" />
           <Input.label label="UF" name="UF" />
           <Input.representation icon={FaMapMarked} />
@@ -77,7 +94,7 @@ export function PersonalInformation() {
         </Input.root>
       </div>
 
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-1 md:gap-5">
         <Input.root field="adress">
           <Input.field name="adress" placeholder="Ex: Avenida um" />
           <Input.label label="Endereço" name="adress" />

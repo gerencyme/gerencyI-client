@@ -17,5 +17,5 @@ export const authHeaderTv = tv({
 });
 
 export const authRedirectBackTv = tv({
-  base: 'flex cursor-default min-[1520px]:absolute min-[1520px]:top-1/2 min-[1520px]:left-20'
+  base: 'flex cursor-default w-full min-[1520px]:absolute min-[1520px]:top-72 min-[1520px]:left-20'
 });

@@ -41,6 +41,7 @@ export const APP_ROUTES = {
   },
   publicPaths: {
     auth: '/auth',
-    register: '/register'
+    register: '/register',
+    products: '/products'
   }
 };

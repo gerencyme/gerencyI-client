@@ -7,7 +7,7 @@ export function MyDataHeader() {
   const { actions } = useMyDataController();
 
   return (
-    <div className="w-full flex justify-end pb-5">
+    <div className="w-full flex md:justify-end pb-5">
       <div className="flex gap-2 sm:gap-4 ">
         {actions.map((action) => (
           <Button.root type={action.type} size="small" key={action.id} color={action.color}>
