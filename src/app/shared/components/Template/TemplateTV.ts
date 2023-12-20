@@ -9,6 +9,10 @@ export const templateTv = tv({
       'scroll-x-hidden': 'overflow-x-hidden',
       'scroll-y': 'overflow-y-scroll flex-col',
       'scroll-y-hidden': 'overflow-y-hidden'
+    },
+    direction: {
+      col: 'flex-col gap-1 md:gap-5',
+      row: 'flex-row'
     }
   }
 });

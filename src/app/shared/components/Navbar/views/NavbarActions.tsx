@@ -11,7 +11,7 @@ interface NavbarActionsProps {
   actions: NavbarAction[];
 }
 export function NavbarActions({ actions = [] }: NavbarActionsProps) {
-  const { pathName, user, choiseIcon, choiseLink, choiseLabel } = useNavbarController();
+  const { pathName, company, choiseIcon, choiseLink, choiseLabel } = useNavbarController();
   const isPublicPage = checkPublickRoute(pathName);
 
   const renderButtons = () => (
@@ -57,6 +57,8 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
   );
 
   return (
-    <div className="flex gap-4">{user && !isPublicPage ? renderDropdown() : renderButtons()}</div>
+    <div className="flex gap-4">
+      {company && !isPublicPage ? renderDropdown() : renderButtons()}
+    </div>
   );
 }

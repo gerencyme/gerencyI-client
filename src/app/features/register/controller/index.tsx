@@ -7,7 +7,6 @@ import { maskCpfOrCnpj } from '~/src/app/shared/utils/transformers';
 import { register } from '../services';
 import { RegisterUser } from '~/src/app/shared/types/RegisterUser';
 import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
-import { LocalStorageUser } from '~/src/app/shared/types/LocalStorageUser';
 import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
@@ -40,16 +39,7 @@ export const useRegisterController = () => {
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
       if (res && res.token) {
-        const user: LocalStorageUser = {
-          cnpj: res.cnpj!,
-          corporateReason: res.corporateReason,
-          email: res.email,
-          name: res.name,
-          isFirstLogin: true,
-          _t: res.token!
-        };
-
-        setLocalStorage(session, user);
+        setLocalStorage(session, res);
         return push(APP_ROUTES.private['my-data'].name);
       }
     });

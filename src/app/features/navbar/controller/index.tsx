@@ -1,15 +1,15 @@
 import { usePathname } from 'next/navigation';
-import { useUserInfo } from '~/src/app/shared/hooks/useUserInfo';
+import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
 import { capitalizeName } from '~/src/app/shared/utils/transformers';
 import { APP_ROUTES } from '~utils/app-routes';
 import { FaCirclePlus } from 'react-icons/fa6';
 import { RiStockLine } from 'react-icons/ri';
 
 export const useNavbarController = () => {
-  const { user } = useUserInfo();
+  const { company } = useCompanyInfo();
   const pathName = usePathname();
 
-  const firstUserName = user?.name?.split(' ')[0];
+  const firstUserName = company?.name?.split(' ')[0];
   const capitalizedUserName = (firstUserName && capitalizeName(firstUserName)) || '';
 
   const isUnderNewOrder = pathName === APP_ROUTES.private['new-order'].name;
@@ -22,7 +22,7 @@ export const useNavbarController = () => {
   return {
     pathName,
     capitalizedUserName,
-    user,
+    company,
     choiseIcon,
     choiseLabel,
     choiseLink

@@ -36,6 +36,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
         <div className="flex w-full justify-center items-center flex-wrap gap-5 lg:gap-8 pt-10 min-[1520px]:pt-20">
           <Input.root field="CNPJ">
             <Input.field
+              fildSize="full"
               max={17}
               maxLength={17}
               value={formattedCnpj}
@@ -49,6 +50,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
 
           <Input.root field="Password">
             <Input.field
+              fildSize="full"
               type={passwordType}
               name="Password"
               placeholder="Digite sua senha..."
@@ -61,9 +63,19 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
           </Input.root>
         </div>
 
-        <Button.root isLoading={isSubmitting} disabled={isSubmitting} className="w-fit mt-4">
+        <Button.root
+          isLoading={isSubmitting}
+          disabled={isSubmitting}
+          size="small"
+          className="w-fit mt-4"
+        >
           <Button.contentWrapper>
-            <Button.label text="Entrar" color="white" size="lg" weight="bold" />
+            <Button.label
+              text="Entrar"
+              color="white"
+              weight="bold"
+              className="text-xs sm:text-sm md:text-md lg:text-lg"
+            />
           </Button.contentWrapper>
         </Button.root>
 

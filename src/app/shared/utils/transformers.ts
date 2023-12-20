@@ -7,7 +7,7 @@ export const capitalizeName = (str: string) => {
 };
 
 export function maskCpfOrCnpj(value: string) {
-  if (!value) return;
+  if (!value) return '';
 
   value = value.replace(/\D/g, '');
   if (value.length > 13) {
@@ -36,4 +36,24 @@ export const getFirstThreeNames = (fullName: string) => {
     firstThree: firstThreeNames.join(' '),
     remaining: remainingNames.join(' ')
   };
+};
+
+export const formatPhoneNumber = (value: string) => {
+  return value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+};
+
+export const formatCep = (cep: string) => {
+  if (!cep) return '';
+
+  const cleanedCEP = cep.replace(/\D/g, '');
+
+  return `${cleanedCEP.slice(0, 5)}-${cleanedCEP.slice(5)}`;
+};
+
+export const onlyLetters = (value: string) => {
+  if (!value) return '';
+
+  value = value.replace(/\s/g, '');
+
+  return value.replace(/[^A-Za-z]/g, '').toUpperCase();
 };
