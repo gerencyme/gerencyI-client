@@ -1,4 +1,5 @@
 import { FormHTMLAttributes, ReactNode } from 'react';
+import { myDataFormTv } from '../MyDataTV';
 
 interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
@@ -6,7 +7,7 @@ interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
 
 export function Form({ children, ...props }: FormProps) {
   return (
-    <form {...props} className="flex flex-col">
+    <form {...props} className={myDataFormTv()}>
       {children}
     </form>
   );

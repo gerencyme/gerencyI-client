@@ -2,13 +2,14 @@
 
 import { Button } from '~/src/app/shared/components/Button';
 import { useMyDataController } from '../controller';
+import { myDataHeaderContentTv, myDataHeaderRootTv } from '../MyDataTV';
 
 export function MyDataHeader() {
   const { actions } = useMyDataController();
 
   return (
-    <div className="w-full flex md:justify-end pb-5">
-      <div className="flex gap-2 sm:gap-4 ">
+    <div className={myDataHeaderRootTv()}>
+      <div className={myDataHeaderContentTv()}>
         {actions.map((action) => (
           <Button.root type={action.type} size="small" key={action.id} color={action.color}>
             <Button.contentWrapper>
