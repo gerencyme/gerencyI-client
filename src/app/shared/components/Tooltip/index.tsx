@@ -7,7 +7,7 @@ import { VariantProps } from 'tailwind-variants';
 
 interface TooltipProps extends VariantProps<typeof contentTv> {
   children: ReactNode;
-  text: string;
+  text?: string;
   className?: string;
   isArrow?: boolean;
   content?: () => JSX.Element;
@@ -38,7 +38,7 @@ export function Tooltip({
             {content?.() ?? (
               <>
                 <Text
-                  text={capitalizeName(text)}
+                  text={capitalizeName(text ?? '')}
                   color={color === 'black' ? 'white' : 'black'}
                   size="sm"
                 />

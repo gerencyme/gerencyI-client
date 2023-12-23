@@ -95,5 +95,19 @@ export const mockedProductCardContent: ProductCard[] = [
     unitPrice: 2.67,
     isLiked: true,
     isModalOpen: false
+  },
+  {
+    date: new Date('11/12/2023'),
+    id: 3,
+    identifyColor: 'bg-[#bd1b56]',
+    productBrand: 'Alguma Marca',
+    productName: 'Algum Produto',
+    quantity: 75,
+    similarCompaniesContent: similarCompaniesContent2,
+    status: 'underAnalisis',
+    totalPrice: 200.25,
+    unitPrice: 2.67,
+    isLiked: true,
+    isModalOpen: false
   }
 ];

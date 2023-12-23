@@ -23,7 +23,7 @@ export function ProductCardContent() {
   } = useProductCardController();
 
   return (
-    <div className="flex flex-wrap gap-8">
+    <div className="flex items-center gap-8 flex-wrap justify-center">
       {mockedProductCardContent.map((productCardContent) => (
         <ProductCard.root key={productCardContent.id}>
           <PurshaseModal

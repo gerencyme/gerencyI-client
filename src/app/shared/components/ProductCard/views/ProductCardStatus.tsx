@@ -10,7 +10,7 @@ interface ProductCardStatusProps extends VariantProps<typeof productCardStatusTv
 }
 
 export function ProductCardStatus({ state, handleCancel }: ProductCardStatusProps) {
-  const content = <div className={productCardStatusTv({ state })} />;
+  const status = <div className={productCardStatusTv({ state })} />;
 
   const tooltipText = () => {
     if (state === 'underAnalisis') return '';
@@ -34,16 +34,21 @@ export function ProductCardStatus({ state, handleCancel }: ProductCardStatusProp
   );
 
   const renderCancelTooltip = () => (
-    <Tooltip color="white" text="" content={() => renderCancelTooltipContent()}>
-      {content}
+    <Tooltip
+      color="white"
+      isArrow={false}
+      contentState="withoutContent"
+      content={() => renderCancelTooltipContent()}
+    >
+      {status}
     </Tooltip>
   );
 
   return state === 'underAnalisis' ? (
     renderCancelTooltip()
   ) : (
-    <Tooltip color="black" text={tooltipText()}>
-      {content}
+    <Tooltip isArrow={false} color="white" text={tooltipText()}>
+      {status}
     </Tooltip>
   );
 }
