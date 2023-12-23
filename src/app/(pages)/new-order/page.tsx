@@ -1,5 +1,21 @@
-import { Title } from '../../shared/components/Title';
+'use client';
+
+import { NewOrder } from '~features/newOrder';
 
 export default function MyAccountPage() {
-  return <Title title="Página: Novo Pedido" size="2xl" weight="black" color="white" />;
+  return (
+    <NewOrder.root>
+      <NewOrder.locationGuide />
+
+      <NewOrder.HalfContainer>
+        <NewOrder.draftMode />
+        <NewOrder.form />
+        <NewOrder.ColorIdentity />
+      </NewOrder.HalfContainer>
+
+      <NewOrder.HalfContainer>
+        <NewOrder.information />
+      </NewOrder.HalfContainer>
+    </NewOrder.root>
+  );
 }

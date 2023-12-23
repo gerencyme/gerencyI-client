@@ -31,8 +31,7 @@ export const register = async (
   } catch (err: any) {
     const status = err.response?.status || 500;
 
-    const errorMessage =
-      errorMessages[status] || 'Erro na criação de conta do usuário, tente mais tarde!';
+    const errorMessage = errorMessages[status];
     errorResolver(errorMessage);
   }
 };

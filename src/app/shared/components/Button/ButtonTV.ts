@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const buttonRootTv = tv({
-  base: 'flex justify-center items-center rounded-xl disabled:bg-violet-400 overflow-hidden',
+  base: 'flex justify-center items-center rounded-xl disabled:bg-violet-400 ',
   variants: {
     size: {
       small: 'py-2 px-2 sm:px-4 w-fit h-fit',

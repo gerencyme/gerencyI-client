@@ -1,5 +1,12 @@
 import { setCookie, destroyCookie } from 'nookies';
 
+/**
+ * @returns {
+ *  createSession
+ * destroySession
+ * }
+ */
+
 export interface CreateSession {
   cookieName: string;
   value: any;

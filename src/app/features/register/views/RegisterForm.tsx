@@ -123,18 +123,14 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
         </div>
 
         <Input.root size="full" field="email">
-          <Input.field fildSize="full" type="email" name="email" placeholder="Qual seu Email?" />
+          <Input.field type="email" name="email" placeholder="Qual seu Email?" />
           <Input.label label="E-mail" name="email" />
           <Input.representation icon={MdOutlineEmail} />
           <Input.error field="email" />
         </Input.root>
 
         <Input.root size="full" field="corporateReason">
-          <Input.field
-            fildSize="full"
-            name="corporateReason"
-            placeholder="Qual sua razão social?"
-          />
+          <Input.field name="corporateReason" placeholder="Qual sua razão social?" />
           <Input.label label="Razão Social" name="corporateReason" />
           <Input.representation icon={FaRegNewspaper} />
           <Input.error field="corporateReason" />

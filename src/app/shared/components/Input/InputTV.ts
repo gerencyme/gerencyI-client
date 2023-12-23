@@ -27,16 +27,7 @@ export const inputLabelTv = tv({
 });
 
 export const inputFieldTv = tv({
-  base: 'outline-none bg-transparent py-2 pl-8 items-center placeholder:text-xs md:placeholder:text-md text-xs md:text-md',
-  variants: {
-    fildSize: {
-      full: 'w-full sm:w-72 lg:w-full',
-      huge: 'w-full sm:w-72 lg:w-72'
-    }
-  },
-  defaultVariants: {
-    fildSize: 'huge'
-  }
+  base: 'outline-none bg-transparent w-full py-2 pl-8 items-center placeholder:text-xs md:placeholder:text-md text-xs md:text-md'
 });
 
 export const errorMessageTv = tv({
