@@ -1,3 +1,5 @@
+'use client';
+
 import { Text } from '~/src/app/shared/components/Text';
 import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
 

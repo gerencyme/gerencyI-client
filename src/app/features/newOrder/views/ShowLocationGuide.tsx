@@ -1,3 +1,5 @@
+'use client';
+
 import { Icon } from '~/src/app/shared/components/Icon';
 import { MdLocationOff } from 'react-icons/md';
 import { Text } from '~/src/app/shared/components/Text';

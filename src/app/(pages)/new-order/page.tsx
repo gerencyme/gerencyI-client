@@ -1,11 +1,9 @@
-'use client';
-
 import { NewOrder } from '~features/newOrder';
 import { Productcards } from '../../features/Productcards';
 import { Title } from '../../shared/components/Title';
 import { Template } from '../../shared/components/Template';
 
-export default function MyAccountPage() {
+export default function NewOrderPage() {
   return (
     <div className="flex flex-col gap-4 lg:gap-8 max-w-7xl m-auto py-8">
       <NewOrder.root>

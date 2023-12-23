@@ -1,3 +1,5 @@
+'use client';
+
 import * as TooltipRadix from '@radix-ui/react-tooltip';
 import { ReactNode } from 'react';
 import { Text } from '~shared/components/Text';
