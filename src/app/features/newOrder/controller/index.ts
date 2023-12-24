@@ -28,10 +28,10 @@ type TNewOrder = {
 export const useNewOrderController = () => {
   const errorResolver = () => setShowLocationGuide(true);
 
+  const { latitude, longitude } = useCoordinates(errorResolver);
   const { company } = useCompanyInfo();
   const { resetColor } = useSelectColor();
   const { debouncedDraftMode, debouncedDesableDraftMode } = useDraftMode();
-  const { latitude, longitude } = useCoordinates(errorResolver);
   const { color, onChange } = useSelectColor();
   const { getLocalStorage, deleteFromStorage, setLocalStorage } = useLocalStorage();
 

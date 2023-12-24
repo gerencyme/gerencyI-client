@@ -18,18 +18,20 @@ export function NewOrderActions({ discartDraft, draftMode }: NewOrderActionProps
 
   return (
     <div className={tv.newOrderActionsWrapperTv()}>
-      <Button.root
-        onClick={discartDraft}
-        size="huge"
-        disabled={isDisabled}
-        type="button"
-        color="error"
-        className={tv.newOrderClearActionTv({ draftMode: hasDraft })}
-      >
-        <Button.contentWrapper>
-          <Button.label text="Descartar Rascunho" color="white" weight="light" size="sm" />
-        </Button.contentWrapper>
-      </Button.root>
+      {!showLocationGuide && (
+        <Button.root
+          onClick={discartDraft}
+          size="huge"
+          disabled={isDisabled}
+          type="button"
+          color="error"
+          className={tv.newOrderClearActionTv({ draftMode: hasDraft })}
+        >
+          <Button.contentWrapper>
+            <Button.label text="Descartar Rascunho" color="white" weight="light" size="sm" />
+          </Button.contentWrapper>
+        </Button.root>
+      )}
 
       <Button.root
         size="huge"
@@ -38,7 +40,12 @@ export function NewOrderActions({ discartDraft, draftMode }: NewOrderActionProps
         className={tv.newOrderSubmitActionTv({ draftMode: hasDraft })}
       >
         <Button.contentWrapper>
-          <Button.label text="Enviar" color="white" weight="light" size="sm" />
+          <Button.label
+            text={showLocationGuide ? 'Ative a Localização' : 'Enviar'}
+            color="white"
+            weight="light"
+            size="sm"
+          />
         </Button.contentWrapper>
       </Button.root>
     </div>

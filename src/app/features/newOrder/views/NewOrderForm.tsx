@@ -28,6 +28,7 @@ export function NewOrderForm() {
     setValue,
     deleteFromStorage,
     orderSchema,
+    showLocationGuide,
     color
   } = useNewOrderController();
 
@@ -95,14 +96,22 @@ export function NewOrderForm() {
         <div className={newOrderFormContentTv()}>
           <div className={newOrderFormInputsTv()}>
             <Input.root size="full" field="productName">
-              <Input.field name="productName" placeholder="Qual o nome do produto?" />
+              <Input.field
+                readOnly={showLocationGuide}
+                name="productName"
+                placeholder="Qual o nome do produto?"
+              />
               <Input.label label="Produto" name="productName" />
               <Input.representation icon={MdProductionQuantityLimits} />
               <Input.error field="productName" />
             </Input.root>
 
             <Input.root size="full" field="productType">
-              <Input.field name="productType" placeholder="Qual o tipo do produto?" />
+              <Input.field
+                readOnly={showLocationGuide}
+                name="productType"
+                placeholder="Qual o tipo do produto?"
+              />
               <Input.label label="Tipo" name="productType" />
               <Input.representation icon={CgStyle} />
               <Input.error field="productType" />
@@ -111,7 +120,11 @@ export function NewOrderForm() {
 
           <div className={newOrderFormInputsTv()}>
             <Input.root size="full" field="productBrand">
-              <Input.field name="productBrand" placeholder="Qual a marca do produto?" />
+              <Input.field
+                readOnly={showLocationGuide}
+                name="productBrand"
+                placeholder="Qual a marca do produto?"
+              />
               <Input.label label="Marca" name="productBrand" />
               <Input.representation icon={TbBrandItch} />
               <Input.error field="productBrand" />
@@ -119,6 +132,7 @@ export function NewOrderForm() {
 
             <Input.root size="full" field="quantity">
               <Input.field
+                readOnly={showLocationGuide}
                 defaultValue={10}
                 min={10}
                 max={1000}

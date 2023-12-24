@@ -27,6 +27,12 @@ export function ShowLocationGuide() {
             weight="light"
             size="xs"
           />
+          <Text
+            text="É possível que seja necessário recarregar a página"
+            color="white"
+            weight="light"
+            size="xs"
+          />
           <Modal.contentActions actions={actions} />
         </Modal.content>
       </Modal.contentWrapper>
