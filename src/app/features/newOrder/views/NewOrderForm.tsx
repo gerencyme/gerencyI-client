@@ -12,10 +12,23 @@ import { CgStyle } from 'react-icons/cg';
 import { useEffect } from 'react';
 import { Graphics } from '~/src/app/shared/components/Graphics';
 import { Text } from '~/src/app/shared/components/Text';
+import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
+import { localStorageOrderSketch } from '~/src/app/shared/utils/constants/localStorageOrderSketch';
 
 export function NewOrderForm() {
-  const { handleSubmit, onSubmit, watch, updateDraft, handleSetToDraft, orderSchema, color } =
-    useNewOrderController();
+  const {
+    handleSubmit,
+    onSubmit,
+    watch,
+    updateDraft,
+    handleSetToDraft,
+    debouncedDesableDraftMode,
+    resetColor,
+    setLocalStorage,
+    deleteFromStorage,
+    orderSchema,
+    color
+  } = useNewOrderController();
 
   useEffect(() => {
     const productName = watch('productName');
@@ -26,8 +39,11 @@ export function NewOrderForm() {
     const shoulActiveDraft =
       productName !== '' || productBrand !== '' || productType !== '' || quantity !== 10;
 
+    const shoulRemoveDraft =
+      productName === '' && productBrand === '' && productType === '' && quantity === 10;
+
     if (shoulActiveDraft) {
-      updateDraft({
+      return updateDraft({
         orderColorIdentity: color,
         productBrand,
         productName,
@@ -35,7 +51,22 @@ export function NewOrderForm() {
         quantity
       });
     }
-  }, [color, updateDraft, watch]);
+
+    if (shoulRemoveDraft) {
+      deleteFromStorage(localStorageOrderSketch);
+      debouncedDesableDraftMode();
+      resetColor();
+      setLocalStorage(draftMode, false);
+    }
+  }, [
+    color,
+    debouncedDesableDraftMode,
+    deleteFromStorage,
+    resetColor,
+    setLocalStorage,
+    updateDraft,
+    watch
+  ]);
 
   return (
     <FormProvider {...orderSchema}>
