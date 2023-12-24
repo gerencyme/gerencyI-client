@@ -86,7 +86,7 @@ export const useNewOrderController = () => {
       quantity,
       productType
     }: TNewOrder) => ({
-      companieCNPJ: company.cnpj,
+      companieCNPJ: company?.cnpj,
       lastTotalPrice: null,
       latitude,
       longitude,
