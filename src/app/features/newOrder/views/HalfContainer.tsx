@@ -1,11 +1,10 @@
 import { ReactNode } from 'react';
+import { halfContainerTv } from '../NewOrderTV';
 
 interface HalfContainerProps {
   children: ReactNode;
 }
 
 export function HalfContainer({ children }: HalfContainerProps) {
-  return (
-    <div className="flex flex-col w-fit h-fit gap-2 md:gap-4 lg:translate-y-24">{children}</div>
-  );
+  return <div className={halfContainerTv()}>{children}</div>;
 }

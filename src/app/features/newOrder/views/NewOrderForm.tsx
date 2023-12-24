@@ -7,13 +7,13 @@ import { TiStarburstOutline } from 'react-icons/ti';
 import { Title } from '~/src/app/shared/components/Title';
 import { FormProvider } from 'react-hook-form';
 import { useNewOrderController } from '../controller';
-import { NewOrderAction } from './NewOrderAction';
+import { NewOrderActions } from './NewOrderActions';
 import { CgStyle } from 'react-icons/cg';
 import { useCallback, useEffect } from 'react';
-import { Graphics } from '~/src/app/shared/components/Graphics';
-import { Text } from '~/src/app/shared/components/Text';
 import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
 import { localStorageOrderSketch } from '~/src/app/shared/utils/constants/localStorageOrderSketch';
+import { NewOrderBestSellers } from './NewOrderBestSellers';
+import { newOrderFormContentTv, newOrderFormInputsTv, newOrderFormWrapperTv } from '../NewOrderTV';
 
 export function NewOrderForm() {
   const {
@@ -83,32 +83,8 @@ export function NewOrderForm() {
 
   return (
     <FormProvider {...orderSchema}>
-      <div className="absolute -top-0 lg:-top-48 pr-2 w-full lg:w-screen left-1 overflow-x-auto">
-        <Title
-          as="h4"
-          title="Os mais pedidos no seu segmento"
-          weight="light"
-          color="white"
-          className="text-md md:text-lg"
-        />
-        <Graphics.bestSellers
-          handleSetToDraft={handleSetToDraft}
-          cursor="pointer"
-          hasFunction
-          bgColor="easydark"
-        />
-
-        <Text
-          text="Basta clicar em um produto, selecionar marca, quantidade e enviar para análise"
-          color="white"
-          weight="light"
-          className="hidden min-[500px]:flex text-sm pt-2"
-        />
-      </div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 md:gap-6 w-full max-[480px]:translate-y-6 md:translate-y-6"
-      >
+      <NewOrderBestSellers handleSetToDraft={handleSetToDraft} />
+      <form onSubmit={handleSubmit(onSubmit)} className={newOrderFormWrapperTv()}>
         <Title
           title="Informações do seu novo pedido"
           weight="light"
@@ -116,8 +92,8 @@ export function NewOrderForm() {
           className="text-md md:text-lg"
         />
 
-        <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 justify-center">
-          <div className="flex flex-col gap-4 md:gap-6">
+        <div className={newOrderFormContentTv()}>
+          <div className={newOrderFormInputsTv()}>
             <Input.root size="full" field="productName">
               <Input.field name="productName" placeholder="Qual o nome do produto?" />
               <Input.label label="Produto" name="productName" />
@@ -133,7 +109,7 @@ export function NewOrderForm() {
             </Input.root>
           </div>
 
-          <div className="flex flex-col gap-4 md:gap-6">
+          <div className={newOrderFormInputsTv()}>
             <Input.root size="full" field="productBrand">
               <Input.field name="productBrand" placeholder="Qual a marca do produto?" />
               <Input.label label="Marca" name="productBrand" />
@@ -157,7 +133,7 @@ export function NewOrderForm() {
           </div>
         </div>
 
-        <NewOrderAction discartDraft={discartDraft} />
+        <NewOrderActions discartDraft={discartDraft} />
       </form>
     </FormProvider>
   );

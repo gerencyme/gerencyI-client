@@ -1,26 +1,30 @@
 import { Button } from '~shared/components/Button';
 import { useNewOrderController } from '../controller';
 import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
+import * as tv from '../NewOrderTV';
+import { VariantProps } from 'tailwind-variants';
 
-interface NewOrderActionProps {
+interface NewOrderActionProps extends VariantProps<typeof tv.newOrderClearActionTv> {
   discartDraft: () => void;
 }
 
-export function NewOrderAction({ discartDraft }: NewOrderActionProps) {
+export function NewOrderActions({ discartDraft, draftMode }: NewOrderActionProps) {
   const { showLocationGuide, isSubmitting } = useNewOrderController();
   const { isDraftMode } = useDraftMode();
+
+  const hasDraft: typeof draftMode = isDraftMode ? 'hasDraft' : 'haventDraft';
 
   const isDisabled = showLocationGuide || isSubmitting;
 
   return (
-    <div className="flex gap-2 md:gap-4 items-center justify-evenly">
+    <div className={tv.newOrderActionsWrapperTv()}>
       <Button.root
         onClick={discartDraft}
         size="huge"
         disabled={isDisabled}
         type="button"
         color="error"
-        className={`duration-300 ${isDraftMode ? 'translate-x-0 w-full' : '-translate-x-96 w-0'}`}
+        className={tv.newOrderClearActionTv({ draftMode: hasDraft })}
       >
         <Button.contentWrapper>
           <Button.label text="Descartar Rascunho" color="white" weight="light" size="sm" />
@@ -31,9 +35,7 @@ export function NewOrderAction({ discartDraft }: NewOrderActionProps) {
         size="huge"
         disabled={isDisabled}
         type="submit"
-        className={`duration-300 ${
-          isDraftMode ? 'translate-x-0' : '-translate-x-5 sm:-translate-x-6'
-        }`}
+        className={tv.newOrderSubmitActionTv({ draftMode: hasDraft })}
       >
         <Button.contentWrapper>
           <Button.label text="Enviar" color="white" weight="light" size="sm" />

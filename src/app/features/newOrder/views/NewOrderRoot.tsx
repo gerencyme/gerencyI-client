@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Template } from '~/src/app/shared/components/Template';
+import { newOrderRootTv } from '../NewOrderTV';
 
 interface NewOrderRootProps {
   children: ReactNode;
@@ -7,11 +8,7 @@ interface NewOrderRootProps {
 
 export function NewOrderRoot({ children }: NewOrderRootProps) {
   return (
-    <Template
-      direction="row"
-      overflow="scroll-x-hidden"
-      className="flex flex-col-reverse lg:flex-row gap-8 items-center justify-evenly h-[600px]"
-    >
+    <Template direction="row" overflow="scroll-x-hidden" className={newOrderRootTv()}>
       {children}
     </Template>
   );

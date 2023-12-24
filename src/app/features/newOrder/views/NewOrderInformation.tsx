@@ -1,10 +1,11 @@
 import { Text } from '~/src/app/shared/components/Text';
 import { Title } from '~/src/app/shared/components/Title';
 import { infos } from '../NewOrderUtils';
+import { newOrderInformationTv } from '../NewOrderTV';
 
 export function NewOrderInformation() {
   return (
-    <div className="hidden lg:flex flex-col gap-2 md:gap-4 w-full max-w-xl">
+    <div className={newOrderInformationTv()}>
       <Title
         as="h2"
         title="Como encontraremos o melhor preço para você?"

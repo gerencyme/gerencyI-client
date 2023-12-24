@@ -11,13 +11,13 @@ import { BestSellersData } from '~types/graphics/BestSellersData';
 import { VariantProps } from 'tailwind-variants';
 import { bestSellersContent, bestSellersPercentRoot, bestSellersTv } from '../GraphicsTV';
 
-interface BestSellersProps extends VariantProps<typeof bestSellersTv> {
+export interface BestSellersProps extends VariantProps<typeof bestSellersTv> {
   bestSellers?: BestSellersData[];
   isPressable?: boolean;
   title?: boolean;
   hasFunction?: boolean;
   handleSetToDraft: (i: number, data: BestSellersData[]) => void;
-  cursor: 'pointer' | 'default';
+  cursor?: 'pointer' | 'default';
 }
 
 const alt = 'itens mais vendidos na semana comparados com a semana passada';
@@ -31,7 +31,7 @@ export function BestSellers({
   hoverState,
   title,
   hasFunction,
-  cursor,
+  cursor = 'default',
   isPressable = false
 }: BestSellersProps) {
   const data = bestSellers ?? bestSellersData;
