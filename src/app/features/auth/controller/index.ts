@@ -31,12 +31,17 @@ export const useAuthController = () => {
 
   const {
     handleSubmit,
+    setValue,
     watch,
     formState: { isSubmitting }
   } = authFormSchema;
 
   const cnpj = watch('CNPJ');
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');
+
+  useEffect(() => {
+    if (cnpj !== '') return setValue('CNPJ', formattedCnpj);
+  }, [cnpj, formattedCnpj, setValue]);
 
   const onSubmit = async (data: TAuthSubmitSchema) => {
     await auth(data as UserAuth, setErrorResolver).then((resp) => {
@@ -77,7 +82,6 @@ export const useAuthController = () => {
     passwordType,
     inputIcon,
     errorResolver,
-    formattedCnpj,
     isSubmitting
   };
 };
