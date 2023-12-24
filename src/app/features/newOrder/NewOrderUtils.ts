@@ -6,7 +6,7 @@ export const newOrderSchema = z.object({
   productName: z.string().nonempty(`${defaultMessage} o nome do produto`).toLowerCase(),
   productBrand: z.string().nonempty(`${defaultMessage} o nome do produto`).toLowerCase(),
   productType: z.string().nonempty(`${defaultMessage} o tipo do produto`).toLowerCase(),
-  quantity: z.coerce.number().positive().min(10, 'Mínimo: 10').max(1000, 'Máximo: 1000')
+  quantity: z.coerce.number().positive('Mínimo: 10').min(10, 'Mínimo: 10').max(1000, 'Máximo: 1000')
 });
 
 export type TNewOrderSchema = z.infer<typeof newOrderSchema>;

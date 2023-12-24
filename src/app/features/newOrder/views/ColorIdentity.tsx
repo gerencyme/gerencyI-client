@@ -16,14 +16,19 @@ export const ColorIdentity = ({ theme }: ColorIdentityProps) => {
   const renderColorSelector = () => <ColorSelector theme={theme} />;
 
   return (
-    <div className="flex gap-2 flex-col">
-      <Text color="white" text="Escolha uma cor de identificação" weight="light" size="sm" />
+    <div className="flex gap-2 flex-col max-[480px]:translate-y-6 md:translate-y-6">
+      <Text
+        color="white"
+        text="Escolha uma cor de identificação"
+        weight="light"
+        className="text-xs md:text-sm"
+      />
 
       <div className="flex items-center gap-2">
         <Tooltip content={renderColorSelector} text="">
           <div style={{ backgroundColor: choisedColor ?? '#FFFFFF' }} className="w-4 h-4" />
         </Tooltip>
-        <Text color="white" text={replacedColor} weight="light" size="sm" />
+        <Text color="white" text={replacedColor} weight="light" className="text-xs md:text-sm" />
       </div>
     </div>
   );

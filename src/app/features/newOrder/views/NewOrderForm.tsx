@@ -70,13 +70,13 @@ export function NewOrderForm() {
 
   return (
     <FormProvider {...orderSchema}>
-      <div className="lg:absolute -top-48">
+      <div className="absolute -top-0 lg:-top-48 pr-2 w-full lg:w-screen left-1 overflow-x-auto">
         <Title
           as="h4"
           title="Os mais pedidos no seu segmento"
-          size="lg"
           weight="light"
           color="white"
+          className="text-md md:text-lg"
         />
         <Graphics.bestSellers
           handleSetToDraft={handleSetToDraft}
@@ -88,23 +88,31 @@ export function NewOrderForm() {
         <Text
           text="Basta clicar em um produto, selecionar marca, quantidade e enviar para análise"
           color="white"
-          size="sm"
           weight="light"
+          className="hidden min-[500px]:flex text-sm pt-2"
         />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2 md:gap-6 w-full">
-        <Title title="Informações do seu novo pedido" weight="light" color="white" />
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-4 md:gap-6 w-full max-[480px]:translate-y-6 md:translate-y-6"
+      >
+        <Title
+          title="Informações do seu novo pedido"
+          weight="light"
+          color="white"
+          className="text-md md:text-lg"
+        />
 
-        <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-6">
-          <div className="flex flex-col gap-2 md:gap-6">
-            <Input.root field="productName">
+        <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 justify-center">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <Input.root size="full" field="productName">
               <Input.field name="productName" placeholder="Qual o nome do produto?" />
               <Input.label label="Produto" name="productName" />
               <Input.representation icon={MdProductionQuantityLimits} />
               <Input.error field="productName" />
             </Input.root>
 
-            <Input.root field="productType">
+            <Input.root size="full" field="productType">
               <Input.field name="productType" placeholder="Qual o tipo do produto?" />
               <Input.label label="Tipo" name="productType" />
               <Input.representation icon={CgStyle} />
@@ -112,15 +120,15 @@ export function NewOrderForm() {
             </Input.root>
           </div>
 
-          <div className="flex flex-col gap-2 md:gap-6">
-            <Input.root field="productBrand">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <Input.root size="full" field="productBrand">
               <Input.field name="productBrand" placeholder="Qual a marca do produto?" />
               <Input.label label="Marca" name="productBrand" />
               <Input.representation icon={TbBrandItch} />
               <Input.error field="productBrand" />
             </Input.root>
 
-            <Input.root field="quantity">
+            <Input.root size="full" field="quantity">
               <Input.field
                 defaultValue={10}
                 min={10}

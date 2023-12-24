@@ -49,7 +49,7 @@ export function BestSellers({
           className="text-xs md:text-md xl:text-lg"
         />
       )}
-      <div className="flex gap-9">
+      <div className="flex w-full gap-6 md:gap-9 justify-start">
         {data.map((bestSeller, i) => (
           <div
             onClick={() => handler(i)}

@@ -31,5 +31,5 @@ export const inputFieldTv = tv({
 });
 
 export const errorMessageTv = tv({
-  base: 'text-xs absolute -bottom-5'
+  base: 'text-xxs md:text-xs absolute -bottom-4 md:-bottom-5'
 });

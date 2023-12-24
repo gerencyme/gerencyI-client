@@ -21,7 +21,7 @@ export const pieChartCompTv = tv({
 });
 
 export const bestSellersTv = tv({
-  base: 'w-full h-fit mt-4 top-[360px] flex flex-col gap-4 duration-300 pointer-events-auto z-50 p-4 items-center justify-center overflow-x-scroll rounded-2xl',
+  base: 'w-full h-fit mt-4 top-[360px] flex flex-col gap-2 md:gap-4 duration-300 pointer-events-auto z-50 p-4 items-center justify-center overflow-x-scroll rounded-2xl',
   variants: {
     pressableState: {
       isPressable: 'scale-95',

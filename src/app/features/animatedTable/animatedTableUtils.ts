@@ -109,7 +109,6 @@ export const bestSellersData = [
   { id: 6, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
   { id: 7, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
   { id: 8, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 },
-  { id: 9, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
-  { id: 10, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
-  { id: 11, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 }
+  { id: 9, name: 'Leite Desnatado 1L', value: 320, economyPercent: 3 },
+  { id: 10, name: 'Frango Congelado 1kg', value: 1500, economyPercent: 5 }
 ];

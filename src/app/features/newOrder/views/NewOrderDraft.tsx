@@ -11,9 +11,9 @@ export function NewOrderDraft() {
       text="Rascunho"
       as="span"
       fontFamily="rosarivo"
-      size="xs"
-      color="lime"
-      className={`duration-300 ${isDraftMode ? 'translate-x-0' : '-translate-x-72'}`}
+      className={`duration-300 text-xxs md:text-sm text-lime max-[480px]:translate-y-8 md:translate-y-8 ${
+        isDraftMode ? 'translate-x-0' : '-translate-x-72'
+      }`}
     />
   );
 }
