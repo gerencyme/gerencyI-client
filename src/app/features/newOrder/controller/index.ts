@@ -157,7 +157,7 @@ export const useNewOrderController = () => {
   ];
 
   const handleSetToDraft = (i: number, data: BestSellersData[]) => {
-    const productBrand = oderSketched?.productType ?? '';
+    const productBrand = oderSketched?.productBrand ?? '';
     const productName = data[i].name;
     const productType = productName.split(' ')[0];
     const quantity = oderSketched?.quantity ?? 10;
