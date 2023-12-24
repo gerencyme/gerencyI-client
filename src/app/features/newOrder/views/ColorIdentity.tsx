@@ -5,6 +5,7 @@ import { Tooltip } from '~shared/components/Tooltip';
 import { ColorSelector } from '~shared/components/ColorSelector';
 import { useNewOrderController } from '../controller';
 import { Theme } from 'react-pick-color';
+import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
 
 interface ColorIdentityProps {
   theme?: Partial<Theme>;
@@ -12,11 +13,16 @@ interface ColorIdentityProps {
 
 export const ColorIdentity = ({ theme }: ColorIdentityProps) => {
   const { replacedColor, choisedColor } = useNewOrderController();
+  const { isDraftMode } = useDraftMode();
 
   const renderColorSelector = () => <ColorSelector theme={theme} />;
 
   return (
-    <div className="flex gap-2 flex-col max-[480px]:translate-y-6 md:translate-y-6">
+    <div
+      className={`${
+        isDraftMode ? 'flex flex-col' : 'hidden'
+      } gap-2 max-[480px]:translate-y-6 md:translate-y-6`}
+    >
       <Text
         color="white"
         text="Escolha uma cor de identificação"

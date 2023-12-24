@@ -9,6 +9,7 @@ export function Toast({ options }: ToastProps) {
   return (
     <ToastContainer
       {...options}
+      position="bottom-left"
       autoClose={5000}
       hideProgressBar={false}
       newestOnTop={false}

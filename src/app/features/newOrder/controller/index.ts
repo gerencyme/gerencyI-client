@@ -190,6 +190,7 @@ export const useNewOrderController = () => {
     resetColor,
     setLocalStorage,
     deleteFromStorage,
+    reset,
     oderSketched,
     actions,
     showLocationGuide,

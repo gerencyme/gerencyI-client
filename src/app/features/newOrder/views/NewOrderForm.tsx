@@ -9,7 +9,7 @@ import { FormProvider } from 'react-hook-form';
 import { useNewOrderController } from '../controller';
 import { NewOrderAction } from './NewOrderAction';
 import { CgStyle } from 'react-icons/cg';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Graphics } from '~/src/app/shared/components/Graphics';
 import { Text } from '~/src/app/shared/components/Text';
 import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
@@ -25,10 +25,18 @@ export function NewOrderForm() {
     debouncedDesableDraftMode,
     resetColor,
     setLocalStorage,
+    setValue,
     deleteFromStorage,
     orderSchema,
     color
   } = useNewOrderController();
+
+  const clearDraft = useCallback(() => {
+    deleteFromStorage(localStorageOrderSketch);
+    debouncedDesableDraftMode();
+    resetColor();
+    setLocalStorage(draftMode, false);
+  }, [debouncedDesableDraftMode, deleteFromStorage, resetColor, setLocalStorage]);
 
   useEffect(() => {
     const productName = watch('productName');
@@ -52,13 +60,9 @@ export function NewOrderForm() {
       });
     }
 
-    if (shoulRemoveDraft) {
-      deleteFromStorage(localStorageOrderSketch);
-      debouncedDesableDraftMode();
-      resetColor();
-      setLocalStorage(draftMode, false);
-    }
+    if (shoulRemoveDraft) return clearDraft();
   }, [
+    clearDraft,
     color,
     debouncedDesableDraftMode,
     deleteFromStorage,
@@ -67,6 +71,15 @@ export function NewOrderForm() {
     updateDraft,
     watch
   ]);
+
+  const discartDraft = () => {
+    setValue('productBrand', '');
+    setValue('productName', '');
+    setValue('productType', '');
+    setValue('quantity', 10);
+
+    clearDraft();
+  };
 
   return (
     <FormProvider {...orderSchema}>
@@ -144,7 +157,7 @@ export function NewOrderForm() {
           </div>
         </div>
 
-        <NewOrderAction />
+        <NewOrderAction discartDraft={discartDraft} />
       </form>
     </FormProvider>
   );
