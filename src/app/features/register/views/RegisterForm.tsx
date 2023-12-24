@@ -27,7 +27,6 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
     registerSchema,
     isPasswordStrong,
     password,
-    formattedCnpj,
     isSubmitting,
     userAlreyExists,
     errorResolver
@@ -74,13 +73,7 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
       <Form className="flex flex-col items-center gap-5 lg:gap-6 m-auto">
         <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
           <Input.root field="cnpj">
-            <Input.field
-              max={17}
-              maxLength={17}
-              value={formattedCnpj}
-              name="cnpj"
-              placeholder="Qual o seu CNPJ?"
-            />
+            <Input.field max={17} maxLength={17} name="cnpj" placeholder="Qual o seu CNPJ?" />
             <Input.label label="cnpj" name="cnpj" />
             <Input.representation icon={BiSolidCity} />
             <Input.error field="cnpj" />

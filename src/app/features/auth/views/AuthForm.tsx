@@ -22,7 +22,6 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
     authFormSchema,
     passwordType,
     inputIcon,
-    formattedCnpj,
     errorResolver,
     isSubmitting
   } = useAuthController();
@@ -35,13 +34,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
         )}
         <div className="flex w-full justify-center items-center flex-wrap gap-5 lg:gap-8 pt-10 min-[1520px]:pt-20">
           <Input.root field="CNPJ">
-            <Input.field
-              max={17}
-              maxLength={17}
-              value={formattedCnpj}
-              name="CNPJ"
-              placeholder="Qual o seu CNPJ?"
-            />
+            <Input.field max={17} maxLength={17} name="CNPJ" placeholder="Qual o seu CNPJ?" />
             <Input.label label="CNPJ" name="CNPJ" />
             <Input.representation icon={BiSolidCity} />
             <Input.error field="CNPJ" />
