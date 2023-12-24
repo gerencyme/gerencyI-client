@@ -1,5 +1,3 @@
-'use client';
-
 import { ElementType } from 'react';
 import { iconTv } from './IconTV';
 import { VariantProps } from 'tailwind-variants';

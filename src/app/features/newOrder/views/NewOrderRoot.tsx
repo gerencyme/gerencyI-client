@@ -10,7 +10,7 @@ export function NewOrderRoot({ children }: NewOrderRootProps) {
     <Template
       direction="row"
       overflow="scroll-x-hidden"
-      className="flex flex-col-reverse lg:flex-row gap-8 items-center justify-evenly"
+      className="flex flex-col-reverse lg:flex-row gap-8 items-center justify-evenly h-[600px]"
     >
       {children}
     </Template>

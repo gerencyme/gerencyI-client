@@ -14,6 +14,7 @@ import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
 import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
 import { Color } from 'react-pick-color';
 import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
+import { BestSellersData } from '~/src/app/shared/types/graphics/BestSellersData';
 
 type TNewOrder = {
   orderColorIdentity?: Color;
@@ -97,7 +98,7 @@ export const useNewOrderController = () => {
       quantity: quantity ?? data?.quantity,
       productType: productType ?? data?.productType
     }),
-    [company.cnpj, latitude, longitude]
+    [company?.cnpj, latitude, longitude]
   );
 
   const updateDraft = useCallback(
@@ -155,6 +156,26 @@ export const useNewOrderController = () => {
     }
   ];
 
+  const handleSetToDraft = (i: number, data: BestSellersData[]) => {
+    const productBrand = oderSketched?.productType ?? '';
+    const productName = data[i].name;
+    const productType = productName.split(' ')[0];
+    const quantity = oderSketched?.quantity ?? 10;
+
+    updateDraft({
+      orderColorIdentity: oderSketched?.orderColorIdentity ?? color,
+      productBrand,
+      productName,
+      productType,
+      quantity
+    });
+
+    setValue('productBrand', productBrand);
+    setValue('productName', productName);
+    setValue('productType', productType);
+    setValue('quantity', quantity);
+  };
+
   return {
     onSubmit,
     onChange,
@@ -162,6 +183,9 @@ export const useNewOrderController = () => {
     watch,
     newOrder,
     updateDraft,
+    setValue,
+    handleSetToDraft,
+    oderSketched,
     actions,
     showLocationGuide,
     isSubmitting,

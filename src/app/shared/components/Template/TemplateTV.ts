@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const templateTv = tv({
-  base: 'p-1 sm:p-2 lg:p-4 bg-easydark ring-1 ring-purple rounded-sm flex gap-2 md:gap-4',
+  base: 'relative p-1 sm:p-2 lg:p-4 bg-easydark ring-1 ring-purple rounded-sm flex gap-2 md:gap-4',
   variants: {
     overflow: {
       hidden: 'overflow-hidden',

@@ -2,6 +2,7 @@ import { SimilarCompaniesContent as SimilarCompaniesContentType } from '~types/S
 import { Avatar } from '../../Avatar';
 import { Text } from '../../Text';
 import { Tooltip } from '../../Tooltip';
+import { Fragment } from 'react';
 
 export interface SimilarCompaniesContentProps {
   similarCompanies: SimilarCompaniesContentType[];
@@ -11,9 +12,9 @@ export function SimilarCompaniesContent({ similarCompanies = [] }: SimilarCompan
   return (
     <div className="relative py-0.5 md:py-3 w-full h-fit flex flex-col justify-center gap-1.5 md:gap-3">
       {similarCompanies.map((companie) => (
-        <>
+        <Fragment key={companie.id}>
           <div className="flex items-center gap-1.5 md:gap-3">
-            <Avatar.root size="small" key={companie.id}>
+            <Avatar.root size="small">
               <>
                 {companie.src ? (
                   <Avatar.image src={companie.src} alt={companie.alt} />
@@ -33,7 +34,7 @@ export function SimilarCompaniesContent({ similarCompanies = [] }: SimilarCompan
             </Tooltip>
           </div>
           <div className="h-0.5 w-full bg-lightPurple" />
-        </>
+        </Fragment>
       ))}
     </div>
   );

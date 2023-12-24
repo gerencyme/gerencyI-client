@@ -1,7 +1,7 @@
 import { NewOrder } from '~features/newOrder';
-import { Productcards } from '../../features/Productcards';
-import { Title } from '../../shared/components/Title';
-import { Template } from '../../shared/components/Template';
+import { Productcards } from '~features/Productcards';
+import { Title } from '~shared/components/Title';
+import { Template } from '~shared/components/Template';
 
 export default function NewOrderPage() {
   return (

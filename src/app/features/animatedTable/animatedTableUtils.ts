@@ -96,19 +96,20 @@ export const areaChartData = [
   }
 ];
 
-let id = 0;
-
 export const pieChartData = [
-  { id: id++, name: 'Arroz Integral 1kg', value: 599 },
-  { id: id++, name: 'Leite Desnatado', value: 174.5 },
-  { id: id++, name: 'Maçãs Gala (kg)', value: 209.25 },
-  { id: id++, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7 },
-  { id: id++, name: 'Café Torrado e Moído 250g', value: 194.7 },
-  { id: id++, name: 'Iogurte Natural 400g', value: 137.4 }
+  { id: 0, name: 'Arroz Integral 1kg', value: 599 },
+  { id: 1, name: 'Leite Desnatado', value: 174.5 },
+  { id: 2, name: 'Maçãs Gala (kg)', value: 209.25 },
+  { id: 3, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7 },
+  { id: 4, name: 'Café Torrado e Moído 250g', value: 194.7 },
+  { id: 5, name: 'Iogurte Natural 400g', value: 137.4 }
 ];
 
 export const bestSellersData = [
-  { id: id++, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
-  { id: id++, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
-  { id: id++, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 }
+  { id: 6, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
+  { id: 7, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
+  { id: 8, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 },
+  { id: 9, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
+  { id: 10, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
+  { id: 11, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 }
 ];

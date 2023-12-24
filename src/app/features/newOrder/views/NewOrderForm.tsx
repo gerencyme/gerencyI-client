@@ -9,31 +9,58 @@ import { FormProvider } from 'react-hook-form';
 import { useNewOrderController } from '../controller';
 import { NewOrderAction } from './NewOrderAction';
 import { CgStyle } from 'react-icons/cg';
+import { useEffect } from 'react';
+import { Graphics } from '~/src/app/shared/components/Graphics';
+import { Text } from '~/src/app/shared/components/Text';
 
 export function NewOrderForm() {
-  const { handleSubmit, onSubmit, watch, updateDraft, orderSchema, color } =
+  const { handleSubmit, onSubmit, watch, updateDraft, handleSetToDraft, orderSchema, color } =
     useNewOrderController();
 
-  const productName = watch('productName');
-  const productBrand = watch('productBrand');
-  const productType = watch('productType');
-  const quantity = watch('quantity');
+  useEffect(() => {
+    const productName = watch('productName');
+    const productBrand = watch('productBrand');
+    const productType = watch('productType');
+    const quantity = watch('quantity');
 
-  const shoulActiveDraft =
-    productName !== '' || productBrand !== '' || productType !== '' || quantity !== 10;
+    const shoulActiveDraft =
+      productName !== '' || productBrand !== '' || productType !== '' || quantity !== 10;
 
-  if (shoulActiveDraft) {
-    updateDraft({
-      orderColorIdentity: color,
-      productBrand,
-      productName,
-      productType,
-      quantity
-    });
-  }
+    if (shoulActiveDraft) {
+      updateDraft({
+        orderColorIdentity: color,
+        productBrand,
+        productName,
+        productType,
+        quantity
+      });
+    }
+  }, [color, updateDraft, watch]);
 
   return (
     <FormProvider {...orderSchema}>
+      <div className="lg:absolute -top-48">
+        <Title
+          as="h4"
+          title="Os mais pedidos no seu segmento"
+          size="lg"
+          weight="light"
+          color="white"
+        />
+        <Graphics.bestSellers
+          handleSetToDraft={handleSetToDraft}
+          cursor="pointer"
+          hasFunction
+          bgColor="easydark"
+        />
+
+        <Text
+          text="Basta clicar em um produto, selecionar marca, quantidade e enviar para análise"
+          color="white"
+          size="sm"
+          weight="light"
+        />
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2 md:gap-6 w-full">
         <Title title="Informações do seu novo pedido" weight="light" color="white" />
 
