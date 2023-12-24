@@ -49,11 +49,14 @@ export const useAuthController = () => {
     await auth(data as AuthRequest, setErrorResolver).then((resp) => {
       if (resp && resp.token) {
         isDraftMode && toast.success('Você tem um rascunho salvo');
+        const pageToBePushed = isDraftMode
+          ? push(APP_ROUTES.private['new-order'].name)
+          : push(APP_ROUTES.private['inventory-control'].name);
 
         setLocalStorage(session, resp);
 
         setTimeout(() => {
-          return push(APP_ROUTES.private['my-account'].name);
+          return pageToBePushed;
         }, 2000);
       }
     });
