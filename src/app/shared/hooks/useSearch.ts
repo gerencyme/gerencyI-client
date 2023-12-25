@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { useTimeout } from './useTimeout';
 import { ProductCard } from '../types/ProductCard';
 
@@ -11,7 +11,9 @@ export const useSearch = (data: ProductCard[]) => {
   const [search, setSearch] = useState('');
 
   const situation = isTyping;
-  const updateSituation = () => setIsTyping(false);
+  const updateSituation = useCallback(() => {
+    setIsTyping(false);
+  }, []);
 
   useTimeout(situation, updateSituation, 1500);
 
@@ -22,10 +24,11 @@ export const useSearch = (data: ProductCard[]) => {
     setSearch(value.toLowerCase());
   };
 
-  const filteredData =
-    search.length > 0
+  const filteredData = useMemo(() => {
+    return search.length > 0
       ? data.filter((item) => item.productName.toLowerCase().match(new RegExp(search, 'i')))
       : data;
+  }, [data, search]);
 
   return { onchange, search, filteredData, isTyping };
 };
