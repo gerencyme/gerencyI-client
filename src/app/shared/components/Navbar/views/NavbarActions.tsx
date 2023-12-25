@@ -43,15 +43,16 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
   );
 
   const renderDropdown = () => (
-    <div className="flex gap-4">
-      <Text
-        text={helloUser}
-        size="md"
-        color="white"
-        weight="semi-bold"
-        className="hidden md:flex"
-      />
-      <DropdownComp.Dropdown />
+    <div className="flex items-center gap-4">
+      <Button.root color="primary" size="small">
+        <Button.link href={choiseLink}>
+          <Button.contentWrapper>
+            <Button.icon icon={choiseIcon} color="white" />
+            <Button.label text={choiseLabel} color="white" />
+          </Button.contentWrapper>
+        </Button.link>
+      </Button.root>
+      <DropdownComp.Dropdown options={dropDownOptions} />
     </div>
   );
 
