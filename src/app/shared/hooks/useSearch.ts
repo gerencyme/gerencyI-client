@@ -20,7 +20,10 @@ export const useSearch = (data: ProductCard[]) => {
   const onchange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
-    setIsTyping(true);
+    if (!isTyping) {
+      setIsTyping(true);
+    }
+
     setSearch(value.toLowerCase());
   };
 
