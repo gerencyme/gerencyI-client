@@ -5,5 +5,5 @@ interface ServiceCardTitleProps {
 }
 
 export function ServiceCardTitle({ title }: ServiceCardTitleProps) {
-  return <Title as="h3" title={title} weigth="bold" color="secondary" />;
+  return <Title as="h3" title={title} weight="bold" color="secondary" />;
 }

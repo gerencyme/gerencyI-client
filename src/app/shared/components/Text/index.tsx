@@ -13,7 +13,7 @@ export function Text({
   as,
   text = '',
   size = 'sm',
-  weigth,
+  weight,
   color,
   className = '',
   fontFamily,
@@ -22,7 +22,7 @@ export function Text({
   const Comp = as ?? 'p';
 
   return (
-    <Comp {...props} className={textTv({ size, weigth, color, fontFamily, className })}>
+    <Comp {...props} className={textTv({ size, weight, color, fontFamily, className })}>
       {text}
     </Comp>
   );

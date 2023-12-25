@@ -13,7 +13,7 @@ export default function Home() {
       <Title
         title="Não perca mais tempo com gerenciamento"
         color="white"
-        weigth="bold"
+        weight="bold"
         className={tv.homePageTitleTv()}
       />
       <p className={tv.homePageSubtitleTv()}>
@@ -24,7 +24,7 @@ export default function Home() {
         <Button.root size="small">
           <Button.contentWrapper>
             <Button.link href="#service">
-              <Button.label text="Consultar" color="white" weigth="bold" size="lg" />
+              <Button.label text="Consultar" color="white" weight="bold" size="lg" />
             </Button.link>
           </Button.contentWrapper>
         </Button.root>
