@@ -15,14 +15,13 @@ export const useSearch = (data: ProductCard[]) => {
     setIsTyping(false);
   }, []);
 
-  const { resetSituation } = useTimeout(situation, updateSituation, 1500);
+  useTimeout(situation, updateSituation, 1500);
 
   const onchange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
     setIsTyping(true);
     setSearch(value.toLowerCase());
-    resetSituation();
   };
 
   const filteredData = useMemo(() => {
