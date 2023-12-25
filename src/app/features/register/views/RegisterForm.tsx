@@ -148,7 +148,13 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
           size="inputCompatible"
         >
           <Button.contentWrapper>
-            <Button.label text="Registrar" color="white" size="sm" weight="bold" />
+            <Button.label
+              text="Registrar"
+              color="white"
+              size="sm"
+              weight="bold"
+              className="text-xs sm:text-sm md:text-md lg:text-lg"
+            />
           </Button.contentWrapper>
         </Button.root>
         {userAlreyExists && (

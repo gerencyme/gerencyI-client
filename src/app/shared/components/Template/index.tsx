@@ -7,6 +7,6 @@ interface TemplateProps extends VariantProps<typeof templateTv> {
   className?: string;
 }
 
-export function Template({ children, overflow, className }: TemplateProps) {
-  return <div className={templateTv({ className, overflow })}>{children}</div>;
+export function Template({ children, overflow, direction, className }: TemplateProps) {
+  return <div className={templateTv({ className, overflow, direction })}>{children}</div>;
 }

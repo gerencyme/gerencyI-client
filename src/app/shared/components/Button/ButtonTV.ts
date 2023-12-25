@@ -4,7 +4,7 @@ export const buttonRootTv = tv({
   base: 'flex justify-center items-center rounded-xl disabled:bg-violet-400 overflow-hidden',
   variants: {
     size: {
-      small: 'py-2 px-4 w-fit',
+      small: 'py-2 px-2 sm:px-4 w-fit h-fit',
       medium: 'py-4 px-16 h-12 w-full max-w-sm sm:w-72 lg:w-96',
       huge: 'py-6 px-16 h-12 w-full',
       inputCompatible: 'w-64 h-10 sm:h-14 sm:w-full'
