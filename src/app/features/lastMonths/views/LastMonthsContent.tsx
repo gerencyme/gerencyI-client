@@ -7,11 +7,11 @@ import { useSearch } from '~shared/hooks/useSearch';
 import { LastMonthsFallback } from './LastMonthsFallback';
 
 export function LastMonthsContent() {
-  const { filteredData, search, isTyping, onchange } = useSearch(mockedProductCardContent);
+  const { filteredData, search, onchange } = useSearch(mockedProductCardContent);
 
   return (
     <>
-      <Search.input isLoading={isTyping} search={search} onchange={onchange} />
+      <Search.input search={search} onchange={onchange} />
       {filteredData && <Productcards.content productCard={filteredData} />}
       {!filteredData.length && <LastMonthsFallback />}
     </>
