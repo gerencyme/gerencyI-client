@@ -6,10 +6,10 @@ import { ChangeEvent } from 'react';
 interface SearchInputProps {
   onchange: (e: ChangeEvent<HTMLInputElement>) => void;
   search: string;
-  isLoading: boolean;
+  isLoading?: boolean;
 }
 
-export function SearchInput({ onchange, search, isLoading }: SearchInputProps) {
+export function SearchInput({ onchange, search, isLoading = false }: SearchInputProps) {
   return (
     <Search.root>
       <Search.icon isLoading={isLoading} />

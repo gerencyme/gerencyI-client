@@ -1,5 +1,4 @@
 import { ChangeEvent, useMemo, useState } from 'react';
-import { useTimeout } from './useTimeout';
 import { ProductCard } from '../types/ProductCard';
 
 /**
@@ -7,18 +6,11 @@ import { ProductCard } from '../types/ProductCard';
  */
 
 export const useSearch = (data: ProductCard[]) => {
-  const [isTyping, setIsTyping] = useState(false);
   const [search, setSearch] = useState('');
-
-  const situation = isTyping;
-  const updateSituation = () => setIsTyping(false);
-
-  useTimeout(situation, updateSituation, 1500);
 
   const onchange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
-    setIsTyping(true);
     setSearch(value.toLowerCase());
   };
 
@@ -28,5 +20,5 @@ export const useSearch = (data: ProductCard[]) => {
       : data;
   }, [data, search]);
 
-  return { onchange, search, filteredData, isTyping };
+  return { onchange, search, filteredData };
 };
