@@ -26,6 +26,7 @@ export const useRegisterController = () => {
   const {
     handleSubmit,
     watch,
+    setValue,
     formState: { isSubmitting }
   } = registerSchema;
 
@@ -55,6 +56,10 @@ export const useRegisterController = () => {
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');
 
   useEffect(() => {
+    if (cnpj !== '') return setValue('cnpj', formattedCnpj);
+  }, [cnpj, formattedCnpj, setValue]);
+
+  useEffect(() => {
     resetSituation();
   }, [resetSituation]);
 
@@ -65,7 +70,6 @@ export const useRegisterController = () => {
   return {
     handleSubmit,
     onSubmit,
-    formattedCnpj,
     isSubmitting,
     errorResolver,
     strongPasswordMessage,

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
 import { pieChartData as mockedPieChartData } from '~features/animatedTable/animatedTableUtils';

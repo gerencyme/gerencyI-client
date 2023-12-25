@@ -40,5 +40,5 @@ export const productCardRootTv = tv({
 });
 
 export const renderCancelTooltipContentTv = tv({
-  base: 'flex flex-col items-center justify-center'
+  base: 'flex flex-col items-center justify-center bg-white p-2 rounded-lg'
 });

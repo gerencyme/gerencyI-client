@@ -10,7 +10,8 @@ export const iconTv = tv({
     },
     color: {
       primary: 'text-primary',
-      white: 'text-white'
+      white: 'text-white',
+      warning: 'text-yellow-500'
     },
     type: {
       password: 'cursor-pointer w-12 text-white/50 hover:text-white/75 absolute right-0 top-6',

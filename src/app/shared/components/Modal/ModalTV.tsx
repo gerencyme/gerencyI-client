@@ -11,7 +11,7 @@ export const modalHeaderTv = tv({
 });
 
 export const modalRootTv = tv({
-  base: 'z-50 duration-300 absolute inset-0 bg-darkblue/90 flex items-center justify-center',
+  base: 'z-50 overflow-hidden duration-300 absolute inset-0 bg-darkblue/90 flex items-center justify-center',
   variants: {
     state: {
       open: 'scale-100',

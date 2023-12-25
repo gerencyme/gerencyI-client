@@ -12,14 +12,7 @@ type InputFieldProps = {
 } & InputHTMLAttributes<HTMLInputElement> &
   VariantProps<typeof inputFieldTv>;
 
-export function InputField({
-  name,
-  type,
-  placeholder,
-  className,
-  fildSize,
-  ...props
-}: InputFieldProps) {
+export function InputField({ name, type, placeholder, className, ...props }: InputFieldProps) {
   const { register } = useFormContext();
 
   return (
@@ -29,7 +22,7 @@ export function InputField({
       id={name}
       type={type ?? name}
       placeholder={placeholder}
-      className={inputFieldTv({ className, fildSize })}
+      className={inputFieldTv({ className })}
     />
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import { inputRootTv } from '../InputTV';
 import { useFormContext } from 'react-hook-form';

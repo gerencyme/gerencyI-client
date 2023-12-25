@@ -13,7 +13,7 @@ export const textTv = tv({
       md: 'text-md',
       sm: 'text-sm',
       xs: 'text-xs',
-      xxs: 'text-xxs'
+      xxs: 'text-[9px]'
     },
     weight: {
       bold: 'font-bold',

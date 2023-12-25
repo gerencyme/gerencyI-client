@@ -21,20 +21,20 @@ export const useMyDataController = () => {
   const { company } = useCompanyInfo();
 
   const defaultValues: MyDataSchema = {
-    personalCNPJ: company.cnpj,
-    city: company.zipCode.city ?? '',
-    zipCode: company.zipCode.code,
-    adress: company.zipCode.street ?? '',
-    companieNumber: company.zipCode.number ?? '',
-    complement: company.zipCode.complement ?? '',
-    supplierTelephone: company.supplier.telephone ?? '',
-    supplierEmail: company.supplier.email ?? '',
-    UF: company.zipCode.state ?? '',
-    supplier: company.supplier.nome ?? '',
-    supplierCNPJ: company.supplier.cnpj || '',
-    personalEmail: company.email,
-    personalName: company.name,
-    personalTelephone: company.telephone
+    personalCNPJ: company?.cnpj,
+    city: company?.zipCode.city ?? '',
+    zipCode: company?.zipCode.code,
+    adress: company?.zipCode.street ?? '',
+    companieNumber: company?.zipCode.number ?? '',
+    complement: company?.zipCode.complement ?? '',
+    supplierTelephone: company?.supplier.telephone ?? '',
+    supplierEmail: company?.supplier.email ?? '',
+    UF: company?.zipCode.state ?? '',
+    supplier: company?.supplier.nome ?? '',
+    supplierCNPJ: company?.supplier.cnpj || '',
+    personalEmail: company?.email,
+    personalName: company?.name,
+    personalTelephone: company?.telephone
   };
 
   const allMyDataSchema = useForm<MyDataSchema>({
@@ -71,10 +71,10 @@ export const useMyDataController = () => {
 
   const onSubmit = (data: MyDataSchema) => {
     const formattedData: CompanieRequest = {
-      cnpj: company.cnpj,
-      corporateReason: company.corporateReason,
+      cnpj: company?.cnpj,
+      corporateReason: company?.corporateReason,
       email: data.personalEmail,
-      id: company.id,
+      id: company?.id,
       telephone: data.personalTelephone,
       name: data.personalName,
       supplier: {
@@ -83,9 +83,9 @@ export const useMyDataController = () => {
         email: data.supplierEmail,
         telephone: data.supplierTelephone,
         endereco: '',
-        supplierId: company.supplier.supplierId
+        supplierId: company?.supplier.supplierId
       },
-      token: company.token,
+      token: company?.token,
       updateDate: new Date(),
       zipCode: {
         city: data.city,

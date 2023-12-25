@@ -60,16 +60,16 @@ export function PersonalInformation() {
       </div>
 
       <div className={myDataInputsContentTv({ wrap })}>
-        <Input.root field="personalsupplierTelephone">
+        <Input.root field="personalTelephone">
           <Input.field
             max={15}
             maxLength={15}
-            name="personalsupplierTelephone"
+            name="personalTelephone"
             placeholder="(00) 90000-0000"
           />
-          <Input.label label="Telefone Pessoal" name="personalsupplierTelephone" />
+          <Input.label label="Telefone Pessoal" name="personalTelephone" />
           <Input.representation icon={IoIosPhonePortrait} />
-          <Input.error field="personalsupplierTelephone" />
+          <Input.error field="personalTelephone" />
         </Input.root>
 
         <Input.root field="zipCode">
@@ -82,14 +82,14 @@ export function PersonalInformation() {
 
       <div className={myDataInputsContentTv({ wrap })}>
         <Input.root field="UF" size={ufInputSize}>
-          <Input.field fildSize="full" max={2} maxLength={2} name="UF" placeholder="Seu UF?" />
+          <Input.field max={2} maxLength={2} name="UF" placeholder="Seu UF?" />
           <Input.label label="UF" name="UF" />
           <Input.representation icon={FaMapMarked} />
           <Input.error field="UF" />
         </Input.root>
 
         <Input.root size="full" field="city">
-          <Input.field fildSize="full" type="city" name="city" placeholder="Qual sua cidade?" />
+          <Input.field type="city" name="city" placeholder="Qual sua cidade?" />
           <Input.label label="Cidade" name="city" />
           <Input.representation icon={FaCity} />
           <Input.error field="city" />
@@ -124,12 +124,7 @@ export function PersonalInformation() {
       </Input.root>
 
       <Input.root size="full" field="personalEmail">
-        <Input.field
-          fildSize="full"
-          type="personalEmail"
-          name="personalEmail"
-          placeholder="Qual seu e-mail?"
-        />
+        <Input.field type="personalEmail" name="personalEmail" placeholder="Qual seu e-mail?" />
         <Input.label label="E-mail" name="personalEmail" />
         <Input.representation icon={MdOutlineEmail} />
         <Input.error field="personalEmail" />

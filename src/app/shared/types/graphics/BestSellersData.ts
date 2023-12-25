@@ -3,4 +3,5 @@ export interface BestSellersData {
   name: string;
   value: number;
   economyPercent: number;
+  productType: string;
 }
