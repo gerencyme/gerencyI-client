@@ -12,11 +12,8 @@ export function LastMonthsContent() {
   return (
     <>
       <Search.input isLoading={isTyping} search={search} onchange={onchange} />
-      {filteredData.length ? (
-        <Productcards.content productCard={filteredData} />
-      ) : (
-        <LastMonthsFallback />
-      )}
+      {filteredData && <Productcards.content productCard={filteredData} />}
+      {!filteredData.length && <LastMonthsFallback />}
     </>
   );
 }
