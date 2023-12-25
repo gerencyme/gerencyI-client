@@ -13,9 +13,11 @@ import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
 import { AuthRequest } from '~/src/app/shared/types/requests/AuthRequest';
 import { toast } from 'react-toastify';
 import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
+import { useCookie } from '~/src/app/shared/hooks/useCookies';
 
 export const useAuthController = () => {
   const { push } = useRouter();
+  const { createSession } = useCookie();
   const { deleteFromStorage, setLocalStorage, getLocalStorage } = useLocalStorage();
   const [errorResolver, setErrorResolver] = useState('');
   const [isVisible, setIsVisible] = useState(false);
@@ -54,6 +56,11 @@ export const useAuthController = () => {
           : push(APP_ROUTES.private['inventory-control'].name);
 
         setLocalStorage(session, resp);
+
+        createSession({
+          cookieName: '_t',
+          value: resp.token
+        });
 
         setTimeout(() => {
           return pageToBePushed;
