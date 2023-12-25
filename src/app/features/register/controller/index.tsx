@@ -11,6 +11,7 @@ import { LocalStorageUser } from '~/src/app/shared/types/LocalStorageUser';
 import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
+import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
 
 export const useRegisterController = () => {
   const { push } = useRouter();
@@ -21,7 +22,7 @@ export const useRegisterController = () => {
     resolver: zodResolver(registerSubmitSchema)
   });
 
-  const userAlreyExists = errorResolver === 'usuario já existe';
+  const userAlreyExists = errorResolver === errorMessages[409];
 
   const {
     handleSubmit,
@@ -38,20 +39,19 @@ export const useRegisterController = () => {
 
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
-      if (res !== 'usuario já existe') {
+      if (res && res.token) {
         const user: LocalStorageUser = {
-          cnpj: data.cnpj!,
-          corporateReason: data.corporateReason,
-          email: data.email,
-          name: data.name,
+          cnpj: res.cnpj!,
+          corporateReason: res.corporateReason,
+          email: res.email,
+          name: res.name,
           isFirstLogin: true,
-          _t: res!
+          _t: res.token!
         };
 
         setLocalStorage(session, user);
         return push(APP_ROUTES.private['my-data'].name);
       }
-      return setErrorResolver(res);
     });
   };
 
