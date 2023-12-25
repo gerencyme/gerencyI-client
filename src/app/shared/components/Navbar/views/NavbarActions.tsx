@@ -12,6 +12,7 @@ interface NavbarActionsProps {
 }
 export function NavbarActions({ actions = [] }: NavbarActionsProps) {
   const { pathName, company, choiseIcon, choiseLink, choiseLabel } = useNavbarController();
+
   const isPublicPage = checkPublickRoute(pathName);
 
   const renderButtons = () => (

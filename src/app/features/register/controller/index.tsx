@@ -39,7 +39,16 @@ export const useRegisterController = () => {
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
       if (res && res.token) {
-        setLocalStorage(session, res);
+        const user: LocalStorageUser = {
+          cnpj: res.cnpj!,
+          corporateReason: res.corporateReason,
+          email: res.email,
+          name: res.name,
+          isFirstLogin: true,
+          _t: res.token!
+        };
+
+        setLocalStorage(session, user);
         return push(APP_ROUTES.private['my-data'].name);
       }
     });
