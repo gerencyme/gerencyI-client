@@ -16,7 +16,7 @@ export interface BestSellersProps extends VariantProps<typeof bestSellersTv> {
   isPressable?: boolean;
   title?: boolean;
   hasFunction?: boolean;
-  handleSetToDraft: (i: number, data: BestSellersData[]) => void;
+  handleSetToDraft?: (i: number, data: BestSellersData[]) => void;
   cursor?: 'pointer' | 'default';
 }
 
@@ -37,7 +37,7 @@ export function BestSellers({
   const data = bestSellers ?? bestSellersData;
   const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
-  const handler = (i: number) => (hasFunction ? handleSetToDraft(i, data) : {});
+  const handler = (i: number) => (hasFunction ? handleSetToDraft?.(i, data) : {});
 
   return (
     <div className={bestSellersTv({ pressableState: state, bgColor, hoverState })}>

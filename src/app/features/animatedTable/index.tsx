@@ -47,7 +47,11 @@ export function AnimatedTable({ isTable, isPressable, state, togglePress }: Anim
               <Graphics.pieChard isPressable={isPressable} />
               <Graphics.simpleAreaChart isPressable={isPressable} />
             </div>
-            <Graphics.bestSellers hoverState="hovered" isPressable={isPressable} />
+            <Graphics.bestSellers
+              hoverState="hovered"
+              bgColor="easyblue"
+              isPressable={isPressable}
+            />
           </>
         )}
       </div>

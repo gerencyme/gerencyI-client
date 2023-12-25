@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelectColor } from '~/src/app/shared/hooks/contexts/useSelectColor';
 import { useCoordinates } from '~/src/app/shared/hooks/useCoordinates';
@@ -68,14 +68,6 @@ export const useNewOrderController = () => {
     reset,
     formState: { isSubmitting }
   } = orderSchema;
-
-  const productName = watch('productName');
-
-  useEffect(() => {
-    if (productName !== '') {
-      setValue('productType', productName.split(' ')[0]);
-    }
-  }, [setValue, productName]);
 
   const newOrder = useCallback(
     ({
@@ -159,8 +151,10 @@ export const useNewOrderController = () => {
   const handleSetToDraft = (i: number, data: BestSellersData[]) => {
     const productBrand = oderSketched?.productBrand ?? '';
     const productName = data[i].name;
-    const productType = productName.split(' ')[0];
+    const productType = data[i].productType;
     const quantity = oderSketched?.quantity ?? 10;
+
+    console.log(productType);
 
     updateDraft({
       orderColorIdentity: oderSketched?.orderColorIdentity ?? color,

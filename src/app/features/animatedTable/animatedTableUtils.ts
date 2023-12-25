@@ -1,5 +1,7 @@
 // mocked base graphics
 
+import { BestSellersData } from '../../shared/types/graphics/BestSellersData';
+
 export const rows = [
   {
     name: 'Arroz Integral 1kg',
@@ -105,10 +107,16 @@ export const pieChartData = [
   { id: 5, name: 'Iogurte Natural 400g', value: 137.4 }
 ];
 
-export const bestSellersData = [
-  { id: 6, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
-  { id: 7, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
-  { id: 8, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 },
-  { id: 9, name: 'Leite Desnatado 1L', value: 320, economyPercent: 3 },
-  { id: 10, name: 'Frango Congelado 1kg', value: 1500, economyPercent: 5 }
+export const bestSellersData: BestSellersData[] = [
+  { id: 6, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4, productType: 'Grãos' },
+  { id: 7, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1, productType: 'Frutas' },
+  {
+    id: 8,
+    name: 'Azeite de Oliva Extra Virgem 500ml',
+    value: 269.7,
+    economyPercent: 2,
+    productType: 'Óleos'
+  },
+  { id: 9, name: 'Leite Desnatado 1L', value: 320, economyPercent: 3, productType: 'Laticínio' },
+  { id: 10, name: 'Frango Congelado 1kg', value: 1500, economyPercent: 5, productType: 'Aves' }
 ];
