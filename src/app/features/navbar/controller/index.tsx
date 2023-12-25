@@ -1,6 +1,5 @@
 import { usePathname } from 'next/navigation';
 import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
-import { useUserInfo } from '~/src/app/shared/hooks/useUserInfo';
 import { capitalizeName } from '~/src/app/shared/utils/transformers';
 import { APP_ROUTES } from '~utils/app-routes';
 import { FaCirclePlus } from 'react-icons/fa6';
