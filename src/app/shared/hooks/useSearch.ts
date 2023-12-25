@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useMemo, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 import { useTimeout } from './useTimeout';
 import { ProductCard } from '../types/ProductCard';
 
@@ -11,9 +11,7 @@ export const useSearch = (data: ProductCard[]) => {
   const [search, setSearch] = useState('');
 
   const situation = isTyping;
-  const updateSituation = useCallback(() => {
-    setIsTyping(false);
-  }, []);
+  const updateSituation = () => setIsTyping(false);
 
   useTimeout(situation, updateSituation, 1500);
 

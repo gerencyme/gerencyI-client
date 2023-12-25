@@ -64,11 +64,7 @@ export const useAuthController = () => {
 
   const situation = errorResolver !== '';
   const updateSituation = () => setErrorResolver('');
-  const { resetSituation } = useTimeout(situation, updateSituation, 10000);
-
-  useEffect(() => {
-    resetSituation();
-  }, [resetSituation]);
+  useTimeout(situation, updateSituation, 10000);
 
   const logout = () => {
     isDraftMode && toast.success('Seu rascunho está salvo');

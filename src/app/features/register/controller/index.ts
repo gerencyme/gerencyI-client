@@ -35,7 +35,7 @@ export const useRegisterController = () => {
   const session = sessionUserLocalStorage;
   const situation = errorResolver !== '' && !userAlreyExists;
   const updateSituation = () => setErrorResolver('');
-  const { resetSituation: resetErrorStiruation } = useTimeout(situation, updateSituation, 10000);
+  useTimeout(situation, updateSituation, 10000);
 
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
@@ -52,20 +52,12 @@ export const useRegisterController = () => {
     '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
   ).test(password?.password);
 
-  const { resetSituation } = useTimeout(isPasswordStrong, resetStrongPasswordMessage, 2000);
+  useTimeout(isPasswordStrong, resetStrongPasswordMessage, 2000);
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');
 
   useEffect(() => {
     if (cnpj !== '') return setValue('cnpj', formattedCnpj);
   }, [cnpj, formattedCnpj, setValue]);
-
-  useEffect(() => {
-    resetSituation();
-  }, [resetSituation]);
-
-  useEffect(() => {
-    resetErrorStiruation();
-  }, [resetErrorStiruation]);
 
   return {
     handleSubmit,
