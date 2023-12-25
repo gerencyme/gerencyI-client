@@ -12,6 +12,7 @@ export const registerSubmitSchema = z.object({
   name: z
     .string()
     .nonempty(`${defaultMessage} seu nome`)
+    .min(10, 'Mínimo de 10 caracteres')
     .transform((name: string) => capitalizeName(name)),
   password: z
     .object({

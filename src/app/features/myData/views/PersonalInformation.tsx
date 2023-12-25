@@ -35,6 +35,7 @@ export function PersonalInformation() {
       <div className={myDataInputsContentTv({ wrap })}>
         <Input.root field="personalName">
           <Input.field
+            readOnly
             minLength={10}
             maxLength={100}
             name="personalName"
@@ -124,7 +125,12 @@ export function PersonalInformation() {
       </Input.root>
 
       <Input.root size="full" field="personalEmail">
-        <Input.field type="personalEmail" name="personalEmail" placeholder="Qual seu e-mail?" />
+        <Input.field
+          readOnly
+          type="personalEmail"
+          name="personalEmail"
+          placeholder="Qual seu e-mail?"
+        />
         <Input.label label="E-mail" name="personalEmail" />
         <Input.representation icon={MdOutlineEmail} />
         <Input.error field="personalEmail" />

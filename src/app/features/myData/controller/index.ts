@@ -73,10 +73,10 @@ export const useMyDataController = () => {
     const formattedData: CompanieRequest = {
       cnpj: company?.cnpj,
       corporateReason: company?.corporateReason,
-      email: data.personalEmail,
+      email: company?.email,
       id: company?.id,
       telephone: data.personalTelephone,
-      name: data.personalName,
+      name: company.name,
       supplier: {
         nome: data.supplier,
         cnpj: data.supplierCNPJ,
