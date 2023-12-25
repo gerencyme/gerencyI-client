@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const newOrderRootTv = tv({
-  base: 'flex flex-col-reverse lg:flex-row gap-8 items-center justify-evenly lg:overflow-y-hidden h-[600px]'
+  base: 'flex flex-col-reverse lg:flex-row gap-8 items-center justify-evenly lg:overflow-y-hidden h-[660px]'
 });
 
 export const halfContainerTv = tv({
@@ -9,7 +9,7 @@ export const halfContainerTv = tv({
 });
 
 export const colorIdentityTv = tv({
-  base: 'gap-2 max-[480px]:translate-y-6 md:translate-y-6 lg:pb-4',
+  base: 'gap-2 max-[480px]:translate-y-12 md:translate-y-6 lg:pb-4',
   variants: {
     visibleState: {
       visible: 'flex flex-col',
@@ -53,7 +53,7 @@ export const newOrderSubmitActionTv = tv({
 });
 
 export const newOrderDraftTv = tv({
-  base: 'duration-300 text-[10px] md:text-[12px] text-lime max-[480px]:translate-y-8 md:translate-y-8',
+  base: 'duration-300 text-[10px] md:text-[12px] text-lime max-[480px]:translate-y-12 md:translate-y-8',
   variants: {
     draftMode: {
       hasDraft: 'translate-x-0',
@@ -70,7 +70,7 @@ export const newOrderInformationTv = tv({
 });
 
 export const newOrderBestSellersWrapperTv = tv({
-  base: 'absolute -top-0 lg:-top-48 pr-2 w-full lg:w-screen left-1 overflow-x-auto'
+  base: 'absolute top-12 lg:-top-48 pr-2 w-full lg:w-screen left-1 overflow-x-auto'
 });
 
 export const newOrderBestSellersTitleTv = tv({
@@ -82,7 +82,7 @@ export const newOrderBestSellersTextTv = tv({
 });
 
 export const newOrderFormWrapperTv = tv({
-  base: 'flex flex-col gap-4 md:gap-6 w-full max-[480px]:translate-y-6 md:translate-y-6'
+  base: 'flex flex-col gap-4 md:gap-6 w-full max-[480px]:translate-y-12 md:translate-y-6'
 });
 
 export const newOrderFormContentTv = tv({

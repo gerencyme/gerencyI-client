@@ -10,7 +10,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 
 export function SupplierInformation() {
   return (
-    <Template direction="col">
+    <Template goBack direction="col">
       <Title
         title="Informações do Fornecedor"
         as="h2"

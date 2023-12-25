@@ -40,11 +40,20 @@ export const buttonRootTv = tv({
 });
 
 export const buttonContentWrapperTv = tv({
-  base: 'relative w-fit m-auto flex gap-x-2 items-center'
+  base: 'relative w-full justify-center m-auto flex gap-x-2 items-center'
 });
 
 export const buttonLinkTv = tv({
-  base: 'w-full h-full z-10'
+  base: 'w-full h-full z-10 flex items-center',
+  variants: {
+    color: {
+      black: 'text-black',
+      white: 'text-white'
+    }
+  },
+  defaultVariants: {
+    color: 'black'
+  }
 });
 
 export const buttonIconTv = tv({

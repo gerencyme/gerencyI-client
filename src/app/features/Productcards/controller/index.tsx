@@ -25,12 +25,14 @@ export const useProductCardController = () => {
       id: 0,
       color: 'white',
       label: 'Visualizar NF',
+      textColor: 'black',
       onClick: () => openNFModal(i)
     },
     {
       id: 1,
       color: 'primary',
       label: 'Repetir Compra',
+      textColor: 'white',
       onClick: () => openRepeatPurchaseModal(i)
     }
   ];

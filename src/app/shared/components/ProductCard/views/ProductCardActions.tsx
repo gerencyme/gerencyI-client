@@ -25,7 +25,7 @@ export function ProductCardActions({ actions, status }: ProductCardActionsProps)
           color={cancelAction.color}
         >
           <Button.contentWrapper>
-            <Button.label text={cancelAction.label} size="xxs" weight="bold" />
+            <Button.label color="white" text={cancelAction.label} size="xxs" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
       </div>
@@ -34,16 +34,10 @@ export function ProductCardActions({ actions, status }: ProductCardActionsProps)
 
   return (
     <div className={productCardActionsTv({})}>
-      {actions().map((action, i) => (
-        <Button.root
-          onClick={action.onClick}
-          key={action.id}
-          size="small"
-          color={action.color}
-          className={i % 2 === 1 ? 'text-white' : 'text-black'}
-        >
+      {actions().map((action) => (
+        <Button.root onClick={action.onClick} key={action.id} size="small" color={action.color}>
           <Button.contentWrapper>
-            <Button.label text={action.label} size="xxs" weight="bold" />
+            <Button.label color={action.textColor} text={action.label} size="xxs" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
       ))}

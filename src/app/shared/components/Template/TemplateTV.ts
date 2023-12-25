@@ -17,9 +17,18 @@ export const templateTv = tv({
     height: {
       fit: 'h-fit',
       full: 'h-full'
+    },
+    goBackState: {
+      hasGoBack: 'pt-14 md:pt-14 lg:pt-14',
+      haventGoBack: ''
     }
   },
   defaultVariants: {
-    height: 'full'
+    height: 'full',
+    goBackState: 'haventGoBack'
   }
+});
+
+export const backButtonTv = tv({
+  base: 'absolute top-4 left-4 duration-300 hover:-translate-x-1 cursor-pointer'
 });
