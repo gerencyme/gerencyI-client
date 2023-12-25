@@ -3,4 +3,5 @@ export interface ProductCardActions {
   label: string;
   color: 'primary' | 'white';
   onClick: () => void;
+  textColor: 'white' | 'black';
 }

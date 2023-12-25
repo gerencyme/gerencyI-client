@@ -3,11 +3,15 @@
 import { ProductCard } from '~shared/components/ProductCard';
 import { useProductCardController } from '../controller';
 import { PurshaseModal } from './modals/EditModal';
-import { mockedProductCardContent } from '../ProductCardsUtils';
 import { NFModal } from './modals/NFModal';
 import { CancelPurshaseModal } from './modals/CancelPurshaseModal';
+import { ProductCard as ProductCardType } from '~/src/app/shared/types/ProductCard';
 
-export function ProductCardContent() {
+interface ProductCardContentProps {
+  productCard: ProductCardType[];
+}
+
+export function ProductCardContent({ productCard = [] }: ProductCardContentProps) {
   const {
     isEditing,
     indexModalOpen,
@@ -24,7 +28,7 @@ export function ProductCardContent() {
 
   return (
     <div className="flex items-center gap-8 flex-wrap justify-center">
-      {mockedProductCardContent.map((productCardContent) => (
+      {productCard.map((productCardContent) => (
         <ProductCard.root key={productCardContent.id}>
           <PurshaseModal
             isEditing={isEditing}

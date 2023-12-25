@@ -8,7 +8,7 @@ interface NewOrderRootProps {
 
 export function NewOrderRoot({ children }: NewOrderRootProps) {
   return (
-    <Template direction="row" overflow="scroll-x-hidden" className={newOrderRootTv()}>
+    <Template goBack direction="row" overflow="scroll-x-hidden" className={newOrderRootTv()}>
       {children}
     </Template>
   );
