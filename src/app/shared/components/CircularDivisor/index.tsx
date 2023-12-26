@@ -1,3 +1,8 @@
-export function CircularDivisor() {
-  return <div className="z-10 w-1.5 h-1.5 rounded-full bg-white/75" />;
+import { VariantProps } from 'tailwind-variants';
+import { circularDivisorTv } from './CircularDivisorTv';
+
+interface CircularDivisorProps extends VariantProps<typeof circularDivisorTv> {}
+
+export function CircularDivisor({ color }: CircularDivisorProps) {
+  return <div className={circularDivisorTv({ color })} />;
 }
