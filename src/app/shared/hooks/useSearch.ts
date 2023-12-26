@@ -3,7 +3,7 @@ import { useTimeout } from './useTimeout';
 import { ProductCard } from '../types/ProductCard';
 
 /**
- * @param data must be a array to be filtered
+ * @param data must be a array to be filtered be search input
  */
 
 export const useSearch = (data: ProductCard[]) => {
@@ -27,11 +27,11 @@ export const useSearch = (data: ProductCard[]) => {
     setSearch(value.toLowerCase());
   };
 
-  const filteredData = useMemo(() => {
+  const searchedData = useMemo(() => {
     return search.length > 0
       ? data.filter((item) => item.productName.toLowerCase().match(new RegExp(search, 'i')))
       : data;
   }, [data, search]);
 
-  return { onchange, search, filteredData, isTyping };
+  return { onchange, search, searchedData, isTyping };
 };

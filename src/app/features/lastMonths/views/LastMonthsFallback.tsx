@@ -13,7 +13,7 @@ export function LastMonthsFallback() {
         color="white"
         className="text-white font-bold text-lg md:text-xl text-center"
         weight="bold"
-        text="Nenhum produto na sua lista..."
+        text="Não encontramos nada na sua busca"
       />
 
       <Text text="Aproveite e faça um pedido agora mesmo!" color="white" weight="bold" />
