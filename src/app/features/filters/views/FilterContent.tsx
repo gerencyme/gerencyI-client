@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { FilterOptions } from '~/src/app/shared/types/FilterOptions';
 import { capitalizeName } from '~/src/app/shared/utils/transformers';
 
-interface FilterContentProps {
+export interface FilterContentProps {
   currentFilter: string;
   filterOptions: FilterOptions[];
   setCurrentFilter: Dispatch<SetStateAction<Readonly<string>>>;

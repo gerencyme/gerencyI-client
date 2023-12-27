@@ -21,8 +21,7 @@ export const useFilters = (data: ProductCard[]) => {
 
   const monthIndex = filterMonthsOptions.findIndex((item) => item.label === currentMonthFilter);
 
-  const capitalizedCurrentStatusFilter = portugueseStatus[selectedStatus];
-  const capitalizedCurrentMonthFilter = currentMonthFilter;
+  const translatedSelectedStatus = portugueseStatus[selectedStatus];
 
   const filteredData = useMemo(() => {
     const monthToFilter = monthIndex + 1;
@@ -41,8 +40,8 @@ export const useFilters = (data: ProductCard[]) => {
   return {
     setCurrentMonth,
     setSelectedStatus,
-    capitalizedCurrentStatusFilter,
-    capitalizedCurrentMonthFilter,
+    translatedSelectedStatus,
+    currentMonthFilter,
     filteredData,
     filterMonthsOptions,
     filterStatusOptions
