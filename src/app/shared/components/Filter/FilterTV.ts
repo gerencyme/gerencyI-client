@@ -7,3 +7,7 @@ export const filterRootTv = tv({
 export const filterIconTv = tv({
   base: 'duration-300 hover:translate-y-1'
 });
+
+export const filterLabelTv = tv({
+  base: 'text-xs sm:text-sm md:text-md'
+});
