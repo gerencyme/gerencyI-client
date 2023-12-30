@@ -1,19 +1,23 @@
 'use client';
 
-import { MonthlyExpense } from '~/src/app/shared/components/MonthlyExpense';
-import { Profile } from '~/src/app/shared/components/Profile';
-import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
-import { useDashboardController } from '../controller';
-import { useCalculateTotalPrice } from '~/src/app/shared/hooks/useCalculateTotalPrice';
-import { mockedProductCardContent } from '../../Productcards/ProductCardsUtils';
-import { ColoredBanner } from '~/src/app/shared/components/ColoredBanner';
-import { Graphics } from '~/src/app/shared/components/Graphics';
 import * as tv from '../DashboardTV';
+import { useDashboardController } from '../controller';
+import { mockedProductCardContent } from '../../Productcards/ProductCardsUtils';
+import { MonthlyExpense } from '~shared/components/MonthlyExpense';
+import { Profile } from '~shared/components/Profile';
+import { useCompanyInfo } from '~hooks/useCompanyInfo';
+import { useCalculateTotalPrice } from '~hooks/useCalculateTotalPrice';
+import { ColoredBanner } from '~shared/components/ColoredBanner';
+import { Graphics } from '~shared/components/Graphics';
+import { useUploadImage } from '~hooks/contexts/useUploadImage';
 
 export function DashboardHeader() {
+  const { preview } = useUploadImage();
   const { isExpensesVisible, toggleExpenses } = useDashboardController();
   const { totalPrice } = useCalculateTotalPrice(mockedProductCardContent);
   const { company } = useCompanyInfo();
+
+  const src = preview !== '' ? preview : company?.src;
 
   return (
     <div className={tv.dashboardHeaderWrapperTv()}>
@@ -21,15 +25,12 @@ export function DashboardHeader() {
 
       <div className={tv.dashboardHeaderProfileTv()}>
         <Profile.root>
-          <Profile.avatar
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            companyName={company.name}
-          />
+          <Profile.avatar src={src ?? ''} companyName={company?.name} />
           <Profile.info
-            cnpj={company.cnpj}
-            companyName={company.name.split(' ')[0]}
+            cnpj={company?.cnpj}
+            companyName={company?.name.split(' ')[0]}
             companySegment="Cafeteria"
-            corporateReason={company.corporateReason}
+            corporateReason={company?.corporateReason}
           />
         </Profile.root>
         <MonthlyExpense.root bgColor="transparent">

@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const avatarRootTv = tv({
-  base: 'relative overflow-hidden',
+  base: 'relative overflow-hidden relative',
   variants: {
     size: {
       small: 'w-8 h-8 rounded-full',
