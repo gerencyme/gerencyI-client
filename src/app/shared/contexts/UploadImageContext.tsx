@@ -5,7 +5,6 @@ interface UploadImageContextProps {
   isEditing: boolean;
   onClose: () => void;
   editToggle: () => void;
-  handleSaveImage: () => void;
   onCrop: (view: string) => void;
 }
 
@@ -21,10 +20,6 @@ export const UploadImageProvider = ({ children }: UploadImageProviderProps) => {
 
   const editToggle = () => setIsEditing((prev) => !prev);
 
-  const handleSaveImage = () => {
-    editToggle();
-  };
-
   const onClose = () => {
     setPreview('');
   };
@@ -33,9 +28,7 @@ export const UploadImageProvider = ({ children }: UploadImageProviderProps) => {
     setPreview(view);
   };
   return (
-    <UploadImageContext.Provider
-      value={{ preview, isEditing, onClose, onCrop, editToggle, handleSaveImage }}
-    >
+    <UploadImageContext.Provider value={{ preview, isEditing, onClose, onCrop, editToggle }}>
       {children}
     </UploadImageContext.Provider>
   );
