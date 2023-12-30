@@ -23,7 +23,7 @@ export function PublicRoute({ children }: PrivateRouteProps) {
 
   useEffect(() => {
     if (hasToken) {
-      return push(APP_ROUTES.private['my-account'].name);
+      return push(APP_ROUTES.private['inventory-control'].name);
     }
   }, [hasToken, isPublicPage, push]);
 
