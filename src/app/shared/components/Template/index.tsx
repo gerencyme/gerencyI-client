@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { Icon } from '../Icon';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 
-interface TemplateProps extends VariantProps<typeof templateTv> {
+export interface TemplateProps extends VariantProps<typeof templateTv> {
   children: ReactNode;
   className?: string;
   goBack?: boolean;
@@ -19,6 +19,7 @@ export function Template({
   direction,
   className,
   height,
+  bgColor,
   goBackState,
   goBack = false
 }: TemplateProps) {
@@ -37,7 +38,16 @@ export function Template({
   );
 
   return (
-    <div className={templateTv({ className, overflow, direction, height, goBackState: backState })}>
+    <div
+      className={templateTv({
+        className,
+        overflow,
+        direction,
+        height,
+        goBackState: backState,
+        bgColor
+      })}
+    >
       {goBack && backButton}
       {children}
     </div>

@@ -1,5 +1,17 @@
-import { Title } from '../../shared/components/Title';
+import { Dashboard } from '../../features/dashboard';
+import { Reflector } from '../../shared/components/Reflector';
 
 export default function InventoryControlPage() {
-  return <Title title="Página: Controle de Estoque" size="2xl" weight="black" color="white" />;
+  return (
+    <Dashboard.root>
+      <div className="relative">
+        <Reflector>
+          <Dashboard.header />
+        </Reflector>
+        <Dashboard.header />
+      </div>
+      <Dashboard.graphics />
+      <Dashboard.table />
+    </Dashboard.root>
+  );
 }

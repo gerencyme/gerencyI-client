@@ -13,7 +13,7 @@ export const useNavbarController = () => {
   const capitalizedUserName = (firstUserName && capitalizeName(firstUserName)) || '';
 
   const isUnderNewOrder = pathName === APP_ROUTES.private['new-order'].name;
-  const choiseLabel = isUnderNewOrder ? 'Controle de Estoque' : 'Novo Pedido';
+  const choiseLabel = isUnderNewOrder ? 'Painel' : 'Novo Pedido';
   const choiseIcon = isUnderNewOrder ? RiStockLine : FaCirclePlus;
   const choiseLink = isUnderNewOrder
     ? APP_ROUTES.private['inventory-control'].name

@@ -3,6 +3,7 @@ import { FAQComponent } from '../features/FAQ';
 import { SystemDemo } from '../features/SystemDemo';
 import { Brightness } from '../shared/components/Brightness';
 import { Button } from '../shared/components/Button';
+import { Reflector } from '../shared/components/Reflector';
 import { Section } from '../shared/components/Section';
 import { Title } from '../shared/components/Title';
 import * as tv from './pageTV';
@@ -39,7 +40,12 @@ export default function Home() {
       </p>
       <Section id="service">
         <Brightness gradient="bg-easy-brightness" />
-        <CurrentService.card />
+        <div className={tv.homePageProductCardWrappetTv()}>
+          <Reflector>
+            <CurrentService.card />
+          </Reflector>
+          <CurrentService.card />
+        </div>
       </Section>
       <Section id="FAQ">
         <FAQComponent.FAQ />

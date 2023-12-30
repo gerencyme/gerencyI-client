@@ -1,14 +1,6 @@
 'use client';
 
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { simpleAreaChartTv } from '../GraphicsTV';
 import { VariantProps } from 'tailwind-variants';
 import { AreaChartData } from '~types/graphics/AreaChartData';
@@ -16,16 +8,23 @@ import { areaChartData } from '~features/animatedTable/animatedTableUtils';
 
 interface SimpleAreaChartProps extends VariantProps<typeof simpleAreaChartTv> {
   isPressable: boolean;
+  width?: string;
   chartData?: AreaChartData[];
 }
 
-export function SimpleAreaChart({ isPressable, chartData, pressableState }: SimpleAreaChartProps) {
+export function SimpleAreaChart({
+  isPressable,
+  chartData,
+  pressableState,
+  visibility,
+  width = '50%'
+}: SimpleAreaChartProps) {
   const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
   return (
     <ResponsiveContainer
-      className={simpleAreaChartTv({ pressableState: state })}
-      width="50%"
+      className={simpleAreaChartTv({ pressableState: state, visibility })}
+      width={width}
       height="100%"
     >
       <AreaChart
@@ -39,11 +38,10 @@ export function SimpleAreaChart({ isPressable, chartData, pressableState }: Simp
           bottom: 0
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Area type="monotone" dataKey="GerencyI" stroke="#583ED3" fill="#8884d8" />
+        <Area type="monotone" dataKey="GerencyI" stroke="#00F519" fill="#37A18F" />
       </AreaChart>
     </ResponsiveContainer>
   );
