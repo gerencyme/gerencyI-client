@@ -44,9 +44,9 @@ const renderActiveShape = ({
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + (outerRadius + 10) * cos;
   const sy = cy + (outerRadius + 10) * sin;
-  const mx = cx + (outerRadius + 30) * cos;
-  const my = cy + (outerRadius + 30) * sin;
-  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const mx = cx + (outerRadius + 15) * cos;
+  const my = cy + (outerRadius + 15) * sin;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 10;
   const ey = my;
   const textAnchor = cos >= 0 ? 'start' : 'end';
 
@@ -92,18 +92,29 @@ const renderActiveShape = ({
 
 interface PieChartCompProps extends VariantProps<typeof pieChartCompTv> {
   isPressable: boolean;
+  visibility?: boolean;
+  widthSize?: string;
   pieChartData?: PieChartData[];
 }
 
-export function PieChartComp({ pieChartData, isPressable, pressableState }: PieChartCompProps) {
+export function PieChartComp({
+  pieChartData,
+  isPressable,
+  pressableState,
+  visibility = false,
+  widthSize = '50%'
+}: PieChartCompProps) {
   const { width } = useWindow();
   const [activeIndex, setActiveIndex] = useState(0);
   const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
+  const baseWidth = width > 768 ? '50%' : '100%';
+  const choisedWidth = widthSize ?? baseWidth;
+
   return (
     <ResponsiveContainer
       height="100%"
-      width={width > 768 ? '50%' : '100%'}
+      width={choisedWidth}
       className={pieChartCompTv({ pressableState: state })}
     >
       <PieChart width={400} height={400}>
@@ -118,7 +129,7 @@ export function PieChartComp({ pieChartData, isPressable, pressableState }: PieC
           fill="#8884d8"
           dataKey="value"
           onMouseEnter={({ payload }) => setActiveIndex(payload.id)}
-          className="text-xxs md:text-md"
+          className={visibility ? 'text-sm md:text-md' : 'text-xxs md:text-md'}
         />
       </PieChart>
     </ResponsiveContainer>

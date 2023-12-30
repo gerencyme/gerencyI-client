@@ -1,14 +1,6 @@
 'use client';
 
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { VariantProps } from 'tailwind-variants';
 import { AreaChartData } from '~types/graphics/AreaChartData';
 import { areaChartCompTv } from '../GraphicsTV';
@@ -19,11 +11,19 @@ interface AreaChartCompProps extends VariantProps<typeof areaChartCompTv> {
   chartData?: AreaChartData[];
 }
 
-export function AreaChartComp({ isPressable, chartData, pressableState }: AreaChartCompProps) {
+export function AreaChartComp({
+  isPressable,
+  chartData,
+  pressableState,
+  bgColor
+}: AreaChartCompProps) {
   const state: typeof pressableState = isPressable ? 'isPressable' : 'notPressable';
 
   return (
-    <ResponsiveContainer className={areaChartCompTv({ pressableState: state })}>
+    <ResponsiveContainer
+      width="100%"
+      className={areaChartCompTv({ pressableState: state, bgColor })}
+    >
       <AreaChart
         width={730}
         height={250}
@@ -42,7 +42,6 @@ export function AreaChartComp({ isPressable, chartData, pressableState }: AreaCh
         </defs>
         <XAxis dataKey="name" />
         <YAxis className="text-xs md:text-md" />
-        <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Area
           type="monotone"

@@ -12,7 +12,7 @@ export function MonthlyExpenses({
   toggleExpenses
 }: MonthlyExpensesProps) {
   const formatedPrice = formatPrice(totalExpenses);
-  const total = isExpensesVisible ? formatedPrice : 'RS ****';
+  const total = isExpensesVisible ? formatedPrice : 'R$ ****';
 
   return (
     <Text
@@ -20,7 +20,7 @@ export function MonthlyExpenses({
       text={total}
       weight="light"
       color="white"
-      className="cursor-default"
+      className="cursor-pointer"
     />
   );
 }

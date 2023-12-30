@@ -1,3 +1,5 @@
+'use client';
+
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 import * as DropdownMenuRadix from '@radix-ui/react-dropdown-menu';
 import { CircularDivisor } from '~shared/components/CircularDivisor';

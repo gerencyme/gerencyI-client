@@ -1,12 +1,20 @@
 import { tv } from 'tailwind-variants';
 
 export const areaChartCompTv = tv({
-  base: 'duration-300 pointer-events-auto bg-easyblue rounded-2xl sm:hover:translate-x-2 sm:hover:-translate-y-2 ring-2 ring-purple',
+  base: 'duration-300 pointer-events-auto',
   variants: {
     pressableState: {
       isPressable: 'scale-95',
       notPressable: 'scale-100'
+    },
+    bgColor: {
+      easyblue:
+        'bg-easyblue rounded-2xl sm:hover:translate-x-2 sm:hover:-translate-y-2 ring-2 ring-purple',
+      transparent: 'bg-transparent'
     }
+  },
+  defaultVariants: {
+    bgColor: 'easyblue'
   }
 });
 
@@ -33,7 +41,8 @@ export const bestSellersTv = tv({
     },
     bgColor: {
       easyblue: 'bg-easyblue ring-2 ring-purple',
-      easydark: 'bg-easydark'
+      easydark: 'bg-easydark',
+      transparent: 'bg-transparent'
     }
   },
   defaultVariants: {
@@ -44,12 +53,20 @@ export const bestSellersTv = tv({
 });
 
 export const simpleAreaChartTv = tv({
-  base: 'z-50 ring-2 mt-4 ring-purple duration-300 pointer-events-auto bg-easyblue rounded-2xl sm:hover:translate-x-2 sm:hover:-translate-y-2 hidden md:block',
+  base: 'z-50 mt-4 duration-300 pointer-events-auto',
   variants: {
     pressableState: {
       isPressable: 'scale-95',
       notPressable: 'scale-100'
+    },
+    visibility: {
+      hidden:
+        'hidden md:block bg-easyblue ring-2 ring-purple rounded-2xl sm:hover:translate-x-2 sm:hover:-translate-y-2',
+      block: 'block'
     }
+  },
+  defaultVariants: {
+    visibility: 'hidden'
   }
 });
 
@@ -58,7 +75,8 @@ export const bestSellersContent = tv({
   variants: {
     bgColor: {
       easyblue: 'bg-easydark',
-      easydark: 'bg-darkblue'
+      easydark: 'bg-darkblue',
+      transparent: 'bg-transparent'
     },
     cursor: {
       pointer: 'cursor-pointer hover:scale-105',
