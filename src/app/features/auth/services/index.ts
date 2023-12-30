@@ -16,6 +16,6 @@ export const auth = async (data: AuthRequest, errorResolver: Dispatch<SetStateAc
 
     const errorMessage =
       errorMessages[status] || 'Ocorreu um erro na autenticação. Por favor, tente mais tarde!';
-    errorResolver(errorMessage);
+    errorResolver(errorMessage[0]);
   }
 };

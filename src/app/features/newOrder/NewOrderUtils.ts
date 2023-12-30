@@ -3,9 +3,9 @@ import { defaultMessage } from '~utils/constants/comumRegisterAndAuth';
 import { OrderInformation } from '../../shared/types/OrderInformation';
 
 export const newOrderSchema = z.object({
-  productName: z.string().nonempty(`${defaultMessage} o nome do produto`).toLowerCase(),
-  productBrand: z.string().nonempty(`${defaultMessage} a marca do produto`).toLowerCase(),
-  productType: z.string().nonempty(`${defaultMessage} o tipo do produto`).toLowerCase(),
+  productName: z.string().min(10, `${defaultMessage} o nome do produto`).toLowerCase(),
+  productBrand: z.string().min(2, `${defaultMessage} a marca do produto`).toLowerCase(),
+  productType: z.string().min(2, `${defaultMessage} o tipo do produto`).toLowerCase(),
   quantity: z.coerce.number().positive('Mínimo: 10').min(10, 'Mínimo: 10').max(1000, 'Máximo: 1000')
 });
 

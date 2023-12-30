@@ -15,6 +15,7 @@ import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
 import { Color } from 'react-pick-color';
 import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
 import { BestSellersData } from '~/src/app/shared/types/graphics/BestSellersData';
+import { postNewOrder } from '../service';
 
 type TNewOrder = {
   orderColorIdentity?: Color;
@@ -40,20 +41,16 @@ export const useNewOrderController = () => {
   const oderSketched: NewOrderRequest = getLocalStorage(localStorageOrderSketch);
   const choisedColor = oderSketched?.orderColorIdentity ?? color;
   const replacedColor = choisedColor.replace('#', '').toUpperCase();
+  const product = oderSketched?.product;
 
   const defaultValues: TNewOrderSchema = useMemo(
     () => ({
-      productBrand: oderSketched?.productBrand ?? '',
-      productName: oderSketched?.productName ?? '',
-      productType: oderSketched?.productType ?? '',
-      quantity: oderSketched?.quantity ?? 10
+      productBrand: product?.productBrand ?? '',
+      productName: product?.productName ?? '',
+      productType: product?.productType ?? '',
+      quantity: product?.quantity ?? 10
     }),
-    [
-      oderSketched?.productBrand,
-      oderSketched?.productName,
-      oderSketched?.productType,
-      oderSketched?.quantity
-    ]
+    [product?.productBrand, product?.productName, product?.productType, product?.quantity]
   );
 
   const orderSchema = useForm<TNewOrderSchema>({
@@ -78,19 +75,23 @@ export const useNewOrderController = () => {
       quantity,
       productType
     }: TNewOrder) => ({
+      companyId: company.id,
       companieCNPJ: company?.cnpj,
-      lastTotalPrice: null,
-      latitude,
-      longitude,
-      orderColorIdentity: orderColorIdentity,
       orderDate: new Date(),
-      orderId: '', // gerado do lado do servidor,
-      productBrand: productBrand ?? data?.productBrand,
-      productName: productName ?? data?.productName,
-      quantity: quantity ?? data?.quantity,
-      productType: productType ?? data?.productType
+      orderColorIdentity: orderColorIdentity,
+      product: {
+        productName: productName ?? data?.productName,
+        productBrand: productBrand ?? data?.productBrand,
+        productType: productType ?? data?.productType,
+        quantity: quantity ?? data?.quantity,
+        lastTotalPrice: 0
+      },
+      location: {
+        latitude,
+        longitude
+      }
     }),
-    [company?.cnpj, latitude, longitude]
+    [company?.cnpj, company?.id, latitude, longitude]
   );
 
   const updateDraft = useCallback(
@@ -134,9 +135,7 @@ export const useNewOrderController = () => {
       orderColorIdentity: `bg-[${String(color)}]`
     });
 
-    console.log(newOrderData);
-
-    clearForm();
+    postNewOrder(newOrderData as NewOrderRequest, clearForm);
   };
 
   const actions: ModalContentAction[] = [
@@ -149,12 +148,10 @@ export const useNewOrderController = () => {
   ];
 
   const handleSetToDraft = (i: number, data: BestSellersData[]) => {
-    const productBrand = oderSketched?.productBrand ?? '';
+    const productBrand = product?.productBrand ?? '';
     const productName = data[i].name;
     const productType = data[i].productType;
-    const quantity = oderSketched?.quantity ?? 10;
-
-    console.log(productType);
+    const quantity = product?.quantity ?? 10;
 
     updateDraft({
       orderColorIdentity: oderSketched?.orderColorIdentity ?? color,

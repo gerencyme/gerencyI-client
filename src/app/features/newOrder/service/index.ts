@@ -10,13 +10,16 @@ export const postNewOrder = async (order: NewOrderRequest, resolver: () => void)
       toastId: newOrderToastId,
       isLoading: true
     });
-    const endPont = ''; // api precisa ser finalizada para ter o endPoint
+    const endPont = 'AddNewOrder';
 
     const { data } = await api.post(endPont, order);
 
     toast.dismiss(newOrderToastId);
     toast.success('Seu pedido foi enviado para análise');
-    resolver();
+
+    if (data) {
+      resolver();
+    }
 
     return data;
   } catch (err: any) {
@@ -24,23 +27,6 @@ export const postNewOrder = async (order: NewOrderRequest, resolver: () => void)
     const errorMessage = errorMessages[status];
 
     toast.dismiss(newOrderToastId);
-    toast.error(errorMessage);
-  }
-};
-
-export const getCompanyOrders = async (resolver: () => void) => {
-  try {
-    const endPont = ''; // api precisa ser finalizada para ter o endPoint
-
-    const { data } = await api.get(endPont);
-
-    resolver();
-
-    return data;
-  } catch (err: any) {
-    const status = err.response?.status || 500;
-    const errorMessage = errorMessages[status];
-
     toast.error(errorMessage);
   }
 };

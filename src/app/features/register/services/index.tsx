@@ -32,6 +32,6 @@ export const register = async (
     const status = err.response?.status || 500;
 
     const errorMessage = errorMessages[status];
-    errorResolver(errorMessage);
+    errorResolver(errorMessage[0]);
   }
 };
