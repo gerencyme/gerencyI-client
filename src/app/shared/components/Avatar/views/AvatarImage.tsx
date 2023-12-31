@@ -13,7 +13,7 @@ export function AvatarImage({ src, alt, className }: AvatarImageProps) {
       src={src}
       alt={alt}
       fill
-      quality={1000}
+      quality={100}
       placeholder="blur"
       blurDataURL={blurDataURL}
       className={className}

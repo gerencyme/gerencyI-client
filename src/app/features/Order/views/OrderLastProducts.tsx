@@ -12,8 +12,17 @@ export function OrderLastProducts() {
 
   return (
     <Template overflow="scroll-y" className={orderLastProductsTv()}>
-      <Title as="h4" title="Últimos 12 Pedidos" size="lg" weight="light" color="white" />
-
+      <Title
+        as="h4"
+        title={
+          lastTenNewOrders?.length
+            ? 'Últimos 12 Pedidos'
+            : 'Seus 12 últimos pedidos aparecerão aqui'
+        }
+        size="lg"
+        weight="light"
+        color="white"
+      />
       <Productcards.content productCard={lastTenNewOrders as ProductCard[]} />
     </Template>
   );

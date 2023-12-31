@@ -31,5 +31,5 @@ export interface CompanieRequest {
   updateDate: Date;
   zipCode: ZipCode;
   supplier: Supplier;
-  src?: string;
+  companyImg?: string;
 }

@@ -4,29 +4,15 @@ import { Text } from '../../Text';
 import { profileInfoContentWrapperTv, profileInfoTitleTv, profileInfoTv } from '../ProfileTV';
 
 interface ProfileInfoProps {
-  companyName: string;
   cnpj: string;
   companySegment: string;
   corporateReason: string;
 }
 
-export function ProfileInfo({
-  companyName,
-  cnpj,
-  companySegment,
-  corporateReason
-}: ProfileInfoProps) {
+export function ProfileInfo({ cnpj, companySegment, corporateReason }: ProfileInfoProps) {
   return (
     <div className={profileInfoTv()}>
       <div className={profileInfoContentWrapperTv()}>
-        <Text
-          text={companyName}
-          weight="bold"
-          size="xl"
-          className={profileInfoTitleTv({ color: 'white' })}
-          color="white"
-        />
-        <CircularDivisor />
         <Text
           text={cnpj}
           weight="bold"
@@ -42,7 +28,7 @@ export function ProfileInfo({
           size="xl"
           className={profileInfoTitleTv({ color: 'white/75' })}
         />
-        <CircularDivisor />
+        <CircularDivisor />{' '}
         <Text
           text={corporateReason}
           weight="bold"

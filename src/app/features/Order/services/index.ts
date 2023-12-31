@@ -3,7 +3,7 @@ import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { api } from '~shared/services/axios/api';
 import { errorMessages } from '~shared/utils/constants/errorMessages';
 
-export const getCompanyOrders = async (cnpj: string) => {
+export const getCompanyOrders = async (cnpj: string, logout: () => void) => {
   try {
     const endPont = 'GetLast12NewOrders';
 
@@ -17,6 +17,8 @@ export const getCompanyOrders = async (cnpj: string) => {
     const status = err.response?.status || defaultMessage;
     const errorMessage = errorMessages[status];
 
-    toast.error(errorMessage[1]);
+    status === 400 && logout();
+
+    toast.error(err.response?.data ?? errorMessage);
   }
 };

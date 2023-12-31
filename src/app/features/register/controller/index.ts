@@ -11,9 +11,11 @@ import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
 import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
+import { useCookie } from '~/src/app/shared/hooks/useCookies';
 
 export const useRegisterController = () => {
   const { push } = useRouter();
+  const { createSession } = useCookie();
   const { setLocalStorage } = useLocalStorage();
   const [errorResolver, setErrorResolver] = useState('');
   const [strongPasswordMessage, setStrongPasswordMessage] = useState('Senha forte');
@@ -41,6 +43,12 @@ export const useRegisterController = () => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
       if (res && res.token) {
         setLocalStorage(session, res);
+
+        createSession({
+          cookieName: '_t',
+          value: res.token
+        });
+
         return push(APP_ROUTES.private['my-data'].name);
       }
     });
