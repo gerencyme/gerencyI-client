@@ -11,7 +11,7 @@ interface ProductCardContentProps {
   productCard: ProductCardType[];
 }
 
-export function ProductCardContent({ productCard = [] }: ProductCardContentProps) {
+export function ProductCardContent({ productCard }: ProductCardContentProps) {
   const {
     isEditing,
     indexModalOpen,
@@ -26,9 +26,16 @@ export function ProductCardContent({ productCard = [] }: ProductCardContentProps
     handleLike
   } = useProductCardController();
 
+  const skelletons = Array.from({ length: 4 }).map((_, i) => (
+    <ProductCard.root key={i}>
+      <ProductCard.skelleton />
+    </ProductCard.root>
+  ));
+
   return (
     <div className="flex items-center gap-8 flex-wrap justify-center">
-      {productCard.map((productCardContent) => (
+      {!productCard && skelletons}
+      {productCard?.map((productCardContent) => (
         <ProductCard.root key={productCardContent.orderId}>
           <PurshaseModal
             isEditing={isEditing}

@@ -149,12 +149,26 @@ const config: Config = {
           '25%': { scale: '1.2' },
           '50%': { opacity: '0.5' },
           '75%': { scale: '1.3' }
+        },
+        'flash-animation': {
+          '0%': {
+            transform: 'translateX(-100%)',
+            opacity: '1'
+          },
+          '50%': {
+            transform: 'translateX(0%)'
+          },
+          '100%': {
+            transform: 'translateX(100%)',
+            opacity: '0'
+          }
         }
       },
       animation: {
         crawl: 'crawl 1000ms 1 ease-in-out forwards',
         opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards',
-        'status-ping': 'status-ping 1000ms infinite linear forwards'
+        'status-ping': 'status-ping 1000ms infinite linear forwards',
+        'flash-animation': 'flash-animation 2000ms linear infinite'
       }
     }
   },
