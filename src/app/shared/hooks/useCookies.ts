@@ -1,5 +1,12 @@
 import { setCookie, destroyCookie } from 'nookies';
 
+/**
+ * @returns {
+ *  createSession
+ * destroySession
+ * }
+ */
+
 export interface CreateSession {
   cookieName: string;
   value: any;
@@ -14,7 +21,10 @@ export const useCookie = () => {
       path: '/'
     });
 
-  const deleteCookie = (cookieName: string) => destroyCookie(null, cookieName);
+  const deleteCookie = (cookieName: string) =>
+    destroyCookie(null, cookieName, {
+      cookieName
+    });
 
   return {
     createSession,

@@ -10,7 +10,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 
 export function SupplierInformation() {
   return (
-    <Template direction="col">
+    <Template goBack direction="col">
       <Title
         title="Informações do Fornecedor"
         as="h2"
@@ -47,12 +47,7 @@ export function SupplierInformation() {
       </Input.root>
 
       <Input.root size="full" field="supplierEmail">
-        <Input.field
-          fildSize="full"
-          type="email"
-          name="supplierEmail"
-          placeholder="Qual o Email?"
-        />
+        <Input.field type="email" name="supplierEmail" placeholder="Qual o Email?" />
         <Input.label label="E-mail" name="supplierEmail" />
         <Input.representation icon={MdOutlineEmail} />
         <Input.error field="supplierEmail" />

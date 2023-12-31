@@ -6,6 +6,7 @@ import { ProductCardSimiliarCompanies } from './views/ProductCardSimiliarCompani
 import { ProductCardActions } from './views/ProductCardActions';
 import { ProductCardStatus } from './views/ProductCardStatus';
 import { ProductCardLikeAction } from './views/ProductCardLikeAction';
+import { ProductCardSkelleton } from './views/ProductCardSkelleton';
 
 export const ProductCard = {
   root: ProductCardRoot,
@@ -15,5 +16,6 @@ export const ProductCard = {
   similarCompanies: ProductCardSimiliarCompanies,
   actions: ProductCardActions,
   likeAction: ProductCardLikeAction,
-  status: ProductCardStatus
+  status: ProductCardStatus,
+  skelleton: ProductCardSkelleton
 };

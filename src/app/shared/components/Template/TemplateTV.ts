@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const templateTv = tv({
-  base: 'p-1 sm:p-2 lg:p-4 bg-easydark h-full ring-1 ring-purple rounded-sm flex',
+  base: 'relative p-1 sm:p-2 lg:p-4  flex gap-2 md:gap-4',
   variants: {
     overflow: {
       hidden: 'overflow-hidden',
@@ -13,6 +13,27 @@ export const templateTv = tv({
     direction: {
       col: 'flex-col gap-1 md:gap-5',
       row: 'flex-row'
+    },
+    height: {
+      fit: 'h-fit',
+      full: 'h-full'
+    },
+    goBackState: {
+      hasGoBack: 'pt-14 md:pt-14 lg:pt-14',
+      haventGoBack: ''
+    },
+    bgColor: {
+      easydark: 'bg-easydark ring-1 ring-purple rounded-sm',
+      transparent: 'bg-transparent'
     }
+  },
+  defaultVariants: {
+    height: 'full',
+    goBackState: 'haventGoBack',
+    bgColor: 'easydark'
   }
+});
+
+export const backButtonTv = tv({
+  base: 'absolute top-4 left-4 duration-300 hover:-translate-x-1 cursor-pointer'
 });

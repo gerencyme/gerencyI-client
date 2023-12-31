@@ -23,3 +23,7 @@ export const homePageGoToSectionButtonTv = tv({
 export const homePageSystemDemoTv = tv({
   base: 'lg:absolute w-full -top-48'
 });
+
+export const homePageProductCardWrappetTv = tv({
+  base: 'relative w-full max-w-[300px] h-full m-auto'
+});

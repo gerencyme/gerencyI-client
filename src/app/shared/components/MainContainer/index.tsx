@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTheme } from '~hooks/useTheme';
+import { useTheme } from '~/src/app/shared/hooks/contexts/useTheme';
 interface MainContainerProps {
   children: React.ReactNode;
 }

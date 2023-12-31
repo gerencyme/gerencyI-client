@@ -4,18 +4,19 @@ import { blurDataURL } from '~utils/constants/blurDataURL';
 interface AvatarImageProps {
   src: string;
   alt: string;
+  className?: string;
 }
 
-export function AvatarImage({ src, alt }: AvatarImageProps) {
+export function AvatarImage({ src, alt, className }: AvatarImageProps) {
   return (
     <Image
-      className="w-8 h-8 bg-contain"
       src={src}
       alt={alt}
-      width={30}
-      height={30}
+      fill
+      quality={100}
       placeholder="blur"
       blurDataURL={blurDataURL}
+      className={className}
     />
   );
 }

@@ -1,5 +1,10 @@
-import { Title } from '../../shared/components/Title';
+import { Order } from '~features/Order';
 
-export default function MyAccountPage() {
-  return <Title title="Página: Novo Pedido" size="2xl" weight="black" color="white" />;
+export default function NewOrderPage() {
+  return (
+    <Order.root>
+      <Order.newOrder />
+      <Order.lastProducts />
+    </Order.root>
+  );
 }

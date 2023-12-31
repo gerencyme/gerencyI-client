@@ -14,7 +14,7 @@ export const APP_ROUTES = {
     },
     'inventory-control': {
       name: '/inventory-control',
-      label: 'Controle de Estoque'
+      label: 'Painel'
     },
     'new-order': {
       name: '/new-order',

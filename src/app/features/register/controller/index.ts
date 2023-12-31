@@ -11,9 +11,11 @@ import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
 import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
+import { useCookie } from '~/src/app/shared/hooks/useCookies';
 
 export const useRegisterController = () => {
   const { push } = useRouter();
+  const { createSession } = useCookie();
   const { setLocalStorage } = useLocalStorage();
   const [errorResolver, setErrorResolver] = useState('');
   const [strongPasswordMessage, setStrongPasswordMessage] = useState('Senha forte');
@@ -26,6 +28,7 @@ export const useRegisterController = () => {
   const {
     handleSubmit,
     watch,
+    setValue,
     formState: { isSubmitting }
   } = registerSchema;
 
@@ -34,12 +37,18 @@ export const useRegisterController = () => {
   const session = sessionUserLocalStorage;
   const situation = errorResolver !== '' && !userAlreyExists;
   const updateSituation = () => setErrorResolver('');
-  const { resetSituation: resetErrorStiruation } = useTimeout(situation, updateSituation, 10000);
+  useTimeout(situation, updateSituation, 10000);
 
   const onSubmit = async (data: TRegisterSubmitSchema) => {
     await register(data as RegisterUser, setErrorResolver).then((res) => {
       if (res && res.token) {
         setLocalStorage(session, res);
+
+        createSession({
+          cookieName: '_t',
+          value: res.token
+        });
+
         return push(APP_ROUTES.private['my-data'].name);
       }
     });
@@ -51,21 +60,16 @@ export const useRegisterController = () => {
     '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
   ).test(password?.password);
 
-  const { resetSituation } = useTimeout(isPasswordStrong, resetStrongPasswordMessage, 2000);
+  useTimeout(isPasswordStrong, resetStrongPasswordMessage, 2000);
   const formattedCnpj = maskCpfOrCnpj(cnpj || '');
 
   useEffect(() => {
-    resetSituation();
-  }, [resetSituation]);
-
-  useEffect(() => {
-    resetErrorStiruation();
-  }, [resetErrorStiruation]);
+    if (cnpj !== '') return setValue('cnpj', formattedCnpj);
+  }, [cnpj, formattedCnpj, setValue]);
 
   return {
     handleSubmit,
     onSubmit,
-    formattedCnpj,
     isSubmitting,
     errorResolver,
     strongPasswordMessage,

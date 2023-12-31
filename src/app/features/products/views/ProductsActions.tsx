@@ -22,11 +22,11 @@ export function ProductsActions({ setIsTable, togglePress }: ProductsActionsProp
       </Button.root>
 
       <Button.root color="secondary">
-        <ButtonContentWrapper>
-          <Button.link href="#more">
+        <Button.link href="#more">
+          <ButtonContentWrapper>
             <Button.label color="primary" text="Saber mais..." />
-          </Button.link>
-        </ButtonContentWrapper>
+          </ButtonContentWrapper>
+        </Button.link>
       </Button.root>
     </div>
   );

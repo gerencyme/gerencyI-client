@@ -2,12 +2,15 @@ import { rows } from '../animatedTableUtils';
 import { formatPrice, getFirstThreeNames } from '~utils/transformers';
 import { VariantProps } from 'tailwind-variants';
 import * as tv from '../animatedTableTV';
+import { formateDate } from '~/src/app/shared/utils/dates';
+import { ProductCard } from '~/src/app/shared/types/ProductCard';
 
 interface TableProps extends VariantProps<typeof tv.animatedTableTv> {
   isPressable: boolean;
+  tableRows?: ProductCard[];
 }
 
-export function Table({ isPressable, state }: TableProps) {
+export function Table({ isPressable, state, tableRows = rows }: TableProps) {
   const isPreeableState: typeof state = isPressable ? 'isPressable' : 'notPressable';
 
   return (
@@ -24,33 +27,35 @@ export function Table({ isPressable, state }: TableProps) {
         </div>
         <div className={tv.animatedTablePurpleDividerTv()} />
         <div className="table-row-group">
-          {rows.map((content, i) => {
+          {tableRows.map((content, i) => {
             return (
               <div key={i} className={tv.animatedTableContentRootTv()}>
                 <div className="table-cell py-1 sm:py-4 sm:w-72">
                   <div className={tv.animatedTableContentTv({ position: 'first' })}>
                     <div className={tv.animatedTableColorIdentifyRootTv()}>
-                      <div className={`w-0.5 sm:w-1 h-2 sm:h-6 rounded-2xl ${content.color}`} />
+                      <div
+                        className={`w-0.5 sm:w-1 h-2 sm:h-6 rounded-2xl ${content.orderColorIdentity}`}
+                      />
                     </div>
-                    {getFirstThreeNames(content?.name).firstThree}
+                    {getFirstThreeNames(content?.product.productName).firstThree}
                   </div>
                 </div>
                 <div className="table-cell py-1 sm:py-4 sm:w-72 relative">
                   <div className={tv.animatedTableContentTv()}>
-                    {getFirstThreeNames(content?.brand).firstThree}
+                    {getFirstThreeNames(content?.product.productBrand).firstThree}
                   </div>
                 </div>
                 <div className="table-cell py-1 sm:py-4 sm:w-72">
                   <div className={tv.animatedTableContentTv()}>
-                    {getFirstThreeNames(content?.date).firstThree}
+                    {formateDate(content?.orderDate)}
                   </div>
                 </div>
                 <div className="table-cell py-1 sm:py-4 sm:w-72">
-                  <div className={tv.animatedTableContentTv()}>{content?.quantity}</div>
+                  <div className={tv.animatedTableContentTv()}>{content?.product.quantity}</div>
                 </div>
                 <div className="table-cell py-1 sm:py-4 sm:w-72">
                   <div className={tv.animatedTableContentTv({ position: 'last' })}>
-                    {formatPrice(content?.price)}
+                    {formatPrice(content?.product.unitPrice)}
                   </div>
                 </div>
               </div>

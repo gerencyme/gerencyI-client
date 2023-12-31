@@ -27,7 +27,6 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
     registerSchema,
     isPasswordStrong,
     password,
-    formattedCnpj,
     isSubmitting,
     userAlreyExists,
     errorResolver
@@ -74,13 +73,7 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
       <Form className="flex flex-col items-center gap-5 lg:gap-6 m-auto">
         <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
           <Input.root field="cnpj">
-            <Input.field
-              max={17}
-              maxLength={17}
-              value={formattedCnpj}
-              name="cnpj"
-              placeholder="Qual o seu CNPJ?"
-            />
+            <Input.field max={17} maxLength={17} name="cnpj" placeholder="Qual o seu CNPJ?" />
             <Input.label label="cnpj" name="cnpj" />
             <Input.representation icon={BiSolidCity} />
             <Input.error field="cnpj" />
@@ -123,18 +116,14 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
         </div>
 
         <Input.root size="full" field="email">
-          <Input.field fildSize="full" type="email" name="email" placeholder="Qual seu Email?" />
+          <Input.field type="email" name="email" placeholder="Qual seu Email?" />
           <Input.label label="E-mail" name="email" />
           <Input.representation icon={MdOutlineEmail} />
           <Input.error field="email" />
         </Input.root>
 
         <Input.root size="full" field="corporateReason">
-          <Input.field
-            fildSize="full"
-            name="corporateReason"
-            placeholder="Qual sua razão social?"
-          />
+          <Input.field name="corporateReason" placeholder="Qual sua razão social?" />
           <Input.label label="Razão Social" name="corporateReason" />
           <Input.representation icon={FaRegNewspaper} />
           <Input.error field="corporateReason" />

@@ -120,30 +120,6 @@ const config: Config = {
       xs: '12px',
       xxs: '8px'
     },
-    keyframes: {
-      shimmer: {
-        '0%': { transform: 'translateX(-100%) translateY(-100%)' },
-        '100%': { transform: 'translateX(100%) translateY(100%)' }
-      },
-      crawl: {
-        '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
-        '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(35deg)' }
-      },
-      opacityOn: {
-        '0%': { opacity: '0' },
-        '100%': { opacity: '1' }
-      },
-      'status-ping': {
-        '25%': { scale: '1.2' },
-        '50%': { opacity: '0.5' },
-        '75%': { scale: '1.3' }
-      }
-    },
-    animation: {
-      crawl: 'crawl 1000ms 1 ease-in-out forwards',
-      opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards',
-      'status-ping': 'status-ping 1000ms infinite linear forwards'
-    },
     extend: {
       backgroundImage: {
         'gradient-hero': 'linear-gradient(-45deg, #080f25 0%, #212C4D 50%, #101935 100%)',
@@ -155,6 +131,44 @@ const config: Config = {
           'linear-gradient(130.05deg, rgba(82, 53, 133, 0.5) 4.49%, rgba(76, 41, 138, 0) 100%)',
         smallBlockIcon:
           'linear-gradient(130.05deg, rgba(129, 82, 210, 0.5) 4.49%, rgba(50, 10, 120, 0) 100%)'
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%) translateY(-100%)' },
+          '100%': { transform: 'translateX(100%) translateY(100%)' }
+        },
+        crawl: {
+          '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
+          '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(35deg)' }
+        },
+        opacityOn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        'status-ping': {
+          '25%': { scale: '1.2' },
+          '50%': { opacity: '0.5' },
+          '75%': { scale: '1.3' }
+        },
+        'flash-animation': {
+          '0%': {
+            transform: 'translateX(-100%)',
+            opacity: '1'
+          },
+          '50%': {
+            transform: 'translateX(0%)'
+          },
+          '100%': {
+            transform: 'translateX(100%)',
+            opacity: '0'
+          }
+        }
+      },
+      animation: {
+        crawl: 'crawl 1000ms 1 ease-in-out forwards',
+        opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards',
+        'status-ping': 'status-ping 1000ms infinite linear forwards',
+        'flash-animation': 'flash-animation 2000ms linear infinite'
       }
     }
   },

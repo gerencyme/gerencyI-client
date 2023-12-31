@@ -10,15 +10,13 @@ export default function ProductsPage() {
   const { isPressable, isTable, togglePress, setIsTable } = useProductsController();
 
   return (
-    <>
-      <Products.root>
-        <Products.header />
-        <Products.actions setIsTable={setIsTable} togglePress={togglePress} />
-      </Products.root>
+    <Products.root>
+      <Products.header />
+      <Products.actions setIsTable={setIsTable} togglePress={togglePress} />
       <AnimatedTable isPressable={isPressable} togglePress={togglePress} isTable={isTable} />
       <Section id="more">
         <AboutService.content />
       </Section>
-    </>
+    </Products.root>
   );
 }

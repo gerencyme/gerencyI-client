@@ -22,17 +22,17 @@ export const register = async (
       creationDate: new Date(),
       id: '',
       password: body.password.password,
-      updateDate: new Date()
+      updateDate: new Date(),
+      CompanyImg: ''
     };
 
-    const result = await api.post<CompanieRequest>(endpoint, formattedBody);
+    const result = await api().post<CompanieRequest>(endpoint, formattedBody);
 
     return result.data;
   } catch (err: any) {
     const status = err.response?.status || 500;
 
-    const errorMessage =
-      errorMessages[status] || 'Erro na criação de conta do usuário, tente mais tarde!';
+    const errorMessage = errorMessages[status];
     errorResolver(errorMessage);
   }
 };

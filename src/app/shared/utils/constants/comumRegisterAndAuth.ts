@@ -1,2 +1,2 @@
-export const defaultMessage = 'Por favor, confira';
+export const defaultMessage = 'Digite';
 export const minLengthPassword = 8;

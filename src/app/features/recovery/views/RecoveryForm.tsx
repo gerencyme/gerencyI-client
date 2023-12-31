@@ -6,20 +6,14 @@ import { Button } from '~/src/app/shared/components/Button';
 import { authFormTv, recoveryButtonTv } from '../../auth/AuthTV';
 import { MdOutlineEmail } from 'react-icons/md';
 import { useRecoveryFormController } from '../controller/useRecoveryFormController';
-import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
-import { usePathname } from 'next/navigation';
 
 interface RecoveryFormProps {
   handleForgetPassword: () => void;
 }
 
 export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
-  const { handleSubmit, onRecovery, recoveryFormSchema, isSubmitting } =
+  const { handleSubmit, onRecovery, recoveryFormSchema, isSubmitting, isUnderRegister } =
     useRecoveryFormController();
-
-  const pathName = usePathname();
-
-  const isUnderRegister = pathName === APP_ROUTES.public.register.name;
 
   return (
     <FormProvider {...recoveryFormSchema}>
@@ -49,7 +43,7 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
         />
 
         <Input.root size="full" field="Email">
-          <Input.field fildSize="full" type="email" name="Email" placeholder="Qual seu e-mail?" />
+          <Input.field type="email" name="Email" placeholder="Qual seu e-mail?" />
           <Input.label label="E-mail" name="Email" />
           <Input.representation icon={MdOutlineEmail} />
           <Input.error field="Email" />

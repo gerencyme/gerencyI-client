@@ -12,7 +12,7 @@ export function ModalContentActions({ actions }: ModalContentActionsProps) {
       {actions.map((action) => (
         <Button.root size="small" color={action.color} key={action.id} onClick={action.onClick}>
           <Button.contentWrapper>
-            <Button.label text={action.label} size="xxs" />
+            <Button.label color="white" text={action.label} size="xxs" />
           </Button.contentWrapper>
         </Button.root>
       ))}

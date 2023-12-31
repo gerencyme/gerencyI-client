@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { TRecoverySchema, recoverySchema } from '../Recoveryutils';
+import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
+import { usePathname } from 'next/navigation';
 
 export const useRecoveryFormController = () => {
+  const pathName = usePathname();
   const recoveryFormSchema = useForm<TRecoverySchema>({
     resolver: zodResolver(recoverySchema)
   });
@@ -12,6 +15,8 @@ export const useRecoveryFormController = () => {
     formState: { isSubmitting }
   } = recoveryFormSchema;
 
+  const isUnderRegister = pathName === APP_ROUTES.public.register.name;
+
   const onRecovery = (data: TRecoverySchema) => {
     console.log('RECOVERY', data);
   };
@@ -20,6 +25,7 @@ export const useRecoveryFormController = () => {
     handleSubmit,
     onRecovery,
     recoveryFormSchema,
+    isUnderRegister,
     isSubmitting
   };
 };

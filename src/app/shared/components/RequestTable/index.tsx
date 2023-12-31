@@ -7,7 +7,7 @@ const rows = [
   {
     name: 'Arroz Integral 1kg',
     brand: 'Terra Nova',
-    date: '27/11/2023',
+    orderDate: '2023-12-29T16:58:19.764Z',
     quantity: 100,
     price: 5.99,
     color: 'bg-[#583ED3]'
@@ -15,7 +15,7 @@ const rows = [
   {
     name: 'Leite Desnatado',
     brand: 'Fazenda Feliz',
-    date: '25/11/2023',
+    orderDate: '2023-12-29T16:58:19.764Z',
     quantity: 50,
     price: 3.49,
     color: 'bg-[#BD1B56]'
@@ -23,7 +23,7 @@ const rows = [
   {
     name: 'Maçãs Gala (kg)',
     brand: 'Pomar Fresco',
-    date: '30/11/2023',
+    orderDate: '2023-12-29T16:58:19.764Z',
     quantity: 75,
     price: 2.79,
     color: 'bg-[#FFFFFF]'
@@ -31,7 +31,7 @@ const rows = [
   {
     name: 'Azeite de Oliva Extra Virgem 500ml',
     brand: 'Sabor Dourado',
-    date: '28/11/2023',
+    orderDate: '2023-12-29T16:58:19.764Z',
     quantity: 30,
     price: 8.99,
     color: 'bg-[#1d0b70]'
@@ -39,7 +39,7 @@ const rows = [
   {
     name: 'Café Torrado e Moído 250g',
     brand: 'Café do Sítio',
-    date: '26/11/2023',
+    orderDate: '2023-12-29T16:58:19.764Z',
     quantity: 40,
     price: 6.49,
     color: 'bg-[#FF0000]'
@@ -47,7 +47,7 @@ const rows = [
   {
     name: 'Iogurte Natural 400g',
     brand: 'Laticínios Saboroso',
-    date: '29/11/2023',
+    orderDate: '2023-12-29T16:58:19.764Z',
     quantity: 60,
     price: 2.29,
     color: 'bg-[#1e594f]'
@@ -88,7 +88,7 @@ export function RequestTable() {
                   </div>
                   <div className="table-cell py-4 w-72">
                     <div className="h-20 flex items-center bg-easydark px-8 truncate">
-                      {content?.date}
+                      {/* {content?.orderDate} */}
                     </div>
                   </div>
                   <div className="table-cell py-4 w-72">

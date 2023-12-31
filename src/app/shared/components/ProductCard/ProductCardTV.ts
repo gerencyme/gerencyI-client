@@ -6,7 +6,7 @@ export const productCardStatusTv = tv({
     state: {
       done: 'bg-lime',
       canceled: 'bg-error',
-      underAnalisis: 'bg-yellow-500 animate-status-ping'
+      underAnalysis: 'bg-yellow-500 animate-status-ping'
     }
   }
 });
@@ -40,5 +40,5 @@ export const productCardRootTv = tv({
 });
 
 export const renderCancelTooltipContentTv = tv({
-  base: 'flex flex-col items-center justify-center'
+  base: 'flex flex-col items-center justify-center bg-white p-2 rounded-lg'
 });

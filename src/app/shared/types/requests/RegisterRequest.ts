@@ -8,4 +8,5 @@ export interface RegisterRequest {
   updateDate: Date;
   password: string;
   confirmPassword: string;
+  CompanyImg: string;
 }

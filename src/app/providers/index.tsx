@@ -5,6 +5,9 @@ import { ReactNode } from 'react';
 import { AppThemeProvider } from '~contexts/ThemeProvider';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from '../shared/services/reactQuery';
+import { SelectColorProvider } from '../shared/contexts/SelectColorContext';
+import { DraftModeProvider } from '../shared/contexts/DraftModeContext';
+import { UploadImageProvider } from '../shared/contexts/UploadImageContext';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -23,7 +26,12 @@ export function Providers({ children }: ProvidersProps) {
         props.children
       );
 
-  const AllProviders = composeProviders(AppThemeProvider);
+  const AllProviders = composeProviders(
+    AppThemeProvider,
+    DraftModeProvider,
+    SelectColorProvider,
+    UploadImageProvider
+  );
 
   return (
     <QueryClientProvider client={queryClient}>

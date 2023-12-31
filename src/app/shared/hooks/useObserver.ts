@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
 
+/**
+ *
+ * @param ref reference to object that needs observation
+ * @returns isVisible is the state active of visible object referencied
+ */
+
 export const useObserver = (ref: any) => {
   const [isVisible, setIsVisible] = useState(false);
 

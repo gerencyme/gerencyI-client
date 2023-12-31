@@ -6,9 +6,14 @@ export const contentTv = tv({
     color: {
       black: 'bg-black',
       white: 'bg-white'
+    },
+    contentState: {
+      withContent: 'bg-transparent',
+      withoutContent: 'max-w-[200px]'
     }
   },
   defaultVariants: {
-    color: 'black'
+    color: 'black',
+    content: 'withoutContent'
   }
 });

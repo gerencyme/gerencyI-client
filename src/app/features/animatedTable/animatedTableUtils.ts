@@ -1,53 +1,116 @@
 // mocked base graphics
 
-export const rows = [
+import { ProductCard } from '../../shared/types/ProductCard';
+import { BestSellersData } from '../../shared/types/graphics/BestSellersData';
+
+export const rows: ProductCard[] = [
   {
-    name: 'Arroz Integral 1kg',
-    brand: 'Terra Nova',
-    date: '27/11/2023',
-    quantity: 100,
-    price: 5.99,
-    color: 'bg-[#583ED3]'
+    companyId: '',
+    isLiked: false,
+    isModalOpen: false,
+    orderId: '',
+    orderStatus: 'done',
+    product: {
+      productName: 'Arroz Integral 1kg',
+      productBrand: 'Terra Nova',
+      quantity: 100,
+      lastTotalPrice: 0,
+      totalPrice: 599,
+      unitPrice: 5.99
+    },
+    orderDate: '2023-12-29T16:58:19.764Z',
+    orderColorIdentity: 'bg-[#583ED3]',
+    partnerCompaniesInthisOrder: []
   },
   {
-    name: 'Leite Desnatado',
-    brand: 'Fazenda Feliz',
-    date: '25/11/2023',
-    quantity: 50,
-    price: 3.49,
-    color: 'bg-[#BD1B56]'
+    companyId: '',
+    isLiked: false,
+    isModalOpen: false,
+    orderId: '',
+    orderStatus: 'done',
+    product: {
+      productName: 'Leite Desnatado',
+      productBrand: 'Fazenda Feliz',
+      quantity: 50,
+      lastTotalPrice: 0,
+      totalPrice: 599,
+      unitPrice: 3.49
+    },
+    orderDate: '2023-12-29T16:58:19.764Z',
+    orderColorIdentity: 'bg-[#BD1B56]',
+    partnerCompaniesInthisOrder: []
   },
   {
-    name: 'Maçãs Gala (kg)',
-    brand: 'Pomar Fresco',
-    date: '30/11/2023',
-    quantity: 75,
-    price: 2.79,
-    color: 'bg-[#FFFFFF]'
+    companyId: '',
+    isLiked: false,
+    isModalOpen: false,
+    orderId: '',
+    orderStatus: 'done',
+    product: {
+      productName: 'Maçãs Gala (kg)',
+      productBrand: 'Pomar Fresco',
+      quantity: 75,
+      lastTotalPrice: 0,
+      totalPrice: 599,
+      unitPrice: 2.79
+    },
+    orderDate: '2023-12-29T16:58:19.764Z',
+    orderColorIdentity: 'bg-[#FFFFFF]',
+    partnerCompaniesInthisOrder: []
   },
   {
-    name: 'Azeite de Oliva Extra Virgem 500ml',
-    brand: 'Sabor Dourado',
-    date: '28/11/2023',
-    quantity: 30,
-    price: 8.99,
-    color: 'bg-[#1d0b70]'
+    companyId: '',
+    isLiked: false,
+    isModalOpen: false,
+    orderId: '',
+    orderStatus: 'done',
+    product: {
+      productName: 'Azeite de Oliva Extra Virgem 500ml',
+      productBrand: 'Sabor Dourado',
+      quantity: 30,
+      lastTotalPrice: 0,
+      totalPrice: 599,
+      unitPrice: 8.99
+    },
+    orderDate: '2023-12-29T16:58:19.764Z',
+    orderColorIdentity: 'bg-[#1d0b70]',
+    partnerCompaniesInthisOrder: []
   },
   {
-    name: 'Café Torrado e Moído 250g',
-    brand: 'Café do Sítio',
-    date: '26/11/2023',
-    quantity: 40,
-    price: 6.49,
-    color: 'bg-[#FF0000]'
+    companyId: '',
+    isLiked: false,
+    isModalOpen: false,
+    orderId: '',
+    orderStatus: 'done',
+    product: {
+      productName: 'Café Torrado e Moído 250g',
+      productBrand: 'Café do Sítio',
+      quantity: 40,
+      lastTotalPrice: 0,
+      totalPrice: 599,
+      unitPrice: 6.49
+    },
+    orderDate: '2023-12-29T16:58:19.764Z',
+    orderColorIdentity: 'bg-[#FF0000]',
+    partnerCompaniesInthisOrder: []
   },
   {
-    name: 'Iogurte Natural 400g',
-    brand: 'Laticínios Saboroso',
-    date: '29/11/2023',
-    quantity: 60,
-    price: 2.29,
-    color: 'bg-[#1e594f]'
+    companyId: '',
+    isLiked: false,
+    isModalOpen: false,
+    orderId: '',
+    orderStatus: 'done',
+    product: {
+      productName: 'Iogurte Natural 400g',
+      productBrand: 'Laticínios Saboroso',
+      quantity: 60,
+      lastTotalPrice: 0,
+      totalPrice: 599,
+      unitPrice: 2.29
+    },
+    orderDate: '2023-12-29T16:58:19.764Z',
+    orderColorIdentity: 'bg-[#1e594f]',
+    partnerCompaniesInthisOrder: []
   }
 ];
 
@@ -96,19 +159,25 @@ export const areaChartData = [
   }
 ];
 
-let id = 0;
-
 export const pieChartData = [
-  { id: id++, name: 'Arroz Integral 1kg', value: 599 },
-  { id: id++, name: 'Leite Desnatado', value: 174.5 },
-  { id: id++, name: 'Maçãs Gala (kg)', value: 209.25 },
-  { id: id++, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7 },
-  { id: id++, name: 'Café Torrado e Moído 250g', value: 194.7 },
-  { id: id++, name: 'Iogurte Natural 400g', value: 137.4 }
+  { id: 0, name: 'Arroz Integral 1kg', value: 599 },
+  { id: 1, name: 'Leite Desnatado', value: 174.5 },
+  { id: 2, name: 'Maçãs Gala (kg)', value: 209.25 },
+  { id: 3, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7 },
+  { id: 4, name: 'Café Torrado e Moído 250g', value: 194.7 },
+  { id: 5, name: 'Iogurte Natural 400g', value: 137.4 }
 ];
 
-export const bestSellersData = [
-  { id: id++, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4 },
-  { id: id++, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1 },
-  { id: id++, name: 'Azeite de Oliva Extra Virgem 500ml', value: 269.7, economyPercent: 2 }
+export const bestSellersData: BestSellersData[] = [
+  { id: 6, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4, productType: 'Grãos' },
+  { id: 7, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1, productType: 'Frutas' },
+  {
+    id: 8,
+    name: 'Azeite de Oliva Extra Virgem 500ml',
+    value: 269.7,
+    economyPercent: 2,
+    productType: 'Óleos'
+  },
+  { id: 9, name: 'Leite Desnatado 1L', value: 320, economyPercent: 3, productType: 'Laticínio' },
+  { id: 10, name: 'Frango Congelado 1kg', value: 1500, economyPercent: 5, productType: 'Aves' }
 ];

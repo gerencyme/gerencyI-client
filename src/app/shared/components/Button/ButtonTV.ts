@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const buttonRootTv = tv({
-  base: 'flex justify-center items-center rounded-xl disabled:bg-violet-400 overflow-hidden',
+  base: 'flex justify-center items-center rounded-xl disabled:bg-violet-400 ',
   variants: {
     size: {
       small: 'py-2 px-2 sm:px-4 w-fit h-fit',
@@ -40,11 +40,20 @@ export const buttonRootTv = tv({
 });
 
 export const buttonContentWrapperTv = tv({
-  base: 'relative w-fit m-auto flex gap-x-2 items-center'
+  base: 'relative w-full justify-center m-auto flex gap-x-2 items-center'
 });
 
 export const buttonLinkTv = tv({
-  base: 'w-full h-full z-10'
+  base: 'w-full h-full z-10 flex items-center',
+  variants: {
+    color: {
+      black: 'text-black',
+      white: 'text-white'
+    }
+  },
+  defaultVariants: {
+    color: 'black'
+  }
 });
 
 export const buttonIconTv = tv({

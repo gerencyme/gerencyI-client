@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const serviceCardRootTV = tv({
-  base: `relative shadow-2xl shadow-darkblue w-full max-w-[300px] h-fit mb-4 rounded-3xl duration-700 transition-all bg-darkblue flex flex-col items-center py-2 md:py-4 px-3 md:px-8 justify-center gap-1 md:gap-4 cursor-default`,
+  base: `relative shadow-2xl opacity-75 shadow-darkblue w-full max-w-[300px] h-fit mb-4 rounded-3xl duration-700 transition-all bg-darkblue flex flex-col items-center py-2 md:py-4 px-3 md:px-8 justify-center gap-1 md:gap-4 cursor-default`,
   variants: {
     state: {
       isVisible: 'top-0',
