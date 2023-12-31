@@ -1,7 +1,10 @@
 import { toast } from 'react-toastify';
 import { api } from '~/src/app/shared/services/axios/api';
 import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
+import { getToken } from '~/src/app/shared/utils/getToken';
 import { NewOrderRequest } from '~types/requests/NewOrderRequest';
+
+const token = getToken();
 
 export const postNewOrder = async (order: NewOrderRequest, resolver: () => void) => {
   const newOrderToastId = 'newOrderToastId';
@@ -12,7 +15,7 @@ export const postNewOrder = async (order: NewOrderRequest, resolver: () => void)
     });
     const endPont = 'AddNewOrder';
 
-    const { data } = await api.post(endPont, order);
+    const { data } = await api(token).post(endPont, order);
 
     toast.dismiss(newOrderToastId);
     toast.success('Seu pedido foi enviado para análise');

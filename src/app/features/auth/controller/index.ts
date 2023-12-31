@@ -17,7 +17,7 @@ import { useCookie } from '~/src/app/shared/hooks/useCookies';
 
 export const useAuthController = () => {
   const { push } = useRouter();
-  const { createSession } = useCookie();
+  const { createSession, deleteCookie } = useCookie();
   const { deleteFromStorage, setLocalStorage, getLocalStorage } = useLocalStorage();
   const [errorResolver, setErrorResolver] = useState('');
   const [isVisible, setIsVisible] = useState(false);
@@ -78,6 +78,7 @@ export const useAuthController = () => {
 
     setTimeout(() => {
       deleteFromStorage(session!);
+      deleteCookie('_t');
       return push(APP_ROUTES.public.home.name);
     }, 2000);
   };

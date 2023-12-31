@@ -1,13 +1,16 @@
 import { toast } from 'react-toastify';
 import { ProductCard } from '~/src/app/shared/types/ProductCard';
+import { getToken } from '~/src/app/shared/utils/getToken';
 import { api } from '~shared/services/axios/api';
 import { errorMessages } from '~shared/utils/constants/errorMessages';
+
+const token = getToken();
 
 export const getCompanyOrders = async (cnpj: string, logout: () => void) => {
   try {
     const endPont = 'GetLast12NewOrders';
 
-    const { data } = await api.post<ProductCard[]>(endPont, { CompanieCNPJ: cnpj });
+    const { data } = await api(token).post<ProductCard[]>(endPont, { CompanieCNPJ: cnpj });
 
     if (data) {
       return data;

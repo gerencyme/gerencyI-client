@@ -8,7 +8,7 @@ export const auth = async (data: AuthRequest, errorResolver: Dispatch<SetStateAc
   try {
     const endpoitn = 'GenereateTokenIdentity';
 
-    const response = await api.post<CompanieRequest>(endpoitn, data);
+    const response = await api().post<CompanieRequest>(endpoitn, data);
 
     return response.data;
   } catch (err: any) {
