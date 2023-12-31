@@ -24,7 +24,7 @@ export const postNewOrder = async (order: NewOrderRequest, resolver: () => void)
     return data;
   } catch (err: any) {
     const status = err.response?.status || 500;
-    const errorMessage = errorMessages[status];
+    const errorMessage = status === 401 ? 'Usuário sem autorização!' : errorMessages[status];
 
     toast.dismiss(newOrderToastId);
     toast.error(errorMessage);

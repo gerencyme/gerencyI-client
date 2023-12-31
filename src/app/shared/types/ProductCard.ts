@@ -1,16 +1,22 @@
 import { SimilarCompaniesContent } from './SimilarCompaniesContent';
 
-export interface ProductCard {
-  id: number | string;
-  identifyColor: string;
-  status: 'done' | 'canceled' | 'underAnalisis';
-  date: string | Date;
+interface Product {
+  lastTotalPrice: number;
   productBrand: string;
   productName: string;
   totalPrice: string | number;
   quantity: string | number;
   unitPrice: string | number;
-  similarCompaniesContent: SimilarCompaniesContent[];
+}
+
+export interface ProductCard {
+  companyId: number | string;
+  orderColorIdentity: string;
   isLiked: boolean;
+  orderDate: string | Date;
+  orderId: string;
+  orderStatus: 'done' | 'canceled' | 'underAnalysis';
+  product: Product;
+  partnerCompaniesInthisOrder: SimilarCompaniesContent[];
   isModalOpen: boolean;
 }

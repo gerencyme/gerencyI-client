@@ -3,15 +3,17 @@ import { Text } from '../../Text';
 import { productCardHeaderTv } from '../ProductCardTV';
 
 interface ProductCardHeaderProps {
-  date: number | Date;
+  date: string | Date;
   productName: string;
   productBrand: string;
 }
 
 export function ProductCardHeader({ date, productBrand, productName }: ProductCardHeaderProps) {
+  const formattedDate = formateDate(date);
+
   return (
     <div className={productCardHeaderTv()}>
-      <Text text={formateDate(date)} color="white" size="xs" weight="light" />
+      <Text text={String(formattedDate)} color="white" size="xs" weight="light" />
       <Text text={productName} color="white" size="md" weight="bold" className="truncate w-36" />
       <Text
         text={productBrand}

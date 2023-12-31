@@ -29,48 +29,48 @@ export function ProductCardContent({ productCard = [] }: ProductCardContentProps
   return (
     <div className="flex items-center gap-8 flex-wrap justify-center">
       {productCard.map((productCardContent) => (
-        <ProductCard.root key={productCardContent.id}>
+        <ProductCard.root key={productCardContent.orderId}>
           <PurshaseModal
             isEditing={isEditing}
-            isModalOpen={indexModalOpen === productCardContent.id}
-            productName={productCardContent.productName}
-            quantity={productCardContent.quantity}
-            unitPrice={productCardContent.unitPrice}
+            isModalOpen={indexModalOpen === productCardContent.orderId}
+            productName={productCardContent.product.productName}
+            quantity={productCardContent.product.quantity}
+            unitPrice={productCardContent.product.unitPrice}
             closeModal={closeModal}
             toggleIsEditing={toggleIsEditing}
           />
           <NFModal
             closeNFModal={closeNFModal}
-            isNFModalOpen={indexNFModalOpen === productCardContent.id}
+            isNFModalOpen={indexNFModalOpen === productCardContent.orderId}
           />
           <CancelPurshaseModal
-            productName={productCardContent.productName}
+            productName={productCardContent.product.productName}
             closeCancelModal={closeCancelModal}
-            isCancelPurshaseModalOpen={indexCancelModalOpen === productCardContent.id}
+            isCancelPurshaseModalOpen={indexCancelModalOpen === productCardContent.orderId}
           />
-          <ProductCard.identify color={productCardContent.identifyColor} />
+          <ProductCard.identify color={productCardContent.orderColorIdentity} />
           <ProductCard.status
-            handleCancel={() => openCancelModal(+productCardContent.id)}
-            state={productCardContent.status}
+            handleCancel={() => openCancelModal(productCardContent.orderId)}
+            state={productCardContent.orderStatus}
           />
           <ProductCard.header
-            date={+productCardContent.date}
-            productBrand={productCardContent.productBrand}
-            productName={productCardContent.productName}
+            date={productCardContent.orderDate}
+            productBrand={productCardContent.product.productBrand}
+            productName={productCardContent.product.productName}
           />
           <ProductCard.likeAction isLiked={productCardContent.isLiked} handleLike={handleLike} />
           <ProductCard.contentInfo
-            isUnderAnalysis={productCardContent.status === 'underAnalisis'}
-            totalPrice={productCardContent.totalPrice}
-            quantity={productCardContent.quantity}
-            unitPrice={productCardContent.unitPrice}
+            isUnderAnalysis={productCardContent.orderStatus === 'underAnalysis'}
+            totalPrice={productCardContent.product.totalPrice}
+            quantity={productCardContent.product.quantity}
+            unitPrice={productCardContent.product.unitPrice}
           />
           <ProductCard.similarCompanies
-            similarCompanies={productCardContent.similarCompaniesContent}
+            similarCompanies={productCardContent.partnerCompaniesInthisOrder}
           />
           <ProductCard.actions
-            status={productCardContent.status}
-            actions={() => productCardActions(+productCardContent.id)}
+            status={productCardContent.orderStatus}
+            actions={() => productCardActions(productCardContent.orderId)}
           />
         </ProductCard.root>
       ))}

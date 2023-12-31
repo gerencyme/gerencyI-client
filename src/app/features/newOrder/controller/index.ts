@@ -132,7 +132,7 @@ export const useNewOrderController = () => {
 
     const newOrderData = newOrder({
       data,
-      orderColorIdentity: `bg-[${String(color)}]`
+      orderColorIdentity: color
     });
 
     postNewOrder(newOrderData as NewOrderRequest, clearForm);

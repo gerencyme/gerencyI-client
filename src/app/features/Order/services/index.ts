@@ -1,13 +1,13 @@
 import { toast } from 'react-toastify';
-import { NewOrderRequest } from '~/src/app/shared/types/requests/NewOrderRequest';
+import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { api } from '~shared/services/axios/api';
 import { errorMessages } from '~shared/utils/constants/errorMessages';
 
 export const getCompanyOrders = async (cnpj: string) => {
   try {
-    const endPont = 'GetLast10NewOrders';
+    const endPont = 'GetLast12NewOrders';
 
-    const { data } = await api.post<NewOrderRequest>(endPont, { CompanieCNPJ: cnpj });
+    const { data } = await api.post<ProductCard[]>(endPont, { CompanieCNPJ: cnpj });
 
     if (data) {
       return data;

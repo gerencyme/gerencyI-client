@@ -3,7 +3,7 @@ import { Button } from '../../Button';
 import { productCardActionsTv } from '../ProductCardTV';
 import { ProductCard } from '~types/ProductCard';
 
-type CardStatus = ProductCard['status'];
+type CardStatus = ProductCard['orderStatus'];
 
 interface ProductCardActionsProps {
   actions: () => ProductCardActionsType[];
@@ -11,7 +11,7 @@ interface ProductCardActionsProps {
 }
 
 export function ProductCardActions({ actions, status }: ProductCardActionsProps) {
-  if (status === 'underAnalisis') return null;
+  if (status === 'underAnalysis') return null;
 
   if (status === 'canceled') {
     const cancelAction = actions()[1];

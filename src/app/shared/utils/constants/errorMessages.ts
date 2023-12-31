@@ -1,5 +1,5 @@
-export const errorMessages: Record<number, string | string[]> = {
-  400: ['E-mail inválido!', 'Falha ao recuperar últimas compras: CNPJ inválido!'],
+export const errorMessages: Record<number, string> = {
+  400: 'E-mail inválido!',
   401: 'Senha ou CNPJ inválido!',
   406: 'Não foi possivel processar o pedido',
   409: 'Usuário já existe!',

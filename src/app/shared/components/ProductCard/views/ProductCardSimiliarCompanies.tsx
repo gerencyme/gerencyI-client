@@ -10,12 +10,12 @@ export function ProductCardSimiliarCompanies({
   return (
     <SimilarCompanies.root>
       <SimilarCompanies.header
-        text={similarCompanies.length ? 'Empresas parceiras neste pedido' : ''}
+        text={similarCompanies?.length ? 'Empresas parceiras neste pedido' : ''}
         weight="light"
         size="md"
         color="white"
       />
-      {similarCompanies.length ? (
+      {similarCompanies?.length ? (
         <SimilarCompanies.content similarCompanies={similarCompanies} />
       ) : (
         <Text text="Procurando por empresas parceiras..." size="xs" color="white" weight="normal" />

@@ -3,9 +3,9 @@ import { useCallback, useEffect, useState } from 'react';
 
 export const useProductCardController = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [indexModalOpen, setIndexModalOpen] = useState<number | null>(null);
-  const [indexNFModalOpen, setIndexNFModalOpen] = useState<number | null>(null);
-  const [indexCancelModalOpen, setIndexCancelModalOpen] = useState<number | null>(null);
+  const [indexModalOpen, setIndexModalOpen] = useState<string | null>(null);
+  const [indexNFModalOpen, setIndexNFModalOpen] = useState<string | null>(null);
+  const [indexCancelModalOpen, setIndexCancelModalOpen] = useState<string | null>(null);
 
   const handleLike = () => console.log('atualiza estado de like do produto');
 
@@ -16,11 +16,11 @@ export const useProductCardController = () => {
   const closeCancelModal = () => setIndexCancelModalOpen(null);
   const toggleIsEditing = () => setIsEditing((prev) => !prev);
 
-  const openRepeatPurchaseModal = (i: number) => setIndexModalOpen(i);
-  const openNFModal = (i: number) => setIndexNFModalOpen(i);
-  const openCancelModal = (i: number) => setIndexCancelModalOpen(i);
+  const openRepeatPurchaseModal = (i: string) => setIndexModalOpen(i);
+  const openNFModal = (i: string) => setIndexNFModalOpen(i);
+  const openCancelModal = (i: string) => setIndexCancelModalOpen(i);
 
-  const productCardActions = (i: number): ProductCardActions[] => [
+  const productCardActions = (i: string): ProductCardActions[] => [
     {
       id: 0,
       color: 'white',

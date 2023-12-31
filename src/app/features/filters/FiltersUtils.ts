@@ -20,12 +20,12 @@ export const filterStatusOptions: FilterOptions[] = [
   { id: 13, label: 'todos', value: 'todos' },
   { id: 14, label: 'done', value: 'concluído' },
   { id: 15, label: 'canceled', value: 'cancelado' },
-  { id: 16, label: 'underAnalisis', value: 'em análise' }
+  { id: 16, label: 'underAnalysis', value: 'em análise' }
 ];
 
 export const portugueseStatus: KeyValue = {
   todos: 'todos os Status',
   done: 'concluído',
   canceled: 'cancelado',
-  underAnalisis: 'em análise'
+  underAnalysis: 'em análise'
 };

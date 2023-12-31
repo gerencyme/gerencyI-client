@@ -7,7 +7,7 @@ interface ProductCardIdentifyColorProps {
 export function ProductCardIdentifyColor({ color }: ProductCardIdentifyColorProps) {
   return (
     <div className={productCardIdentifyColorTv()}>
-      <div className={`${color} rounded-lg h-1 w-52 m-auto`} />
+      <div style={{ backgroundColor: color }} className="rounded-lg h-1 w-52 m-auto" />
     </div>
   );
 }
