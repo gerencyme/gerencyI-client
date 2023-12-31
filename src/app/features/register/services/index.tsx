@@ -26,7 +26,7 @@ export const register = async (
       CompanyImg: ''
     };
 
-    const result = await api.post<CompanieRequest>(endpoint, formattedBody);
+    const result = await api().post<CompanieRequest>(endpoint, formattedBody);
 
     return result.data;
   } catch (err: any) {
