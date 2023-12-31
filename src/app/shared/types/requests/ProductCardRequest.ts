@@ -3,7 +3,7 @@ import { SimilarCompaniesContent } from '../SimilarCompaniesContent';
 export interface ProductCardRequests {
   id: number | string;
   identifyColor: string;
-  status: 'done' | 'canceled' | 'underAnalisis';
+  status: 'done' | 'canceled' | 'underAnalysis';
   date: string;
   productBrand: string;
   productName: string;

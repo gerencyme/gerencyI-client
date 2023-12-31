@@ -27,12 +27,12 @@ export const useFilters = (data: ProductCard[]) => {
     const monthToFilter = monthIndex + 1;
 
     return data.filter((item) => {
-      const formattedDate = formateDate(item.date as Date);
+      const formattedDate = formateDate(item.orderDate);
       const dateMonth = parseInt(formattedDate.split('/')[1], 10);
 
       return (
         dateMonth === monthToFilter &&
-        (selectedStatus === 'todos' || item.status === selectedStatus)
+        (selectedStatus === 'todos' || item.orderStatus === selectedStatus)
       );
     });
   }, [data, monthIndex, selectedStatus]);

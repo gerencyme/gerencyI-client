@@ -29,7 +29,7 @@ export const useSearch = (data: ProductCard[]) => {
 
   const searchedData = useMemo(() => {
     return search.length > 0
-      ? data.filter((item) => item.productName.toLowerCase().match(new RegExp(search, 'i')))
+      ? data.filter((item) => item.product.productName.toLowerCase().match(new RegExp(search, 'i')))
       : data;
   }, [data, search]);
 

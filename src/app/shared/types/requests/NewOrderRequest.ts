@@ -1,13 +1,22 @@
-export interface NewOrderRequest {
-  orderId: string;
-  companieCNPJ: string;
+interface NewOrderProduct {
   productName: string;
   productBrand: string;
-  orderDate: Date;
+  productType: string;
   quantity: number;
-  lastTotalPrice: number | null;
-  orderColorIdentity: string;
+  lastTotalPrice: number;
+}
+
+interface NewOrderLocation {
   longitude: number;
   latitude: number;
-  productType: string;
+}
+
+export interface NewOrderRequest {
+  orderId: string;
+  companyId: string;
+  companieCNPJ: string;
+  orderDate: Date;
+  orderColorIdentity: string;
+  product: NewOrderProduct;
+  location: NewOrderLocation;
 }

@@ -5,7 +5,7 @@ import { Search } from '../../search';
 import { Filters } from '../../filters';
 import { useSearch } from '~/src/app/shared/hooks/useSearch';
 import { useFilters } from '~/src/app/shared/hooks/useFilters';
-import { Table, TableRows } from '../../animatedTable/views/Table';
+import { Table } from '../../animatedTable/views/Table';
 import { rows } from '../../animatedTable/animatedTableUtils';
 import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { DashboardTableTv, DashboardTableFiltersTv } from '../DashboardTV';
@@ -28,11 +28,7 @@ export function Dashboardtable() {
         />
       </div>
 
-      <Table
-        state="notPressable"
-        isPressable={false}
-        tableRows={filteredData as unknown as TableRows[]}
-      />
+      <Table state="notPressable" isPressable={false} tableRows={filteredData} />
     </div>
   );
 }

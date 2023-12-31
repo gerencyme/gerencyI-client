@@ -1,7 +1,11 @@
 import { format as formatter } from 'date-fns';
 
-export const formateDate = (date: number | Date, format?: string) => {
+export const formateDate = (date: string | Date, format?: string) => {
   const defaultFormat = 'dd/MM/yyyy';
 
-  return formatter(date, format ?? defaultFormat);
+  const parsedDate = new Date(date);
+
+  const formattedDate = formatter(parsedDate, format ?? defaultFormat);
+
+  return formattedDate;
 };
