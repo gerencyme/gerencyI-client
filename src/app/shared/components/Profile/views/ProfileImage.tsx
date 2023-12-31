@@ -10,9 +10,11 @@ interface ProfileImageProps {
 export function ProfileImage({ src, companyName }: ProfileImageProps) {
   const { isEditing, editToggle } = useUploadImage();
 
+  const hasValidSrc = src !== 'data:image/png;base64,';
+
   const avatarUser = (
     <Avatar.root size="medium" onClick={editToggle} className="cursor-pointer">
-      {src ? (
+      {hasValidSrc ? (
         <Avatar.image
           className={isEditing ? 'z-[999]' : 'z-auto'}
           src={src}

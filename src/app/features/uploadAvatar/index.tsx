@@ -24,7 +24,11 @@ export function UploadAvatar() {
         <Modal.content>
           {isRemovingImage ? (
             <>
-              <Text color="white" weight="light" text="Deseja realmente excluir sua imagem?" />
+              <Text
+                color="white"
+                weight="light"
+                text="Deseja realmente excluir sua imagem? Ter uma imagem facilita o reconhecimento da sua marca dentro da rede da GerencyI."
+              />
               <Modal.contentActions actions={modalRemoveImageAction} />
             </>
           ) : (
@@ -34,7 +38,7 @@ export function UploadAvatar() {
               height={160}
               onClose={onClose}
               onCrop={onCrop}
-              label=".png"
+              label="png ou jpeg"
               labelStyle={{
                 color: '#FFFFFF'
               }}

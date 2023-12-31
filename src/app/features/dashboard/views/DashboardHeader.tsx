@@ -17,7 +17,9 @@ export function DashboardHeader() {
   const { totalPrice } = useCalculateTotalPrice(mockedProductCardContent);
   const { company } = useCompanyInfo();
 
-  const src = preview !== '' ? preview : company?.src;
+  const base64Image = `data:image/png;base64,${company?.companyImg}`;
+
+  const companyimg = preview !== '' ? preview : base64Image;
 
   return (
     <div className={tv.dashboardHeaderWrapperTv()}>
@@ -25,10 +27,9 @@ export function DashboardHeader() {
 
       <div className={tv.dashboardHeaderProfileTv()}>
         <Profile.root>
-          <Profile.avatar src={src ?? ''} companyName={company?.name} />
+          <Profile.avatar src={companyimg} companyName={company?.name} />
           <Profile.info
             cnpj={company?.cnpj}
-            companyName={company?.name.split(' ')[0]}
             companySegment="Cafeteria"
             corporateReason={company?.corporateReason}
           />

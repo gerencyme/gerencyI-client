@@ -6,40 +6,43 @@ import { ModalContentAction } from '~types/ModalContentAction';
 import { ModalHeaderAction } from '~types/ModalHeaderAction';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { IoTrashOutline } from 'react-icons/io5';
-import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { updateImageProfile } from '../services';
+import { useAuthController } from '../../auth/controller';
 
 export const useUploadAvatar = () => {
-  const [isRemovingImage, setIsRemovingImage] = useState(false);
+  const { logout } = useAuthController();
   const { company } = useCompanyInfo();
   const { preview, onClose, editToggle } = useUploadImage();
   const { setLocalStorage } = useLocalStorage();
 
-  const handleSave = () => {
-    onClose();
+  const [isRemovingImage, setIsRemovingImage] = useState(false);
 
+  const callUpdateImage = async (companyImg: string, toastMessage?: string) => {
     const updatedCompany = {
       ...company,
-      src: preview
+      supplier: {
+        cnpj: company?.supplier.cnpj ?? '',
+        email: company?.supplier.email ?? '',
+        endereco: company?.supplier.endereco ?? '',
+        nome: company?.supplier.nome ?? '',
+        supplierId: company?.supplier.supplierId ?? '',
+        telephone: company?.supplier.telephone ?? ''
+      },
+      companyImg
     };
 
-    setLocalStorage(sessionUserLocalStorage, updatedCompany);
-    editToggle();
-    toast.info('Falta conectar à api!');
-  };
-
-  const handleClear = () => {
-    onClose();
-
-    const updatedCompany = {
-      ...company,
-      src: ''
+    const resolver = () => {
+      onClose();
+      setLocalStorage(sessionUserLocalStorage, updatedCompany);
+      editToggle();
     };
 
-    setLocalStorage(sessionUserLocalStorage, updatedCompany);
-    editToggle();
-    toast.info('Falta conectar à api!');
+    return await updateImageProfile(updatedCompany, resolver, logout, toastMessage);
   };
+
+  const handleSave = async () => callUpdateImage(preview.replace('data:image/png;base64,', ''));
+  const handleClear = async () => callUpdateImage('', 'Imagem deletada com sucesso!');
 
   const handleCancel = () => {
     onClose();
@@ -94,7 +97,7 @@ export const useUploadAvatar = () => {
   ];
 
   const splicedHeaderActionsByImageExist =
-    company.src !== '' && !isRemovingImage ? modalHeaderAction : modalHeaderAction.splice(0, 1);
+    company.companyImg && !isRemovingImage ? modalHeaderAction : modalHeaderAction.splice(0, 1);
 
   return {
     modalContentActions,

@@ -22,7 +22,8 @@ export const register = async (
       creationDate: new Date(),
       id: '',
       password: body.password.password,
-      updateDate: new Date()
+      updateDate: new Date(),
+      CompanyImg: ''
     };
 
     const result = await api.post<CompanieRequest>(endpoint, formattedBody);
