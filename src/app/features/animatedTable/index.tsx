@@ -5,9 +5,10 @@ import { VariantProps } from 'tailwind-variants';
 import { useObserver } from '~shared/hooks/useObserver';
 import { Title } from '~shared/components/Title';
 import { Graphics } from '~shared/components/Graphics';
-import { Table } from './views/Table';
 import * as tv from './animatedTableTV';
 import styled from './perspectiveTable.module.css';
+import { Table } from '../Table';
+import { rows } from './animatedTableUtils';
 
 interface AnimatedTableProps extends VariantProps<typeof tv.animatedTableRootTv> {
   isTable: boolean;
@@ -31,7 +32,7 @@ export function AnimatedTable({ isTable, isPressable, state, togglePress }: Anim
     >
       <div className={tv.animatedTableContentWrapperTv({ state: isVisibeState })}>
         {isTable ? (
-          <Table isPressable={isPressable} />
+          <Table tableRows={rows} isPressable={isPressable} />
         ) : (
           <>
             <Title

@@ -26,7 +26,7 @@ export const useFilters = (data: ProductCard[]) => {
   const filteredData = useMemo(() => {
     const monthToFilter = monthIndex + 1;
 
-    return data.filter((item) => {
+    return data?.filter((item) => {
       const formattedDate = formateDate(item.orderDate);
       const dateMonth = parseInt(formattedDate.split('/')[1], 10);
 

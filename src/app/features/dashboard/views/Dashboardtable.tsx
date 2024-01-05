@@ -1,19 +1,25 @@
 'use client';
 
-import { Text } from '~/src/app/shared/components/Text';
+import { DashboardTableTv, DashboardTableFiltersTv } from '../DashboardTV';
 import { Search } from '../../search';
 import { Filters } from '../../filters';
-import { useSearch } from '~/src/app/shared/hooks/useSearch';
-import { useFilters } from '~/src/app/shared/hooks/useFilters';
-import { Table } from '../../animatedTable/views/Table';
-import { rows } from '../../animatedTable/animatedTableUtils';
-import { ProductCard } from '~/src/app/shared/types/ProductCard';
-import { DashboardTableTv, DashboardTableFiltersTv } from '../DashboardTV';
+import { Table } from '../../Table';
+import { Text } from '~shared/components/Text';
+import { useSearch } from '~shared/hooks/useSearch';
+import { useFilters } from '~shared/hooks/useFilters';
+import { ProductCard } from '~types/ProductCard';
+import { useRef } from 'react';
+import { useDashboardController } from '../controller';
+import { useObserver } from '~/src/app/shared/hooks/useObserver';
 
 export function Dashboardtable() {
-  const { searchedData, search, isTyping, onchange } = useSearch(rows as unknown as ProductCard[]);
+  const tableRef = useRef(null);
+  const { isVisible } = useObserver(tableRef);
+  const { tableData, loading } = useDashboardController(isVisible);
+  const { searchedData, search, isTyping, onchange } = useSearch(tableData as ProductCard[]);
   const { currentMonthFilter, filterMonthsOptions, filteredData, setCurrentMonth } =
     useFilters(searchedData);
+
   return (
     <div className={DashboardTableTv()}>
       <Text text="Lista de pedidos" size="md" color="white" weight="light" />
@@ -28,7 +34,7 @@ export function Dashboardtable() {
         />
       </div>
 
-      <Table state="notPressable" isPressable={false} tableRows={filteredData} />
+      <Table isPressable={false} tableRows={filteredData} tableRef={tableRef} loading={loading} />
     </div>
   );
 }
