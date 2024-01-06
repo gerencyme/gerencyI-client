@@ -1,7 +1,6 @@
 'use client';
 
 import * as tv from '../DashboardTV';
-import { useDashboardController } from '../controller';
 import { mockedProductCardContent } from '../../Productcards/ProductCardsUtils';
 import { MonthlyExpense } from '~shared/components/MonthlyExpense';
 import { Profile } from '~shared/components/Profile';
@@ -10,10 +9,11 @@ import { useCalculateTotalPrice } from '~hooks/useCalculateTotalPrice';
 import { ColoredBanner } from '~shared/components/ColoredBanner';
 import { Graphics } from '~shared/components/Graphics';
 import { useUploadImage } from '~hooks/contexts/useUploadImage';
+import { useSecurityExpenses } from '~/src/app/shared/hooks/useSecurityExpenses';
 
 export function DashboardHeader() {
   const { preview } = useUploadImage();
-  const { isExpensesVisible, toggleExpenses } = useDashboardController();
+  const { isExpensesVisible, toggleExpenses } = useSecurityExpenses();
   const { totalPrice } = useCalculateTotalPrice(mockedProductCardContent);
   const { company } = useCompanyInfo();
 

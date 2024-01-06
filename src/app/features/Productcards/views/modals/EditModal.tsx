@@ -6,7 +6,7 @@ import { CiEdit } from 'react-icons/ci';
 import { BsArrowLeft } from 'react-icons/bs';
 import { formatPrice } from '~/src/app/shared/utils/transformers';
 import { useState } from 'react';
-import { editPurchaseContentTv } from '../ProductCardsTV';
+import { editPurchaseContentTv } from '../../ProductCardsTV';
 
 interface PurshaseModalProps {
   isModalOpen: boolean;

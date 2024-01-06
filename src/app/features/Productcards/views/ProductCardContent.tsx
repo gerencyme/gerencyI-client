@@ -6,12 +6,13 @@ import { PurshaseModal } from './modals/EditModal';
 import { NFModal } from './modals/NFModal';
 import { CancelPurshaseModal } from './modals/CancelPurshaseModal';
 import { ProductCard as ProductCardType } from '~/src/app/shared/types/ProductCard';
+import { memo } from 'react';
 
 interface ProductCardContentProps {
   productCard: ProductCardType[];
 }
 
-export function ProductCardContent({ productCard }: ProductCardContentProps) {
+function ProductCardContent({ productCard }: ProductCardContentProps) {
   const {
     isEditing,
     indexModalOpen,
@@ -84,3 +85,5 @@ export function ProductCardContent({ productCard }: ProductCardContentProps) {
     </div>
   );
 }
+
+export default memo(ProductCardContent);
