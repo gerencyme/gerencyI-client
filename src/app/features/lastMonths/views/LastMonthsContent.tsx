@@ -1,6 +1,5 @@
 'use client';
 
-import { mockedProductCardContent } from '~features/Productcards/ProductCardsUtils';
 import { Search } from '~features/search';
 import { useSearch } from '~shared/hooks/useSearch';
 import { Filters } from '../../filters';
@@ -9,9 +8,19 @@ import { useLastMonthsController } from '../controller';
 import { headerFiltersTv, lastMonthsHeaderTv } from '../LastMonthsTV';
 import { LastMonthsProducts } from './LastMonthsProducts';
 import { LastMonthsMonthlyExpense } from './LastMonthsMonthlyExpense';
+import { useDashboardController } from '../../dashboard/controller';
+import { useRef } from 'react';
+import { useObserver } from '~/src/app/shared/hooks/useObserver';
+import { DivObserver } from '~/src/app/shared/components/DivObserver';
+import { useSecurityExpenses } from '~/src/app/shared/hooks/useSecurityExpenses';
 
 export function LastMonthsContent() {
-  const { searchedData, search, isTyping, onchange } = useSearch(mockedProductCardContent);
+  const ref = useRef(null);
+
+  const { isExpensesVisible, toggleExpenses } = useSecurityExpenses();
+  const { isVisible } = useObserver(ref);
+  const { tableData } = useDashboardController(isVisible);
+  const { searchedData, search, isTyping, onchange } = useSearch(tableData || []);
   const {
     currentMonthFilter,
     translatedSelectedStatus,
@@ -21,7 +30,7 @@ export function LastMonthsContent() {
     setSelectedStatus,
     setCurrentMonth
   } = useFilters(searchedData);
-  const { isExpensesVisible, totalPrice, toggleExpenses } = useLastMonthsController(filteredData);
+  const { totalPrice } = useLastMonthsController(filteredData);
 
   return (
     <>
@@ -48,6 +57,7 @@ export function LastMonthsContent() {
       </div>
       <Search.input isLoading={isTyping} search={search} onchange={onchange} />
       <LastMonthsProducts filteredData={filteredData} />
+      <DivObserver ref={ref} />
     </>
   );
 }

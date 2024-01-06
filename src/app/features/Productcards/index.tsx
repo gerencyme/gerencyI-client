@@ -1,4 +1,4 @@
-import { ProductCardContent } from './views/ProductCardContent';
+import ProductCardContent from './views/ProductCardContent';
 
 export const Productcards = {
   content: ProductCardContent

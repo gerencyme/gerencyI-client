@@ -6,11 +6,10 @@ import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
 import { GetAllOrdersRequest } from '~/src/app/shared/types/requests/getAllOrdersRequest';
 import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { toast } from 'react-toastify';
-import { getAllCompanyOrders } from '../../Table/services';
 import { useMutation } from 'react-query';
+import { getAllCompanyOrders } from '../services';
 
 export const useDashboardController = (isVisible?: boolean) => {
-  const [isExpensesVisible, setIsExpensesVisible] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [shouldGetMoreOrders, setShouldGetMoreOrders] = useState(true);
@@ -57,12 +56,8 @@ export const useDashboardController = (isVisible?: boolean) => {
 
   const tableData = orders.length ? orders : allOrders;
 
-  const toggleExpenses = () => setIsExpensesVisible((prev) => !prev);
-
   return {
-    isExpensesVisible,
     loading,
-    tableData,
-    toggleExpenses
+    tableData
   };
 };

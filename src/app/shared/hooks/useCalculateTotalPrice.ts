@@ -8,7 +8,7 @@ export const useCalculateTotalPrice = (filtaredData: ProductCard[]) => {
 
   const calculateTotalPrice = useCallback(() => {
     const calculatedTotalPrice = filtaredData.reduce(
-      (acc, product) => acc + +product.product.totalPrice,
+      (acc, product) => acc + +product.product.lastTotalPrice,
       0
     );
     setTotalPrice(calculatedTotalPrice);

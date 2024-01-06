@@ -5,7 +5,7 @@ import { AiOutlineLoading } from 'react-icons/ai';
 import { formateDate } from '~shared/utils/dates';
 import { ProductCard } from '~shared/types/ProductCard';
 import { formatPrice, getFirstThreeNames } from '~shared/utils/transformers';
-import { TableObserver } from './TableObserver';
+import { DivObserver } from '../../DivObserver';
 
 export interface TableRowGroupProps {
   tableRows?: ProductCard[];
@@ -57,7 +57,7 @@ export function TableRowGroup({ tableRows = [], tableRef, loading = false }: Tab
           className="animate-spin absolute left-1/2"
         />
       )}
-      <TableObserver ref={tableRef} />
+      <DivObserver ref={tableRef} />
     </div>
   );
 }
