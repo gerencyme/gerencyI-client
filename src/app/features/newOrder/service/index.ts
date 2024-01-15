@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify';
 import { api } from '~/src/app/shared/services/axios/api';
+import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
 import { getToken } from '~/src/app/shared/utils/getToken';
 import { NewOrderRequest } from '~types/requests/NewOrderRequest';
@@ -31,5 +32,25 @@ export const postNewOrder = async (order: NewOrderRequest, resolver: () => void)
 
     toast.dismiss(newOrderToastId);
     toast.error(errorMessage);
+  }
+};
+
+export const getLast12CompanyOrders = async (cnpj: string, logout: () => void) => {
+  try {
+    const endPont = 'GetLast12NewOrders';
+
+    const { data } = await api(token).post<ProductCard[]>(endPont, { CompanieCNPJ: cnpj });
+
+    if (data) {
+      return data;
+    }
+  } catch (err: any) {
+    const defaultMessage = 'Erro ao recuperar seus últimos pedidos';
+    const status = err.response?.status || defaultMessage;
+    const errorMessage = errorMessages[status];
+
+    status === 401 && logout();
+
+    toast.error(err.response?.data ?? errorMessage);
   }
 };

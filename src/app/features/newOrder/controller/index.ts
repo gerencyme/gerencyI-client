@@ -2,41 +2,42 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelectColor } from '~/src/app/shared/hooks/contexts/useSelectColor';
-import { useCoordinates } from '~/src/app/shared/hooks/useCoordinates';
-import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
-import { ModalContentAction } from '~/src/app/shared/types/ModalContentAction';
-import { localStorageOrderSketch } from '~/src/app/shared/utils/constants/localStorageOrderSketch';
-import { TNewOrderSchema, newOrderSchema } from '../NewOrderUtils';
+import { toast } from 'react-toastify';
+import { useQuery } from 'react-query';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { NewOrderRequest } from '~/src/app/shared/types/requests/NewOrderRequest';
-import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
-import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
-import { Color } from 'react-pick-color';
-import { draftMode } from '~/src/app/shared/utils/constants/draftMode';
-import { BestSellersData } from '~/src/app/shared/types/graphics/BestSellersData';
-import { postNewOrder } from '../service';
+import { useSelectColor } from '~hooks/contexts/useSelectColor';
+import { useCoordinates } from '~hooks/useCoordinates';
+import { useLocalStorage } from '~hooks/useLocalStorage';
+import { ModalContentAction } from '~types/ModalContentAction';
+import { localStorageOrderSketch } from '~utils/constants/localStorageOrderSketch';
+import { NewOrderRequest } from '~types/requests/NewOrderRequest';
+import { useCompanyInfo } from '~hooks/useCompanyInfo';
+import { useDraftMode } from '~hooks/contexts/useDraftMode';
+import { draftMode } from '~utils/constants/draftMode';
+import { BestSellersData } from '~types/graphics/BestSellersData';
+import { ProductCard } from '~/src/app/shared/types/ProductCard';
+import { TNewOrder } from '~/src/app/shared/types/TNewOrder';
+import { TNewOrderSchema, newOrderSchema } from '../NewOrderUtils';
+import { getLast12CompanyOrders, postNewOrder } from '../service';
+import { useAuthController } from '../../auth/controller';
+import { useTimeout } from '~/src/app/shared/hooks/useTimeout';
 
-type TNewOrder = {
-  orderColorIdentity?: Color;
-  data?: TNewOrderSchema;
-  productBrand?: string;
-  productName?: string;
-  quantity?: number;
-  productType?: string;
-};
+const timeToRefetchCache = 1000 * 60 * 60 * 1; // 1 hora
 
 export const useNewOrderController = () => {
   const errorResolver = () => setShowLocationGuide(true);
 
   const { latitude, longitude } = useCoordinates(errorResolver);
   const { company } = useCompanyInfo();
+  const { color, onChange } = useSelectColor();
+  const { logout } = useAuthController();
   const { resetColor } = useSelectColor();
   const { debouncedDraftMode, debouncedDesableDraftMode } = useDraftMode();
-  const { color, onChange } = useSelectColor();
   const { getLocalStorage, deleteFromStorage, setLocalStorage } = useLocalStorage();
 
   const [showLocationGuide, setShowLocationGuide] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [updatedLastTwoTen, setUpdatedLastTwoTen] = useState<ProductCard[]>([]);
 
   const oderSketched: NewOrderRequest = getLocalStorage(localStorageOrderSketch);
   const choisedColor = oderSketched?.orderColorIdentity ?? color;
@@ -111,7 +112,7 @@ export const useNewOrderController = () => {
     [debouncedDraftMode, newOrder, setLocalStorage]
   );
 
-  const clearForm = () => {
+  const clearForm = useCallback(() => {
     reset({
       productBrand: '',
       productName: '',
@@ -123,29 +124,13 @@ export const useNewOrderController = () => {
     debouncedDesableDraftMode();
     setLocalStorage(draftMode, false);
     resetColor();
-  };
+  }, [debouncedDesableDraftMode, deleteFromStorage, reset, resetColor, setLocalStorage]);
 
-  const onSubmit = async (data: TNewOrderSchema) => {
-    if (longitude === 0 || latitude === 0) {
-      return setShowLocationGuide(true);
+  const getLastTwoTenOrders = useCallback(async () => {
+    if (company) {
+      return await getLast12CompanyOrders(company?.cnpj, logout);
     }
-
-    const newOrderData = newOrder({
-      data,
-      orderColorIdentity: color
-    });
-
-    postNewOrder(newOrderData as NewOrderRequest, clearForm);
-  };
-
-  const actions: ModalContentAction[] = [
-    {
-      id: 0,
-      color: 'primary',
-      label: 'Fechar',
-      onClick: () => setShowLocationGuide(false)
-    }
-  ];
+  }, [company, logout]);
 
   const handleSetToDraft = (i: number, data: BestSellersData[]) => {
     const productBrand = product?.productBrand ?? '';
@@ -167,6 +152,98 @@ export const useNewOrderController = () => {
     setValue('quantity', quantity);
   };
 
+  const createOrder = useMemo(
+    () =>
+      (order: NewOrderRequest, newQuantity?: number): NewOrderRequest => ({
+        companieCNPJ: company?.cnpj,
+        companyId: order.companyId,
+        location: {
+          latitude,
+          longitude
+        },
+        product: {
+          productBrand: order.product.productBrand,
+          quantity: newQuantity ?? order.product.quantity,
+          lastTotalPrice: order.product.lastTotalPrice,
+          productName: order.product.productName,
+          productType: order.product.productType
+        },
+        orderColorIdentity: order.orderColorIdentity,
+        orderDate: new Date(),
+        orderId: order.orderId
+      }),
+    [company?.cnpj, latitude, longitude]
+  );
+
+  const sendNewOrder = useCallback(
+    async (
+      order: NewOrderRequest,
+      newQuantity?: number,
+      clearForm?: () => void
+    ): Promise<NewOrderRequest | undefined> => {
+      try {
+        setLoading(true);
+        const newOrder = createOrder(order, newQuantity);
+
+        const resolver = async () => {
+          await getLastTwoTenOrders().then((resp) => {
+            if (resp) setUpdatedLastTwoTen(resp);
+
+            setLoading(false);
+            clearForm?.();
+            return resp;
+          });
+        };
+
+        return await postNewOrder(newOrder, resolver);
+      } catch (err) {
+        setLoading(false);
+        toast.error(
+          'Não foi possível enviar seu pedido para análise. Por favor, tente mais tarde!'
+        );
+      }
+    },
+    [createOrder, getLastTwoTenOrders]
+  );
+
+  const onSubmit = useCallback(
+    async (data: TNewOrderSchema) => {
+      if (longitude === 0 || latitude === 0) {
+        return setShowLocationGuide(true);
+      }
+
+      const newOrderData = newOrder({
+        data,
+        orderColorIdentity: color
+      });
+
+      return sendNewOrder(newOrderData as NewOrderRequest, data.quantity, clearForm);
+    },
+    [clearForm, color, latitude, longitude, newOrder, sendNewOrder]
+  );
+
+  const actions: ModalContentAction[] = [
+    {
+      id: 0,
+      color: 'primary',
+      label: 'Fechar',
+      onClick: () => setShowLocationGuide(false)
+    }
+  ];
+
+  const { data: lastTwoTen, isLoading } = useQuery('lastTwoTen', getLastTwoTenOrders, {
+    staleTime: timeToRefetchCache,
+    refetchOnWindowFocus: false
+  });
+
+  const updatedDate = updatedLastTwoTen.length > 0 ? updatedLastTwoTen : lastTwoTen;
+
+  const load = isLoading || loading;
+
+  const situation = load === true;
+  const updateSituation = () => setLoading(true);
+  useTimeout(situation, updateSituation, 1500);
+
   return {
     onSubmit,
     onChange,
@@ -182,6 +259,9 @@ export const useNewOrderController = () => {
     setLocalStorage,
     deleteFromStorage,
     reset,
+    sendNewOrder,
+    updatedDate,
+    load,
     oderSketched,
     actions,
     showLocationGuide,

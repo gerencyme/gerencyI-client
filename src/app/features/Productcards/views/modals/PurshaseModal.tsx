@@ -6,7 +6,9 @@ import { CiEdit } from 'react-icons/ci';
 import { BsArrowLeft } from 'react-icons/bs';
 import { formatPrice } from '~/src/app/shared/utils/transformers';
 import { useState } from 'react';
-import { editPurchaseContentTv } from '../../ProductCardsTV';
+import { editPurchaseContentTv } from '../ProductCardsTV';
+import { ProductCard } from '~types/ProductCard';
+import { NewOrderRequest } from '~types/requests/NewOrderRequest';
 
 interface PurshaseModalProps {
   isModalOpen: boolean;
@@ -14,8 +16,13 @@ interface PurshaseModalProps {
   productName: string;
   quantity: string | number;
   unitPrice: string | number;
+  product: ProductCard;
   closeModal: () => void;
   toggleIsEditing: () => void;
+  sendNewOrder: (
+    order: NewOrderRequest,
+    newQuantity?: number
+  ) => Promise<NewOrderRequest | undefined>;
 }
 
 export function PurshaseModal({
@@ -23,9 +30,11 @@ export function PurshaseModal({
   isEditing,
   productName,
   quantity,
+  product,
   unitPrice,
   closeModal,
-  toggleIsEditing
+  toggleIsEditing,
+  sendNewOrder
 }: PurshaseModalProps) {
   const [value, setValue] = useState(quantity);
   const totalByLastPurchaseWithNewAmount = +value * +unitPrice;
@@ -42,7 +51,7 @@ export function PurshaseModal({
       color: 'primary',
       label: 'Sim',
       onClick: () => {
-        console.log('envia o produto para análise de busca de preços');
+        sendNewOrder(product as unknown as NewOrderRequest);
         closeModal();
       }
     }
@@ -60,7 +69,7 @@ export function PurshaseModal({
       color: 'primary',
       label: 'Enviar',
       onClick: () => {
-        console.log('chama a api enviando o produto para análise');
+        sendNewOrder(product as unknown as NewOrderRequest, +value);
         toggleIsEditing();
         closeModal();
       }

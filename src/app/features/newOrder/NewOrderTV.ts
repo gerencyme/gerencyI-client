@@ -92,3 +92,7 @@ export const newOrderFormContentTv = tv({
 export const newOrderFormInputsTv = tv({
   base: 'flex flex-col gap-4 md:gap-6'
 });
+
+export const newOrderLastProductsTv = tv({
+  base: 'h-full max-h-[520px] relative'
+});
