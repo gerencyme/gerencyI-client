@@ -6,7 +6,7 @@ import { MutableRefObject, useEffect, useState } from 'react';
  * @returns isVisible is the state active of visible object referencied
  */
 
-export const useObserver = (ref: MutableRefObject<null>) => {
+export function useObserver<T extends Element>(ref: MutableRefObject<T | null>) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ export const useObserver = (ref: MutableRefObject<null>) => {
   return {
     isVisible
   };
-};
+}

@@ -6,8 +6,10 @@ import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
 import { GetAllOrdersRequest } from '~/src/app/shared/types/requests/getAllOrdersRequest';
 import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { toast } from 'react-toastify';
-import { useMutation } from 'react-query';
+import { useQuery } from 'react-query';
 import { getAllCompanyOrders } from '../../Table/services';
+
+const timeToRefetchCache = 1000 * 60 * 60 * 1; // 1 hora
 
 export const useDashboardController = (isVisible?: boolean) => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -43,14 +45,21 @@ export const useDashboardController = (isVisible?: boolean) => {
     return await getAllCompanyOrders(config, resolver, logout);
   }, [company?.cnpj, logout, pageNumber]);
 
+  const {
+    data: allOrders,
+    isLoading: load,
+    refetch
+  } = useQuery('allOrders', getAllOrders, {
+    staleTime: timeToRefetchCache,
+    refetchOnWindowFocus: false
+  });
+
   useEffect(() => {
     if (isVisible && shouldGetMoreOrders) {
-      getAllOrders();
+      refetch();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisible]);
-
-  const { data: allOrders, isLoading: load } = useMutation(['allOrders'], getAllOrders);
 
   const loading = isLoading || load;
 

@@ -13,7 +13,7 @@ interface ServiceCardRootProps extends VariantProps<typeof serviceCardRootTV> {
 export function ServiceCardRoot({ children, state }: ServiceCardRootProps) {
   const serviceCard = useRef(null);
 
-  const { isVisible } = useObserver(serviceCard);
+  const { isVisible } = useObserver<HTMLDivElement>(serviceCard);
 
   const isVisibeState: typeof state = isVisible ? 'isVisible' : 'notVisible';
 
