@@ -11,7 +11,7 @@ export const tableRootTv = tv({
 });
 
 export const tableBasementTv = tv({
-  base: 'table w-full p-1 sm:p-6 text-white bg-darkblue'
+  base: 'table min-h-[180px] w-full p-1 sm:p-6 text-white bg-darkblue'
 });
 
 export const tableHeaderGroupTv = tv({
@@ -42,4 +42,8 @@ export const tableContentTv = tv({
 
 export const tableColorIdentifyRootTv = tv({
   base: 'bg-darkblue flex items-center justify-center absolute w-2 sm:w-3 h-4 sm:h-10 rounded-2xl left-0'
+});
+
+export const tableFallbackTextTv = tv({
+  base: 'text-white font-bold text-lg md:text-xl text-center'
 });

@@ -189,13 +189,9 @@ export const useNewOrderController = () => {
       try {
         const newOrder = createOrder(order, newQuantity);
 
-        const resolver = async () => {
-          await getLastTwoTenOrders().then((resp) => {
-            if (resp) refetch();
-
-            clearForm?.();
-            return resp;
-          });
+        const resolver = () => {
+          refetch();
+          clearForm?.();
         };
 
         return await postNewOrder(newOrder, resolver);
@@ -205,7 +201,7 @@ export const useNewOrderController = () => {
         );
       }
     },
-    [createOrder, getLastTwoTenOrders, refetch]
+    [createOrder, refetch]
   );
 
   const onSubmit = useCallback(
@@ -219,11 +215,10 @@ export const useNewOrderController = () => {
         orderColorIdentity: color
       });
 
-      refetch();
       return await sendNewOrder(newOrderData as NewOrderRequest, data.quantity, clearForm);
     },
 
-    [longitude, latitude, newOrder, color, refetch, sendNewOrder, clearForm]
+    [longitude, latitude, color, newOrder, sendNewOrder, clearForm]
   );
 
   const actions: ModalContentAction[] = [
