@@ -11,15 +11,14 @@ import { LastMonthsMonthlyExpense } from './LastMonthsMonthlyExpense';
 import { useDashboardController } from '../../dashboard/controller';
 import { useRef } from 'react';
 import { useObserver } from '~/src/app/shared/hooks/useObserver';
-import { DivObserver } from '~/src/app/shared/components/DivObserver';
 import { useSecurityExpenses } from '~/src/app/shared/hooks/useSecurityExpenses';
 
 export function LastMonthsContent() {
   const ref = useRef(null);
 
   const { isExpensesVisible, toggleExpenses } = useSecurityExpenses();
-  const { isVisible } = useObserver(ref);
-  const { tableData } = useDashboardController(isVisible);
+  const { isVisible } = useObserver<HTMLDivElement>(ref);
+  const { tableData, loading } = useDashboardController(isVisible);
   const { searchedData, search, isTyping, onchange } = useSearch(tableData || []);
   const {
     currentMonthFilter,
@@ -56,8 +55,7 @@ export function LastMonthsContent() {
         />
       </div>
       <Search.input isLoading={isTyping} search={search} onchange={onchange} />
-      <LastMonthsProducts filteredData={filteredData} />
-      <DivObserver ref={ref} />
+      <LastMonthsProducts ref={ref} filteredData={filteredData} isLoading={loading} />
     </>
   );
 }

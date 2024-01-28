@@ -1,11 +1,10 @@
 import * as tv from '../TableTV';
 import { MutableRefObject } from 'react';
-import { Icon } from '../../Icon';
-import { AiOutlineLoading } from 'react-icons/ai';
 import { formateDate } from '~shared/utils/dates';
 import { ProductCard } from '~shared/types/ProductCard';
 import { formatPrice, getFirstThreeNames } from '~shared/utils/transformers';
 import { DivObserver } from '../../DivObserver';
+import { Spinner } from '../../Spinner';
 
 export interface TableRowGroupProps {
   tableRows?: ProductCard[];
@@ -49,14 +48,7 @@ export function TableRowGroup({ tableRows = [], tableRef, loading = false }: Tab
           </div>
         );
       })}
-      {loading && (
-        <Icon
-          icon={AiOutlineLoading}
-          color="white"
-          size="small"
-          className="animate-spin absolute left-1/2"
-        />
-      )}
+      {loading && <Spinner />}
       <DivObserver ref={tableRef} />
     </div>
   );

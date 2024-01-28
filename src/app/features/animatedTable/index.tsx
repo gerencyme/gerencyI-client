@@ -19,7 +19,7 @@ interface AnimatedTableProps extends VariantProps<typeof tv.animatedTableRootTv>
 export function AnimatedTable({ isTable, isPressable, state, togglePress }: AnimatedTableProps) {
   const tableRef = useRef(null);
 
-  const { isVisible } = useObserver(tableRef);
+  const { isVisible } = useObserver<HTMLDivElement>(tableRef);
 
   const isVisibeState: typeof state = isVisible ? 'isVisible' : 'notVisible';
 

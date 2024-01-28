@@ -1,13 +1,15 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { HtmlHTMLAttributes, ReactNode } from 'react';
 import { backButtonTv, templateTv } from './TemplateTV';
 import { VariantProps } from 'tailwind-variants';
 import { useRouter } from 'next/navigation';
 import { Icon } from '../Icon';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 
-export interface TemplateProps extends VariantProps<typeof templateTv> {
+export interface TemplateProps
+  extends VariantProps<typeof templateTv>,
+    HtmlHTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   goBack?: boolean;
@@ -21,7 +23,8 @@ export function Template({
   height,
   bgColor,
   goBackState,
-  goBack = false
+  goBack = false,
+  ...props
 }: TemplateProps) {
   const { back } = useRouter();
 
@@ -39,6 +42,7 @@ export function Template({
 
   return (
     <div
+      {...props}
       className={templateTv({
         className,
         overflow,
