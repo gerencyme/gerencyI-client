@@ -8,7 +8,7 @@ import { ProductCard } from '~shared/components/ProductCard';
 import { PurshaseModal } from './modals/PurshaseModal';
 import { ProductCard as ProductCardType } from '~types/ProductCard';
 import { useNewOrderController } from '../../newOrder/controller';
-import { productcardsTV } from '../ProductcardsTV';
+import { productcardsTV } from '../ProductCardsTV';
 
 export interface ProductCardContentProps {
   productCard?: ProductCardType[];
