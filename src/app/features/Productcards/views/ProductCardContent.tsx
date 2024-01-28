@@ -67,8 +67,7 @@ function ProductCardContent({ productCard }: ProductCardContentProps) {
               <ProductCard.identify color={productCardContent.orderColorIdentity} />
               <ProductCard.status
                 handleCancel={() => openCancelModal(productCardContent.orderId)}
-                // state={productCardContent.orderStatus}
-                state="done"
+                state={productCardContent.orderStatus}
               />
               <ProductCard.header
                 date={productCardContent.orderDate}
@@ -89,8 +88,7 @@ function ProductCardContent({ productCard }: ProductCardContentProps) {
                 similarCompanies={productCardContent.partnerCompaniesInthisOrder}
               />
               <ProductCard.actions
-                // status={productCardContent.orderStatus}
-                status="done"
+                status={productCardContent.orderStatus}
                 actions={() => productCardActions(productCardContent.orderId)}
               />
             </ProductCard.root>
