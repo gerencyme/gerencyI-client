@@ -7,14 +7,14 @@ import { newOrderLastProductsTv } from '../NewOrderTV';
 import { useNewOrderController } from '../controller';
 
 export function NewOrderLastProducts() {
-  const { updatedDate } = useNewOrderController();
+  const { lastTwoTen } = useNewOrderController();
 
   return (
     <Template overflow="scroll-y" className={newOrderLastProductsTv()}>
       <Title
         as="h4"
         title={
-          updatedDate?.length ? 'Últimos 12 Pedidos' : 'Seus 12 últimos pedidos aparecerão aqui'
+          lastTwoTen?.length ? 'Últimos 12 Pedidos' : 'Seus 12 últimos pedidos aparecerão aqui'
         }
         size="lg"
         weight="light"

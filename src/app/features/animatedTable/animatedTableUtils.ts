@@ -169,15 +169,44 @@ export const pieChartData = [
 ];
 
 export const bestSellersData: BestSellersData[] = [
-  { id: 6, name: 'Arroz Integral 1kg', value: 599, economyPercent: 4, productType: 'Grãos' },
-  { id: 7, name: 'Maçãs Gala (kg)', value: 209.25, economyPercent: 1, productType: 'Frutas' },
+  {
+    id: 6,
+    name: 'Arroz Integral 1kg',
+    value: 599,
+    economyPercent: 4,
+    productType: 'Grãos',
+    productBrand: 'Terra Nova'
+  },
+  {
+    id: 7,
+    name: 'Maçãs Gala (kg)',
+    value: 209.25,
+    economyPercent: 1,
+    productType: 'Frutas',
+    productBrand: 'Galas'
+  },
   {
     id: 8,
     name: 'Azeite de Oliva Extra Virgem 500ml',
     value: 269.7,
     economyPercent: 2,
-    productType: 'Óleos'
+    productType: 'Óleos',
+    productBrand: 'Azeites do Sul'
   },
-  { id: 9, name: 'Leite Desnatado 1L', value: 320, economyPercent: 3, productType: 'Laticínio' },
-  { id: 10, name: 'Frango Congelado 1kg', value: 1500, economyPercent: 5, productType: 'Aves' }
+  {
+    id: 9,
+    name: 'Leite Desnatado 1L',
+    value: 320,
+    economyPercent: 3,
+    productType: 'Laticínio',
+    productBrand: 'Piracanjuba'
+  },
+  {
+    id: 10,
+    name: 'Frango Congelado 1kg',
+    value: 1500,
+    economyPercent: 5,
+    productType: 'Aves',
+    productBrand: 'Sadia'
+  }
 ];

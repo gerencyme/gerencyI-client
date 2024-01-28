@@ -4,4 +4,5 @@ export interface BestSellersData {
   value: number;
   economyPercent: number;
   productType: string;
+  productBrand: string;
 }

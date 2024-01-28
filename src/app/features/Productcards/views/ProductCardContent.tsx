@@ -28,10 +28,9 @@ function ProductCardContent({ productCard }: ProductCardContentProps) {
     openCancelModal,
     handleLike
   } = useProductCardController();
+  const { sendNewOrder, lastTwoTen, isLoading } = useNewOrderController();
 
-  const { sendNewOrder, updatedDate, load } = useNewOrderController();
-
-  const data = productCard ?? updatedDate;
+  const data = productCard ?? lastTwoTen;
 
   const skelletons = Array.from({ length: 4 }).map((_, i) => (
     <ProductCard.root key={i}>
@@ -41,7 +40,7 @@ function ProductCardContent({ productCard }: ProductCardContentProps) {
 
   return (
     <div className={productcardsTV()}>
-      {!data || load
+      {!data || isLoading
         ? skelletons
         : data?.map((productCardContent) => (
             <ProductCard.root key={productCardContent.orderId}>

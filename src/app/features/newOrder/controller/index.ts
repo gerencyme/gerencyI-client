@@ -15,12 +15,10 @@ import { useCompanyInfo } from '~hooks/useCompanyInfo';
 import { useDraftMode } from '~hooks/contexts/useDraftMode';
 import { draftMode } from '~utils/constants/draftMode';
 import { BestSellersData } from '~types/graphics/BestSellersData';
-import { ProductCard } from '~/src/app/shared/types/ProductCard';
-import { TNewOrder } from '~/src/app/shared/types/TNewOrder';
+import { TNewOrder } from '~shared/types/TNewOrder';
 import { TNewOrderSchema, newOrderSchema } from '../NewOrderUtils';
 import { getLast12CompanyOrders, postNewOrder } from '../service';
 import { useAuthController } from '../../auth/controller';
-import { useTimeout } from '~/src/app/shared/hooks/useTimeout';
 
 const timeToRefetchCache = 1000 * 60 * 60 * 1; // 1 hora
 
@@ -36,8 +34,6 @@ export const useNewOrderController = () => {
   const { getLocalStorage, deleteFromStorage, setLocalStorage } = useLocalStorage();
 
   const [showLocationGuide, setShowLocationGuide] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [updatedLastTwoTen, setUpdatedLastTwoTen] = useState<ProductCard[]>([]);
 
   const oderSketched: NewOrderRequest = getLocalStorage(localStorageOrderSketch);
   const choisedColor = oderSketched?.orderColorIdentity ?? color;
@@ -76,7 +72,7 @@ export const useNewOrderController = () => {
       quantity,
       productType
     }: TNewOrder) => ({
-      companyId: company.id,
+      companyId: company?.id,
       companieCNPJ: company?.cnpj,
       orderDate: new Date(),
       orderColorIdentity: orderColorIdentity,
@@ -133,7 +129,7 @@ export const useNewOrderController = () => {
   }, [company, logout]);
 
   const handleSetToDraft = (i: number, data: BestSellersData[]) => {
-    const productBrand = product?.productBrand ?? '';
+    const productBrand = data[i].productBrand ?? '';
     const productName = data[i].name;
     const productType = data[i].productType;
     const quantity = product?.quantity ?? 10;
@@ -175,6 +171,15 @@ export const useNewOrderController = () => {
     [company?.cnpj, latitude, longitude]
   );
 
+  const {
+    data: lastTwoTen,
+    isLoading,
+    refetch
+  } = useQuery('lastTwoTen', getLastTwoTenOrders, {
+    staleTime: timeToRefetchCache,
+    refetchOnWindowFocus: false
+  });
+
   const sendNewOrder = useCallback(
     async (
       order: NewOrderRequest,
@@ -182,14 +187,12 @@ export const useNewOrderController = () => {
       clearForm?: () => void
     ): Promise<NewOrderRequest | undefined> => {
       try {
-        setLoading(true);
         const newOrder = createOrder(order, newQuantity);
 
         const resolver = async () => {
           await getLastTwoTenOrders().then((resp) => {
-            if (resp) setUpdatedLastTwoTen(resp);
+            if (resp) refetch();
 
-            setLoading(false);
             clearForm?.();
             return resp;
           });
@@ -197,13 +200,12 @@ export const useNewOrderController = () => {
 
         return await postNewOrder(newOrder, resolver);
       } catch (err) {
-        setLoading(false);
         toast.error(
           'Não foi possível enviar seu pedido para análise. Por favor, tente mais tarde!'
         );
       }
     },
-    [createOrder, getLastTwoTenOrders]
+    [createOrder, getLastTwoTenOrders, refetch]
   );
 
   const onSubmit = useCallback(
@@ -217,9 +219,11 @@ export const useNewOrderController = () => {
         orderColorIdentity: color
       });
 
-      return sendNewOrder(newOrderData as NewOrderRequest, data.quantity, clearForm);
+      refetch();
+      return await sendNewOrder(newOrderData as NewOrderRequest, data.quantity, clearForm);
     },
-    [clearForm, color, latitude, longitude, newOrder, sendNewOrder]
+
+    [longitude, latitude, newOrder, color, refetch, sendNewOrder, clearForm]
   );
 
   const actions: ModalContentAction[] = [
@@ -230,19 +234,6 @@ export const useNewOrderController = () => {
       onClick: () => setShowLocationGuide(false)
     }
   ];
-
-  const { data: lastTwoTen, isLoading } = useQuery('lastTwoTen', getLastTwoTenOrders, {
-    staleTime: timeToRefetchCache,
-    refetchOnWindowFocus: false
-  });
-
-  const updatedDate = updatedLastTwoTen.length > 0 ? updatedLastTwoTen : lastTwoTen;
-
-  const load = isLoading || loading;
-
-  const situation = load === true;
-  const updateSituation = () => setLoading(true);
-  useTimeout(situation, updateSituation, 1500);
 
   return {
     onSubmit,
@@ -260,8 +251,8 @@ export const useNewOrderController = () => {
     deleteFromStorage,
     reset,
     sendNewOrder,
-    updatedDate,
-    load,
+    lastTwoTen,
+    isLoading,
     oderSketched,
     actions,
     showLocationGuide,

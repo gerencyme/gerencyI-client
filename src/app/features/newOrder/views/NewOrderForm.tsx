@@ -63,8 +63,8 @@ export function NewOrderForm() {
 
     if (shoulRemoveDraft) return clearDraft();
   }, [
-    clearDraft,
     color,
+    clearDraft,
     debouncedDesableDraftMode,
     deleteFromStorage,
     resetColor,
