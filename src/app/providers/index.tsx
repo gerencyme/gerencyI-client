@@ -4,10 +4,10 @@
 import { ReactNode } from 'react';
 import { AppThemeProvider } from '~contexts/ThemeProvider';
 import { QueryClientProvider } from 'react-query';
-import { queryClient } from '../shared/services/reactQuery';
-import { SelectColorProvider } from '../shared/contexts/SelectColorContext';
-import { DraftModeProvider } from '../shared/contexts/DraftModeContext';
-import { UploadImageProvider } from '../shared/contexts/UploadImageContext';
+import { queryClient } from '~shared/services/reactQuery';
+import { SelectColorProvider } from '~shared/contexts/SelectColorContext';
+import { DraftModeProvider } from '~shared/contexts/DraftModeContext';
+import { UploadImageProvider } from '~shared/contexts/UploadImageContext';
 
 interface ProvidersProps {
   children: ReactNode;

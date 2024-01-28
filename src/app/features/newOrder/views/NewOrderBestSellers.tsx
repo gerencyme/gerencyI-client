@@ -28,7 +28,7 @@ export function NewOrderBestSellers({ handleSetToDraft }: NewOrderBestSellersPro
       />
 
       <Text
-        text="Basta clicar em um produto, selecionar marca, quantidade e enviar para análise"
+        text="Basta clicar em um produto, selecionar a quantidade e enviar para análise"
         color="white"
         weight="light"
         className={newOrderBestSellersTextTv()}

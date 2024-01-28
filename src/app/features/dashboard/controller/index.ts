@@ -7,7 +7,7 @@ import { GetAllOrdersRequest } from '~/src/app/shared/types/requests/getAllOrder
 import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { toast } from 'react-toastify';
 import { useMutation } from 'react-query';
-import { getAllCompanyOrders } from '../services';
+import { getAllCompanyOrders } from '../../Table/services';
 
 export const useDashboardController = (isVisible?: boolean) => {
   const [pageNumber, setPageNumber] = useState(1);
