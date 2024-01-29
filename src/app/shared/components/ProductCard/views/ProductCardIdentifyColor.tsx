@@ -1,4 +1,4 @@
-import { productCardIdentifyColorTv } from '../ProductCardTV';
+import { productCardIdentifyColorRootTv, productCardIdentifyColorTv } from '../ProductCardTV';
 
 interface ProductCardIdentifyColorProps {
   color: string;
@@ -6,8 +6,8 @@ interface ProductCardIdentifyColorProps {
 
 export function ProductCardIdentifyColor({ color }: ProductCardIdentifyColorProps) {
   return (
-    <div className={productCardIdentifyColorTv()}>
-      <div style={{ backgroundColor: color }} className="rounded-lg h-1 w-52 m-auto" />
+    <div className={productCardIdentifyColorRootTv()}>
+      <div style={{ backgroundColor: color }} className={productCardIdentifyColorTv()} />
     </div>
   );
 }

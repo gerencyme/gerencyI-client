@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const aboutServiceBlockIconTv = tv({
-  base: 'flex flex-col justify-center ring-1 ring-purple items-center rounded-sm relative',
+  base: 'flex flex-col justify-center ring-1 dark:ring-purple  ring-gray-200 items-center rounded-sm relative',
   variants: {
     blockSize: {
       big: 'p-4 sm:p-8 bg-bigBlockIcon',
@@ -14,8 +14,12 @@ export const aboutServiceBlockIconTv = tv({
   }
 });
 
+export const aboutServiceBlockHeroTv = tv({
+  base: 'w-4 md:w-6 lg:w-fit'
+});
+
 export const aboutServiceInfoCardTv = tv({
-  base: 'absolute w-0 h-20 md:h-28 lg:h-40 overflow-hidden delay-700 duration-1000 p-2 md:p-4 lg:p-8 ring-1 ring-purple rounded-lg flex flex-col items-center justify-center gap-2 lg:gap-4 text-center',
+  base: 'absolute w-0 h-20 md:h-28 lg:h-40 overflow-hidden delay-700 duration-1000 p-2 md:p-4 lg:p-8 ring-1 dark:ring-purple  ring-gray-200 rounded-lg flex flex-col items-center justify-center gap-2 lg:gap-4 text-center',
   variants: {
     state: {
       isVisible: 'opacity-100 w-24 md:w-[190px] lg:w-[240px]',
@@ -56,7 +60,7 @@ export const aboutServiceHeaderTitleTv = tv({
 });
 
 export const aboutServiceHeaderSubtitleTv = tv({
-  base: 'text-sm lg:text-md text-white/75 text-center pt-4'
+  base: 'text-sm lg:text-md duration-500 dark:text-white/75 text-black/50 text-center pt-4'
 });
 
 export const aboutServiceHeroTv = tv({
@@ -72,7 +76,7 @@ export const aboutServiceBlockIconHeroTv = tv({
 });
 
 export const aboutServiceBlockIconTextTv = tv({
-  base: 'h-full text-[8px] text-white md:text-sm text-clip w-full md:w-44 lg:w-60 leading-3 sm:leading-6 animate-[opacityOn_5000ms_ease-in]'
+  base: 'h-full text-[8px] duration-500 dark:text-white text-black md:text-sm text-clip w-full md:w-44 lg:w-60 leading-3 sm:leading-6 animate-[opacityOn_5000ms_ease-in]'
 });
 
 export const aboutServiceBlockIconRootTv = tv({

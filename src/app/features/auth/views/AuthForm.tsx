@@ -6,7 +6,7 @@ import { FormProvider } from 'react-hook-form';
 import { Input } from '~shared/components/Input';
 import { Form } from './Form';
 import { Button } from '~/src/app/shared/components/Button';
-import { authFormTv } from '../AuthTV';
+import { authFormButtonLabelTv, authFormTv, authFormWrapperTv } from '../AuthTV';
 import { useAuthController } from '../controller';
 import { Text } from '~/src/app/shared/components/Text';
 
@@ -29,10 +29,8 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
   return (
     <FormProvider {...authFormSchema}>
       <Form onSubmit={handleSubmit(onSubmit)} className={authFormTv()}>
-        {errorResolver && (
-          <Text as="span" text={errorResolver} weight="bold" size="sm" color="white" />
-        )}
-        <div className="flex w-full justify-center items-center flex-wrap gap-5 lg:gap-8 pt-10 min-[1520px]:pt-20">
+        {errorResolver && <Text as="span" text={errorResolver} weight="bold" size="sm" />}
+        <div className={authFormWrapperTv()}>
           <Input.root field="CNPJ">
             <Input.field max={17} maxLength={17} name="CNPJ" placeholder="Qual o seu CNPJ?" />
             <Input.label label="CNPJ" name="CNPJ" />
@@ -65,7 +63,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
               text="Entrar"
               color="white"
               weight="bold"
-              className="text-xs sm:text-sm md:text-md lg:text-lg"
+              className={authFormButtonLabelTv()}
             />
           </Button.contentWrapper>
         </Button.root>
@@ -73,7 +71,6 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
         <Text
           text="Esquceu sua senha?"
           size="sm"
-          color="white"
           weight="bold"
           onClick={handleForgetPassword}
           className="cursor-pointer"

@@ -37,7 +37,6 @@ export function RecoveryForm({ handleForgetPassword }: RecoveryFormProps) {
         <Text
           text="Enviaremos um e-mail com instruções de como redefinir sua senha!"
           size="lg"
-          color="white"
           weight="light"
           className="max-w-md leading-9"
         />

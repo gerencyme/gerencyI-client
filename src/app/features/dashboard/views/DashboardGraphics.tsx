@@ -8,12 +8,12 @@ export function DashboardGraphics() {
   return (
     <div className={tv.DashboardGraphicsWrapperTv()}>
       <div className={tv.DashboardGraphicsLeftSideTv()}>
-        <Text text="Os mais vendidos no seu segmento" weight="light" size="md" color="white" />
+        <Text text="Os mais vendidos no seu segmento" weight="light" size="md" />
         <div className={tv.DashboardGraphicsBestSellersTv()}>
           <Graphics.bestSellers bgColor="transparent" />
         </div>
 
-        <Text text="Compare seus lucros com a GerencyI" weight="light" size="md" color="white" />
+        <Text text="Compare seus lucros com a GerencyI" weight="light" size="md" />
         <Graphics.areaChart bgColor="transparent" isPressable />
       </div>
 

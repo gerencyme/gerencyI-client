@@ -13,7 +13,6 @@ export default function Home() {
     <div className={tv.homePageTv()}>
       <Title
         title="Não perca mais tempo com gerenciamento"
-        color="white"
         weight="bold"
         className={tv.homePageTitleTv()}
       />
@@ -35,11 +34,11 @@ export default function Home() {
       </div>
       <div className="sm:my-64" />
       <p className={tv.homePageSlogan()}>
-        Nosso preço pensado em você, <span className="text-secondary font-semiBold">nosso</span>{' '}
+        Nosso preço pensado em você, <span className={tv.homePageSecondarySloganTv()}>nosso</span>{' '}
         futuro cliente!
       </p>
       <Section id="service">
-        <Brightness gradient="bg-easy-brightness" />
+        <Brightness gradient={tv.homePageBrightnessTv()} />
         <div className={tv.homePageProductCardWrappetTv()}>
           <Reflector>
             <CurrentService.card />

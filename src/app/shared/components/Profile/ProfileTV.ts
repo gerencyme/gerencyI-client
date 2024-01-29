@@ -16,8 +16,8 @@ export const profileInfoTitleTv = tv({
   base: 'text-sm md:text-md lg:text-lg',
   variants: {
     color: {
-      white: 'text-white',
-      'white/75': 'text-white/75'
+      white: 'dark:text-white text-black',
+      'white/75': 'dark:text-white/75 text-black/50'
     }
   }
 });

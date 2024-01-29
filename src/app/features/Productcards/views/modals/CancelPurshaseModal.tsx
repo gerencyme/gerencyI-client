@@ -40,7 +40,6 @@ export function CancelPurshaseModal({
         <Modal.content>
           <Text
             weight="light"
-            color="white"
             text="Deseja realmente sair da busca por grupos de compra? A GerencyI recomenda que espere até o final do dia antes do cancelamento."
           />
           <Modal.contentActions actions={cancelPurshaseModalContentActions} />

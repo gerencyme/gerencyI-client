@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const filterRootTv = tv({
-  base: 'h-9 w-fit rounded flex items-center py-1 px-2 gap-2 ring-1 ring-primary bg-darkblue'
+  base: 'h-9 w-fit rounded flex items-center py-1 px-2 gap-2 ring-1 dark:ring-primary ring-gray-200 duration-500 dark:bg-darkblue bg-gray-50'
 });
 
 export const filterIconTv = tv({

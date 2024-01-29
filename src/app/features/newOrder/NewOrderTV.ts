@@ -18,6 +18,10 @@ export const colorIdentityTv = tv({
   }
 });
 
+export const colorIdentityTooltipTv = tv({
+  base: 'flex items-center gap-2'
+});
+
 export const renderTextElementTv = tv({
   base: 'text-xs md:text-sm'
 });
@@ -53,7 +57,7 @@ export const newOrderSubmitActionTv = tv({
 });
 
 export const newOrderDraftTv = tv({
-  base: 'duration-300 text-[10px] md:text-[12px] text-lime max-[480px]:translate-y-12 md:translate-y-8',
+  base: 'duration-500 text-[10px] md:text-[12px] dark:text-lime text-green-500 max-[480px]:translate-y-12 md:translate-y-8',
   variants: {
     draftMode: {
       hasDraft: 'translate-x-0',

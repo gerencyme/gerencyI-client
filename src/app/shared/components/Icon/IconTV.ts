@@ -10,11 +10,13 @@ export const iconTv = tv({
     },
     color: {
       primary: 'text-primary',
-      white: 'text-white',
+      white: 'dark:text-white text-black',
+      black: 'text-black',
       warning: 'text-yellow-500'
     },
     type: {
-      password: 'cursor-pointer w-12 text-white/50 hover:text-white/75 absolute right-0 top-6',
+      password:
+        'cursor-pointer w-12 dark:text-white/50 dark:hover:text-white/75 text-black/50 hover:text-black/25 absolute right-0 top-6',
       representation: 'w-12 absolute left-0 top-6'
     },
     button: {

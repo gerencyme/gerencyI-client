@@ -13,19 +13,9 @@ interface AboutServiceHeaderProps extends TitleProps {
 export function AboutServiceHeader({ subtitle, ...props }: AboutServiceHeaderProps) {
   return (
     <div className={aboutServiceHeaderTv()}>
-      <Title
-        fontFamily="rosarivo"
-        className={aboutServiceHeaderTitleTv()}
-        color="white"
-        {...props}
-      />
+      <Title fontFamily="rosarivo" className={aboutServiceHeaderTitleTv()} {...props} />
 
-      <Text
-        text={subtitle}
-        color="white"
-        fontFamily="rosarivo"
-        className={aboutServiceHeaderSubtitleTv()}
-      />
+      <Text text={subtitle} fontFamily="rosarivo" className={aboutServiceHeaderSubtitleTv()} />
     </div>
   );
 }

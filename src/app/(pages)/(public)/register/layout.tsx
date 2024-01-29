@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Navbar } from '~/src/app/features/navbar';
 
-export default function PublicLayout({ children }: { children: ReactNode }) {
+export default function RegisterLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <title>GerencyI | Registre-se</title>

@@ -1,6 +1,6 @@
 import { formateDate } from '~utils/dates';
 import { Text } from '../../Text';
-import { productCardHeaderTv } from '../ProductCardTV';
+import * as tv from '../ProductCardTV';
 
 interface ProductCardHeaderProps {
   date: string | Date;
@@ -12,15 +12,19 @@ export function ProductCardHeader({ date, productBrand, productName }: ProductCa
   const formattedDate = formateDate(date);
 
   return (
-    <div className={productCardHeaderTv()}>
-      <Text text={String(formattedDate)} color="white" size="xs" weight="light" />
-      <Text text={productName} color="white" size="md" weight="bold" className="truncate w-36" />
+    <div className={tv.productCardHeaderTv()}>
+      <Text text={String(formattedDate)} size="xs" weight="light" />
+      <Text
+        text={productName}
+        size="md"
+        weight="bold"
+        className={tv.productCardHeaderProductNameTv()}
+      />
       <Text
         text={productBrand}
-        color="white"
         size="sm"
         weight="light"
-        className="truncate w-36 text-center"
+        className={tv.productCardHeaderProductBrandTv()}
       />
     </div>
   );

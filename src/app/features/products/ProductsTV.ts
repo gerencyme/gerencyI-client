@@ -9,13 +9,13 @@ export const ProductsHighlightTextTv = tv({
 });
 
 export const ProductsHeaderTitleTv = tv({
-  base: 'text:lg sm:text-2xl font-bold text-white text-center'
+  base: 'text:lg sm:text-2xl font-bold dark:text-white text-black text-center'
 });
 
 export const ProductsHeaderTextTv = tv({
-  base: 'text-md sm:text-xl font-bold text-white/75 text-center'
+  base: 'text-md sm:text-xl font-bold dark:text-white/75 text-black/75 text-center'
 });
 
 export const ProductsHeaderSubtextTv = tv({
-  base: 'w-full max-w-xl m-auto text-white text-center font-light text-xs pt-4'
+  base: 'w-full max-w-xl m-auto font-rubik dark:text-white text-black text-center font-light text-xs pt-4'
 });

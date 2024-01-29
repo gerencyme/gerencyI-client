@@ -43,8 +43,8 @@ export const tabsNavigationLabelTv = tv({
   base: 'sm:text-lg lg:text-xl',
   variants: {
     state: {
-      isActive: 'text-white',
-      notActive: 'text-white/75 hover:text-white'
+      isActive: 'dark:text-white text-black',
+      notActive: 'dark:text-white/75 dark:hover:text-white text-black/75 hover:text-black'
     }
   },
   defaultVariants: {

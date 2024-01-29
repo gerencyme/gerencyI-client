@@ -22,7 +22,7 @@ export function Dashboardtable() {
 
   return (
     <div className={DashboardTableTv()}>
-      <Text text="Lista de pedidos" size="md" color="white" weight="light" />
+      <Text text="Lista de pedidos" size="md" weight="light" />
       <div className={DashboardTableFiltersTv()}>
         <div className="w-full">
           <Search.input onchange={onchange} search={search} isLoading={isTyping} />

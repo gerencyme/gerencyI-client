@@ -8,5 +8,5 @@ interface ServiceCardPriceProps {
 export function ServiceCardPrice({ price }: ServiceCardPriceProps) {
   const formattedPrice = formatPrice(price);
 
-  return <Text text={formattedPrice} color="white" fontFamily="rosarivo" size="xl" />;
+  return <Text text={formattedPrice} fontFamily="rosarivo" size="xl" />;
 }

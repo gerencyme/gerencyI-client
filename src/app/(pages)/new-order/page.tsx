@@ -1,5 +1,5 @@
 import { NewOrder } from '../../features/newOrder';
-import { newOrderPageTV } from './NewOrderPageTV';
+import { newOrderPageTV } from './NewOrderTv';
 
 export default function NewOrderPage() {
   return (

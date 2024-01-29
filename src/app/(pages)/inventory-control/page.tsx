@@ -1,5 +1,5 @@
-import { Dashboard } from '../../features/dashboard';
-import { Reflector } from '../../shared/components/Reflector';
+import { Dashboard } from '~features/dashboard';
+import { Reflector } from '~shared/components/Reflector';
 
 export default function InventoryControlPage() {
   return (

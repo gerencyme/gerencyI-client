@@ -1,12 +1,14 @@
 'use client';
 
 import AvatarEdit from 'react-avatar-edit';
+import { useUploadAvatar } from './controller';
 import { Modal } from '~shared/components/Modal';
 import { useUploadImage } from '~hooks/contexts/useUploadImage';
-import { useUploadAvatar } from './controller';
 import { Text } from '~shared/components/Text';
+import { useTheme } from '~shared/hooks/contexts/useTheme';
 
 export function UploadAvatar() {
+  const { theme } = useTheme();
   const { isEditing, preview, onClose, onCrop } = useUploadImage();
   const {
     modalContentActions,
@@ -14,6 +16,8 @@ export function UploadAvatar() {
     isRemovingImage,
     modalRemoveImageAction
   } = useUploadAvatar();
+
+  const labelColor = theme === 'dark' ? '#FFFFFF' : '#000000';
 
   return (
     <Modal.root isModalOpen={isEditing}>
@@ -25,7 +29,6 @@ export function UploadAvatar() {
           {isRemovingImage ? (
             <>
               <Text
-                color="white"
                 weight="light"
                 text="Deseja realmente excluir sua imagem? Ter uma imagem facilita o reconhecimento da sua marca dentro da rede da GerencyI."
               />
@@ -40,7 +43,7 @@ export function UploadAvatar() {
               onCrop={onCrop}
               label="png ou jpeg"
               labelStyle={{
-                color: '#FFFFFF'
+                color: labelColor
               }}
             />
           )}

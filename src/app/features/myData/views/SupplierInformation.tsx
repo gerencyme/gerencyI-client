@@ -11,13 +11,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 export function SupplierInformation() {
   return (
     <Template goBack direction="col">
-      <Title
-        title="Informações do Fornecedor"
-        as="h2"
-        color="white"
-        weight="light"
-        className="text-md pb-2"
-      />
+      <Title title="Informações do Fornecedor" as="h2" weight="light" className="text-md pb-2" />
       <div className="flex flex-wrap gap-1 md:gap-5">
         <Input.root field="supplier">
           <Input.field name="supplier" placeholder="Nome do fornecedor atual" />

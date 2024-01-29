@@ -23,7 +23,8 @@ export const templateTv = tv({
       haventGoBack: ''
     },
     bgColor: {
-      easydark: 'bg-easydark ring-1 ring-purple rounded-sm',
+      easydark:
+        'duration-500 dark:bg-easydark bg-gray-50 ring-1 dark:ring-purple  ring-gray-200 rounded-sm',
       transparent: 'bg-transparent'
     }
   },

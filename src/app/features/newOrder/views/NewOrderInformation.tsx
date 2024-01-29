@@ -6,16 +6,10 @@ import { newOrderInformationTv } from '../NewOrderTV';
 export function NewOrderInformation() {
   return (
     <div className={newOrderInformationTv()}>
-      <Title
-        as="h2"
-        title="Como encontraremos o melhor preço para você?"
-        size="lg"
-        weight="bold"
-        color="white"
-      />
+      <Title as="h2" title="Como encontraremos o melhor preço para você?" size="lg" weight="bold" />
 
       {infos.map((info) => (
-        <Text key={info.id} text={info.infoText} size="sm" weight="light" color="white" />
+        <Text key={info.id} text={info.infoText} size="sm" weight="light" />
       ))}
     </div>
   );

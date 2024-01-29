@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Text } from '../../Text';
 import { TabsNavigationItems as TabsNavigationItem } from '~types/TabsNavigationItems';
 import { CircularDivisor } from '../../CircularDivisor';
-import { useTabsNavigationController } from '~/src/app/features/TabsNavigation/controller';
+import { useTabsNavigationController } from '~features/TabsNavigation/controller';
 import {
   tabsNavigationItemsTv,
   tabsNavigationLabelTv,
