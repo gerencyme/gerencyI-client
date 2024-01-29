@@ -5,14 +5,5 @@ interface FaqTitleProps {
 }
 
 export function FaqTitle({ title }: FaqTitleProps) {
-  return (
-    <Title
-      weigth="black"
-      title={title ?? 'FAQ'}
-      as="h2"
-      color="white"
-      size="2xl"
-      className="text-center"
-    />
-  );
+  return <Title weight="black" title={title ?? 'FAQ'} as="h2" size="2xl" className="text-center" />;
 }

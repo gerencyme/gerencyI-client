@@ -1,23 +1,18 @@
 import { z } from 'zod';
-import { maskCpfOrCnpj } from '../../shared/components/Input/InputUtils';
-
-const defaultMessage = 'Por favor, confira';
-const minLengthPassword = 6;
-
-export const recoverySchema = z.object({
-  email: z.string().nonempty(`${defaultMessage} seu email`).toLowerCase()
-});
+import { defaultMessage, minLengthPassword } from '~shared/utils/constants/comumRegisterAndAuth';
+import { maskCpfOrCnpj } from '../../shared/utils/transformers';
 
 export const authSubmitSchema = z.object({
-  cnpj: z
+  CNPJ: z
     .string()
     .nonempty(`${defaultMessage} seu CNPJ`)
-    .refine((cnpj: string) => maskCpfOrCnpj(cnpj)),
-  password: z
+    .min(18, 'CNPJ inválido')
+    .max(18, 'máximo de 18 caracteres')
+    .transform((cnpj: string) => maskCpfOrCnpj(cnpj)),
+  Password: z
     .string()
     .nonempty(`${defaultMessage} sua senha`)
-    .min(minLengthPassword, `Nome deve ter pelomenos ${minLengthPassword} caracteres`)
+    .min(minLengthPassword, `Senhas devem ter pelomenos ${minLengthPassword} caracteres`)
 });
 
 export type TAuthSubmitSchema = z.infer<typeof authSubmitSchema>;
-export type TRecoverySchema = z.infer<typeof recoverySchema>;

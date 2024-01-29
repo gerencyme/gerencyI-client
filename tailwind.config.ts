@@ -6,10 +6,16 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  safelist: [
+    {
+      pattern: /^bg-/
+    }
+  ],
   darkMode: 'class',
   theme: {
     fontFamily: {
-      rubik: "font-family: 'Rubik', sans-serif"
+      rubik: "'Rubik', sans-serif",
+      rosarivo: "'Rosarivo', cursive"
     },
     colors: {
       transparent: 'transparent',
@@ -22,6 +28,14 @@ const config: Config = {
 
       success: '#37A18F',
       error: '#FF0000',
+
+      private: '#080f25',
+      darkblue: '#101935',
+      easyblue: '#182754',
+      easydark: '#212C4D',
+      purple: '#2C1C74',
+      lightPurple: '#583ED3',
+      lime: '#00F519',
 
       gray: {
         50: '#ededee',
@@ -73,6 +87,19 @@ const config: Config = {
         700: '#86133d',
         800: '#680f2f',
         900: '#4f0b24'
+      },
+
+      yellow: {
+        50: '#fcf8e9',
+        100: '#f7eaba',
+        200: '#f3df98',
+        300: '#eed169',
+        400: '#eac84c',
+        500: '#e5ba1f',
+        600: '#d0a91c',
+        700: '#a38416',
+        800: '#7e6611',
+        900: '#604e0d'
       }
     },
     fontWeight: {
@@ -95,8 +122,56 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        'gradient-hero':
-          'linear-gradient(90deg, rgba(73,15,68,1) 0%, rgba(149,18,40,1) 50%, rgba(180,29,85,1) 100%)'
+        'gradient-hero': 'linear-gradient(-45deg, #080f25 0%, #212C4D 50%, #101935 100%)',
+        'gradient-light-hero': 'linear-gradient(-45deg, #bbb 0%, #fff 50%, #bbb 100%)',
+        'easy-brightness':
+          'radial-gradient(50% 50% at 50% 50%, #101935 50%, rgba(119, 10, 82, 0) 100%)',
+        'easy-light-brightness':
+          'radial-gradient(50% 50% at 50% 50%, #fff 50%, rgba(255, 255, 255, 0) 100%)',
+        bigBlockIcon:
+          'linear-gradient(132.64deg, rgba(76, 41, 138, 0.25) 0%, rgba(31, 10, 71, 0.5) 100%)',
+        mediumBlockIcon:
+          'linear-gradient(130.05deg, rgba(82, 53, 133, 0.5) 4.49%, rgba(76, 41, 138, 0) 100%)',
+        smallBlockIcon:
+          'linear-gradient(130.05deg, rgba(129, 82, 210, 0.5) 4.49%, rgba(50, 10, 120, 0) 100%)'
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%) translateY(-100%)' },
+          '100%': { transform: 'translateX(100%) translateY(100%)' }
+        },
+        crawl: {
+          '0%': { transform: 'translateZ(0) translateY(0) rotateX(0deg)' },
+          '100%': { transform: 'translateZ(100px) translateY(150px) rotateX(35deg)' }
+        },
+        opacityOn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        'status-ping': {
+          '25%': { scale: '1.2' },
+          '50%': { opacity: '0.5' },
+          '75%': { scale: '1.3' }
+        },
+        'flash-animation': {
+          '0%': {
+            transform: 'translateX(-100%)',
+            opacity: '1'
+          },
+          '50%': {
+            transform: 'translateX(0%)'
+          },
+          '100%': {
+            transform: 'translateX(100%)',
+            opacity: '0'
+          }
+        }
+      },
+      animation: {
+        crawl: 'crawl 1000ms 1 ease-in-out forwards',
+        opacityOn: 'opacityOn 1000ms 1 ease-in-out forwards',
+        'status-ping': 'status-ping 1000ms infinite linear forwards',
+        'flash-animation': 'flash-animation 2000ms linear infinite'
       }
     }
   },

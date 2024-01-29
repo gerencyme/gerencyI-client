@@ -1,18 +1,26 @@
 import { tv } from 'tailwind-variants';
 
 export const titleTv = tv({
-  base: 'font-rubik text-black font-bold m-0 duration-500',
+  base: 'dark:text-white text-black m-0 duration-500',
   variants: {
+    fontFamily: {
+      rubik: 'font-rubik',
+      rosarivo: 'font-rosarivo'
+    },
     size: {
+      md: 'text-md',
       lg: 'text-lg',
       xl: 'text-xl',
       '2xl': 'text-2xl'
     },
     color: {
-      primary: 'text-primary',
+      primary: 'dark:text-primary text-primary',
+      secondary: 'dark:text-secondary text-secondary',
+      tertiary: 'dark:text-tertiary text-tertiary',
+      lightPurple: 'dark:text-lightPurple text-lightPurple',
       white: 'text-white'
     },
-    weigth: {
+    weight: {
       bold: 'font-bold',
       normal: 'font-normal',
       light: 'font-light',
@@ -22,6 +30,6 @@ export const titleTv = tv({
   },
   defaultVariants: {
     size: 'lg',
-    weigth: 'normal'
+    weight: 'normal'
   }
 });

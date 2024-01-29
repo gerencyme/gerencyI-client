@@ -1,32 +1,39 @@
+'use client';
+
 import { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import { inputRootTv } from '../InputTV';
 import { useFormContext } from 'react-hook-form';
+import { VariantProps } from 'tailwind-variants';
+import { get } from '../InputUtils';
 
-interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
+interface InputRootProps extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof inputRootTv> {
   children: ReactNode;
+  field: string;
 }
 
-export function InputRoot({ children, ...props }: InputRootProps) {
+export function InputRoot({ children, size, field, inputColor, ...props }: InputRootProps) {
   const {
-    formState: { isValid }
+    formState: { isValid, errors }
   } = useFormContext();
   const [state, setState] = useState<'inactive' | 'isActive' | 'error'>('inactive');
 
   const handleActive = () => setState('isActive');
   const handleDesactive = () => setState('inactive');
 
+  const fieldError = get(errors, field);
+
   useEffect(() => {
-    if (isValid) {
+    if (fieldError && !isValid) {
       return setState('error');
     }
-  }, [isValid]);
+  }, [fieldError, isValid]);
 
   return (
     <div
       onFocus={handleActive}
       onBlur={handleDesactive}
       {...props}
-      className={inputRootTv({ state })}
+      className={inputRootTv({ state, size, inputColor })}
     >
       {children}
     </div>

@@ -3,13 +3,16 @@
 import { InputHTMLAttributes } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { inputFieldTv } from '../InputTV';
+import { VariantProps } from 'tailwind-variants';
 
-interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputFieldProps = {
   name: string;
   placeholder: string;
-}
+  className?: string;
+} & InputHTMLAttributes<HTMLInputElement> &
+  VariantProps<typeof inputFieldTv>;
 
-export function InputField({ name, type, placeholder, ...props }: InputFieldProps) {
+export function InputField({ name, type, placeholder, className, ...props }: InputFieldProps) {
   const { register } = useFormContext();
 
   return (
@@ -19,7 +22,7 @@ export function InputField({ name, type, placeholder, ...props }: InputFieldProp
       id={name}
       type={type ?? name}
       placeholder={placeholder}
-      className={inputFieldTv()}
+      className={inputFieldTv({ className })}
     />
   );
 }

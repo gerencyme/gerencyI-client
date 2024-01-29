@@ -18,8 +18,8 @@ export function CollapsibleRoot({
 
   return (
     <div
-      onMouseEnter={toggle}
-      onMouseLeave={toggle}
+      data-testid="faq-item-toggle"
+      onClick={toggle}
       className={collapsableRootTv({ collapsableState: collapsableStates })}
     >
       {children}

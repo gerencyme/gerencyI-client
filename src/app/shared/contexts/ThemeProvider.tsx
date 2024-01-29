@@ -12,6 +12,8 @@ interface AppThemeProviderProps {
   children: ReactNode;
 }
 
+const localStorageThemeName = 'theme';
+
 export const ThemeContext = createContext<ThemeContextProps>({});
 
 export function AppThemeProvider({ children }: AppThemeProviderProps) {
@@ -21,12 +23,13 @@ export function AppThemeProvider({ children }: AppThemeProviderProps) {
   function changeTheme() {
     const newTheme: TTheme = theme === '' ? 'dark' : '';
     setTheme(newTheme);
-    setLocalStorage('theme', newTheme);
+    setLocalStorage(localStorageThemeName, newTheme);
   }
 
   useEffect(() => {
-    const themevalue: TTheme = getLocalStorage('theme');
-    setTheme(themevalue);
+    const themevalue: TTheme = getLocalStorage(localStorageThemeName);
+    const defaultTheme = themevalue === null ? 'dark' : themevalue;
+    setTheme(defaultTheme);
   }, [getLocalStorage]);
 
   return (

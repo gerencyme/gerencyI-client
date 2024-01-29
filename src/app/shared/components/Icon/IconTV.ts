@@ -4,15 +4,19 @@ export const iconTv = tv({
   base: 'cursor-default duration-300',
   variants: {
     size: {
+      'extra-small': 'w-2 h-2',
       small: 'w-4 h-4',
       medium: 'w-6 h-6'
     },
     color: {
       primary: 'text-primary',
-      white: 'text-white'
+      white: 'dark:text-white text-black',
+      black: 'text-black',
+      warning: 'text-yellow-500'
     },
     type: {
-      password: 'cursor-pointer w-12 text-white/50 hover:text-white/75 absolute right-0 top-6',
+      password:
+        'cursor-pointer w-12 dark:text-white/50 dark:hover:text-white/75 text-black/50 hover:text-black/25 absolute right-0 top-6',
       representation: 'w-12 absolute left-0 top-6'
     },
     button: {
@@ -21,6 +25,9 @@ export const iconTv = tv({
     collapsableState: {
       open: 'h-40 rotate-45 absolute right-0',
       close: 'h-10 rotate-0 absolute right-0'
+    },
+    dropdown: {
+      base: '-ml-4 h-5 w-5 cursor-pointer'
     }
   },
   defaultVariants: {

@@ -1,9 +1,11 @@
 import { useCallback, useState } from 'react';
 import { FaqItem } from '~/src/app/FAQApi/FAQApiUtils';
-import { usePromise } from '~/src/app/shared/hooks/usePromise';
+import { useQuery } from 'react-query';
 import { FAQApi } from '~/src/app/shared/services/axios/api';
 import { CollapsableContent } from '~/src/app/shared/types';
 import { transformData } from '../FAQUtils';
+
+const timeToRefetchCache = 1000 * 60 * 60 * 12; // 12 horas
 
 export const useFAQController = () => {
   const [selecionedCollapsible, setSelecionedCollapsible] = useState<CollapsableContent | null>(
@@ -25,9 +27,11 @@ export const useFAQController = () => {
     return res.data;
   }, []);
 
-  const { data } = usePromise(loadData);
+  const { data } = useQuery('FAQ', loadData, {
+    staleTime: timeToRefetchCache
+  });
 
-  const FaqItems = transformData(data, toggle, selecionedCollapsible);
+  const FaqItems = transformData(data as FaqItem[], toggle, selecionedCollapsible);
 
   return {
     FaqItems,
