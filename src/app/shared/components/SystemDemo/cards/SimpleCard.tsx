@@ -16,7 +16,7 @@ export function SimpleCard({ mainText, secondaryText, src, hasSrc }: SimpleCardP
   return (
     <div className={simpleCardTv({ hasSrc: hasSrcState })}>
       {src && <Image alt="Logo GerencyI" src={src} width={50} height={50} />}
-      <Text text={mainText} weight="bold" color="white" size="md" className="text-center" />
+      <Text text={mainText} weight="bold" size="md" className="text-center" />
       <Text
         text={secondaryText}
         weight="bold"

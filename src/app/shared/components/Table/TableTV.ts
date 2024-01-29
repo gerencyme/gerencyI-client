@@ -10,8 +10,12 @@ export const tableRootTv = tv({
   }
 });
 
+export const tableWrapperTv = tv({
+  base: 'w-fit overflow-hidden dark:bg-private bg-gray-50 rounded-2xl'
+});
+
 export const tableBasementTv = tv({
-  base: 'table min-h-[180px] w-full p-1 sm:p-6 text-white bg-darkblue'
+  base: 'table min-h-[180px] w-full p-1 sm:p-6 duration-500 dark:text-white text-black dark:bg-darkblue bg-gray-50'
 });
 
 export const tableHeaderGroupTv = tv({
@@ -31,7 +35,7 @@ export const tableContentRootTv = tv({
 });
 
 export const tableContentTv = tv({
-  base: 'h-6 sm:h-20 flex items-center pl-3 pr-1 w-full bg-easydark sm:px-8 truncate overflow-hidden text-xxs md:text-md',
+  base: 'h-6 sm:h-20 flex items-center pl-3 pr-1 w-full duration-500 dark:bg-easydark bg-gray-200 sm:px-8 truncate overflow-hidden text-xxs md:text-md',
   variants: {
     position: {
       first: 'sm:pl-16 rounded-tl-2xl rounded-bl-2xl relative',
@@ -41,9 +45,21 @@ export const tableContentTv = tv({
 });
 
 export const tableColorIdentifyRootTv = tv({
-  base: 'bg-darkblue flex items-center justify-center absolute w-2 sm:w-3 h-4 sm:h-10 rounded-2xl left-0'
+  base: 'duration-500 dark:bg-darkblue bg-gray-50 flex items-center justify-center absolute w-2 sm:w-3 h-4 sm:h-10 rounded-2xl left-0'
+});
+
+export const tableFallbackWrapperTv = tv({
+  base: 'absolute w-full left-0'
 });
 
 export const tableFallbackTextTv = tv({
   base: 'text-white font-bold text-lg md:text-xl text-center'
+});
+
+export const tableCellTv = tv({
+  base: 'table-cell py-1 sm:py-4 sm:w-72'
+});
+
+export const tableColorIdentityTv = tv({
+  base: 'w-0.5 sm:w-1 h-2 sm:h-6 rounded-2xl'
 });

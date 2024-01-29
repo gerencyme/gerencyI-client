@@ -2,15 +2,16 @@
 
 import { NavbarAction } from '~types/NavbarActions';
 import { Button } from '../../Button';
-import { useNavbarController } from '~/src/app/features/navbar/controller';
+import { useNavbarController } from '~features/navbar/controller';
 import { DropdownComp } from '../../Dropdown';
 import { checkPublickRoute } from '~utils/checkPublickRoute';
-import { dropDownOptions } from '~/src/app/features/navbar/NavbarUtils';
+import { dropDownOptions } from '~features/navbar/NavbarUtils';
 import { Icon } from '../../Icon';
 import { MdInfo } from 'react-icons/md';
 import { APP_ROUTES } from '~utils/app-routes';
 import { useLocalStorage } from '~hooks/useLocalStorage';
 import { draftMode } from '~utils/constants/draftMode';
+import { navbarRenderDropdownIconTv, navbarRenderDropdownTv, navbarRootTv } from '../NavbarTV';
 
 interface NavbarActionsProps {
   actions: NavbarAction[];
@@ -54,7 +55,7 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
   );
 
   const renderDropdown = () => (
-    <div className="flex items-center gap-4">
+    <div className={navbarRenderDropdownTv()}>
       <Button.root color="primary" size="small">
         {shouldRenderDraftIcon && (
           <Icon
@@ -63,7 +64,7 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
             icon={MdInfo}
             size="small"
             color="warning"
-            className="absolute -top-1 -right-1 z-50"
+            className={navbarRenderDropdownIconTv()}
           />
         )}
         <Button.link href={choiseLink}>
@@ -78,7 +79,7 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
   );
 
   return (
-    <div className="flex gap-4">
+    <div className={navbarRootTv()}>
       {company && !isPublicPage ? renderDropdown() : renderButtons()}
     </div>
   );

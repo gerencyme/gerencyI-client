@@ -18,5 +18,5 @@ export const collapsableContentTv = tv({
 });
 
 export const CollapsibleHeaderTv = tv({
-  base: 'pb-2 border-b-2 h-10 border-white w-96 md:w-[480px] xl:w-[680px]'
+  base: 'pb-2 border-b-2 h-10 duration-500 dark:border-white border-black w-96 md:w-[480px] xl:w-[680px]'
 });

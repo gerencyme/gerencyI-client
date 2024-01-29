@@ -13,12 +13,11 @@ export function ProductCardSimiliarCompanies({
         text={similarCompanies?.length ? 'Empresas parceiras neste pedido' : ''}
         weight="light"
         size="md"
-        color="white"
       />
       {similarCompanies?.length ? (
         <SimilarCompanies.content similarCompanies={similarCompanies} />
       ) : (
-        <Text text="Procurando por empresas parceiras..." size="xs" color="white" weight="normal" />
+        <Text text="Procurando por empresas parceiras..." size="xs" weight="normal" />
       )}
     </SimilarCompanies.root>
   );

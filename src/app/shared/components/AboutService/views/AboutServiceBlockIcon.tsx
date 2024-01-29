@@ -1,17 +1,9 @@
 import { VariantProps } from 'tailwind-variants';
-import {
-  aboutServiceBlockIconHeroTv,
-  aboutServiceBlockIconPurpleLineTv,
-  aboutServiceBlockIconRootTv,
-  aboutServiceBlockIconTextTv,
-  aboutServiceBlockIconTv,
-  aboutServiceCardInfoLineTv,
-  aboutServiceInfoCardTv
-} from '../AboutServiceTV';
 import Image from 'next/image';
 import { Text } from '../../Text';
+import * as tv from '../AboutServiceTV';
 
-interface AboutServiceBlockIconProps extends VariantProps<typeof aboutServiceBlockIconTv> {
+interface AboutServiceBlockIconProps extends VariantProps<typeof tv.aboutServiceBlockIconTv> {
   src: string;
   text: string;
   isBigVisible?: boolean;
@@ -39,31 +31,26 @@ export function AboutServiceBlockIcon({
 
   return (
     <div className="relative">
-      <div className={aboutServiceInfoCardTv({ state: visibleState, side: side })}>
+      <div className={tv.aboutServiceInfoCardTv({ state: visibleState, side: side })}>
         {icon && (
           <Image
             alt="ícone representativo da explicação da camada da GerencyI"
             src={icon}
-            className={aboutServiceBlockIconHeroTv()}
+            className={tv.aboutServiceBlockIconHeroTv()}
           />
         )}
-        <Text
-          text={text}
-          color="white"
-          fontFamily="rosarivo"
-          className={aboutServiceBlockIconTextTv()}
-        />
+        <Text text={text} fontFamily="rosarivo" className={tv.aboutServiceBlockIconTextTv()} />
       </div>
-      <div className={aboutServiceCardInfoLineTv({ state: visibleState, side: side })} />
-      <div className={aboutServiceBlockIconRootTv()}>
-        <div className={aboutServiceBlockIconTv({ blockSize, className })}>
+      <div className={tv.aboutServiceCardInfoLineTv({ state: visibleState, side: side })} />
+      <div className={tv.aboutServiceBlockIconRootTv()}>
+        <div className={tv.aboutServiceBlockIconTv({ blockSize, className })}>
           <Image
             src={src}
             alt="ícone da explicação da camada da GerencyI"
-            className="w-4 md:w-6 lg:w-fit"
+            className={tv.aboutServiceBlockHeroTv()}
           />
         </div>
-        <div className={aboutServiceBlockIconPurpleLineTv({ state: visibleState })} />
+        <div className={tv.aboutServiceBlockIconPurpleLineTv({ state: visibleState })} />
       </div>
     </div>
   );

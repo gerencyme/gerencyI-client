@@ -7,7 +7,7 @@ import { ColorSelector } from '~shared/components/ColorSelector';
 import { useNewOrderController } from '../controller';
 import { Theme } from 'react-pick-color';
 import { useDraftMode } from '~/src/app/shared/hooks/contexts/useDraftMode';
-import { colorIdentityTv, renderTextElementTv } from '../NewOrderTV';
+import { colorIdentityTooltipTv, colorIdentityTv, renderTextElementTv } from '../NewOrderTV';
 import { VariantProps } from 'tailwind-variants';
 
 interface ColorIdentityProps extends VariantProps<typeof colorIdentityTv> {
@@ -23,14 +23,14 @@ export const ColorIdentity = ({ theme, visibleState }: ColorIdentityProps) => {
   const renderColorSelector = () => <ColorSelector theme={theme} />;
 
   const renderTextElement = (text: string) => (
-    <Text color="white" text={text} weight="light" className={renderTextElementTv()} />
+    <Text text={text} weight="light" className={renderTextElementTv()} />
   );
 
   return (
     <div className={colorIdentityTv({ visibleState: isVisible })}>
       {renderTextElement('Escolha uma cor de identificação')}
 
-      <div className="flex items-center gap-2">
+      <div className={colorIdentityTooltipTv()}>
         <Tooltip isArrow={false} content={renderColorSelector}>
           <div style={{ backgroundColor: choisedColor ?? '#FFFFFF' }} className="w-4 h-4" />
         </Tooltip>

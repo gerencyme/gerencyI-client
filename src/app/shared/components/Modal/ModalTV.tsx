@@ -11,7 +11,7 @@ export const modalHeaderTv = tv({
 });
 
 export const modalRootTv = tv({
-  base: 'z-50 overflow-hidden duration-300 absolute inset-0 bg-darkblue/90 flex items-center justify-center',
+  base: 'z-50 overflow-hidden duration-300 absolute inset-0 duration-500 dark:bg-darkblue/90 bg-gray-100/90 flex items-center justify-center',
   variants: {
     state: {
       open: 'scale-100',
@@ -29,7 +29,7 @@ export const modalContentActionsTv = tv({
 });
 
 export const modalContentWrapperTv = tv({
-  base: 'rounded-lg relative shadow-lg shadow-black overflow-hidden bg-private flex flex-col justify-center items-center min-w-[200px] min-h-[140px] p-3'
+  base: 'rounded-lg relative shadow-lg dark:shadow-black shadow-black/25 overflow-hidden duration-500 dark:bg-private bg-white flex flex-col justify-center items-center min-w-[200px] min-h-[140px] p-3'
 });
 
 export const modalHeaderActionsRootTv = tv({

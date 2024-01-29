@@ -3,6 +3,7 @@ import { Avatar } from '../../Avatar';
 import { Text } from '../../Text';
 import { Tooltip } from '../../Tooltip';
 import { Fragment } from 'react';
+import * as tv from '../SimilarCompaniesTV';
 
 export interface SimilarCompaniesContentProps {
   similarCompanies: SimilarCompaniesContentType[];
@@ -10,10 +11,10 @@ export interface SimilarCompaniesContentProps {
 
 export function SimilarCompaniesContent({ similarCompanies = [] }: SimilarCompaniesContentProps) {
   return (
-    <ul className="relative py-0.5 md:py-3 w-full h-fit flex flex-col justify-center gap-1.5 md:gap-3">
+    <ul className={tv.similarCompaniesRootTv()}>
       {similarCompanies.map((companie) => (
         <Fragment key={companie.id}>
-          <li className="flex items-center gap-1.5 md:gap-3">
+          <li className={tv.similarCompaniesContentListTv()}>
             <Avatar.root size="small">
               <>
                 {companie.src ? (
@@ -27,13 +28,12 @@ export function SimilarCompaniesContent({ similarCompanies = [] }: SimilarCompan
               <Text
                 text={companie.companyName}
                 weight="light"
-                color="white"
                 size="sm"
                 className="w-28 truncate"
               />
             </Tooltip>
           </li>
-          <div className="h-0.5 w-full bg-lightPurple" />
+          <div className={tv.similarCompaniesDivisorTv()} />
         </Fragment>
       ))}
     </ul>

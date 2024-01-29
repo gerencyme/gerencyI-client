@@ -11,18 +11,12 @@ export function LastMonthsFallback() {
   return (
     <Template goBack direction="col" className={lastMonthsFallbackTv()}>
       <Text
-        color="white"
         className={lastMonthsFallbackTitleTv()}
         weight="bold"
         text="Não encontramos nada na sua busca"
       />
 
-      <Text
-        text="Aproveite e faça um pedido agora mesmo!"
-        color="white"
-        weight="bold"
-        className="text-center"
-      />
+      <Text text="Aproveite e faça um pedido agora mesmo!" weight="bold" className="text-center" />
       <Button.root>
         <Button.link href={href}>
           <Button.contentWrapper>

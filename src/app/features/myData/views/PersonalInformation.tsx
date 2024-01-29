@@ -24,13 +24,7 @@ export function PersonalInformation() {
 
   return (
     <Template direction="col">
-      <Title
-        title="Informações Pessoais"
-        as="h2"
-        color="white"
-        className="text-md pb-2"
-        weight="light"
-      />
+      <Title title="Informações Pessoais" as="h2" className="text-md pb-2" weight="light" />
 
       <div className={myDataInputsContentTv({ wrap })}>
         <Input.root field="personalName">

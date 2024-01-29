@@ -17,19 +17,17 @@ export function NewOrderBestSellers({ handleSetToDraft }: NewOrderBestSellersPro
         as="h4"
         title="Os mais pedidos no seu segmento"
         weight="light"
-        color="white"
         className={newOrderBestSellersTitleTv()}
       />
       <Graphics.bestSellers
         handleSetToDraft={handleSetToDraft}
         cursor="pointer"
         hasFunction
-        bgColor="easydark"
+        bgColor="transparent"
       />
 
       <Text
         text="Basta clicar em um produto, selecionar a quantidade e enviar para análise"
-        color="white"
         weight="light"
         className={newOrderBestSellersTextTv()}
       />

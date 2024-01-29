@@ -19,7 +19,7 @@ export const rows: ProductCard[] = [
       unitPrice: 5.99
     },
     orderDate: '2023-12-29T16:58:19.764Z',
-    orderColorIdentity: 'bg-[#583ED3]',
+    orderColorIdentity: '#583ED3',
     partnerCompaniesInthisOrder: []
   },
   {
@@ -37,7 +37,7 @@ export const rows: ProductCard[] = [
       unitPrice: 3.49
     },
     orderDate: '2023-12-29T16:58:19.764Z',
-    orderColorIdentity: 'bg-[#BD1B56]',
+    orderColorIdentity: '#BD1B56',
     partnerCompaniesInthisOrder: []
   },
   {
@@ -55,7 +55,7 @@ export const rows: ProductCard[] = [
       unitPrice: 2.79
     },
     orderDate: '2023-12-29T16:58:19.764Z',
-    orderColorIdentity: 'bg-[#FFFFFF]',
+    orderColorIdentity: '#FFFFFF',
     partnerCompaniesInthisOrder: []
   },
   {
@@ -73,7 +73,7 @@ export const rows: ProductCard[] = [
       unitPrice: 8.99
     },
     orderDate: '2023-12-29T16:58:19.764Z',
-    orderColorIdentity: 'bg-[#1d0b70]',
+    orderColorIdentity: '#1d0b70',
     partnerCompaniesInthisOrder: []
   },
   {
@@ -91,7 +91,7 @@ export const rows: ProductCard[] = [
       unitPrice: 6.49
     },
     orderDate: '2023-12-29T16:58:19.764Z',
-    orderColorIdentity: 'bg-[#FF0000]',
+    orderColorIdentity: '#FF0000',
     partnerCompaniesInthisOrder: []
   },
   {
@@ -109,7 +109,7 @@ export const rows: ProductCard[] = [
       unitPrice: 2.29
     },
     orderDate: '2023-12-29T16:58:19.764Z',
-    orderColorIdentity: 'bg-[#1e594f]',
+    orderColorIdentity: '#1e594f',
     partnerCompaniesInthisOrder: []
   }
 ];

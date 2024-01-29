@@ -18,7 +18,6 @@ export function ProfileInfo({ cnpj, companySegment, corporateReason }: ProfileIn
           weight="bold"
           size="xl"
           className={profileInfoTitleTv({ color: 'white' })}
-          color="white"
         />
       </div>
       <div className={profileInfoContentWrapperTv()}>
@@ -36,7 +35,7 @@ export function ProfileInfo({ cnpj, companySegment, corporateReason }: ProfileIn
           className={profileInfoTitleTv({ color: 'white/75' })}
         />
       </div>
-      <Text text={formateDate(new Date())} color="white" weight="light" size="md" />
+      <Text text={formateDate(new Date())} weight="light" size="md" />
     </div>
   );
 }

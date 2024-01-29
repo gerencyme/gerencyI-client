@@ -18,29 +18,29 @@ export function TableRowGroup({ tableRows = [], tableRef, loading = false }: Tab
       {tableRows?.map((content, i) => {
         return (
           <div key={i} className={tv.tableContentRootTv()}>
-            <div className="table-cell py-1 sm:py-4 sm:w-72">
+            <div className={tv.tableCellTv()}>
               <div className={tv.tableContentTv({ position: 'first' })}>
                 <div className={tv.tableColorIdentifyRootTv()}>
                   <div
                     style={{ backgroundColor: content.orderColorIdentity }}
-                    className="w-0.5 sm:w-1 h-2 sm:h-6 rounded-2xl"
+                    className={tv.tableColorIdentityTv()}
                   />
                 </div>
                 {getFirstThreeNames(content?.product.productName).firstThree}
               </div>
             </div>
-            <div className="table-cell py-1 sm:py-4 sm:w-72 relative">
+            <div className={`${tv.tableCellTv()} relative`}>
               <div className={tv.tableContentTv()}>
                 {getFirstThreeNames(content?.product.productBrand).firstThree}
               </div>
             </div>
-            <div className="table-cell py-1 sm:py-4 sm:w-72">
+            <div className={tv.tableCellTv()}>
               <div className={tv.tableContentTv()}>{formateDate(content?.orderDate)}</div>
             </div>
-            <div className="table-cell py-1 sm:py-4 sm:w-72">
+            <div className={tv.tableCellTv()}>
               <div className={tv.tableContentTv()}>{content?.product.quantity}</div>
             </div>
-            <div className="table-cell py-1 sm:py-4 sm:w-72">
+            <div className={tv.tableCellTv()}>
               <div className={tv.tableContentTv({ position: 'last' })}>
                 {formatPrice(content?.product.unitPrice)}
               </div>

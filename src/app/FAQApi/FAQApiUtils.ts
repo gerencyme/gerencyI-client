@@ -27,9 +27,8 @@ export const faqItems: FaqItem[] = [
   {
     id: id++,
     title: 'Como esse serviço beneficia as empresas?',
-    text: `A Gestão de Estoque da GerencyI oferece uma maneira mais inteligente e eficaz de gerenciar inventário. Ao identificar padrões e agrupar necessidades similares, otimiza-se a aquisição, reduzindo custos e aumentando a eficiência operacional das empresas.
-
-    Por exemplo, uma empresa que vende produtos alimentícios pode usar a GerencyI para identificar que várias empresas da mesma região têm necessidades semelhantes de estoque. Isso pode permitir que essas empresas façam pedidos combinados, o que pode levar a descontos e economias de escala. E não se preocupe, nós fazemos todo o trabalho do pedido combinado por você e sua empresa!`
+    text: `A Gestão de Estoque da GerencyI oferece uma maneira mais inteligente e eficaz de gerenciar inventário. Ao identificar padrões e agrupar necessidades similares, conseguimos reduzir custos, aumentando a eficiência operacional das empresas.
+    Por exemplo, conseguimos detectar empresas similares com pedidos semelhantes, agrupá-los e criar um único pedido, proporcionando o menor preço possível e gerando economia em escala de forma totalmente automática.`
   },
   {
     id: id++,

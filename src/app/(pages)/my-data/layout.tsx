@@ -3,7 +3,7 @@ import { Navbar } from '../../features/navbar';
 import { newMyAccountActions } from '../privateRouteMenuActions';
 import { TabsNavigation } from '../../features/TabsNavigation';
 
-export default function PublicLayout({ children }: { children: ReactNode }) {
+export default function MyDataLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <title>GerencyI | Meus dados</title>

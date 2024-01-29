@@ -48,7 +48,7 @@ export function NFModal({ isNFModalOpen, closeNFModal }: NFModalProps) {
           <Modal.headerActions actions={headerActions} />
         </Modal.header>
         <Modal.content>
-          <Text color="white" text="Nota Fiscal vem aqui" />
+          <Text text="Nota Fiscal vem aqui" />
           <Modal.contentActions actions={contentActions} />
         </Modal.content>
       </Modal.contentWrapper>

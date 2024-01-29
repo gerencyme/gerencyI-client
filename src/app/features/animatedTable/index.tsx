@@ -36,7 +36,6 @@ export function AnimatedTable({ isTable, isPressable, state, togglePress }: Anim
         ) : (
           <>
             <Title
-              color="white"
               size="xl"
               weight="bold"
               title="Seu lucro semanal"

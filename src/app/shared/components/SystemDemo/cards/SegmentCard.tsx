@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Text } from '../../Text';
 import { SegmentCardOptions } from '~types/SegmentCardOptions';
 import { blurDataURL } from '~utils/constants/blurDataURL';
-import { segmentCardTv } from '../SystemDemoUtils.';
+import * as tv from '../SystemDemoTV';
 
 interface SegmentCardProps {
   options: SegmentCardOptions[];
@@ -10,11 +10,11 @@ interface SegmentCardProps {
 
 export function SegmentCard({ options = [] }: SegmentCardProps) {
   return (
-    <div className={segmentCardTv()}>
+    <div className={tv.segmentCardTv()}>
       <Text text="São apenas 3 passos" weight="bold" size="md" color="secondary" />
-      <ul className="flex flex-col gap-3">
+      <ul className={tv.segmentCardULTv()}>
         {options.map((option, i) => (
-          <li key={i} className="flex items-center gap-3">
+          <li key={i} className={tv.segmentCardLITv()}>
             <Image
               className="rounded-full"
               alt="imagem do segmento da empresa de exemplo"
@@ -24,14 +24,9 @@ export function SegmentCard({ options = [] }: SegmentCardProps) {
               width={50}
               height={50}
             />
-            <div className="flex flex-col gap-1">
-              <Text text={option.optionTitle} color="white" size="md" weight="bold" />
-              <Text
-                text={option.optionDescription}
-                className="text-white/75"
-                size="xs"
-                weight="normal"
-              />
+            <div className={tv.segmentCardFooterTv()}>
+              <Text text={option.optionTitle} color="secondary" size="md" weight="bold" />
+              <Text text={option.optionDescription} size="xs" weight="normal" />
             </div>
           </li>
         ))}

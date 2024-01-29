@@ -17,5 +17,5 @@ export const lastMonthsFallbackTv = tv({
 });
 
 export const lastMonthsFallbackTitleTv = tv({
-  base: 'text-white font-bold text-lg md:text-xl text-center'
+  base: 'font-bold text-lg md:text-xl text-center'
 });

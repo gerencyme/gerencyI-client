@@ -1,6 +1,6 @@
 export interface NavbarAction {
   href: string;
   label: string;
-  color: 'primary' | 'transparent';
+  color: 'primary' | 'transparent' | 'tertiary';
   onClick?: () => void;
 }

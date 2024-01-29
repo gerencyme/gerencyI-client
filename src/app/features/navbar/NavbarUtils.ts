@@ -4,7 +4,7 @@ import { DropDownOptions } from '../../shared/types/DropDownOptions';
 
 export const actions: NavbarAction[] = [
   {
-    color: 'transparent',
+    color: 'tertiary',
     href: APP_ROUTES.public.auth.name,
     label: 'Entrar'
   },

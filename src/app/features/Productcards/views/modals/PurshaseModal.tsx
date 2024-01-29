@@ -77,16 +77,11 @@ export function PurshaseModal({
   ];
 
   const repeatPurchaseContent = (
-    <Text
-      text="Deseja procurar por outros pedidos semelhantes a este?"
-      weight="light"
-      size="xs"
-      color="white"
-    />
+    <Text text="Deseja procurar por outros pedidos semelhantes a este?" weight="light" size="xs" />
   );
   const editPurchaseContent = (
     <>
-      <Text text="Quantos deseja comprar?" weight="light" size="xs" color="white" />
+      <Text text="Quantos deseja comprar?" weight="light" size="xs" />
       <input
         type="number"
         className={editPurchaseContentTv({ opacity: '50%' })}
@@ -95,7 +90,7 @@ export function PurshaseModal({
         min={0}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Text text="Com base na última compra" weight="light" size="xs" color="white" />
+      <Text text="Com base na última compra" weight="light" size="xs" />
       <input
         type="number"
         readOnly

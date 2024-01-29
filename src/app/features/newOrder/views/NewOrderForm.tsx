@@ -89,7 +89,6 @@ export function NewOrderForm() {
         <Title
           title="Informações do seu novo pedido"
           weight="light"
-          color="white"
           className="text-md md:text-lg"
         />
 

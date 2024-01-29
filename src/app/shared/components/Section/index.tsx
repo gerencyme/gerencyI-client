@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { sectionTv } from './SectionTV';
 
 interface SectionProps {
   children: ReactNode;
@@ -7,10 +8,7 @@ interface SectionProps {
 
 export function Section({ children, id }: SectionProps) {
   return (
-    <section
-      className="w-full m-auto items-center justify-center gap-4 flex flex-col max-w-7xl h-full"
-      id={id}
-    >
+    <section className={sectionTv()} id={id}>
       {children}
     </section>
   );

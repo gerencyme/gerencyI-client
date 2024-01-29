@@ -14,6 +14,7 @@ import { Tooltip } from '~/src/app/shared/components/Tooltip';
 import { Icon } from '~/src/app/shared/components/Icon';
 import { FaRegQuestionCircle } from 'react-icons/fa';
 import { Button } from '~/src/app/shared/components/Button';
+import * as tv from '../RegisterTV';
 
 interface RegisterFormProps {
   handleForgetPassword: () => void;
@@ -41,10 +42,9 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
             as="span"
             weight="bold"
             text={strongPasswordMessage}
-            color="white"
           />
         ) : (
-          <div className=" flex items-center absolute -bottom-5 cursor-default gap-1">
+          <div className={tv.renderStrongPasswordMessageTv()}>
             <Text as="span" weight="bold" text="Senha fraca" color="error" />
             <Tooltip
               color="black"
@@ -70,8 +70,8 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
           className="relative min-[1520px]:left-16"
         />
       )}
-      <Form className="flex flex-col items-center gap-5 lg:gap-6 m-auto">
-        <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
+      <Form className={tv.registerFormRootTv()}>
+        <div className={tv.registerDualInputsTv()}>
           <Input.root field="cnpj">
             <Input.field max={17} maxLength={17} name="cnpj" placeholder="Qual o seu CNPJ?" />
             <Input.label label="cnpj" name="cnpj" />
@@ -87,7 +87,7 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
           </Input.root>
         </div>
 
-        <div className="flex justify-center items-center flex-wrap gap-5 lg:gap-8">
+        <div className={tv.registerDualInputsTv()}>
           <Input.root field="password.password">
             <Input.field
               type="password"
@@ -142,7 +142,7 @@ export function RegisterForm({ handleForgetPassword }: RegisterFormProps) {
               color="white"
               size="sm"
               weight="bold"
-              className="text-xs sm:text-sm md:text-md lg:text-lg"
+              className={tv.registerButonLabelTv()}
             />
           </Button.contentWrapper>
         </Button.root>

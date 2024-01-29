@@ -18,7 +18,6 @@ export function NewOrderLastProducts() {
         }
         size="lg"
         weight="light"
-        color="white"
       />
       <Productcards.content />
     </Template>

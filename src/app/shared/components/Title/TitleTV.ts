@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const titleTv = tv({
-  base: 'text-black m-0',
+  base: 'dark:text-white text-black m-0 duration-500',
   variants: {
     fontFamily: {
       rubik: 'font-rubik',
@@ -14,11 +14,11 @@ export const titleTv = tv({
       '2xl': 'text-2xl'
     },
     color: {
-      primary: 'text-primary',
-      secondary: 'text-secondary',
-      tertiary: 'text-tertiary',
-      white: 'text-white',
-      lightPurple: 'text-lightPurple'
+      primary: 'dark:text-primary text-primary',
+      secondary: 'dark:text-secondary text-secondary',
+      tertiary: 'dark:text-tertiary text-tertiary',
+      lightPurple: 'dark:text-lightPurple text-lightPurple',
+      white: 'text-white'
     },
     weight: {
       bold: 'font-bold',

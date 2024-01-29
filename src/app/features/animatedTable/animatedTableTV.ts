@@ -12,7 +12,7 @@ export const animatedTableRootTv = tv({
 });
 
 export const animatedTableContentWrapperTv = tv({
-  base: 'relative shadow-2xl pointer-events-auto shadow-easyblue delay-1000 w-full max-w-7xl h-full max-h-[450px] bg-darkblue px-1 m-auto overflow-x-hidden overflow-y-scroll rounded-2xl',
+  base: 'relative shadow-2xl pointer-events-auto dark:shadow-easyblue shadow-gray-200 w-full max-w-7xl h-full max-h-[450px] duration-500 dark:bg-darkblue bg-gray-50 px-1 m-auto overflow-x-hidden overflow-y-scroll rounded-2xl',
   variants: {
     state: {
       isVisible: 'animate-crawl',

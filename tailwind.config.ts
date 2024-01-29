@@ -123,8 +123,11 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'gradient-hero': 'linear-gradient(-45deg, #080f25 0%, #212C4D 50%, #101935 100%)',
+        'gradient-light-hero': 'linear-gradient(-45deg, #bbb 0%, #fff 50%, #bbb 100%)',
         'easy-brightness':
           'radial-gradient(50% 50% at 50% 50%, #101935 50%, rgba(119, 10, 82, 0) 100%)',
+        'easy-light-brightness':
+          'radial-gradient(50% 50% at 50% 50%, #fff 50%, rgba(255, 255, 255, 0) 100%)',
         bigBlockIcon:
           'linear-gradient(132.64deg, rgba(76, 41, 138, 0.25) 0%, rgba(31, 10, 71, 0.5) 100%)',
         mediumBlockIcon:
