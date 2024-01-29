@@ -11,7 +11,7 @@ export const tableRootTv = tv({
 });
 
 export const tableWrapperTv = tv({
-  base: 'w-fit overflow-hidden dark:bg-private bg-gray-50 rounded-2xl'
+  base: 'w-full overflow-hidden dark:bg-private bg-gray-50 rounded-2xl'
 });
 
 export const tableBasementTv = tv({
@@ -53,7 +53,7 @@ export const tableFallbackWrapperTv = tv({
 });
 
 export const tableFallbackTextTv = tv({
-  base: 'text-white font-bold text-lg md:text-xl text-center'
+  base: 'font-bold text-lg md:text-xl text-center'
 });
 
 export const tableCellTv = tv({

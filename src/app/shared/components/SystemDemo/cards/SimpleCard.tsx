@@ -2,7 +2,7 @@ import { Text } from '../../Text';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import { VariantProps } from 'tailwind-variants';
-import { simpleCardTv } from '../SystemDemoUtils.';
+import { simpleCardTv } from '../SystemDemoTV';
 
 interface SimpleCardProps extends VariantProps<typeof simpleCardTv> {
   src?: string | StaticImport;
