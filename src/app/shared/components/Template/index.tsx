@@ -23,6 +23,7 @@ export function Template({
   height,
   bgColor,
   goBackState,
+  responsive,
   goBack = false,
   ...props
 }: TemplateProps) {
@@ -44,6 +45,7 @@ export function Template({
     <div
       {...props}
       className={templateTv({
+        responsive,
         className,
         overflow,
         direction,

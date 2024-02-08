@@ -1,11 +1,9 @@
 'use client';
 
-import { Navbar } from '~/src/app/shared/components/Navbar';
+import { Navbar } from '~shared/components/Navbar';
 import { actions, authenticatedActions } from '../NavbarUtils';
-import { NavbarAction } from '~/src/app/shared/types/NavbarActions';
-import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
-import { DarkMode } from '../../DarkMode';
-import { navbarItemsTv } from '../NavbarTV';
+import { NavbarAction } from '~shared/types/NavbarActions';
+import { useCompanyInfo } from '~shared/hooks/useCompanyInfo';
 
 interface MenuProps {
   newActions?: NavbarAction[];
@@ -18,12 +16,7 @@ export function Menu({ newActions }: MenuProps) {
   return (
     <Navbar.root>
       <Navbar.logo />
-      <div className={navbarItemsTv()}>
-        <DarkMode.root>
-          <DarkMode.icon />
-        </DarkMode.root>
-        <Navbar.actions actions={newActions ?? defaultActions} />
-      </div>
+      <Navbar.actions actions={newActions ?? defaultActions} />
     </Navbar.root>
   );
 }

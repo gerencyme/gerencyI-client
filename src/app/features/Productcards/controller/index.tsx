@@ -1,13 +1,18 @@
 import { ProductCardActions } from '~types/ProductCardActions';
 import { useCallback, useEffect, useState } from 'react';
+import { updateFavorites } from '~/src/app/features/favorites/services';
+import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
 
 export const useProductCardController = () => {
+  const { company } = useCompanyInfo();
+
   const [isEditing, setIsEditing] = useState(false);
   const [indexModalOpen, setIndexModalOpen] = useState<string | null>(null);
   const [indexNFModalOpen, setIndexNFModalOpen] = useState<string | null>(null);
   const [indexCancelModalOpen, setIndexCancelModalOpen] = useState<string | null>(null);
 
-  const handleLike = () => console.log('atualiza estado de like do produto');
+  const handleLike = (orderId: string, isLiked: boolean) =>
+    updateFavorites(orderId, isLiked, company?.cnpj);
 
   const closeModal = useCallback(() => {
     setIndexModalOpen(null);
@@ -71,6 +76,7 @@ export const useProductCardController = () => {
     closeModal,
     closeNFModal,
     toggleIsEditing,
+    openRepeatPurchaseModal,
     handleLike
   };
 };

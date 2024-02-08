@@ -8,8 +8,7 @@ import { ProductCard } from '~/src/app/shared/types/ProductCard';
 import { toast } from 'react-toastify';
 import { useQuery } from 'react-query';
 import { getAllCompanyOrders } from '../../Table/services';
-
-const timeToRefetchCache = 1000 * 60 * 60 * 1; // 1 hora
+import { oneHourTimeToRefetchCache } from '~utils/constants/staleTimes';
 
 export const useDashboardController = (isVisible?: boolean) => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -50,7 +49,7 @@ export const useDashboardController = (isVisible?: boolean) => {
     isLoading: load,
     refetch
   } = useQuery('allOrders', getAllOrders, {
-    staleTime: timeToRefetchCache,
+    staleTime: oneHourTimeToRefetchCache,
     refetchOnWindowFocus: false
   });
 

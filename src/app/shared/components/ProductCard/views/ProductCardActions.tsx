@@ -7,25 +7,25 @@ type CardStatus = ProductCard['orderStatus'];
 
 interface ProductCardActionsProps {
   actions: () => ProductCardActionsType[];
-  status: CardStatus;
+  status?: CardStatus;
 }
 
 export function ProductCardActions({ actions, status }: ProductCardActionsProps) {
   if (status === 'underAnalysis') return null;
 
   if (status === 'canceled') {
-    const cancelAction = actions()[1];
+    const firstAction = actions()[1];
 
     return (
       <div className="flex text-white">
         <Button.root
-          onClick={cancelAction.onClick}
-          key={cancelAction.id}
+          onClick={firstAction?.onClick}
+          key={firstAction?.id}
           size="small"
-          color={cancelAction.color}
+          color={firstAction?.color}
         >
           <Button.contentWrapper>
-            <Button.label color="white" text={cancelAction.label} size="xxs" weight="bold" />
+            <Button.label color="white" text={firstAction?.label} size="xxs" weight="bold" />
           </Button.contentWrapper>
         </Button.root>
       </div>

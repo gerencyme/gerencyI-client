@@ -6,17 +6,18 @@ import { CiEdit } from 'react-icons/ci';
 import { BsArrowLeft } from 'react-icons/bs';
 import { formatPrice } from '~/src/app/shared/utils/transformers';
 import { useState } from 'react';
-import { editPurchaseContentTv } from '../ProductCardsTV';
 import { ProductCard } from '~types/ProductCard';
 import { NewOrderRequest } from '~types/requests/NewOrderRequest';
+import { editPurchaseContentTv } from '~/src/app/features/Productcards/ProductCardsTV';
+import { FavoritesRequest } from '~/src/app/shared/types/requests/FavoritesRequest';
 
 interface PurshaseModalProps {
   isModalOpen: boolean;
   isEditing: boolean;
   productName: string;
-  quantity: string | number;
-  unitPrice: string | number;
-  product: ProductCard;
+  quantity?: string | number;
+  unitPrice?: string | number;
+  product: ProductCard | FavoritesRequest;
   closeModal: () => void;
   toggleIsEditing: () => void;
   sendNewOrder: (
@@ -36,8 +37,8 @@ export function PurshaseModal({
   toggleIsEditing,
   sendNewOrder
 }: PurshaseModalProps) {
-  const [value, setValue] = useState(quantity);
-  const totalByLastPurchaseWithNewAmount = +value * +unitPrice;
+  const [value, setValue] = useState(quantity || 0);
+  const totalByLastPurchaseWithNewAmount = unitPrice ? +value * +unitPrice : 0;
 
   const repeatPurchaseContentActions: ModalContentAction[] = [
     {

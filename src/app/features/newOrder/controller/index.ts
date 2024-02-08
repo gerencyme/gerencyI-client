@@ -19,8 +19,8 @@ import { TNewOrder } from '~shared/types/TNewOrder';
 import { TNewOrderSchema, newOrderSchema } from '../NewOrderUtils';
 import { getLast12CompanyOrders, postNewOrder } from '../service';
 import { useAuthController } from '../../auth/controller';
-
-const timeToRefetchCache = 1000 * 60 * 60 * 1; // 1 hora
+import { oneHourTimeToRefetchCache } from '~utils/constants/staleTimes';
+import { OrderRequest } from '~/src/app/shared/types/requests/OrderRequest';
 
 export const useNewOrderController = () => {
   const errorResolver = () => setShowLocationGuide(true);
@@ -176,22 +176,22 @@ export const useNewOrderController = () => {
     isLoading,
     refetch
   } = useQuery('lastTwoTen', getLastTwoTenOrders, {
-    staleTime: timeToRefetchCache,
+    staleTime: oneHourTimeToRefetchCache,
     refetchOnWindowFocus: false
   });
 
   const sendNewOrder = useCallback(
     async (
-      order: NewOrderRequest,
+      order: OrderRequest,
       newQuantity?: number,
-      clearForm?: () => void
+      callback?: () => void
     ): Promise<NewOrderRequest | undefined> => {
       try {
         const newOrder = createOrder(order, newQuantity);
 
         const resolver = () => {
           refetch();
-          clearForm?.();
+          callback?.();
         };
 
         return await postNewOrder(newOrder, resolver);
@@ -215,7 +215,7 @@ export const useNewOrderController = () => {
         orderColorIdentity: color
       });
 
-      return await sendNewOrder(newOrderData as NewOrderRequest, data.quantity, clearForm);
+      return await sendNewOrder(newOrderData as OrderRequest, data.quantity, clearForm);
     },
 
     [longitude, latitude, color, newOrder, sendNewOrder, clearForm]

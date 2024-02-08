@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const buttonRootTv = tv({
-  base: 'flex justify-center items-center rounded-xl disabled:bg-violet-400 ',
+  base: 'flex relative justify-center items-center rounded-xl disabled:bg-violet-400 ',
   variants: {
     size: {
       small: 'py-2 px-2 sm:px-4 w-fit h-fit',
@@ -10,27 +10,27 @@ export const buttonRootTv = tv({
       inputCompatible: 'w-64 h-10 sm:h-14 sm:w-full'
     },
     color: {
-      primary: `relative bg-lightPurple py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      primary: ` bg-lightPurple py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-white/5`,
-      secondary: `relative bg-white py-2 px-4 hover:after:bg-primary/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      secondary: ` bg-white py-2 px-4 hover:after:bg-primary/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-primary/5`,
-      tertiary: `relative bg-secondary py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      tertiary: ` bg-secondary py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-white/5`,
-      white: `relative bg-white py-2 px-4 hover:after:bg-private/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      white: ` bg-white py-2 px-4 hover:after:bg-private/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-private/5`,
-      error: `relative bg-error py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      error: ` bg-error py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-white/5`,
-      easydark: `relative bg-easydark py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
+      easydark: ` bg-easydark py-2 px-4 hover:after:bg-white/25 after:hover:left-0 after:right-0 after:top-0 after:rounded-xl after:absolute
       after:hover:w-full after:w-0 after:transition-all after:duration-300 after:h-full
       disabled:pointer-events-none active:after:w-full active:after:h-full active:after:top-0 after:left-1/2 active:after:left-0
       active:after:bg-white/5`,
@@ -48,7 +48,7 @@ export const buttonContentWrapperTv = tv({
 });
 
 export const buttonLinkTv = tv({
-  base: 'w-full h-full z-10 flex items-center',
+  base: 'relative z-10 flex items-center',
   variants: {
     color: {
       black: 'text-black',

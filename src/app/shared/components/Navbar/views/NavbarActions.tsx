@@ -30,7 +30,6 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
     <>
       {actions.map((action, i) => {
         const isDisabled = pathName === action.href;
-
         return (
           <Button.root
             key={i}
@@ -39,15 +38,17 @@ export function NavbarActions({ actions = [] }: NavbarActionsProps) {
             disabled={isDisabled}
             onClick={() => action.onClick?.() || {}}
           >
-            <Button.contentWrapper>
+            <>
               {isDisabled ? (
-                <Button.label text={action.label} color="white" />
+                <Button.contentWrapper>
+                  <Button.label text={action.label} color="white" />
+                </Button.contentWrapper>
               ) : (
                 <Button.link href={action.href}>
                   <Button.label text={action.label} color="white" />
                 </Button.link>
               )}
-            </Button.contentWrapper>
+            </>
           </Button.root>
         );
       })}

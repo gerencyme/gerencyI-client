@@ -1,8 +1,12 @@
 import { tv } from 'tailwind-variants';
 
 export const templateTv = tv({
-  base: 'relative p-1 sm:p-2 lg:p-4  flex gap-2 md:gap-4',
+  base: 'relative flex',
   variants: {
+    responsive: {
+      isResponsive: 'p-1 gap-2 sm:p-2 lg:p-4 md:gap-4',
+      locked: 'p-1 gap-2'
+    },
     overflow: {
       hidden: 'overflow-hidden',
       'scroll-x': 'overflow-x-scroll',
@@ -12,6 +16,7 @@ export const templateTv = tv({
     },
     direction: {
       col: 'flex-col gap-1 md:gap-5',
+      'locked-col': 'flex-col gap-1 gap-5',
       row: 'flex-row'
     },
     height: {
@@ -24,14 +29,15 @@ export const templateTv = tv({
     },
     bgColor: {
       easydark:
-        'duration-500 dark:bg-easydark bg-gray-50 ring-1 dark:ring-purple  ring-gray-200 rounded-sm',
+        'duration-500 dark:bg-easydark bg-gray-50 ring-1 dark:ring-purple ring-gray-200 rounded-sm',
       transparent: 'bg-transparent'
     }
   },
   defaultVariants: {
     height: 'full',
     goBackState: 'haventGoBack',
-    bgColor: 'easydark'
+    bgColor: 'easydark',
+    responsive: 'isResponsive'
   }
 });
 

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useAuthController } from '~features/auth/controller';
 import { DropDownOptions } from '~types/DropDownOptions';
 import { dropdawnMenuButtonTv, dropdawnMenuItemsTv, dropdawnRootTv } from '../DropdownTV';
+import { DarkMode } from '~features/DarkMode';
 
 interface DropdownRootProps {
   options?: DropDownOptions[];
@@ -47,7 +48,7 @@ export function Dropdown({ options = [] }: DropdownRootProps) {
                   href={option.href}
                   className={classNames(
                     active ? 'bg-white text-purple rounded-md' : 'text-purple/70',
-                    'block px-4 py-2 text-sm'
+                    'block px-4 py-2 text-sm text-end'
                   )}
                 >
                   {option.label}
@@ -60,12 +61,25 @@ export function Dropdown({ options = [] }: DropdownRootProps) {
               <button
                 className={classNames(
                   active ? 'bg-white/70 rounded-md text-purple' : 'text-purple/70',
-                  'block px-4 py-2 text-sm w-full text-start'
+                  'block px-4 py-2 text-sm w-full text-end'
                 )}
                 onClick={logout}
               >
                 Sair
               </button>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <>
+                {!active && (
+                  <div className="p-2 pr-3 w-full flex items-end justify-end">
+                    <DarkMode.root>
+                      <DarkMode.icon />
+                    </DarkMode.root>
+                  </div>
+                )}
+              </>
             )}
           </Menu.Item>
         </Menu.Items>

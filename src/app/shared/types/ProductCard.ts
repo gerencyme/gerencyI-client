@@ -1,13 +1,5 @@
+import { Product } from '~/src/app/shared/types/Product';
 import { SimilarCompaniesContent } from './SimilarCompaniesContent';
-
-interface Product {
-  lastTotalPrice: number;
-  productBrand: string;
-  productName: string;
-  totalPrice: string | number;
-  quantity: string | number;
-  unitPrice: string | number;
-}
 
 export interface ProductCard {
   companyId: number | string;

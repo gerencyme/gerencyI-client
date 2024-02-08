@@ -1,5 +1,9 @@
 export const APP_ROUTES = {
   private: {
+    favorites: {
+      name: '/favorites',
+      label: 'Favoritos'
+    },
     'my-account': {
       name: '/my-account',
       label: 'Minha Conta'

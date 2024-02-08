@@ -27,5 +27,9 @@ export const dropDownOptions: DropDownOptions[] = [
   {
     href: APP_ROUTES.private['my-account'].name,
     label: APP_ROUTES.private['my-account'].label
+  },
+  {
+    href: APP_ROUTES.private['favorites'].name,
+    label: APP_ROUTES.private['favorites'].label
   }
 ];
