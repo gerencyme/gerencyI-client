@@ -12,8 +12,8 @@ export const APP_ROUTES = {
       name: '/last-months',
       label: 'Últimos meses'
     },
-    'inventory-control': {
-      name: '/inventory-control',
+    dashboard: {
+      name: '/dashboard',
       label: 'Painel'
     },
     'new-order': {

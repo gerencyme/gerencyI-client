@@ -1,9 +1,6 @@
 import { api } from '~shared/services/axios/api';
 import { CompanieRequest } from '~types/requests/CompanieRequest';
 import { toast } from 'react-toastify';
-import { getToken } from '~/src/app/shared/utils/getToken';
-
-const token = getToken();
 
 export const updateImageProfile = async (
   body: CompanieRequest,
@@ -21,7 +18,7 @@ export const updateImageProfile = async (
 
     const endpoint = 'UpdateUserIdentity';
 
-    const { data } = await api(token).post<CompanieRequest>(endpoint, body);
+    const { data } = await api.post<CompanieRequest>(endpoint, body);
 
     if (data) {
       resolver();

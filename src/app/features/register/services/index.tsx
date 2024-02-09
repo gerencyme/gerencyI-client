@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
-import { api } from '~/src/app/shared/services/axios/api';
-import { RegisterUser } from '~/src/app/shared/types/RegisterUser';
-import { CompanieRequest } from '~/src/app/shared/types/requests/CompanieRequest';
-import { RegisterRequest } from '~/src/app/shared/types/requests/RegisterRequest';
-import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
+import { api } from '~shared/services/axios/api';
+import { RegisterUser } from '~shared/types/RegisterUser';
+import { RegisterRequest } from '~shared/types/requests/RegisterRequest';
+import { TUserResponse } from '~shared/types/response/TCompanyResponse';
+import { errorMessages } from '~shared/utils/constants/errorMessages';
 
 export const register = async (
   body: RegisterUser,
@@ -26,7 +26,7 @@ export const register = async (
       CompanyImg: ''
     };
 
-    const result = await api().post<CompanieRequest>(endpoint, formattedBody);
+    const result = await api.post<TUserResponse>(endpoint, formattedBody);
 
     return result.data;
   } catch (err: any) {

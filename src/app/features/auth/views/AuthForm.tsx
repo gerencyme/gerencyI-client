@@ -53,6 +53,7 @@ export function AuthForm({ handleForgetPassword }: AuthFormProps) {
         </div>
 
         <Button.root
+          type="submit"
           isLoading={isSubmitting}
           disabled={isSubmitting}
           size="small"

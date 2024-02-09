@@ -16,7 +16,7 @@ export const useNavbarController = () => {
   const choiseLabel = isUnderNewOrder ? 'Painel' : 'Novo Pedido';
   const choiseIcon = isUnderNewOrder ? RiStockLine : FaCirclePlus;
   const choiseLink = isUnderNewOrder
-    ? APP_ROUTES.private['inventory-control'].name
+    ? APP_ROUTES.private['dashboard'].name
     : APP_ROUTES.private['new-order'].name;
 
   return {

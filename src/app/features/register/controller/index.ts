@@ -12,6 +12,7 @@ import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
 import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
 import { useCookie } from '~/src/app/shared/hooks/useCookies';
+import { sessionToken } from '~/src/app/shared/utils/constants/cookies';
 
 export const useRegisterController = () => {
   const { push } = useRouter();
@@ -45,7 +46,7 @@ export const useRegisterController = () => {
         setLocalStorage(session, res);
 
         createSession({
-          cookieName: '_t',
+          cookieName: sessionToken,
           value: res.token
         });
 

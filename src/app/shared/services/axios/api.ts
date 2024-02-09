@@ -1,14 +1,51 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
+import { ApiError } from 'next/dist/server/api-utils';
+import { parseCookies } from 'nookies';
+import { toast } from 'react-toastify';
+import { destroyCookie } from 'nookies';
+import { sessionToken } from '~/src/app/shared/utils/constants/cookies';
+import { TSessionCustomer } from '~/src/app/shared/types/TSessionCustomer';
+import { errorMessages } from '~/src/app/shared/utils/constants/errorMessages';
 
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const api = (clientToken?: string): AxiosInstance => {
-  return axios.create({
-    baseURL,
-    headers: {
-      Authorization: `bearer ${clientToken}`
+export const api = axios.create({
+  baseURL
+});
+
+api.interceptors.request.use((config) => {
+  const cookies = parseCookies();
+  const stringfyiedSessionCustomer = cookies._t;
+  const sessionCustomer: TSessionCustomer =
+    stringfyiedSessionCustomer && JSON.parse(stringfyiedSessionCustomer);
+
+  if (sessionCustomer) {
+    config.headers.Authorization = `Bearer ${sessionCustomer?.sesstionToken}`;
+    config.headers.RefresToken = sessionCustomer?.refreshToken;
+  }
+
+  return config;
+});
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error instanceof AxiosError) {
+      const status = error.response?.status || 500;
+      toast.info(error.response?.data || errorMessages[status]);
+
+      if (error.code === 'ERR_NETWORK') {
+        toast.error('Servidor indisponível ou fora do ar.');
+        throw new ApiError(503, 'Servidor indisponível ou fora do ar.');
+      }
+
+      if (error.response?.status === 401) {
+        toast.error('Acesso não autorizado');
+        destroyCookie(null, sessionToken);
+        return (window.location.href = '/auth');
+      }
     }
-  });
-};
+  }
+);
 
 export const FAQApi: AxiosInstance = axios.create({});
