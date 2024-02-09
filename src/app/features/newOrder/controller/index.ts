@@ -18,7 +18,6 @@ import { BestSellersData } from '~types/graphics/BestSellersData';
 import { TNewOrder } from '~shared/types/TNewOrder';
 import { TNewOrderSchema, newOrderSchema } from '../NewOrderUtils';
 import { getLast12CompanyOrders, postNewOrder } from '../service';
-import { useAuthController } from '../../auth/controller';
 
 const timeToRefetchCache = 1000 * 60 * 60 * 1; // 1 hora
 
@@ -28,7 +27,6 @@ export const useNewOrderController = () => {
   const { latitude, longitude } = useCoordinates(errorResolver);
   const { company } = useCompanyInfo();
   const { color, onChange } = useSelectColor();
-  const { logout } = useAuthController();
   const { resetColor } = useSelectColor();
   const { debouncedDraftMode, debouncedDesableDraftMode } = useDraftMode();
   const { getLocalStorage, deleteFromStorage, setLocalStorage } = useLocalStorage();
@@ -124,9 +122,9 @@ export const useNewOrderController = () => {
 
   const getLastTwoTenOrders = useCallback(async () => {
     if (company) {
-      return await getLast12CompanyOrders(company?.cnpj, logout);
+      return await getLast12CompanyOrders(company?.cnpj);
     }
-  }, [company, logout]);
+  }, [company]);
 
   const handleSetToDraft = (i: number, data: BestSellersData[]) => {
     const productBrand = data[i].productBrand ?? '';

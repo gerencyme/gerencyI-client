@@ -1,11 +1,8 @@
 import { toast } from 'react-toastify';
 import { ProductCard } from '~types/ProductCard';
 import { GetAllOrdersRequest } from '~types/requests/getAllOrdersRequest';
-import { getToken } from '~utils/getToken';
 import { api } from '~shared/services/axios/api';
 import { errorMessages } from '~utils/constants/errorMessages';
-
-const token = getToken();
 
 export const getAllCompanyOrders = async (
   body: GetAllOrdersRequest,
@@ -15,7 +12,7 @@ export const getAllCompanyOrders = async (
   try {
     const endPont = 'GetOrdersByDateWithPagination';
 
-    const { data } = await api(token).post<ProductCard[]>(endPont, body);
+    const { data } = await api.post<ProductCard[]>(endPont, body);
 
     resolver(data);
 

@@ -5,12 +5,12 @@ import { useEffect } from 'react';
 import { MyDataActions } from '~/src/app/shared/types/MyDataActions';
 import { updateMyData } from '../services';
 import { useCompanyInfo } from '~/src/app/shared/hooks/useCompanyInfo';
-import { CompanieRequest } from '~/src/app/shared/types/requests/CompanieRequest';
-import * as transformer from '~/src/app/shared/utils/transformers';
 import { useRouter } from 'next/navigation';
 import { APP_ROUTES } from '~/src/app/shared/utils/app-routes';
 import { sessionUserLocalStorage } from '~/src/app/shared/utils/constants/userLocalStorage';
 import { useLocalStorage } from '~/src/app/shared/hooks/useLocalStorage';
+import { CompanieRequest } from '~/src/app/shared/types/requests/CompanieRequest';
+import * as transformer from '~/src/app/shared/utils/transformers';
 
 const session = sessionUserLocalStorage;
 
@@ -102,7 +102,7 @@ export const useMyDataController = () => {
     };
 
     setLocalStorage(session, formattedData);
-    const resolver = () => push(APP_ROUTES.private['inventory-control'].name);
+    const resolver = () => push(APP_ROUTES.private['dashboard'].name);
     return updateMyData(formattedData, resolver);
   };
 
