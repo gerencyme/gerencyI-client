@@ -7,5 +7,7 @@ export const formateDate = (date: string | Date, format?: string) => {
 
   const formattedDate = formatter(parsedDate, format ?? defaultFormat);
 
+  console.log(formattedDate);
+
   return formattedDate;
 };

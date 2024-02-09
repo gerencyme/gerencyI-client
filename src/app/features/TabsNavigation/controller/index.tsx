@@ -6,7 +6,8 @@ export const useTabsNavigationController = ({ links, isOpen }: TabsNavigationIte
   const pathName = usePathname();
   const routeIndex = pathName.replace('/', '');
 
-  const currentRoute = APP_ROUTES.private[routeIndex as keyof (typeof APP_ROUTES)['private']].label;
+  const currentRoute =
+    APP_ROUTES.private[routeIndex as keyof (typeof APP_ROUTES)['private']]?.label;
   const filteredLinks = links.filter((link) => link.href !== pathName);
   const orderedLinks = [{ href: pathName, label: currentRoute }, ...filteredLinks];
   const linksToRender = isOpen ? orderedLinks : [orderedLinks[0]];
